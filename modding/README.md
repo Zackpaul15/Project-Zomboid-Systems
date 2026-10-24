@@ -11,6 +11,8 @@ Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 |---|---|---|
 | [`lua-api/how-binding-works.md`](lua-api/how-binding-works.md) | How Java classes, statics, constructors, overloads and global functions reach Lua | [`data/lua-globals.csv`](data/lua-globals.csv) (759 globals) |
 | [`lua-api/events.md`](lua-api/events.md) | The event system, 262 registered events, orphan and unregistered findings | [`data/events.csv`](data/events.csv) |
+| [`lua-api/lifecycle.md`](lua-api/lifecycle.md) | Boot, load-game, reload, multiplayer-client and dedicated-server order: when each Lua folder loads and each lifecycle event fires | (uses [`data/events.csv`](data/events.csv)) |
+| [`lua-api/sandbox-options.md`](lua-api/sandbox-options.md) | The sandbox option system: types, defaults vs the Apocalypse preset, `SandboxVars` vs the Java copy, persistence, network, mod `sandbox-options.txt` | [`data/sandbox-options.csv`](data/sandbox-options.csv) (269 options) |
 | [`lua-api/classes/`](lua-api/classes/README.md) | One page per commonly used exposed class (60) | [`data/exposed-classes.csv`](data/exposed-classes.csv) (999 classes), [`data/exposed-methods.csv`](data/exposed-methods.csv) |
 
 ## Script formats (from the Java side)
@@ -24,7 +26,7 @@ other agent.
 
 ## Planned (in progress by the other agent or later)
 
-Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), lifecycle and multiplayer docs, and a
+Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), the multiplayer doc (`lua-api/multiplayer.md`), and a
 cookbook. See `SCOPE.md` for the packages.
 
 ## Regenerating tables
@@ -35,5 +37,6 @@ Python 3, run as `python -I`, from `modding/tools/`:
 - `extract_exposed.py <decompiled src> ../data`
 - `gen_class_docs.py ../data ../lua-api/classes`
 - `extract_script_keys.py <decompiled src> ../data/script-keys.csv`
+- `extract_sandbox_options.py <decompiled src> <game media/lua> ../data/sandbox-options.csv`
 
 The decompile is made outside the repo (Vineflower; see `SCOPE.md`, "Shared workspace").
