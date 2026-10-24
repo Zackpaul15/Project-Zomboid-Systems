@@ -1,0 +1,9 @@
+# local scratch / game-derived data never goes in the repo
+_*
+*.class
+*.jar
+*.dll
+*.exe
+*.log
+__pycache__/
+*.pyc
