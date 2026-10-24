@@ -12,9 +12,9 @@ The survey covers all **1,004 `.txt` files**, **35,731 structural blocks** and *
 
 ## Main families [observed]
 
-`generated/items/*.txt` contains item definitions grouped by item type. There are **5,105 item blocks**. `generated/recipes/` and generated entity subfolders contain **969 module-level craftRecipe blocks**; entity components can contain additional embedded craftRecipe blocks. Legacy `recipe` blocks do not occur in this tree. `evolvedrecipe` and `fixing` remain present.
+`generated/items/*.txt` contains item definitions grouped by item type. There are **5,105 item blocks**. `generated/recipes/` and generated entity subfolders contain **969 module-level craftRecipe blocks**; no additional craftRecipe blocks are nested in components in this survey. Legacy `recipe` blocks do not occur in this tree. `evolvedrecipe` and `fixing` remain present.
 
-Vehicles include `vehicle`, `template`, `vehicleEngineRPM` and nested parts, passengers, areas, models and physics. Audio has `sound`, `soundTimeline` and nested clips. Fluids have `fluid` with category, properties, blending and poison subblocks. Entities compose components and can carry crafting definitions. XUI has `xuiSkin` and `xuiConfig`; widget class names are themselves nested headers. A numeric header under a vehicle loot `items` block is a structural header, not a ScriptModule registration.
+Vehicles include `vehicle`, `template`, `vehicleEngineRPM` and nested parts, passengers, areas, models and physics. Audio has `sound`, `soundTimeline` and nested clips. Fluids have `fluid` with category, properties, blending and poison subblocks. Entities compose components; the craftRecipe definitions in generated entity subfolders are module-level blocks. XUI has `xuiSkin` and `xuiConfig`; widget class names are themselves nested headers. A numeric header under a vehicle loot `items` block is a structural header, not a ScriptModule registration.
 
 Other module children include `animation`, `animationsMesh`, `model`, `mannequin`, `timedAction`, `energy`, `clock`, `physicsShape`, `physicsHitReaction`, `ragdoll`, `character_trait_definition` and `character_profession_definition`. The complete inventory, including every nested header, is in the CSV. There is no module-level outfit or zone block in this survey; Lua/XML definitions outside this tree are outside X1's coverage.
 

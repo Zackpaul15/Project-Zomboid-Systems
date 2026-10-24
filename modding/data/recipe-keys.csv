@@ -1,0 +1,60 @@
+block_type,key,count,value_shape,notes
+craftRecipe,<block>,969,block,Textual block occurrences; zero means absent
+craftRecipe,<child:inputs>,969,block,Immediate child block occurrences
+craftRecipe,<child:itemMapper>,225,block,Immediate child block occurrences
+craftRecipe,<child:outputs>,958,block,Immediate child block occurrences
+craftRecipe,<child:overlayMapper>,3,block,Immediate child block occurrences
+craftRecipe,AllowBatchCraft,112,bool,Direct assignment occurrences
+craftRecipe,AutoLearnAll,160,list;|namespaced-id,Direct assignment occurrences
+craftRecipe,AutoLearnAny,126,list;|namespaced-id,Direct assignment occurrences
+craftRecipe,Icon,4,string,Direct assignment occurrences
+craftRecipe,MetaRecipe,72,namespaced-id,Direct assignment occurrences
+craftRecipe,NeedToBeLearn,385,bool,Direct assignment occurrences
+craftRecipe,OnCreate,146,qualified-id,Direct assignment occurrences
+craftRecipe,OnTest,20,qualified-id,Direct assignment occurrences
+craftRecipe,ResearchAny,1,list;,Direct assignment occurrences
+craftRecipe,ResearchSkillLevel,2,int,Direct assignment occurrences
+craftRecipe,SkillRequired,458,list;|namespaced-id,Direct assignment occurrences
+craftRecipe,Tags,969,list;|string,Direct assignment occurrences
+craftRecipe,Tooltip,38,string,Direct assignment occurrences
+craftRecipe,category,935,string,Direct assignment occurrences
+craftRecipe,overlayStyle,34,list;|string,Direct assignment occurrences
+craftRecipe,recipeGroup,9,string,Direct assignment occurrences
+craftRecipe,time,969,int,Direct assignment occurrences
+craftRecipe,timedAction,889,string,Direct assignment occurrences
+craftRecipe,xpAward,560,list;|namespaced-id,Direct assignment occurrences
+craftRecipe/inputs,<amount>,3410,float|int|variable[min:max],Second whitespace token
+craftRecipe/inputs,<line:-fluid>,55,resource amount selector [options],Comma-delimited entry occurrences; leading signs retained
+craftRecipe/inputs,<line:item>,3355,resource amount selector [options],Comma-delimited entry occurrences; leading signs retained
+craftRecipe/inputs,<selector>,3410,bracketed-list-or-wildcard|selector[]|tags[<namespace>:<tag>;...],Third whitespace token; no concrete selectors exported
+craftRecipe/inputs,categories[],25,semicolon-list-in-brackets,Option token occurrences
+craftRecipe/inputs,flags[],1932,semicolon-list-in-brackets,Option token occurrences
+craftRecipe/inputs,mappers[],216,semicolon-list-in-brackets,Option token occurrences
+craftRecipe/inputs,mode:,1634,string,Option token occurrences
+craftRecipe/inputs,overlayMapper,3,marker,Bare option token occurrences
+craftRecipe/inputs,tags[],1931,semicolon-list-in-brackets,Option token occurrences
+craftRecipe/itemMapper,<mapping-key>,1599,list;|qualified-id,Mapping assignments; concrete mapping identifiers omitted
+craftRecipe/itemMapper,default,134,qualified-id,Mapping assignments; concrete mapping identifiers omitted
+craftRecipe/outputs,<amount>,988,int|variable[min:max],Second whitespace token
+craftRecipe/outputs,<line:item>,988,resource amount selector [options],Comma-delimited entry occurrences; leading signs retained
+craftRecipe/outputs,<selector>,988,mapper:<identifier>|qualified-id,Third whitespace token; no concrete selectors exported
+craftRecipe/outputs,flags[],46,semicolon-list-in-brackets,Option token occurrences
+craftRecipe/overlayMapper,<mapping-key>,20,string,Mapping assignments; concrete mapping identifiers omitted
+craftRecipe/overlayMapper,default,3,string,Mapping assignments; concrete mapping identifiers omitted
+evolvedrecipe,<block>,63,block,Textual block occurrences; zero means absent
+evolvedrecipe,AddIngredientIfCooked,38,bool,Direct assignment occurrences
+evolvedrecipe,AddIngredientSound,11,string,Direct assignment occurrences
+evolvedrecipe,BaseItem,63,qualified-id,Direct assignment occurrences
+evolvedrecipe,CanAddSpicesEmpty,43,bool,Direct assignment occurrences
+evolvedrecipe,Cookable,45,bool,Direct assignment occurrences
+evolvedrecipe,MaxItems,63,int,Direct assignment occurrences
+evolvedrecipe,MinimumWater,20,float,Direct assignment occurrences
+evolvedrecipe,Name,63,string,Direct assignment occurrences
+evolvedrecipe,ResultItem,63,qualified-id,Direct assignment occurrences
+evolvedrecipe,Template,63,string,Direct assignment occurrences
+fixing,<block>,29,block,Textual block occurrences; zero means absent
+fixing,ConditionModifier,9,float,Direct assignment occurrences
+fixing,Fixer,45,list;,Direct assignment occurrences
+fixing,GlobalItem,8,string,Direct assignment occurrences
+fixing,Require,29,list;|qualified-id,Direct assignment occurrences
+recipe,<block>,0,block,Textual block occurrences; zero means absent
