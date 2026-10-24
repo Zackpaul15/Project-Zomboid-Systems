@@ -1,6 +1,7 @@
 # Brief for Codex: Project Zomboid modding reference
 
-Read `modding/SCOPE.md` first. You own work packages **X1-X8** and the folders `modding/lua-library/`,
+Read `modding/SCOPE.md` first, then follow the full task prompt in `modding/CODEX_PROMPT.md` (work packages,
+table column specs, git protocol). Summary: you own work packages **X1-X8** and the folders `modding/lua-library/`,
 `modding/workflow/`, and the `scripts/` files named in those packages. Claude owns **C0-C6** (Java decompile,
 events, Lua-exposed classes, script parsers). Do not edit paths you do not own; use `modding/HANDOFF.md`.
 

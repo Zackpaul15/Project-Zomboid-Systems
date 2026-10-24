@@ -1,0 +1,760 @@
+lua_name,java_method,params,returns,line_in_LuaManager
+acceptFactionInvite,acceptFactionInvite,"Faction faction, String host, String invited, boolean isAccepted",void,4397
+acceptMedicalCheck,acceptMedicalCheck,"IsoPlayer target, IsoPlayer requester",void,7962
+acceptSafehouseInvite,acceptSafehouseInvite,"SafeHouse safehouse, String host, String invited, boolean isAccepted",void,4467
+acceptTrading,acceptTrading,"IsoPlayer you, IsoPlayer other, boolean accept",void,7948
+activateJoypadOnSteamDeck,activateJoypadOnSteamDeck,,void,5491
+activateSteamOverlayToWebPage,activateSteamOverlayToWebPage,String url,void,7796
+activateSteamOverlayToWorkshop,activateSteamOverlayToWorkshop,,void,7775
+activateSteamOverlayToWorkshopItem,activateSteamOverlayToWorkshopItem,String itemID,void,7789
+activateSteamOverlayToWorkshopUser,activateSteamOverlayToWorkshopUser,,void,7782
+addAccountToAccountList,addAccountToAccountList,"Server server, Account account",void,4135
+addAllBurntVehicles,addAllBurntVehicles,,void,9052
+addAllSmashedVehicles,addAllSmashedVehicles,,void,9057
+addAllVehicles,addAllVehicles,,void,9047
+addAnimal,addAnimal,"IsoCell cell, int x, int y, int z, String animalType, AnimalBreed breed, boolean skeleton",IsoAnimal,3033
+addAnimal,addAnimal,"IsoCell cell, int x, int y, int z, String animalType, AnimalBreed breed",IsoAnimal,3038
+addAreaHighlight,addAreaHighlight,"int x1, int y1, int x2, int y2, int z, float r, float g, float b, float a",void,10253
+addAreaHighlightForPlayer,addAreaHighlightForPlayer,"int playerIndex, int x1, int y1, int x2, int y2, int z, float r, float g, float b, float a",void,10258
+addBloodSplat,addBloodSplat,"IsoGridSquare sq, int nbr",void,8481
+addBloodSplat,addBloodSplat,"IsoGridSquare sq, int nbr, float xoffset, float yoffset",void,8488
+addCarCrash,addCarCrash,,void,8495
+AddNoiseToken,AddNoiseToken,"IsoGridSquare sq, int radius",void,3617
+addPhysicsObject,addPhysicsObject,,BaseVehicle,9098
+addRole,addRole,String name,void,3178
+addServerToAccountList,addServerToAccountList,Server server,void,4120
+addSound,addSound,"IsoObject source, int x, int y, int z, int radius, int volume",void,9691
+addTicket,addTicket,"String author, String message, int ticketID",void,4376
+addUserlog,addUserlog,"String user, String type, String text",void,3438
+addVariableToSyncList,addVariableToSyncList,String key,void,7489
+addVehicle,addVehicle,"String script, int x, int y, int z",BaseVehicle,8957
+addVehicleDebug,addVehicleDebug,"String scriptName, IsoDirections dir, Integer skinIndex, IsoGridSquare sq",BaseVehicle,8917
+addVirtualZombie,addVirtualZombie,"int x, int y",void,6590
+addWarningPoint,addWarningPoint,"String user, String reason, int amount",void,7614
+AddWorldSound,AddWorldSound,"IsoPlayer player, int radius, int volume",void,3611
+addXp,addXp,"IsoPlayer player, PerkFactory.Perk perk, float amount",void,9756
+addXpMultiplier,addXpMultiplier,"IsoPlayer player, PerkFactory.Perk perk, float multiplier, int minLevel, int maxLevel",void,9767
+addXpNoMultiplier,addXpNoMultiplier,"IsoPlayer player, PerkFactory.Perk perk, float amount",void,9745
+addZombiesEating,addZombiesEating,"int x, int y, int z, int totalZombies, boolean skeletonBody",void,8551
+addZombiesInBuilding,addZombiesInBuilding,"BuildingDef def, int totalZombies, String outfit, RoomDef room, Integer femaleChance",ArrayList<IsoZombie>,8846
+addZombiesInOutfit,addZombiesInOutfit,"int x, int y, int z, int totalZombies, String outfit, Integer femaleChance",ArrayList<IsoZombie>,8594
+addZombiesInOutfit,addZombiesInOutfit,"int x, int y, int z, int totalZombies, String outfit, Integer femaleChance, boolean isCrawler, boolean isFallOnFront, boolean isFakeDead, boolean isKnockedDown, boolean isInvulnerable, boolean isSitting, float health",ArrayList<IsoZombie>,8599
+addZombiesInOutfit,addZombiesInOutfit,"int x, int y, int z, int totalZombies, String outfit, Integer femaleChance, boolean isCrawler, boolean isFallOnFront, boolean isFakeDead, boolean isKnockedDown, boolean isInvulnerable, boolean isSitting, float health, boolean isAnimRecording",ArrayList<IsoZombie>,8620
+addZombiesInOutfit,addZombiesInOutfit,"int x, int y, int z, int totalZombies, String outfit, Integer femaleChance, boolean isCrawler, boolean isFallOnFront, boolean isFakeDead, boolean isKnockedDown, boolean isInvulnerable, boolean isSitting, float health, boolean isAnimRecording, float heightOffset",ArrayList<IsoZombie>,8656
+addZombiesInOutfit,addZombiesInOutfit,"int x, int y, int z, int totalZombies, String outfit, Integer femaleChance, boolean isCrawler, boolean isFallOnFront, boolean isFakeDead, boolean isKnockedDown, boolean isInvulnerable, boolean isSitting, float health, boolean isAnimRecording, float heightOffset, boolean isRagdolling",ArrayList<IsoZombie>,8694
+addZombiesInOutfit,addZombiesInOutfit,"int x, int y, int z, int totalZombies, String outfit, Integer femaleChance, boolean isCrawler, boolean isFallOnFront, boolean isFakeDead, boolean isKnockedDown, boolean isInvulnerable, boolean isSitting, float health, boolean isAnimRecording, float heightOffset, boolean isRagdolling, boolean onFire",ArrayList<IsoZombie>,8734
+addZombiesInOutfitArea,addZombiesInOutfitArea,"int x1, int y1, int x2, int y2, int z, int totalZombies, String outfit, Integer femaleChance",ArrayList<IsoZombie>,8583
+addZombieSitting,addZombieSitting,"int x, int y, int z",void,8539
+assaultPlayer,assaultPlayer,,void,6560
+attachTrailerToPlayerVehicle,attachTrailerToPlayerVehicle,int playerIndex,void,9006
+backToSinglePlayer,backToSinglePlayer,,void,2962
+banUnbanUserAction,banUnbanUserAction,"String action, String username, String additionArgument",void,3144
+breakpoint,breakpoint,,void,6636
+cacheFileExists,cacheFileExists,String filename,boolean,4789
+callLua,callLua,"String func, Object param1",void,4917
+callLuaBool,callLuaBool,"String func, Object params",Boolean,4936
+callLuaReturn,callLuaReturn,"String func, ArrayList<Object> params",ArrayList<Object>,4922
+canConnect,canConnect,,boolean,3016
+canInviteFriends,canInviteFriends,,boolean,7701
+canModifyPlayerScoreboard,canModifyPlayerScoreboard,,boolean,7520
+canSeePlayerStats,canSeePlayerStats,,boolean,3916
+checkModsNeedUpdate,checkModsNeedUpdate,UdpConnection connection,void,10228
+checkPermissions,checkPermissions,"IsoPlayer player, Capability capability",boolean,2950
+checkPlayerCanUseChat,checkPlayerCanUseChat,String chatCommand,Boolean,9385
+checkPlayerExistsInDatabase,checkPlayerExistsInDatabase,"String savedir, String player, String world",boolean,5314
+checkSaveFileExists,checkSaveFileExists,String f,boolean,4773
+checkSaveFolderExists,checkSaveFolderExists,String f,boolean,4761
+checkSavePlayerExists,checkSavePlayerExists,,boolean,4778
+checkServerName,checkServerName,String name,String,9813
+checkStringPattern,checkStringPattern,String pattern,boolean,4826
+clearPVPEvents,clearPVPEvents,,void,3127
+cloneItemType,cloneItemType,"String newName, String oldName",Item,4869
+configRoomFade,configRoomFade,"float seconds, float percent",void,10263
+configureLighting,configureLighting,float darkStep,void,8390
+connectionManagerLog,connectionManagerLog,"String event, String message",void,2938
+connectToServerStateCallback,connectToServerStateCallback,String button,void,8076
+convertToPZNetTable,convertToPZNetTable,KahluaTable table,KahluaTable,2862
+copyTable,copyTable,KahluaTable table,KahluaTable,8284
+copyTable,copyTable,"KahluaTable to, KahluaTable from",KahluaTable,8308
+createBuildAction,createBuildAction,"IsoPlayer player, float x, float y, float z, boolean north, String spriteName, KahluaTable item",byte,10092
+createHordeFromTo,createHordeFromTo,"float spawnX, float spawnY, float targetX, float targetY, int count",void,4524
+createHordeInAreaTo,createHordeInAreaTo,"int spawnX, int spawnY, int spawnW, int spawnH, int targetX, int targetY, int count",void,4530
+createItemTransaction,createItemTransaction,"IsoPlayer player, KahluaTableImpl table, ItemContainer src, ItemContainer dst",byte,9944
+createNewScriptItem,createNewScriptItem,"String base, String name, String display, String type, String icon",Item,4851
+createQRCodeTex,createQRCodeTex,"String user, String key",Texture,7109
+createRandomDeadBody,createRandomDeadBody,"IsoGridSquare square, int blood",IsoDeadBody,8511
+createRegionFile,createRegionFile,,KahluaTable,3958
+createStory,createStory,String storyName,void,5769
+createTile,createTile,"String tile, IsoGridSquare square",void,6471
+createWorld,createWorld,String worldName,void,5790
+createZombie,createZombie,"float x, float y, float z, SurvivorDesc desc, int palette, IsoDirections dir",IsoZombie,4549
+debugFullyStreamedIn,debugFullyStreamedIn,"int x, int y",void,6608
+debugLuaTable,debugLuaTable,"Object param, int depth",void,4584
+debugLuaTable,debugLuaTable,Object param,void,4616
+debugSetRoomType,debugSetRoomType,Double roomType,void,8279
+deleteAccountToAccountList,deleteAccountToAccountList,Account account,void,4145
+deleteAllGameModeSaves,deleteAllGameModeSaves,String gameMode,void,4311
+deleteDatabase,deleteDatabase,String folder,void,4056
+deletePlayerFromDatabase,deletePlayerFromDatabase,"String savedir, String player, String world",void,5300
+deletePlayerSave,deletePlayerSave,String fileName,void,5330
+deleteRole,deleteRole,String name,void,3199
+deleteSandboxPreset,deleteSandboxPreset,String name,void,5071
+deleteSave,deleteSave,String folder,void,4067
+deleteServerToAccountList,deleteServerToAccountList,Server server,void,4130
+detectBadWords,detectBadWords,String text,boolean,10064
+disconnect,disconnect,,void,7621
+displayLUATable,displayLUATable,KahluaTable table,void,10294
+doChallenge,doChallenge,KahluaTable challenge,void,4281
+doKeyPress,doKeyPress,boolean doIt,void,7631
+doLuaDebuggerAction,doLuaDebuggerAction,String action,void,6650
+doTutorial,doTutorial,KahluaTable tutorial,void,4292
+drawOverheadMap,drawOverheadMap,"UIElement ui, int level, float zoom, float xpos, float ypos",void,6553
+emulateAnimEvent,emulateAnimEvent,"NetTimedAction action, long duration, String event, String parameter",void,10050
+emulateAnimEventOnce,emulateAnimEventOnce,"NetTimedAction action, long duration, String event, String parameter",void,10057
+endFileInput,endFileInput,,void,5934
+endFileOutput,endFileOutput,,void,5833
+endHelicopter,endHelicopter,,void,8416
+endTextFileInput,endTextFileInput,,void,5919
+fastfloor,fastfloor,float coord,float,2842
+fileExists,fileExists,String filename,boolean,4798
+focusOnTab,focusOnTab,Short id,void,9375
+forceChangeState,forceChangeState,GameState state,void,5828
+forceDisconnect,forceDisconnect,,void,2943
+forceSnowCheck,forceSnowCheck,,void,7691
+generateSecretKey,generateSecretKey,,String,7099
+getAbsoluteSaveFolderName,getAbsoluteSaveFolderName,String f,String,4767
+getAccessLevel,getAccessLevel,,String,3922
+getActionDuration,getActionDuration,"IsoPlayer player, byte id",int,10032
+getActivatedMods,getActivatedMods,,List<String>,6295
+getAllAnimalsDefinitions,getAllAnimalsDefinitions,,ArrayList<AnimalDefinitions>,2827
+getAllBeardStyles,getAllBeardStyles,,ArrayList<String>,9571
+getAllDecalNamesForItem,getAllDecalNamesForItem,InventoryItem item,ArrayList<String>,9657
+getAllHairStyles,getAllHairStyles,boolean female,ArrayList<String>,9532
+getAllItems,getAllItems,,ArrayList<Item>,3400
+getAllItemsForBodyLocation,getAllItemsForBodyLocation,String bodyLocation,KahluaTable,9636
+getAllOutfits,getAllOutfits,boolean female,ArrayList<String>,9506
+getAllRecipes,getAllRecipes,,ArrayList<Recipe>,3426
+getAllSavedPlayers,getAllSavedPlayers,,List<BufferedReader>,5034
+getAllVehicles,getAllVehicles,,ArrayList<String>,9522
+getAllVoiceStyles,getAllVoiceStyles,,ArrayList<VoiceStyle>,9605
+getAmbientStreamManager,getAmbientStreamManager,,zombie.BaseAmbientStreamManager,3503
+getAndFindNearestTracks,getAndFindNearestTracks,IsoGameCharacter chr,ArrayList<AnimalTracks>,7338
+getAnimal,getAnimal,int id,IsoAnimal,3229
+getAnimalChunk,getAnimalChunk,"int x, int y",AnimalChunk,3606
+getAnimationViewerState,getAnimationViewerState,,AnimationViewerState,9118
+getAttachmentEditorState,getAttachmentEditorState,,AttachmentEditorState,9123
+getAverageFPS,getAverageFSP,,Double,9909
+getBannedIPs,getBannedIPs,,void,4355
+getBannedSteamIDs,getBannedSteamIDs,,void,4362
+getBaseSoundBank,getBaseSoundBank,,BaseSoundBank,6104
+getBeardStylesInstance,getBeardStylesInstance,,BeardStyles,9566
+getBehaviourDebugPlayer,getBehaviourDebugPlayer,,IsoGameCharacter,2813
+getBreakModGameVersion,getBreakModGameVersion,,GameVersion,6185
+getButtonCount,getButtonCount,int joypad,int,5710
+getCallframeTop,getCallframeTop,Coroutine c,int,6434
+getCameraOffX,getCameraOffX,,float,3741
+getCameraOffY,getCameraOffY,,float,3953
+getCapabilities,getCapabilities,,ArrayList<Capability>,3171
+getCell,getCell,,IsoCell,4946
+getCellMaxX,getCellMaxX,,int,7661
+getCellMaxY,getCellMaxY,,int,7671
+getCellMinX,getCellMinX,,int,7656
+getCellMinY,getCellMinY,,int,7666
+getCellSizeInChunks,getCellSizeInChunks,,Double,4951
+getCellSizeInSquares,getCellSizeInSquares,,Double,4956
+getCheatTypes,getCheatTypes,,List<CheatType>,10319
+getChunkSizeInSquares,getChunkSizeInSquares,,Double,4961
+getClassField,getClassField,"Object o, int i",Field,6511
+getClassFieldVal,getClassFieldVal,"Object o, Field field",Object,6613
+getClassFunction,getClassFunction,"Object o, int i",Method,6499
+getClassSimpleName,getClassSimpleName,Object object,String,2900
+getClientUsername,getClientUsername,,String,5581
+getClimateManager,getClimateManager,,ClimateManager,9481
+getClimateMoon,getClimateMoon,,ClimateMoon,9486
+getCombatConfig,getCombatConfig,,CombatConfig,4176
+getConnectedPlayers,getConnectedPlayers,,ArrayList<IsoPlayer>,7582
+getContainerOverlays,getContainerOverlays,,ContainerOverlays,9892
+getControllerAxisValue,getControllerAxisValue,"int c, int axis",float,5371
+getControllerCount,getControllerCount,,int,5341
+getControllerDeadZone,getControllerDeadZone,"int c, int axis",float,5385
+getControllerGUID,getControllerGUID,int joypad,String,5351
+getControllerName,getControllerName,int joypad,String,5361
+getControllerPovX,getControllerPovX,int c,float,5410
+getControllerPovY,getControllerPovY,int c,float,5420
+getCore,getCore,,Core,6149
+getCoroutineCallframeStack,getCoroutineCallframeStack,"Coroutine c, int n",LuaCallFrame,6459
+getCoroutineObjStack,getCoroutineObjStack,"Coroutine c, int n",Object,6444
+getCoroutineObjStackWithBase,getCoroutineObjStackWithBase,"Coroutine c, int n",Object,6449
+getCoroutineTop,getCoroutineTop,Coroutine c,int,6439
+getCPUTime,getCPUTime,,long,9919
+getCPUWait,getCPUWait,,long,9929
+getCurrentCoroutine,getCurrentCoroutine,,Coroutine,3643
+getCurrentSaveName,getCurrentSaveName,,String,4270
+getCurrentUserProfileName,getCurrentUserProfileName,,String,7760
+getCurrentUserSteamID,getCurrentUserSteamID,,String,7755
+getCustomizationData,getCustomizationData,"String username, String pwd, String ip, String port, String serverPassword, String serverName, boolean doHash",void,4171
+getDebug,getDebug,,boolean,3948
+getDebugOptions,getDebugOptions,,DebugOptions,6195
+getDirectionTo,getDirectionTo,"IsoGameCharacter chara, IsoObject objTarget",IsoDirections,6524
+getEditVehicleState,getEditVehicleState,,EditVehicleState,9128
+getErosion,getErosion,,ErosionMain,9501
+getEvolvedRecipes,getEvolvedRecipes,,Stack<EvolvedRecipe>,7636
+getFakeAttacker,getFakeAttacker,,IsoGameCharacter,3053
+getFileInput,getFileInput,String filename,DataInputStream,5846
+getFilenameOfCallframe,getFilenameOfCallframe,LuaCallFrame c,String,6207
+getFilenameOfClosure,getFilenameOfClosure,LuaClosure c,String,6212
+getFileOutput,getFileOutput,String filename,DataOutputStream,4981
+getFileReader,getFileReader,"String filename, boolean createIfNull",BufferedReader,5082
+getFileSeparator,getFileSeparator,,String,4751
+getFileWriter,getFileWriter,"String filename, boolean createIfNull, boolean append",LuaManager.GlobalObject.LuaFileWriter,5730
+getFirstLineOfClosure,getFirstLineOfClosure,LuaClosure c,int,6217
+getFMODEventPathList,getFMODEventPathList,,ArrayList<String>,8274
+getFMODSoundBank,getFMODSoundBank,,BaseSoundBank,6109
+getFriendsList,getFriendsList,,KahluaTable,7715
+getFullSaveDirectoryTable,getFullSaveDirectoryTable,,KahluaTable,4222
+getFunctionsForFile,getFunctionsForFile,String filename,KahluaTable,5947
+getGameClient,getGameClient,,GameClient,7557
+getGameFilesInput,getGameFilesInput,String filename,DataInputStream,5869
+getGameFilesTextInput,getGameFilesTextInput,String filename,BufferedReader,5892
+getGameLocal,getGameLocal,,KahluaTable,2986
+getGameRemote,getGameRemote,,KahluaTable,3001
+getGameSpeed,getGameSpeed,,int,6660
+getGameTime,getGameTime,,zombie.GameTime,4907
+getGametimeTimestamp,getGametimeTimestamp,,long,7696
+getGameVersion,getGameVersion,,String,6180
+getGPUTime,getGPUTime,,long,9924
+getGPUWait,getGPUWait,,long,9934
+getHairStylesInstance,getHairStylesInstance,,HairStyles,9561
+getHostByName,getHostByName,String hostname,String,8229
+getHourMinute,getHourMinute,,String,7504
+getHutch,getHutch,"int x, int y, int z",IsoHutch,3224
+getIsoEntitiesDebug,getIsoEntitiesDebug,,ArrayList<GameEntity>,9293
+getIsoMarkers,getIsoMarkers,,IsoMarkers,9496
+getISUIStackTrace,getISUIStackTrace,int maxDepth,String,6170
+getItem,getItem,String itemType,Item,7194
+getItemActualWeight,getItemActualWeight,String itemType,float,7255
+getItemConditionMax,getItemConditionMax,String itemType,int,7265
+getItemCount,getItemCount,String itemType,int,7231
+getItemDisplayName,getItemDisplayName,String itemType,String,7283
+getItemEvolvedRecipeName,getItemEvolvedRecipeName,String itemType,String,7271
+getItemFoodType,getItemFoodType,String itemType,String,7211
+getItemName,getItemName,String itemType,String,7293
+getItemNameFromFullType,getItemNameFromFullType,String fullType,String,7189
+getItemStaticModel,getItemStaticModel,String itemType,String,7199
+getItemTex,getItemTex,String itemType,Texture,7349
+getItemText,getItemText,String txt,String,7179
+getItemTextureName,getItemTextureName,String itemType,String,7310
+getItemTransactionDuration,getItemTransactionDuration,byte id,int,10007
+getItemWeight,getItemWeight,String itemType,float,7241
+getJoypadAimingAxisX,getJoypadAimingAxisX,int joypad,float,5460
+getJoypadAimingAxisY,getJoypadAimingAxisY,int joypad,float,5465
+getJoypadMovementAxisX,getJoypadMovementAxisX,int joypad,float,5470
+getJoypadMovementAxisY,getJoypadMovementAxisY,int joypad,float,5475
+getKeyCode,getKeyCode,String keyName,int,9028
+getKeyName,getKeyName,int key,String,9023
+getLastPlayedDate,getLastPlayedDate,String filename,String,6728
+getLastStandPlayerFileNames,getLastStandPlayerFileNames,,List<String>,5013
+getLastStandPlayersDirectory,getLastStandPlayersDirectory,,String,5008
+getLatestSave,getLatestSave,,KahluaTable,3746
+getLineNumber,getLineNumber,LuaCallFrame c,int,6012
+getLoadedLua,getLoadedLua,int n,String,3891
+getLoadedLuaCount,getLoadedLuaCount,,int,3886
+getLocalVarCount,getLocalVarCount,Coroutine c,int,6222
+getLocalVarCount,getLocalVarCount,LuaCallFrame callFrame,int,6228
+getLocalVarName,getLocalVarName,"Coroutine c, int n",String,6412
+getLocalVarName,getLocalVarName,"LuaCallFrame callFrame, int n",String,6418
+getLocalVarStack,getLocalVarStack,"Coroutine c, int n",int,6423
+getLocalVarStackIndex,getLocalVarStackIndex,"LuaCallFrame callFrame, int n",int,6429
+getLoosingXpTick,getLoosingXpTick,Object timer,int,9733
+getLoosingXpValue,getLoosingXpValue,,int,9728
+getLotDirectories,getLotDirectories,,ArrayList<String>,7069
+getLuaDebuggerErrorCount,getLuaDebuggerErrorCount,,int,6640
+getLuaDebuggerErrors,getLuaDebuggerErrors,,ArrayList<String>,6645
+getLuaStackTrace,getLuaStackTrace,,ArrayList<String>,6464
+getMapDirectoryTable,getMapDirectoryTable,,KahluaTable,3993
+getMapFoldersForMod,getMapFoldersForMod,String modID,ArrayList<String>,4662
+getMapInfo,getMapInfo,String mapDir,KahluaTable,6967
+getMaxActivePlayers,getMaxActivePlayers,,int,3556
+getMaximumWorldLevel,getMaximumWorldLevel,,Double,4971
+getMaxPlayers,getMaxPlayers,,Double,4912
+getMaxUsernameLength,getMaxUsernameLength,,int,10074
+getMethodParameter,getMethodParameter,"Method o, int i",String,6624
+getMethodParameterCount,getMethodParameterCount,Method o,int,6630
+getMinimumWorldLevel,getMinimumWorldLevel,,Double,4966
+getMinUsernameLength,getMinUsernameLength,,int,10069
+getModDirectoryTable,getModDirectoryTable,,KahluaTable,4626
+getModFileReader,getModFileReader,"String modId, String filename, boolean createIfNull",BufferedReader,5113
+getModFileWriter,getModFileWriter,"String modId, String filename, boolean createIfNull, boolean append",LuaManager.GlobalObject.LuaFileWriter,5252
+getModInfo,getModInfo,String modDir,ChooseGameInfo.Mod,4652
+getModInfoByID,getModInfoByID,String modID,ChooseGameInfo.Mod,4642
+getMouseX,getMouseX,,int,6698
+getMouseXScaled,getMouseXScaled,,int,6688
+getMouseY,getMouseY,,int,6718
+getMouseYScaled,getMouseYScaled,,int,6693
+getMPStatus,getMPStatus,,KahluaTable,3011
+getMyDocumentFolder,getMyDocumentFolder,,String,7388
+getNetworkLocal,getNetworkLocal,,KahluaTable,2981
+getNetworkRemote,getNetworkRemote,,KahluaTable,2996
+getNumActivePlayers,getNumActivePlayers,,int,3546
+getNumClassFields,getNumClassFields,Object o,int,6505
+getNumClassFunctions,getNumClassFunctions,Object o,int,6493
+getOnlinePlayers,getOnlinePlayers,,ArrayList<IsoPlayer>,3939
+getOnlineUsername,getOnlineUsername,,String,7494
+getPerformance,getPerformance,,PerformanceSettings,3596
+getPerformanceLocal,getPerformanceLocal,,KahluaTable,2976
+getPerformanceRemote,getPerformanceRemote,,KahluaTable,2991
+getPickedUpFish,getPickedUpFish,IsoPlayer player,InventoryItem,10146
+getPlayer,getPlayer,,IsoPlayer,3541
+getPlayerByOnlineID,getPlayerByOnlineID,int id,IsoPlayer,3581
+getPlayerFromUsername,getPlayerFromUsername,String username,IsoPlayer,7587
+getPlayerInfo,getPlayerInfo,IsoPlayer player,KahluaTable,6934
+getPlayerScreenHeight,getPlayerScreenHeight,int player,int,3576
+getPlayerScreenLeft,getPlayerScreenLeft,int player,int,3561
+getPlayerScreenTop,getPlayerScreenTop,int player,int,3566
+getPlayerScreenWidth,getPlayerScreenWidth,int player,int,3571
+getPublicServersList,getPublicServersList,,KahluaTable,8083
+getPuddlesManager,getPuddlesManager,,IsoPuddles,2822
+getRadioAPI,getRadioAPI,,RadioAPI,2808
+getRandomUUID,getRandomUUID,,String,2852
+getRecipeDisplayName,getRecipeDisplayName,String name,String,7383
+getReconnectCountdownTimer,getReconnectCountdownTimer,,String,3021
+getRemotePlayModeActive,getRemotePlayModeActive,,Boolean,7745
+getRenderer,getRenderer,,SpriteRenderer,4902
+getRoles,getRoles,,ArrayList<Role>,3166
+getSandboxOptions,getSandboxOptions,,zombie.SandboxOptions,4976
+getSandboxPresets,getSandboxPresets,,List<String>,5052
+getSaveDirectory,getSaveDirectory,String folder,ArrayList<File>,4197
+getSaveDirectoryTable,getSaveDirectoryTable,,KahluaTable,4265
+getSaveInfo,getSaveInfo,String saveDir,KahluaTable,6754
+getScriptManager,getScriptManager,,ScriptManager,4756
+getSeamEditorState,getSeamEditorState,,SeamEditorState,9168
+getSearchMode,getSearchMode,,SearchMode,10237
+getServerAddressFromArgs,getServerAddressFromArgs,,String,4092
+getServerFPS,getServerFPS,,int,9939
+getServerIP,getServerIP,,String,3698
+getServerList,getServerList,,KahluaTable,4150
+getServerListFile,getServerListFile,,String,4115
+getServerModData,getServerModData,,void,7403
+getServerName,getServerName,,String,3689
+getServerOptions,getServerOptions,,ServerOptions,3684
+getServerPasswordFromArgs,getServerPasswordFromArgs,,String,4103
+getServerPort,getServerPort,,String,3707
+getServerSavedWorldVersion,getServerSavedWorldVersion,String saveFolder,int,6877
+getServerSettingsManager,getServerSettingsManager,,ServerSettingsManager,8425
+getServerSpawnRegions,getServerSpawnRegions,,KahluaTable,3679
+getShortenedFilename,getShortenedFilename,String str,String,6054
+getSleepingEvent,getSleepingEvent,,SleepingEvent,3508
+getSLSoundManager,getSLSoundManager,,SLSoundManager,2803
+getSoundManager,getSoundManager,,zombie.BaseSoundManager,6723
+getSpecificPlayer,getSpecificPlayer,int player,IsoPlayer,3736
+getSprite,getSprite,String sprite,IsoSprite,7398
+getSpriteManager,getSpriteManager,String sprite,IsoSpriteManager,7393
+getSpriteModelEditorState,getSpriteModelEditorState,,SpriteModelEditorState,9133
+getSquare,getSquare,"double x, double y, double z",IsoGridSquare,6190
+getSteamAvatarFromSteamID,getSteamAvatarFromSteamID,String steamID,Texture,7817
+getSteamAvatarFromUsername,getSteamAvatarFromUsername,String username,Texture,7858
+getSteamIDFromUsername,getSteamIDFromUsername,String username,String,7829
+getSteamModeActive,getSteamModeActive,,Boolean,7735
+getSteamProfileNameFromSteamID,getSteamProfileNameFromSteamID,String steamID,String,7805
+getSteamProfileNameFromUsername,getSteamProfileNameFromUsername,String username,String,7846
+getSteamScoreboard,getSteamScoreboard,,boolean,7765
+getSteamWorkshopItemIDs,getSteamWorkshopItemIDs,,ArrayList<String>,7875
+getSteamWorkshopItemMods,getSteamWorkshopItemMods,String itemIDStr,ArrayList<ChooseGameInfo.Mod>,7897
+getSteamWorkshopStagedItems,getSteamWorkshopStagedItems,,ArrayList<SteamWorkshopItem>,7870
+getStreamModeActive,getStreamModeActive,,Boolean,7740
+getStreets,getStreets,WorldMapStreets worldMapStreets,List<WorldMapStreet>,10324
+getText,getText,"String txt, Object... args",String,7169
+getTextManager,getTextManager,,TextManager,7157
+getTextMediaEN,getTextMediaEN,String txt,String,7184
+getTextOrNull,getTextOrNull,"String txt, Object... args",String,7174
+getTexture,getTexture,String filename,Texture,7079
+getTextureFromSaveDir,getTextureFromSaveDir,"String filename, String saveName",Texture,6741
+getTickets,getTickets,String author,void,4369
+getTileGeometryState,getTileGeometryState,,TileGeometryState,9153
+getTileOverlays,getTileOverlays,,TileOverlays,9897
+getTimeInMillis,getTimeInMillis,,long,3638
+getTimestamp,getTimestamp,,long,7681
+getTimestampMs,getTimestampMs,,long,7686
+getTwoLetters,getTwoLetters,String input,String,7991
+getUsers,getUsers,,ArrayList<NetworkUser>,3134
+getVehicleById,getVehicleById,int id,BaseVehicle,8456
+getVehicleInfo,getVehicleInfo,BaseVehicle vehicle,KahluaTable,7001
+getVehicleZoneAt,getVehicleZoneAt,"int x, int y, int z",VehicleZone,7651
+getVideo,getVideo,"String filename, int width, int height",VideoTexture,7134
+getVoiceStylesInstance,getVoiceStylesInstance,,VoiceStyles,9600
+getWarNearest,getWarNearest,,WarManager.War,3214
+getWars,getWars,,ArrayList<WarManager.War>,3219
+getWorld,getWorld,,IsoWorld,4941
+getWorldMarkers,getWorldMarkers,,WorldMarkers,9491
+getWorldSoundManager,getWorldSoundManager,,zombie.WorldSoundManager,3601
+getZombieInfo,getZombieInfo,IsoZombie zombie,KahluaTable,6902
+getZomboidRadio,getZomboidRadio,,ZomboidRadio,2847
+getZone,getZone,"int x, int y, int z",Zone,7641
+getZones,getZones,"int x, int y, int z",ArrayList<Zone>,7646
+hasBreakpoint,hasBreakpoint,"String file, int line",boolean,3881
+hasDataBreakpoint,hasDataBreakpoint,"KahluaTable table, Object key",boolean,3876
+hasDataReadBreakpoint,hasDataReadBreakpoint,"KahluaTable table, Object key",boolean,3871
+hasItemTag,hasItemTag,"String itemType, ItemTag itemTag",boolean,7277
+haveAccess,haveAccess,String access,boolean,3928
+initUISystem,initUISystem,,void,3590
+instanceItem,instanceItem,Item item,InventoryItem,4831
+instanceItem,instanceItem,String item,InventoryItem,4836
+instanceItem,instanceItem,"String item, float useDelta",InventoryItem,4841
+instanceItem,instanceItem,ItemKey item,InventoryItem,4846
+instanceof,instof,"Object obj, String name",boolean,2874
+invalidateLighting,invalidateLighting,,void,8397
+inviteFriend,inviteFriend,String steamID,void,7706
+InvMngGetItem,InvMngGetItem,"long itemId, String itemType, int playerID, String username",void,7567
+InvMngRemoveItem,InvMngRemoveItem,"long itemId, int playerID, String username",void,7572
+InvMngUpdateItem,InvMngUpdateItem,"InventoryItem item, int playerID",void,7577
+isAccessLevel,isAccessLevel,String accessLevel,boolean,7526
+isActionDone,isActionDone,"IsoPlayer player, byte id",boolean,10012
+isActionRejected,isActionRejected,"IsoPlayer player, byte id",boolean,10022
+isAdmin,isAdmin,,boolean,7514
+isAltKeyDown,isAltKeyDown,,boolean,6134
+isAnimationRecorderActive,isAnimationRecorderActive,,boolean,6154
+isClient,isClient,,boolean,3906
+isControllerConnected,isControllerConnected,int index,boolean,5346
+isCoopHost,isCoopHost,,boolean,7592
+isCtrlKeyDown,isCtrlKeyDown,,boolean,6129
+isCurrentExecutionPoint,isCurrentExecutionPoint,"String file, int line",boolean,3770
+isDebugEnabled,isDebugEnabled,,boolean,3788
+isDemo,isDemo,,boolean,3633
+isDesktopOpenSupported,isDesktopOpenSupported,,boolean,6265
+isFloatingGamepadTextInputVisible,isFloatingGamepadTextInputVisible,,boolean,7924
+isGamePaused,isGamePaused,,boolean,6683
+isIngameState,isIngameState,,boolean,2971
+isItemFood,isItemFood,String itemType,boolean,7205
+isItemFresh,isItemFresh,"String itemType, float age",boolean,7221
+isItemTransactionConsistent,isItemTransactionConsistent,"InventoryItem item, ItemContainer src, ItemContainer dst, String extra, IsoPlayer player",boolean,9979
+isItemTransactionDone,isItemTransactionDone,byte id,boolean,9997
+isItemTransactionRejected,isItemTransactionRejected,byte id,boolean,10002
+isJoypadConnected,isJoypadConnected,int index,boolean,5519
+isJoypadDown,isJoypadDown,int joypad,boolean,5435
+isJoypadLBPressed,isJoypadLBPressed,int joypad,boolean,5700
+isJoypadLeft,isJoypadLeft,int joypad,boolean,5690
+isJoypadLeftStickButtonPressed,isJoypadLeftStickButtonPressed,int joypad,boolean,5450
+isJoypadLTPressed,isJoypadLTPressed,int joypad,boolean,5440
+isJoypadRBPressed,isJoypadRBPressed,int joypad,boolean,5705
+isJoypadRight,isJoypadRight,int joypad,boolean,5695
+isJoypadRightStickButtonPressed,isJoypadRightStickButtonPressed,int joypad,boolean,5455
+isJoypadRTPressed,isJoypadRTPressed,int joypad,boolean,5445
+isJoypadUp,isJoypadUp,int joypad,boolean,5685
+isKeyDown,isKeyDown,int key,boolean,6059
+isKeyDown,isKeyDown,String keyName,boolean,6064
+isKeyDown,isKeyDown,KeybindId keybindID,boolean,6069
+isKeyPressed,isKeyPressed,int key,boolean,6089
+isKeyPressed,isKeyPressed,String keyName,boolean,6094
+isKeyPressed,isKeyPressed,KeybindId keybindID,boolean,6099
+isMetaKeyDown,isMetaKeyDown,,boolean,6139
+isModActive,isModActive,ChooseGameInfo.Mod mod,boolean,6248
+isMouseButtonDown,isMouseButtonDown,int number,boolean,6708
+isMouseButtonPressed,isMouseButtonPressed,int number,boolean,6713
+isMultiplayer,isMultiplayer,,boolean,3911
+isoRegionsRenderer,isoRegionsRenderer,,IsoRegionsRenderer,6565
+isoToScreenX,isoToScreenX,"int player, float x, float y, float z",float,3467
+isoToScreenY,isoToScreenY,"int player, float x, float y, float z",float,3477
+isPlaystationController,isPlaystationController,int id,boolean,7420
+isPublicServerListAllowed,isPublicServerListAllowed,,boolean,8246
+isQuitCooldown,isQuitCooldown,,boolean,6655
+isServer,isServer,,boolean,3896
+isServerSoftReset,isServerSoftReset,,boolean,3901
+isShiftKeyDown,isShiftKeyDown,,boolean,6124
+isShowConnectionInfo,isShowConnectionInfo,,boolean,3716
+isShowServerInfo,isShowServerInfo,,boolean,3726
+isSoundPlaying,isSoundPlaying,Object sound,boolean,6114
+isSteamOverlayEnabled,isSteamOverlayEnabled,,boolean,7770
+isSteamRunningOnSteamDeck,isSteamRunningOnSteamDeck,,boolean,7909
+isSteamServerBrowserEnabled,isSteamServerBrowserEnabled,,boolean,8255
+isSystemLinux,isSystemLinux,,boolean,6233
+isSystemMacOS,isSystemMacOS,,boolean,6238
+isSystemWindows,isSystemWindows,,boolean,6243
+istype,isType,"Object obj, String name",boolean,3457
+isValidSteamID,isValidSteamID,String s,boolean,7750
+isValidUserName,isValidUserName,String user,boolean,7499
+isXBOXController,isXBOXController,,boolean,7408
+javaListRemoveAt,javaListRemoveAt,"List<?> javaList, int index",Object,10284
+lineSeparator,lineSeparator,,String,5725
+listFilesInModDirectory,listFilesInModDirectory,"String modID, String directory",ArrayList<String>,5175
+listFilesInZomboidLuaDirectory,listFilesInZomboidLuaDirectory,String directory,ArrayList<String>,5163
+loadSkinnedZomboidModel,loadSkinnedZomboidModel,"String name, String loc, String tex",Model,2723
+loadStaticZomboidModel,loadStaticZomboidModel,"String name, String loc, String tex",Model,2718
+loadVehicleModel,loadVehicleModel,"String name, String loc, String tex",Model,2713
+loadZomboidModel,loadZomboidModel,"String name, String mesh, String tex, String shader, boolean bStatic",Model,2728
+localVarName,localVarName,"Coroutine c, int n",String,6454
+log,log,"DebugType type, String message",void,10212
+luaDebug,luaDebug,,void,6594
+manipulateSavefile,manipulateSavefile,"String folder, String action",void,6345
+mergeTable,mergeTable,KahluaTable... tables,KahluaTable,8289
+moduleDotType,moduleDotType,"String module, String type",String,4878
+moveRole,moveRole,"byte dir, String roleName",void,3209
+networkUserAction,networkUserAction,"String action, String username, String additionArgument",void,3139
+NewMapBinaryFile,NewMapBinaryFile,String cmd,void,9902
+openUrl,openURl,String url,void,6258
+pauseSoundAndMusic,pauseSoundAndMusic,,void,3621
+ping,ping,"String username, String pwd, String ip, String port, boolean doHash",void,4166
+playServerSound,playServerSound,"String sound, IsoGridSquare sq",void,3551
+proceedFactionMessage,ProceedFactionMessage,String message,void,9343
+proceedPM,proceedPM,String command,String,9303
+processAdminChatMessage,ProcessAdminChatMessage,String message,void,9359
+processGeneralMessage,processGeneralMessage,String message,void,9327
+processSafehouseMessage,ProcessSafehouseMessage,String message,void,9351
+processSayMessage,processSayMessage,String message,void,9319
+processShoutMessage,processShoutMessage,String message,void,9335
+profanityFilterCheck,profanityFilterCheck,String text,boolean,10079
+querySteamWorkshopItemDetails,querySteamWorkshopItemDetails,"ArrayList<String> itemIDs, LuaClosure functionObj, Object arg1",void,8059
+queueCharEvent,queueCharEvent,String eventChar,void,9033
+queueKeyEvent,queueKeyEvent,int lwjglKeyCode,void,9038
+rainConfig,rainConfig,"String cmd, int arg",void,8430
+reactivateJoypadAfterResetLua,reactivateJoypadAfterResetLua,,boolean,5509
+reloadControllerConfigFiles,reloadControllerConfigFiles,,void,5430
+reloadEngineRPM,reloadEngineRPM,,void,9202
+reloadEntitiesDebug,reloadEntitiesDebug,,void,9266
+reloadEntityDebug,reloadEntityDebug,GameEntity entity,void,9275
+reloadEntityFromScriptDebug,reloadEntityFromScriptDebug,GameEntity entity,void,9284
+reloadEntityScripts,reloadEntityScripts,,void,9244
+reloadLuaFile,reloadLuaFile,String filename,Object,3648
+reloadModelsMatching,reloadModelsMatching,String meshName,void,2798
+reloadScripts,reloadScripts,ScriptType type,void,9220
+reloadServerLuaFile,reloadServerLuaFile,String filename,Object,3660
+reloadSoundFiles,reloadSoundFiles,,void,9113
+reloadVehicles,reloadVehicles,,void,9188
+reloadVehicleTextures,reloadVehicleTextures,String scriptName,void,9429
+reloadXui,reloadXui,,void,9211
+removeAction,removeAction,"IsoPlayer player, byte id, boolean isCanceled",void,10042
+removeAllVehicles,removeAllVehicles,IsoPlayer player,void,8472
+removeAnimal,removeAnimal,int id,void,3043
+removeItemTransaction,removeItemTransaction,"byte id, boolean isCanceled",void,9972
+removeTicket,removeTicket,int ticketID,void,4390
+removeUserlog,removeUserlog,"String user, String type, String text",void,3445
+removeVehicle,removeVehicle,"IsoPlayer player, BaseVehicle baseVehicle",void,8461
+renameSavefile,renameSaveFile,"String gameMode, String oldName, String newName",boolean,6836
+Render3DItem,Render3DItem,"InventoryItem item, IsoGridSquare sq, float xoffset, float yoffset, float zoffset, float rotation",void,9819
+renderIsoCircle,renderIsoCircle,"float x, float y, float z, float radius, int segments, int thickness, float r, float g, float b, float a",void,8313
+renderIsoLine,renderIsoLine,"float x, float y, float z, float tx, float ty, float tz, int thickness, float r, float g, float b, float a",void,8378
+renderIsoRect,renderIsoRect,"float x, float y, float z, float radius, float r, float g, float b, float a, int thickness",void,8340
+renderLine,renderLine,"float x, float y, float z, float tx, float ty, float tz, float r, float g, float b, float a",void,8373
+replaceItemInContainer,replaceItemInContainer,"ItemContainer container, InventoryItem oldItem, InventoryItem newItem",void,10202
+replaceWith,replaceWith,"String toReplace, String regex, String by",String,7676
+requestMedicalCheck,requestMedicalCheck,"IsoPlayer target, IsoPlayer requester",void,7953
+requestPVPEvents,requestPVPEvents,,void,3120
+requestRoles,requestRoles,,void,3159
+requestTrading,requestTrading,"IsoPlayer you, IsoPlayer other",void,7943
+requestUserlog,requestUserlog,String user,void,3431
+requestUsers,requestUsers,,void,3113
+require,require,String f,Object,4883
+resetRegionFile,resetRegionFile,,void,7841
+resumeSoundAndMusic,resumeSoundAndMusic,,void,3628
+revertToKeyboardAndMouse,revertToKeyboardAndMouse,,void,5675
+revertToKeyboardAndMouseFromMainMenu,revertToKeyboardAndMouseFromMainMenu,,void,5680
+sanitizeWorldName,sanitizeWorldName,String worldName,String,5814
+save,save,boolean doCharacter,void,3412
+saveControllerSettings,saveControllerSettings,int c,void,5403
+saveGame,saveGame,,void,3421
+saveModsFile,saveModsFile,,void,6310
+scoreboardUpdate,scoreboardUpdate,,void,3405
+screenToIsoX,screenToIsoX,"int player, float x, float y, float z",float,3487
+screenToIsoY,screenToIsoY,"int player, float x, float y, float z",float,3495
+screenZoomIn,screenZoomIn,,void,9683
+screenZoomOut,screenZoomOut,,void,9687
+sendAddAnimalFromHandsInTrailer,sendAddAnimalFromHandsInTrailer,"IsoAnimal animal, IsoPlayer player, BaseVehicle vehicle",void,3234
+sendAddAnimalFromHandsInTrailer,sendAddAnimalFromHandsInTrailer,"IsoDeadBody animal, IsoPlayer player, BaseVehicle vehicle",void,3250
+sendAddAnimalInTrailer,sendAddAnimalInTrailer,"IsoAnimal animal, IsoPlayer player, BaseVehicle vehicle",void,3266
+sendAddAnimalInTrailer,sendAddAnimalInTrailer,"IsoDeadBody animal, IsoPlayer player, BaseVehicle vehicle",void,3275
+sendAddItemsToContainer,sendAddItemsToContainer,"ItemContainer container, ArrayList<InventoryItem> items",void,10163
+sendAddItemToContainer,sendAddItemToContainer,"ItemContainer container, InventoryItem item",void,10151
+sendAddObjectToMap,sendAddObjectToMap,"IsoGridSquare square, String sprite",void,10158
+sendAnimalGenome,sendAnimalGenome,IsoAnimal animal,void,3026
+sendAttachedItem,sendAttachedItem,"IsoGameCharacter character, String location, InventoryItem item",void,10170
+sendButcherAnimal,sendButcherAnimal,"IsoDeadBody body, IsoPlayer player",void,3350
+sendClientCommand,sendClientCommand,"String module, String command, KahluaTable args",void,7431
+sendClientCommand,sendClientCommand,"IsoPlayer player, String module, String command, KahluaTable args",void,7444
+sendClientCommandV,sendClientCommandV,"IsoPlayer player, String module, String command, Object... values",void,7482
+sendClothing,sendClothing,"IsoPlayer player, ItemBodyLocation location, InventoryItem item",void,3822
+SendCommandToServer,SendCommandToServer,String command,void,7509
+sendCorpse,sendCorpse,IsoDeadBody body,void,3393
+sendDamage,sendDamage,IsoPlayer player,void,3850
+sendDebugStory,sendDebugStory,"IsoGridSquare square, int type, String name",void,10289
+sendEquip,sendEquip,IsoPlayer player,void,3843
+sendFactionChangeOwner,sendFactionChangeOwner,"Faction faction, String username",void,4404
+sendFactionChangeTag,sendFactionChangeTag,Faction faction,void,4411
+sendFactionChangeTitle,sendFactionChangeTitle,"Faction faction, String title",void,4418
+sendFactionCreate,sendFactionCreate,"String title, String host",void,4425
+sendFactionDisband,sendFactionDisband,Faction faction,void,4432
+sendFactionInvite,sendFactionInvite,"Faction faction, String host, String invited",void,4439
+sendFactionRemoveMember,sendFactionRemoveMember,"Faction faction, String username",void,4446
+sendFactionStatsChange,sendFactionStatsChange,IsoPlayer player,void,4453
+sendFeedAnimalFromHand,sendFeedAnimalFromHand,"IsoAnimal animal, IsoPlayer player, InventoryItem item",void,3357
+sendForagePool,sendForagePool,"IsoPlayer player, String zoneId, KahluaTable icons",void,9718
+sendForageRequestZone,sendForageRequestZone,"IsoPlayer player, String focus",void,9713
+sendForageSpot,sendForageSpot,"IsoPlayer player, String iconID",void,9723
+sendGoogleAuth,sendGoogleAuth,"String username, String code",void,7104
+sendHitPlayer,sendHitPlayer,"IsoPlayer target, String damage, String range",void,3079
+sendHitVehicle,sendHitVehicle,"IsoGameCharacter target, String damage, boolean isTargetHitFromBehind, String vehicleSpeed",void,3094
+sendHitZombie,sendHitZombie,IsoPlayer target,void,3059
+sendHumanVisual,sendHumanVisual,IsoPlayer player,void,7531
+sendHutchGrabAnimal,sendHutchGrabAnimal,"IsoAnimal animal, IsoPlayer player, IsoObject object, InventoryItem item",void,3366
+sendHutchGrabCorpseAction,sendHutchGrabCorpseAction,"IsoAnimal animal, IsoPlayer player, IsoObject object, InventoryItem item",void,3375
+sendHutchRemoveAnimalAction,sendHutchRemoveAnimalAction,"IsoAnimal animal, IsoPlayer player, IsoObject object",void,3384
+sendIconFound,sendIconFound,"IsoPlayer player, String type, float distanceTraveled",void,9704
+sendItemListNet,sendItemListNet,"IsoPlayer sender, ArrayList<InventoryItem> items, IsoPlayer receiver, String transferID, String custom",boolean,2857
+sendItemsInContainer,sendItemsInContainer,"IsoObject obj, ItemContainer container",void,4621
+sendItemStats,sendItemStats,InventoryItem item,void,3864
+sendPersonalColor,sendPersonalColor,IsoPlayer player,void,7936
+sendPickupAnimal,sendPickupAnimal,"IsoAnimal animal, IsoPlayer player, AnimalInventoryItem item",void,3332
+sendPickupAnimalFromTrap,sendPickupAnimalFromTrap,"IsoAnimal animal, IsoPlayer player, AnimalInventoryItem item",void,3341
+sendPing,sendPing,,void,2928
+sendPlayerEffects,sendPlayerEffects,IsoPlayer player,void,3857
+sendPlayerExtraInfo,sendPlayerExtraInfo,IsoPlayer p,void,4087
+sendPlayerNutrition,sendPlayerNutrition,IsoPlayer player,void,9799
+sendPlayerStat,sendPlayerStat,"IsoPlayer player, CharacterStat stat",void,9792
+sendPlayerStatsChange,sendPlayerStatsChange,IsoPlayer player,void,7929
+sendPlaySound,sendPlaySound,"String sound, boolean loop, IsoMovingObject object",void,9696
+sendRemoveAndGrabAnimalFromTrailer,sendRemoveAndGrabAnimalFromTrailer,"IsoAnimal animal, IsoPlayer player, BaseVehicle vehicle, InventoryItem item",void,3300
+sendRemoveAndGrabAnimalFromTrailer,sendRemoveAndGrabAnimalFromTrailer,"IsoDeadBody animal, IsoPlayer player, BaseVehicle vehicle, InventoryItem item",void,3316
+sendRemoveAnimalFromTrailer,sendRemoveAnimalFromTrailer,"IsoAnimal animal, IsoPlayer player, BaseVehicle vehicle",void,3284
+sendRemoveItemFromContainer,sendRemoveItemFromContainer,"ItemContainer container, InventoryItem item",void,10184
+sendRemoveItemsFromContainer,sendRemoveItemsFromContainer,"ItemContainer container, ArrayList<InventoryItem> items",void,10195
+sendReplaceItemInContainer,sendReplaceItemInContainer,"ItemContainer container, InventoryItem oldItem, InventoryItem newItem",void,10177
+sendRequestInventory,sendRequestInventory,"int id, String username",void,7562
+sendSafehouseChangeMember,sendSafehouseChangeMember,"SafeHouse safehouse, String player",void,4474
+sendSafehouseChangeOwner,sendSafehouseChangeOwner,"SafeHouse safehouse, String username",void,4481
+sendSafehouseChangeRespawn,sendSafehouseChangeRespawn,"SafeHouse safehouse, String player, boolean doRemove",void,4488
+sendSafehouseChangeTitle,sendSafehouseChangeTitle,"SafeHouse safehouse, String title",void,4495
+sendSafehouseClaim,sendSafehouseClaim,"IsoGridSquare square, IsoPlayer player, String title",void,4510
+sendSafehouseInvite,sendSafehouseInvite,"SafeHouse safehouse, String host, String invited",void,4460
+sendSafehouseRelease,sendSafehouseRelease,SafeHouse safehouse,void,4517
+sendSafezoneClaim,sendSafezoneClaim,"String username, int x, int y, int h, int w, String title",void,4502
+sendSecretKey,sendSecretKey,"String username, String pwd, String ip, int port, String serverPassword, boolean doHash, int authType, String secretKey",void,7089
+sendServerCommand,sendServerCommand,"String module, String command, KahluaTable args",void,7461
+sendServerCommand,sendServerCommand,"IsoPlayer player, String module, String command, KahluaTable args",void,7468
+sendServerCommandV,sendServerCommandV,"String module, String command, Object... values",void,7475
+sendSwitchSeat,sendSwitchSeat,"BaseVehicle vehicle, IsoGameCharacter chr, int seatFrom, int seatTo",void,8449
+sendSyncPlayerFields,sendSyncPlayerFields,"IsoPlayer player, byte syncParams",void,3815
+sendVisual,sendVisual,IsoPlayer player,void,3808
+sendWarManagerUpdate,sendWarManagerUpdate,"int onlineID, String attacker, WarManager.State state",void,7986
+serverConnect,serverConnect,"String user, String pass, String server, String localIP, String port, String serverPassword, String serverName, boolean useSteamRelay, boolean doHash, int authtype, String secretKey",void,2905
+serverConnectCoop,serverConnectCoop,String serverSteamID,void,2923
+serverFileExists,serverFileExists,String filename,boolean,4807
+setActivePlayer,setActivePlayer,int id,void,3533
+setAdmin,setAdmin,,void,7597
+setAggroTarget,setAggroTarget,"int id, int x, int y",void,6603
+setAnimationRecorderActive,setAnimationRecorderActive,boolean setActive,void,6159
+setBehaviorStep,setBehaviorStep,boolean b,void,2818
+setControllerDeadZone,setControllerDeadZone,"int c, int axis, float value",void,5394
+setDebugToggleControllerPluggedIn,setDebugToggleControllerPluggedIn,int index,void,5720
+setDefaultRoleFor,setDefaultRoleFor,"String defaultId, String roleName",void,3204
+setGameSpeed,setGameSpeed,int newSpeed,void,6665
+setIgnoreInputsForDirection,setIgnoreInputsForDirection,"int id, boolean bActive",void,3518
+setJoypadIgnoreAim,setJoypadIgnoreAim,"int id, boolean bActive",void,3523
+setJoypadIgnoreAimUntilCentered,setJoypadIgnoreAimUntilCentered,"int id, boolean bActive",void,3528
+setMinMaxZombiesPerChunk,setMinMaxZombiesPerChunk,"float min, float max",void,4303
+setModelMetaData,setModelMetaData,"String name, String mesh, String tex, String shader, boolean bStatic",void,2785
+setMouseXY,setMouseXY,"int x, int y",void,6703
+setPlayerButtonsActive,setPlayerButtonsActive,"int id, boolean bActive",void,3513
+setPlayerJoypad,setPlayerJoypad,"int player, int joypad, IsoPlayer playerObj, String username, boolean allowNewPlayer",void,5594
+setPlayerMouse,setPlayerMouse,IsoPlayer playerObj,void,5650
+setProgressBarValue,setProgressBarValue,"IsoPlayer player, int value",void,7162
+setPuddles,setPuddles,float initialPuddles,void,2832
+setSavefilePlayer1,setSavefilePlayer1,"String gameMode, String saveDir, int sqlID",void,6866
+setShowConnectionInfo,setShowConnectionInfo,boolean enabled,void,3721
+setShowPausedMessage,setShowPausedMessage,boolean b,void,6200
+setShowServerInfo,setShowServerInfo,boolean enabled,void,3731
+setSpawnRegion,setSpawnRegion,String spawnRegionName,void,3672
+setupRole,setupRole,"Role role, String description, Color color, KahluaTable capabilitiesRaw",void,3185
+setZoomLevels,setZoomLevels,Double... zooms,void,6144
+showAnimationViewer,showAnimationViewer,,void,9138
+showAttachmentEditor,showAttachmentEditor,,void,9143
+showChunkDebugger,showChunkDebugger,,void,9148
+showDebugInfoInChat,showDebugInfoInChat,String msg,void,10085
+showFolderInDesktop,showFolderInDesktop,String folder,void,6270
+showGlobalObjectDebugger,showGlobalObjectDebugger,,void,9158
+showSeamEditor,showSeamEditor,,void,9163
+showSpriteModelEditor,showSpriteModelEditor,,void,9173
+showSteamFloatingGamepadTextInput,showSteamFloatingGamepadTextInput,"boolean multiLine, int x, int y, int width, int height",boolean,7919
+showSteamGamepadTextInput,showSteamGamepadTextInput,"boolean password, boolean multiLine, String description, int maxChars, String existingText",boolean,7914
+showVehicleEditor,showVehicleEditor,String scriptName,void,9178
+showWorldMapEditor,showWorldMapEditor,String value,void,9183
+showWrongChatTabMessage,showWrongChatTabMessage,"int actualTabID, int rightTabID, String chatCommand",void,9367
+sledgeDestroy,sledgeDestroy,IsoObject object,void,4348
+sortBrowserList,sortBrowserList,"KahluaTableImpl table, String sortType, boolean sortDown, KahluaTableImpl filterTable",KahluaTable,7552
+spawnHorde,spawnHorde,"float x, float y, float x2, float y2, float z, int count",void,4535
+spawnpointsExistsForMod,spawnpointsExistsForMod,"String modID, String mapFolder",boolean,4716
+splitString,splitString,"String input, int maxSize",KahluaTable,8028
+startFishingAction,startFishingAction,"IsoPlayer player, InventoryItem item, IsoGridSquare sq, KahluaTable bobber",byte,10109
+steamGetInternetServerDetails,steamGetInternetServerDetails,int index,Server,8214
+steamReleaseInternetServersRequest,steamReleaseInternetServersRequest,,void,8204
+steamRequestInternetServersCount,steamRequestInternetServersCount,,int,8209
+steamRequestInternetServersList,steamRequestInternetServersList,,void,8199
+steamRequestServerDetails,steamRequestServerDetails,"String host, int port",boolean,8241
+steamRequestServerRules,steamRequestServerRules,"String host, int port",boolean,8224
+stepForward,stepForward,,void,6676
+stopFire,stopFire,Object obj,void,7538
+stopPing,stopPing,,void,4181
+stopSendSecretKey,stopSendSecretKey,,void,7094
+stopSound,stopSound,long sound,void,6119
+syncBodyPart,syncBodyPart,"BodyPart bodyPart, long syncParams",void,9778
+syncClothingFields,syncClothingFields,IsoPlayer player,void,3836
+syncHandWeaponFields,syncHandWeaponFields,"IsoPlayer player, HandWeapon item",void,10139
+syncItemActivated,syncItemActivated,"IsoPlayer player, InventoryItem item",void,10114
+syncItemFields,syncItemFields,"IsoPlayer player, InventoryItem item",void,10130
+syncItemModData,syncItemModData,"IsoPlayer player, InventoryItem item",void,10123
+syncPlayerStats,syncPlayerStats,"IsoPlayer player, int syncParams",void,9785
+syncVisuals,syncVisuals,IsoPlayer player,void,3829
+SyncXp,SyncXp,IsoPlayer player,void,9806
+tabToX,tabToX,"String a, int tabX",String,3452
+takeScreenshot,takeScreenshot,,void,4816
+takeScreenshot,takeScreenshot,String fileName,void,4821
+teleportPlayers,teleportPlayers,IsoPlayer player,void,10217
+teleportToHimUserAction,teleportToHimUserAction,"String action, String username, String additionArgument",void,3154
+teleportUserAction,teleportUserAction,"String action, String username, String additionArgument",void,3149
+testHelicopter,testHelicopter,,void,8407
+testSound,testSound,,void,8260
+timerGetKept,getTimerKept,"String clazzStr, String field",void,10314
+timersReset,resetTimers,String clazzStr,void,10309
+timersShowMean,showTimers,String clazzStr,void,10299
+timersShowTotal,showTimersTotal,String clazzStr,void,10304
+timSort,timSort,"KahluaTable table, Object functionObject",void,10269
+toggleBreakOnChange,toggleBreakOnChange,"KahluaTable table, Object key",void,3781
+toggleBreakOnRead,toggleBreakOnRead,"KahluaTable table, Object key",void,3793
+toggleBreakpoint,toggleBreakpoint,"String file, int line",void,3800
+toggleModActive,toggleModActive,"ChooseGameInfo.Mod mod, boolean active",void,6300
+toggleStatisticsTransmission,toggleStatisticsTransmission,,void,3006
+toggleVehicleRenderToTexture,toggleVehicleRenderToTexture,,void,9108
+toInt,toInt,double val,int,5576
+tradingUISendAddItem,tradingUISendAddItem,"IsoPlayer you, IsoPlayer other, InventoryItem item",void,7971
+tradingUISendRemoveItem,tradingUISendRemoveItem,"IsoPlayer you, IsoPlayer other, InventoryItem item",void,7976
+tradingUISendUpdateState,tradingUISendUpdateState,"IsoPlayer you, IsoPlayer other, TradingState state",void,7981
+transformIntoKahluaTable,transformIntoKahluaTable,"HashMap<Object, Object> map",KahluaTable,4186
+translatePointXInOverheadMapToWindow,translatePointXInOverheadMapToWindow,"float x, UIElement ui, float zoom, float xpos",float,6529
+translatePointXInOverheadMapToWorld,translatePointXInOverheadMapToWorld,"float x, UIElement ui, float zoom, float xpos",float,6541
+translatePointYInOverheadMapToWindow,translatePointYInOverheadMapToWindow,"float y, UIElement ui, float zoom, float ypos",float,6535
+translatePointYInOverheadMapToWorld,translatePointYInOverheadMapToWorld,"float y, UIElement ui, float zoom, float ypos",float,6547
+transmitBigWaterSplash,transmitBigWaterSplash,"int x, int y, float dx, float dy",void,10242
+triggerEvent,triggerEvent,String event,void,4559
+triggerEvent,triggerEvent,"String event, Object param",void,4564
+triggerEvent,triggerEvent,"String event, Object param, Object param2",void,4569
+triggerEvent,triggerEvent,"String event, Object param, Object param2, Object param3",void,4574
+triggerEvent,triggerEvent,"String event, Object param, Object param2, Object param3, Object param4",void,4579
+tryGetTexture,tryGetTexture,String filename,Texture,7084
+typeof,typeof,Object o,String,2891
+updateAccountToAccountList,updateAccountToAccountList,Account account,void,4140
+updateChatSettings,updateChatSettings,"String fontSize, boolean showTimestamp, boolean showTitle",void,9380
+updateFire,updateFire,,void,5295
+updateServerToAccountList,updateServerToAccountList,Server server,void,4125
+useStaticErosionRand,useStaticErosionRand,boolean use,void,9476
+useTextureFiltering,useTextureFiltering,boolean bUse,void,7074
+viewedTicket,viewedTicket,"String author, int ticketID",void,4383
+wasKeyDown,wasKeyDown,int key,boolean,6074
+wasKeyDown,wasKeyDown,String keyName,boolean,6079
+wasKeyDown,wasKeyDown,KeybindId keybindID,boolean,6084
+wasMouseActiveMoreRecentlyThanJoypad,wasMouseActiveMoreRecentlyThanJoypad,,boolean,5480
+writeLog,writeLog,"String loggerName, String logs",void,7626
+ZombRand,ZombRand,double max,double,6030
+ZombRand,ZombRand,"double min, double max",double,6044
+ZombRandBetween,ZombRandBetween,"double min, double max",double,6039
+ZombRandFloat,ZombRandFloat,"float min, float max",float,6049
+zpopClearZombies,zpopClearZombies,"int cellX, int cellY",void,6580
+zpopNewRenderer,zpopNewRenderer,,ZombiePopulationRenderer,6570
+zpopSpawnNow,zpopSpawnNow,"int cellX, int cellY",void,6585
+zpopSpawnTimeToZero,zpopSpawnTimeToZero,"int cellX, int cellY",void,6575

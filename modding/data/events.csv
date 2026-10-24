@@ -1,0 +1,276 @@
+event,registered,reg_index,methods,arg_counts,trigger_classes,sample_args,lua_trigger_files
+OnGameBoot,Y,0,triggerEvent,0,zombie.GameWindow|zombie.core.Core|zombie.gameStates.IngameState|zombie.network.GameServer,,0
+OnPreGameStart,Y,1,,,,,0
+OnTick,Y,2,triggerEvent,1,zombie.gameStates.IngameState,BoxedStaticValues.toDouble(this.numberTicks),0
+OnTickEvenPaused,Y,3,triggerEvent,1,zombie.GameWindow|zombie.gameStates.IngameState,BoxedStaticValues.toDouble(this.numberTicks),0
+OnRenderUpdate,Y,4,,,,,0
+OnFETick,Y,5,triggerEvent,1,zombie.gameStates.MainScreenState,BoxedStaticValues.toDouble(0.0),0
+OnGameStart,Y,6,triggerEvent,0,zombie.gameStates.IngameState,,0
+OnPreUIDraw,Y,7,triggerEvent,0,zombie.ui.UIManager,,0
+OnPostUIDraw,Y,8,triggerEvent,0,zombie.ui.UIManager,,0
+OnCharacterCollide,Y,9,triggerEvent,2,zombie.iso.IsoMovingObject,"this, obj",0
+OnKeyStartPressed,Y,10,triggerEvent,1,zombie.input.GameKeyboard|zombie.ui.UIManager,n,0
+OnKeyPressed,Y,11,triggerEvent,1,zombie.input.GameKeyboard|zombie.ui.UIManager,n,0
+OnContextKey,Y,12,triggerEvent,2,zombie.characters.IsoPlayer,"this, BoxedStaticValues.toDouble(PZMath.fastfloor(this.timePressed",0
+OnObjectCollide,Y,13,triggerEvent,2,zombie.iso.IsoMovingObject,"this, obj",0
+OnNPCSurvivorUpdate,Y,14,,,,,0
+OnPlayerUpdate,Y,15,triggerEvent,1,zombie.characters.IsoPlayer,this,0
+OnZombieUpdate,Y,16,triggerEvent,1,zombie.characters.IsoZombie,this,0
+OnZombieCreate,Y,17,triggerEvent,1,zombie.VirtualZombieManager,zombie,0
+OnTriggerNPCEvent,Y,18,triggerEvent,3,zombie.iso.IsoMetaCell,"tr.type, tr.data, tr.def",0
+OnMultiTriggerNPCEvent,Y,19,triggerEvent,3,zombie.iso.IsoMetaCell,"tr.type, tr.data, tr.def",0
+OnLoadMapZones,Y,20,triggerEvent,0,zombie.iso.IsoWorld,,0
+OnLoadedMapZones,Y,21,triggerEvent,0,zombie.iso.IsoWorld,,0
+OnAddBuilding,Y,22,,,,,0
+OnCreateLivingCharacter,Y,23,triggerEvent|triggerEventGarbage,2,zombie.characters.IsoPlayer|zombie.characters.IsoSurvivor,"this, this.descriptor",0
+OnChallengeQuery,Y,24,,,,,1
+OnClickedAnimalForContext,Y,25,triggerEvent,4,zombie.iso.ISWorldObjectContextMenuLogic,"player, context, clickedAnimals, test",0
+OnFillInventoryObjectContextMenu,Y,26,,,,,1
+OnPreFillInventoryObjectContextMenu,Y,27,,,,,1
+OnFillWorldObjectContextMenu,Y,28,,,,,1
+OnPreFillWorldObjectContextMenu,Y,29,,,,,1
+OnRefreshInventoryWindowContainers,Y,30,,,,,1
+OnGamepadConnect,Y,31,triggerEvent,1,zombie.core.input.Input,controller.getID(),0
+OnGamepadDisconnect,Y,32,triggerEvent,1,zombie.core.input.Input,controller.getID(),0
+OnJoypadActivate,Y,33,triggerEvent,1,zombie.GameWindow|zombie.Lua.LuaManager,joypad.getID(),0
+OnJoypadActivateUI,Y,34,triggerEvent,1,zombie.GameWindow|zombie.Lua.LuaManager,joypad.getID(),0
+OnJoypadBeforeDeactivate,Y,35,triggerEvent,1,zombie.input.JoypadManager,BoxedStaticValues.toDouble(joypad.getID()),0
+OnJoypadDeactivate,Y,36,triggerEvent,1,zombie.input.JoypadManager,BoxedStaticValues.toDouble(joypad.getID()),0
+OnJoypadBeforeReactivate,Y,37,triggerEvent,1,zombie.input.JoypadManager,BoxedStaticValues.toDouble(joypad.getID()),0
+OnJoypadReactivate,Y,38,triggerEvent,1,zombie.input.JoypadManager,BoxedStaticValues.toDouble(joypad.getID()),0
+OnJoypadRenderUI,Y,39,triggerEvent,0,zombie.input.JoypadManager,,0
+OnJoypadDebugRenderUIOptionSet,Y,40,triggerEvent,2,zombie.input.JoypadManager,"debugDrawUI, debugDrawNavigation",0
+OnMakeItem,Y,41,,,,,0
+OnWeaponHitCharacter,Y,42,triggerEvent,4,zombie.characters.IsoGameCharacter,"wielder, this, weapon, damageSplit",0
+OnWeaponSwing,Y,43,triggerEvent,2,zombie.ai.states.SwipeStatePlayer,"player, weapon",0
+OnWeaponHitTree,Y,44,triggerEvent,2,zombie.CombatManager,"owner, weapon",0
+OnWeaponHitXp,Y,45,triggerEvent,5,zombie.CombatManager|zombie.network.fields.hit.WeaponHit,"owner, weapon, hitObject, damageSplit, 1",0
+OnWeaponSwingHitPoint,Y,46,triggerEvent,2,zombie.CombatManager|zombie.network.fields.hit.Player,"owner, weapon",0
+OnPlayerAttackFinished,Y,47,triggerEvent,2,zombie.ai.states.SwipeStatePlayer,"owner, weapon",0
+OnLoginState,Y,48,,,,,0
+OnLoginStateSuccess,Y,49,,,,,0
+OnCharacterCreateStats,Y,50,,,,,0
+OnLoadSoundBanks,Y,51,triggerEvent,0,zombie.GameWindow,,0
+OnObjectLeftMouseButtonDown,Y,52,triggerEvent,3,zombie.ui.UIManager,"picked.tile, BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnObjectLeftMouseButtonUp,Y,53,triggerEvent,3,zombie.ui.UIManager,"picked.tile, BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnObjectRightMouseButtonDown,Y,54,triggerEvent,3,zombie.ui.UIManager,"picked.tile, BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnObjectRightMouseButtonUp,Y,55,triggerEvent,3,zombie.ui.UIManager,"picked.tile, BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnDoTileBuilding,Y,56,,,,,0
+OnDoTileBuilding2,Y,57,triggerEvent,6,zombie.iso.IsoCell,"this.drag[player], bRender, buildX, buildY, buildZ, square",0
+OnDoTileBuilding3,Y,58,triggerEvent,5,zombie.iso.IsoCell,"this.drag[player], bRender, PZMath.fastfloor(IsoPlayer.players[player].getX()), PZMath.fastfloor(IsoPlayer.players[player].getY()), PZMath.fastfloor(IsoCamera.getCameraCharacterZ())",0
+RenderOpaqueObjectsInWorld,Y,59,triggerEvent,5,zombie.iso.fboRenderChunk.FBORenderCell,"playerIndex, buildX, buildY, buildZ, square",0
+OnConnectFailed,Y,60,triggerEvent,1,zombie.core.raknet.UdpEngine|zombie.gameStates.ConnectToServerState|zombie.network.GameClient|zombie.network.packets.KickedPacket|zombie.network.packets.service.AccessDeniedPacket,"Translator.getText(""UI_OnConnectFailed_UnknownHost"")",1
+OnConnected,Y,61,triggerEvent,0,zombie.gameStates.ConnectToServerState,,0
+OnDisconnect,Y,62,triggerEvent,0,zombie.network.GameClient,,0
+OnConnectionStateChanged,Y,63,triggerEvent,1|2|3,zombie.core.raknet.RakNetPeerInterface|zombie.core.raknet.UdpEngine|zombie.gameStates.ConnectToServerState|zombie.network.packets.connection.QueuePacket,"string, message",0
+OnQRReceived,Y,64,triggerEvent,1,zombie.network.packets.connection.GoogleAuthKeyPacket,this.message,0
+OnGoogleAuthRequest,Y,65,triggerEvent,0,zombie.network.packets.connection.GoogleAuthRequestPacket,,0
+OnScoreboardUpdate,Y,66,triggerEvent,4,zombie.network.packets.service.ScoreboardUpdatePacket,"this.usernames, this.displayNames, this.steamIdsString, this.pingValues",0
+OnMouseMove,Y,67,triggerEvent,4,zombie.ui.UIManager,"BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my), BoxedStaticValues.toDouble(mxw), BoxedStaticValues.toDouble(myw)",0
+OnMouseDown,Y,68,triggerEvent,2,zombie.ui.UIManager,"BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnMouseUp,Y,69,triggerEvent,2,zombie.ui.UIManager,"BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnRightMouseDown,Y,70,triggerEvent,2,zombie.ui.UIManager,"BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnRightMouseUp,Y,71,triggerEvent,2,zombie.ui.UIManager,"BoxedStaticValues.toDouble(mx), BoxedStaticValues.toDouble(my)",0
+OnMouseWheel,Y,72,triggerEvent,1,zombie.ui.UIManager,BoxedStaticValues.toDouble(wheel),0
+OnNewSurvivorGroup,Y,73,,,,,0
+OnPlayerSetSafehouse,Y,74,,,,,0
+OnLoad,Y,75,triggerEvent,0,zombie.gameStates.IngameState,,0
+AddXP,Y,76,triggerEventGarbage,3,zombie.characters.IsoGameCharacter,"this.chr, type, amount",0
+LevelPerk,Y,77,triggerEvent|triggerEventGarbage,4,zombie.characters.IsoGameCharacter,"this, perk, info.level, false",0
+LogLevelPerk,Y,78,triggerEvent,4,zombie.characters.IsoGameCharacter,"this.chr, p, level, false",0
+OnSave,Y,79,triggerEvent,0,zombie.GameWindow,,0
+OnMainMenuEnter,Y,80,triggerEvent,0,zombie.core.Core|zombie.gameStates.MainScreenState,,0
+OnGameStateEnter,Y,81,triggerEvent,1,zombie.gameStates.TermsOfServiceState,this,0
+OnPreMapLoad,Y,82,triggerEvent,0,zombie.gameStates.GameLoadingState,,0
+OnPostFloorSquareDraw,Y,83,,,,,0
+OnPostFloorLayerDraw,Y,84,triggerEvent,1,zombie.iso.IsoCell|zombie.network.ServerGUI,zza,0
+OnPostTilesSquareDraw,Y,85,,,,,0
+OnPostTileDraw,Y,86,,,,,0
+OnPostWallSquareDraw,Y,87,,,,,0
+OnPostCharactersSquareDraw,Y,88,,,,,0
+OnCreateUI,Y,89,triggerEvent,0,zombie.ui.UIManager,,0
+OnMapLoadCreateIsoObject,Y,90,,,,,0
+OnCreateSurvivor,Y,91,triggerEvent|triggerEventGarbage,1,zombie.characters.IsoSurvivor,this,0
+OnCreatePlayer,Y,92,triggerEvent,2,zombie.Lua.LuaManager|zombie.gameStates.GameLoadingState|zombie.util.AddCoopPlayer,"0, IsoPlayer.players[0]",0
+OnPlayerDeath,Y,93,triggerEvent,1,zombie.characters.IsoPlayer,this,0
+OnZombieDead,Y,94,triggerEvent,1,zombie.characters.IsoGameCharacter|zombie.characters.IsoZombie,this,0
+OnCharacterDeath,Y,95,triggerEvent,1,zombie.characters.IsoGameCharacter|zombie.characters.animals.IsoAnimal,this,0
+OnCharacterMeet,Y,96,,,,,0
+OnSpawnRegionsLoaded,Y,97,,,,,1
+OnPostMapLoad,Y,98,triggerEvent,3,zombie.iso.CellLoader,"cell, wx, wy",0
+OnAIStateExecute,Y,99,,,,,0
+OnAIStateEnter,Y,100,,,,,0
+OnAIStateExit,Y,101,,,,,0
+OnAIStateChange,Y,102,triggerEvent,3,zombie.ai.StateMachine,"this.getOwner(), this.currentState, this.previousState",0
+OnPlayerMove,Y,103,triggerEvent,1,zombie.characters.IsoPlayer,this,0
+OnInitWorld,Y,104,triggerEvent,0,zombie.iso.IsoWorld,,0
+OnNewGame,Y,105,triggerEvent,2,zombie.Lua.LuaManager|zombie.iso.IsoWorld|zombie.network.packets.character.CreatePlayerPacket,"playerObj, sq",0
+OnIsoThumpableLoad,Y,106,,,,,0
+OnIsoThumpableSave,Y,107,,,,,0
+ReuseGridsquare,Y,108,triggerEvent,1,zombie.iso.IsoChunk,sq,0
+LoadGridsquare,Y,109,triggerEvent,1,zombie.iso.IsoChunk,square,0
+LoadChunk,Y,110,triggerEvent,1,zombie.iso.IsoChunk,this,0
+EveryOneMinute,Y,111,triggerEvent,0,zombie.GameTime,,0
+EveryTenMinutes,Y,112,triggerEvent,0,zombie.GameTime,,0
+EveryDays,Y,113,triggerEvent,0,zombie.GameTime,,0
+EveryHours,Y,114,triggerEvent,0,zombie.GameTime,,0
+OnDusk,Y,115,,,,,1
+OnDawn,Y,116,,,,,1
+OnEquipPrimary,Y,117,triggerEvent,2,zombie.characters.IsoGameCharacter,"this, leftHandItem",0
+OnEquipSecondary,Y,118,triggerEvent,2,zombie.characters.IsoGameCharacter,"this, rightHandItem",0
+OnClothingUpdated,Y,119,triggerEvent,1,zombie.characters.IsoGameCharacter|zombie.core.Transaction|zombie.inventory.types.Clothing|zombie.network.GameClient|zombie.network.packets.SyncClothingPacket|zombie.network.packets.ZombieHelmetFallingPacket,this,13
+OnWeatherPeriodStart,Y,120,triggerEvent,1,zombie.iso.weather.WeatherPeriod,this,0
+OnWeatherPeriodStage,Y,121,triggerEvent,1,zombie.iso.weather.WeatherPeriod,this,0
+OnWeatherPeriodComplete,Y,122,triggerEvent,1,zombie.iso.weather.WeatherPeriod,this,0
+OnWeatherPeriodStop,Y,123,triggerEvent,1,zombie.iso.weather.WeatherPeriod,this,0
+OnRainStart,Y,124,,,,,0
+OnRainStop,Y,125,triggerEvent,0,zombie.iso.objects.RainManager,,0
+OnAmbientSound,Y,126,triggerEvent,3,zombie.AmbientSoundManager|zombie.AmbientStreamManager,"name, x, y",0
+OnWorldSound,Y,127,triggerEvent,6,zombie.WorldSoundManager,"x, y, z, radius, volume, source",0
+OnResetLua,Y,128,triggerEvent,1,zombie.core.Core,reason,0
+OnModsModified,Y,129,triggerEvent,0,zombie.ZomboidFileSystem,,0
+OnSeeNewRoom,Y,130,triggerEvent,1,zombie.iso.IsoCell,room,0
+OnNewFire,Y,131,triggerEvent,1,zombie.iso.objects.IsoFire,this,0
+OnFillContainer,Y,132,triggerEvent,3,zombie.Lua.LuaManager|zombie.inventory.ItemPickerJava|zombie.inventory.ItemSpawner|zombie.iso.IsoChunk|zombie.vehicles.BaseVehicle,"roomName, container.getType(), container",0
+OnChangeWeather,Y,133,,,,,1
+OnRenderTick,Y,134,triggerEvent,0,zombie.GameWindow,,0
+OnDestroyIsoThumpable,Y,135,triggerEvent,2,zombie.iso.objects.IsoThumpable,"this, null",0
+OnPostSave,Y,136,triggerEvent,0,zombie.GameWindow|zombie.gameStates.IngameState,,0
+OnResolutionChange,Y,137,triggerEvent,4,zombie.core.Core,"oldWidth, oldHeight, width, height",0
+OnWaterAmountChange,Y,138,triggerEvent,2,zombie.iso.IsoObject|zombie.iso.objects.IsoWorldInventoryObject|zombie.network.packets.ObjectModDataPacket,"this, old",0
+OnClientCommand,Y,139,triggerEvent,4,zombie.Lua.LuaManager|zombie.network.GameServer|zombie.spnetwork.SinglePlayerServer,"module, command, player, args",0
+OnServerCommand,Y,140,triggerEvent,3,zombie.network.GameClient|zombie.spnetwork.SinglePlayerClient,"module, command, tbl",0
+OnProcessTransaction,Y,141,triggerEvent,6,zombie.core.Transaction,"""scrapMoveable"", this.playerId.getPlayer(), null, entry.sourceId, entry.destinationId, null",0
+OnProcessAction,Y,142,triggerEvent,3,zombie.core.BuildAction,"""build"", this.playerId.getPlayer(), this.argTable",0
+OnContainerUpdate,Y,143,triggerEvent,0|1,zombie.characters.IsoGameCharacter|zombie.characters.IsoPlayer|zombie.inventory.InventoryItem|zombie.inventory.types.Clothing|zombie.inventory.types.Food|zombie.iso.IsoGridSquare|zombie.iso.IsoObject|zombie.iso.objects.IsoCombinationWasherDryer|zombie.iso.objects.IsoCurtain|zombie.iso.objects.IsoDeadBody|zombie.iso.objects.IsoDoor|zombie.iso.objects.IsoFallingClothing|zombie.iso.objects.IsoFeedingTrough|zombie.iso.objects.IsoThumpable|zombie.iso.objects.IsoTree|zombie.iso.objects.IsoWindow|zombie.iso.objects.IsoWorldInventoryObject|zombie.network.fields.vehicle.VehiclePartDoor|zombie.network.fields.vehicle.VehiclePartItem|zombie.network.packets.AddItemToMapPacket|zombie.network.packets.RemoveItemFromSquarePacket|zombie.network.packets.SyncItemFieldsPacket|zombie.network.packets.service.ReceiveContainerModDataPacket|zombie.vehicles.BaseVehicle,,7
+OnObjectAdded,Y,144,triggerEvent,1,zombie.network.packets.AddItemToMapPacket,this.obj,6
+OnObjectAboutToBeRemoved,Y,145,triggerEvent,1,zombie.iso.IsoGridSquare|zombie.network.packets.RemoveItemFromSquarePacket,obj,1
+onLoadModDataFromServer,Y,146,triggerEvent,1,zombie.network.packets.service.ReceiveModDataPacket,this.sq,0
+OnGameTimeLoaded,Y,147,triggerEvent,0,zombie.gameStates.GameLoadingState|zombie.network.GameServer|zombie.network.packets.connection.ConnectedPacket,,0
+OnCGlobalObjectSystemInit,Y,148,triggerEvent,0,zombie.globalObjects.CGlobalObjects,,0
+OnSGlobalObjectSystemInit,Y,149,triggerEvent,0,zombie.globalObjects.SGlobalObjects|zombie.iso.WorldConverter,,0
+OnWorldMessage,Y,150,,,,,0
+OnKeyKeepPressed,Y,151,triggerEvent,1,zombie.input.GameKeyboard|zombie.ui.UIManager,n,0
+SendCustomModData,Y,152,triggerEvent,0,zombie.network.packets.GetModDataPacket,,0
+ServerPinged,Y,153,triggerEvent,2,zombie.network.GameClient,"ip, users",0
+OnServerStarted,Y,154,triggerEvent,0,zombie.network.GameServer,,0
+OnLoadedTileDefinitions,Y,155,triggerEvent,1,zombie.iso.IsoWorld,spriteManager,0
+OnPostRender,Y,156,triggerEvent,0,zombie.gameStates.IngameState,,0
+DoSpecialTooltip,Y,157,triggerEvent,2,zombie.iso.IsoObject,"tooltipUI, square",0
+OnCoopJoinFailed,Y,158,triggerEvent,1,zombie.util.AddCoopPlayer,playerIndex,0
+OnServerWorkshopItems,Y,159,triggerEvent,1|2|3|4,zombie.gameStates.ConnectToServerState,"""Required"", itemIDstr",0
+OnVehicleDamageTexture,Y,160,triggerEvent,1,zombie.vehicles.VehiclePart,this.getOwner().getDriverRegardlessOfTow(),0
+OnCustomUIKey,Y,161,triggerEvent,1,zombie.input.GameKeyboard,n,0
+OnCustomUIKeyPressed,Y,162,triggerEvent,1,zombie.input.GameKeyboard,n,0
+OnCustomUIKeyReleased,Y,163,triggerEvent,1,zombie.input.GameKeyboard,n,0
+OnTileObjectAdded,Y,164,triggerEvent,2,zombie.network.packets.AddObjectToMapPacket,"this.square.getSquare(), this.spriteName",0
+OnDeviceText,Y,165,triggerEvent,7,zombie.inventory.types.Radio|zombie.iso.objects.IsoWaveSignal|zombie.radio.ZomboidRadio|zombie.radio.devices.DeviceData|zombie.radio.devices.WaveSignalDevice|zombie.vehicles.VehiclePart,"guid, codes, -1, -1, -1, line, this",0
+OnRadioInteraction,Y,166,,,,,0
+OnLoadRadioScripts,Y,167,triggerEvent,2,zombie.radio.ZomboidRadio,"this.scriptManager, savedWorldVersion == -1",0
+OnAcceptInvite,Y,168,triggerEvent,1,zombie.core.znet.CallbackManager,connectionString,0
+OnCoopServerMessage,Y,169,triggerEvent,3,zombie.network.CoopMaster,"tag, cookie, payload",0
+OnReceiveUserlog,Y,170,triggerEvent,3,zombie.network.packets.service.RequestUserLogPacket,"this.username, this.userLog, null",0
+OnAdminMessage,Y,171,triggerEvent,4,zombie.network.packets.MessageForAdminPacket,"this.message, this.x, this.y, this.z",0
+ReceiveFactionInvite,Y,172,triggerEvent,3,zombie.network.packets.faction.FactionInvitePacket,"this.getFaction(), this.invite.getHost(), this.invite.getUsername()",0
+AcceptedFactionInvite,Y,173,triggerEvent,2,zombie.network.packets.faction.FactionAcceptPacket,"this.getFaction().getName(), this.invite.getHost()",0
+ReceiveSafehouseInvite,Y,174,triggerEvent,3,zombie.network.packets.safehouse.SafehouseInvitePacket,"this.getSafehouse(), this.getOwner(), this.getUsername()",0
+AcceptedSafehouseInvite,Y,175,triggerEvent,2,zombie.network.packets.safehouse.SafehouseAcceptPacket,"this.getSafehouse().getTitle(), this.getOwner()",0
+ViewTickets,Y,176,triggerEvent,1,zombie.network.packets.ViewTicketsPacket,result,0
+ViewBannedIPs,Y,177,triggerEvent,1,zombie.network.GameClient,result,0
+ViewBannedSteamIDs,Y,178,triggerEvent,1,zombie.network.GameClient,result,0
+SyncFaction,Y,179,triggerEvent,1,zombie.network.packets.faction.FactionChangeTitlePacket|zombie.network.packets.faction.FactionDisbandPacket|zombie.network.packets.faction.FactionStatsPacket|zombie.network.packets.faction.FactionSyncPacket,this.title,0
+SyncFactionServer,Y,180,,,,,0
+RefreshCheats,Y,181,triggerEvent,0,zombie.network.packets.ExtraInfoPacket,,0
+OnReceiveItemListNet,Y,182,triggerEvent,5,zombie.network.GameClient|zombie.network.GameServer,"sender, items, receiver, sessionID, custom",0
+OnMiniScoreboardUpdate,Y,183,triggerEvent,0,zombie.characters.IsoPlayer|zombie.network.GameClient|zombie.network.packets.connection.ConnectedPacket,,0
+OnSafehousesChanged,Y,184,triggerEvent,0,zombie.iso.areas.SafeHouse|zombie.network.packets.safehouse.SafehouseSyncPacket,,0
+OnWarUpdate,Y,185,triggerEvent,0,zombie.network.packets.WarSyncPacket,,0
+RequestTrade,Y,186,triggerEvent,2,zombie.network.packets.RequestTradingPacket,"this.playerA.getPlayer(), this.playerB.getPlayer()",0
+AcceptedTrade,Y,187,triggerEvent,3,zombie.network.packets.RequestTradingPacket,"this.playerA.getPlayer(), this.playerB.getPlayer(), this.type == RequestTradingPacket.RequestType.Accept",0
+RequestMedicalCheck,Y,188,triggerEvent,2,zombie.Lua.LuaManager|zombie.network.packets.RequestMedicalCheckPacket,"target, requester",0
+AcceptedMedicalCheck,Y,189,triggerEvent,2,zombie.Lua.LuaManager|zombie.network.packets.RequestMedicalCheckPacket,"target, requester",0
+TradingUIAddItem,Y,190,triggerEvent,3,zombie.network.packets.TradingUIAddItemPacket,"this.playerA.getPlayer(), this.playerB.getPlayer(), this.item",0
+TradingUIRemoveItem,Y,191,triggerEvent,3,zombie.network.packets.TradingUIRemoveItemPacket,"this.playerA.getPlayer(), this.playerB.getPlayer(), this.itemId",0
+TradingUIUpdateState,Y,192,triggerEvent,3,zombie.network.packets.TradingUIUpdateStatePacket,"this.playerA.getPlayer(), this.playerB.getPlayer(), this.state",0
+OnGridBurnt,Y,193,triggerEvent,1,zombie.iso.IsoGridSquare,this,0
+OnPreDistributionMerge,Y,194,triggerEvent,0,zombie.iso.IsoWorld,,0
+OnDistributionMerge,Y,195,triggerEvent,0,zombie.iso.IsoWorld,,0
+OnPostDistributionMerge,Y,196,triggerEvent,0,zombie.iso.IsoWorld,,0
+MngInvReceiveItems,Y,197,triggerEvent,1,zombie.network.packets.service.PlayerInventoryPacket,result,0
+OnTileRemoved,Y,198,triggerEvent,1,zombie.iso.IsoGridSquare,obj,0
+OnServerStartSaving,Y,199,triggerEvent,0,zombie.network.packets.service.StartPausePacket,,0
+OnServerFinishSaving,Y,200,triggerEvent,0,zombie.network.packets.service.StopPausePacket,,0
+OnMechanicActionDone,Y,201,triggerEvent,2,zombie.characters.IsoGameCharacter,"this, success",0
+OnClimateTick,Y,202,triggerEvent,1,zombie.iso.weather.ClimateManager,this,0
+OnThunderEvent,Y,203,triggerEvent,5,zombie.iso.weather.ThunderStorm,"x, y, doStrike, doLightning, doRumble",0
+OnEnterVehicle,Y,204,triggerEvent,1,zombie.iso.IsoCell|zombie.vehicles.BaseVehicle,chr,1
+OnSteamGameJoin,Y,205,triggerEvent,0,zombie.core.znet.SteamUtils,,0
+OnTabAdded,Y,206,triggerEvent,2,zombie.chat.ChatManager,"newTab.getTitle(), newTab.getID()",0
+OnSetDefaultTab,Y,207,triggerEvent,1,zombie.chat.ChatManager,this.tabs.get(0).getTitle(),0
+OnTabRemoved,Y,208,triggerEvent,2,zombie.chat.ChatManager,"tab.getTitle(), tab.getID()",0
+OnAddMessage,Y,209,triggerEvent,2,zombie.chat.ChatBase|zombie.chat.defaultChats.RadioChat|zombie.chat.defaultChats.ServerChat,"msg, this.getTabID()",0
+SwitchChatStream,Y,210,triggerEvent,0,zombie.core.Core,,0
+OnChatWindowInit,Y,211,triggerEvent,0,zombie.chat.ChatManager,,0
+OnAlertMessage,Y,212,triggerEvent,2,zombie.chat.defaultChats.ServerChat,"msg, this.getTabID()",0
+OnInitSeasons,Y,213,triggerEvent,1,zombie.erosion.ErosionMain,this.season,0
+OnClimateTickDebug,Y,214,triggerEvent,1,zombie.iso.weather.ClimateManager,this,0
+OnInitModdedWeatherStage,Y,215,triggerEvent,3,zombie.iso.weather.WeatherPeriod,"this, stage, this.frontCache.getStrength()",0
+OnUpdateModdedWeatherStage,Y,216,triggerEvent,3,zombie.iso.weather.WeatherPeriod,"this, this.currentStage, this.frontCache.getStrength()",0
+OnClimateManagerInit,Y,217,triggerEvent,1,zombie.iso.weather.ClimateManager,this,0
+OnPressReloadButton,Y,218,triggerEvent,2,zombie.characters.IsoPlayer,"this, weapon",0
+OnPressRackButton,Y,219,triggerEvent,3,zombie.characters.IsoPlayer,"this, weapon, characterInputComponent.isShiftKeyDown()",0
+OnPressWalkTo,Y,220,triggerEvent,3,zombie.characters.IsoPlayer,"0, 0, 0",0
+OnHitZombie,Y,221,triggerEvent,4,zombie.characters.IsoZombie,"this, wielder, bodyPart, weapon",0
+OnBeingHitByZombie,Y,222,,,,,0
+OnServerStatisticReceived,Y,223,,,,,0
+OnDynamicMovableRecipe,Y,224,triggerEvent,4,zombie.inventory.RecipeManager,"moveable.getWorldSprite(), recipe, item, chr",0
+OnInitGlobalModData,Y,225,triggerEvent,1,zombie.world.moddata.GlobalModData,WorldDictionary.isIsNewGame(),0
+OnReceiveGlobalModData,Y,226,triggerEvent,2,zombie.network.packets.service.GlobalModDataPacket,"tag, false",0
+OnInitRecordedMedia,Y,227,triggerEvent,1,zombie.radio.media.RecordedMedia,this,0
+onUpdateIcon,Y,228,,,,,4
+preAddForageDefs,Y,229,,,,,1
+preAddSkillDefs,Y,230,,,,,1
+preAddZoneDefs,Y,231,,,,,1
+preAddCatDefs,Y,232,,,,,1
+preAddItemDefs,Y,233,,,,,1
+onAddForageDefs,Y,234,,,,,1
+onFillSearchIconContextMenu,Y,235,,,,,1
+onItemFall,Y,236,triggerEvent,1,zombie.characters.IsoGameCharacter,item1,0
+OnTemplateTextInit,Y,237,triggerEvent,0,zombie.text.templating.TemplateText,,0
+OnPlayerGetDamage,Y,238,triggerEvent,3,zombie.characters.BodyDamage.BodyDamage|zombie.characters.BodyDamage.BodyPart|zombie.characters.BodyDamage.Nutrition|zombie.characters.IsoGameCharacter|zombie.characters.IsoPlayer|zombie.vehicles.BaseVehicle,"this.parentChar, ""POISON"", poisonDamage",0
+OnWeaponHitThumpable,Y,239,triggerEvent,3,zombie.iso.objects.IsoBarricade|zombie.iso.objects.IsoCompost|zombie.iso.objects.IsoDoor|zombie.iso.objects.IsoThumpable|zombie.iso.objects.IsoWindow,"owner, weapon, this",0
+OnFishingActionMPUpdate,Y,240,triggerEvent,1,zombie.network.packets.FishingActionPacket,this.getLuaTable(),0
+OnThrowableExplode,Y,241,triggerEvent,2,zombie.iso.objects.IsoTrap,"this, this.square",0
+OnSourceWindowFileReload,Y,242,,,,,1
+OnSpawnVehicleStart,Y,243,triggerEvent,1,zombie.vehicles.BaseVehicle,this,0
+OnSpawnVehicleEnd,Y,244,triggerEvent,1,zombie.vehicles.BaseVehicle,this,0
+OnMovingObjectCrop,Y,245,,,,,0
+OnOverrideSearchManager,Y,246,,,,,0
+OnSleepingTick,Y,247,triggerEvent,2,zombie.gameStates.IngameState,"BoxedStaticValues.toDouble(i), BoxedStaticValues.toDouble(hours)",0
+OnRolesReceived,Y,248,triggerEvent,0,zombie.network.packets.RolesPacket,,0
+OnNetworkUsersReceived,Y,249,triggerEvent,0,zombie.network.packets.NetworkUsersPacket,,0
+OnServerCustomizationDataReceived,Y,250,,,,,0
+OnDeadBodySpawn,Y,251,triggerEvent,1,zombie.iso.objects.IsoDeadBody,this,0
+OnAnimalTracks,Y,252,triggerEvent,2,zombie.network.packets.character.AnimalTracksPacket,"this.player.getPlayer(), this.tracks",0
+OnItemFound,Y,253,triggerEvent,3,zombie.Lua.LuaManager|zombie.network.packets.character.ForageItemFoundPacket,"player, type, distanceTraveled",0
+SetDragItem,Y,254,triggerEvent,2,zombie.iso.IsoCell,"draggingItem, player",0
+OnSteamServerResponded,Y,255,triggerEvent,1,zombie.core.znet.ServerBrowser,serverIndex,0
+OnSteamServerResponded2,Y,256,triggerEvent,3,zombie.core.znet.ServerBrowser,"host, (double)port, newServer",0
+OnSteamServerFailedToRespond2,Y,257,triggerEvent,2,zombie.core.znet.ServerBrowser,"host, (double)port",0
+OnSteamRulesRefreshComplete,Y,258,triggerEvent,3,zombie.core.znet.ServerBrowser,"host, (double)port, rulesTable",0
+OnSteamRefreshInternetServers,Y,259,triggerEvent,0,zombie.core.znet.ServerBrowser,,0
+OptionControllerButtonStyleChanged,Y,260,triggerEvent,1,zombie.core.Core,this.getOptionControllerButtonStyleString(),0
+OptionGamepadBindingPresetChanged,Y,261,triggerEvent,1,zombie.core.Core,this.getOptionGamepadBindingPreset(),0
+GrappleGrabCollisionCheck,N,,triggerEvent,2,zombie.ai.states.SwipeStatePlayer,"owner, weapon",0
+GrapplerLetGo,N,,triggerEvent,2,zombie.characters.IsoGameCharacter,"owner, grappleResult",0
+OnDesignationZoneUpdatedNetwork,N,,triggerEvent,0,zombie.network.packets.SyncZonePacket,,0
+OnExitVehicle,N,,triggerEvent,1,zombie.characters.IsoGameCharacter|zombie.network.packets.TeleportPacket,this,1
+OnForagePool,N,,triggerEvent,3,zombie.network.packets.foraging.ForagePoolPacket,"this.player.getPlayer(), this.zoneId, this.icons",0
+OnForageRequestZone,N,,triggerEvent,2,zombie.network.packets.foraging.ForageRequestZonePacket,"this.player.getPlayer(), this.focus",0
+OnForageSpot,N,,triggerEvent,2,zombie.network.packets.foraging.ForageSpotPacket,"this.player.getPlayer(), this.iconID",0
+OnSteamFriendStatusChanged,N,,triggerEvent,1,zombie.core.znet.SteamFriends,Long.toString(steamID),0
+OnSteamWorkshopItemCreated,N,,triggerEvent,2,zombie.core.znet.SteamWorkshop,"SteamUtils.convertSteamIDToString(itemID), bUserNeedsToAcceptWorkshopLegalAgreement",1
+OnSteamWorkshopItemNotCreated,N,,triggerEvent,1,zombie.core.znet.SteamWorkshop,result,0
+OnSteamWorkshopItemNotUpdated,N,,triggerEvent,1,zombie.core.znet.SteamWorkshop,result,0
+OnSteamWorkshopItemUpdated,N,,triggerEvent,1,zombie.core.znet.SteamWorkshop,bUserNeedsToAcceptWorkshopLegalAgreement,1
+OnUseVehicle,N,,triggerEvent,2,zombie.characters.IsoPlayer,"this, vehicle",0
