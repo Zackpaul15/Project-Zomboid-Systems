@@ -81,12 +81,80 @@ def ui(game):
     print("X5 UI files:", dict(counts), "derive declarations:", len(rows))
 
 
+def role(side, path):
+    parts = path.split("/")
+    folder = parts[1] if len(parts) > 2 else "<root>"
+    labels = {
+        "TimedActions": "Timed-action class or queue helper",
+        "ISUI": "UI widget or interface helper", "OptionScreens": "Menu/options interface module",
+        "DebugUIs": "Debug interface module", "Definitions": "Definition-table module",
+        "BuildingObjects": "Building-object implementation or helper",
+        "BuildingRooms": "Room-construction helper", "Vehicles": "Vehicle-system module",
+        "Farming": "Farming-system module", "Fishing": "Fishing-system module",
+        "Foraging": "Foraging-system module", "Items": "Item creation or distribution helper",
+        "Entity": "Entity-system module", "WorldGen": "World-generation module",
+        "Camping": "Camping-system module", "Traps": "Trapping-system module",
+    }
+    return labels.get(folder, side.capitalize() + " " + folder + " module") + ": " + Path(path).stem
+
+
+def library(game):
+    index, derives, folders = [], [], Counter()
+    methods, declared_methods = [], []
+    for side, path, text, code in files(game):
+        globals_seen = set()
+        # Candidates at column zero, not a full Lua scope analysis. Comments and
+        # strings have been masked, while function bodies are never exported.
+        for pattern in (r"(?m)^([A-Za-z_][\w.]*)\s*=(?!=)",
+                        r"(?m)^function\s+([A-Za-z_][\w.:]*)\s*\("):
+            for m in re.finditer(pattern, code):
+                globals_seen.add(re.split(r"[.:]", m[1])[0])
+        local_names = set()
+        for match in re.finditer(r"\blocal\s+(?:function\s+)?([A-Za-z_]\w*(?:\s*,\s*[A-Za-z_]\w*)*)", code):
+            local_names.update(name.strip() for name in match[1].split(","))
+        globals_seen -= local_names | {"self"}
+        index.append((side, path, ";".join(sorted(globals_seen)), role(side, path)))
+        parts = path.split("/")
+        folders[side, parts[1] if len(parts) > 2 else "<root>"] += 1
+        for m in DERIVE.finditer(text):
+            if code[m.start(1):m.end(1)].strip():
+                derives.append((side, path, m[2], m[1]))
+        declared_methods.extend((m[1], m[2], path) for m in re.finditer(
+            r"(?m)^function\s+([A-Za-z_][\w.]*):([A-Za-z_]\w*)\s*\(", code))
+        if path == "shared/TimedActions/ISBaseTimedAction.lua":
+            methods.extend((m[1], path) for m in re.finditer(
+                r"(?m)^function\s+ISBaseTimedAction:([A-Za-z_]\w*)\s*\(", code))
+    if not index:
+        raise ValueError("No Lua files found; check --game")
+    path = ROOT / "lua-library/index.csv"
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow(["side", "path", "main_globals", "one_line_role"])
+        writer.writerows(sorted(index))
+    write("lua-folder-inventory.csv", ["side", "folder", "lua_files"],
+          [(*key, count) for key, count in sorted(folders.items())])
+    actions = {"ISBaseTimedAction"}
+    while True:
+        expanded = actions | {child for side, path, parent, child in derives if parent in actions}
+        if expanded == actions:
+            break
+        actions = expanded
+    action_rows = [row for row in derives if row[2] in actions]
+    write("timed-action-inheritance.csv", ["side", "path", "parent", "child"], sorted(action_rows))
+    write("base-timed-action-methods.csv", ["method", "path"], sorted(methods))
+    hooks = Counter(method for cls, method, path in declared_methods if cls in actions)
+    write("timed-action-hooks.csv", ["method", "files", "declarations"],
+          [(method, len({path for cls, name, path in declared_methods if cls in actions and name == method}), count)
+           for method, count in sorted(hooks.items())])
+    print("X6 files:", dict(Counter(row[0] for row in index)), "timed-action declarations:", len(action_rows))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("section", choices=["ui"])
+    ap.add_argument("section", choices=["ui", "library"])
     ap.add_argument("--game", type=Path, default=GAME)
     args = ap.parse_args()
-    ui(args.game)
+    {"ui": ui, "library": library}[args.section](args.game)
 
 
 if __name__ == "__main__":
