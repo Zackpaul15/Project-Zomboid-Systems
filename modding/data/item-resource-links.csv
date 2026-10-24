@@ -1,0 +1,7 @@
+property_or_identifier,occurrences,matched,match_kind
+StaticModel,1559,1559,exact identifier match to model block
+WorldStaticModel,3844,3844,exact identifier match to model block
+SwingSound,408,408,exact identifier match to sound block
+CookingSound,203,203,exact identifier match to sound block
+ClothingItem,1580,1580,exact XML filename stem match
+<module>.<item>,5105,4900,exact EN/ItemName.json key match

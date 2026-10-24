@@ -1,0 +1,16 @@
+item_type,item_blocks,exclusive_properties
+base:alarmclock,2,0
+base:alarmclockclothing,16,0
+base:animal,1,0
+base:clothing,1395,18
+base:container,308,8
+base:drainable,150,11
+base:food,722,22
+base:key,6,5
+base:literature,561,9
+base:map,15,1
+base:moveable,393,0
+base:normal,1099,30
+base:radio,17,12
+base:weapon,409,116
+base:weaponpart,11,12

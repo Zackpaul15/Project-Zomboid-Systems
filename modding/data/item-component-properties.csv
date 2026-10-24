@@ -1,0 +1,15 @@
+block_path,property,count,types_seen_on,value_shape,example_shape
+component:ContextMenuConfig/contextEntry,customFunction,1,base:normal,string,<text-or-identifier>
+component:ContextMenuConfig/contextEntry,menu,1,base:normal,string,<text-or-identifier>
+component:Durability,Material,5,base:normal,string,<text-or-identifier>
+component:Durability,MaxHitPoints,5,base:normal,float,<decimal>
+component:FluidContainer,Capacity,133,base:clothing;base:container;base:normal;base:weapon,float,<decimal>
+component:FluidContainer,ContainerName,133,base:clothing;base:container;base:normal;base:weapon,string,<text-or-identifier>
+component:FluidContainer,CustomDrinkSound,102,base:clothing;base:normal,string,<text-or-identifier>
+component:FluidContainer,InitialPercentMax,14,base:clothing;base:container;base:normal,float,<decimal>
+component:FluidContainer,InitialPercentMin,14,base:clothing;base:container;base:normal,float,<decimal>
+component:FluidContainer,Opened,5,base:normal,bool,true|false
+component:FluidContainer,PickRandomFluid,9,base:normal,bool,true|false
+component:FluidContainer,RainFactor,45,base:normal;base:weapon,float,<decimal>
+component:FluidContainer,TransferRate,15,base:normal;base:weapon,float,<decimal>
+component:FluidContainer/Fluids,fluid,149,base:clothing;base:container;base:normal,string,<text-or-identifier>
