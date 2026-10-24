@@ -149,12 +149,57 @@ def library(game):
     print("X6 files:", dict(Counter(row[0] for row in index)), "timed-action declarations:", len(action_rows))
 
 
+def events(game):
+    subscriptions, triggers, fields = [], [], []
+    selected = {
+        "server/Items/Distributions.lua", "server/Items/ProceduralDistributions.lua",
+        "server/Items/SuburbsDistributions.lua", "server/Vehicles/VehicleDistributions.lua",
+        "shared/Definitions/ClothingSelectionDefinitions.lua", "shared/Definitions/DefaultClothing.lua",
+        "shared/Definitions/TraitClothingSelectionDefinitions.lua",
+    }
+    field_names = ("rolls", "items", "junk", "procedural", "procList", "name", "min", "max",
+                   "weightChance", "forceForTiles", "chance", "hue", "texture", "tint")
+    for side, path, text, code in files(game):
+        subscriptions.extend((m[1], path, side) for m in re.finditer(
+            r"\bEvents\s*\.\s*([A-Za-z_]\w*)\s*\.\s*Add\s*\(", code))
+        for m in re.finditer(r'''\btriggerEvent\s*\(\s*["']([^"']+)["']''', text):
+            if code[m.start():m.start() + len("triggerEvent")].strip():
+                triggers.append((m[1], path, side))
+        if path not in selected:
+            continue
+        for key in field_names:
+            count = len(re.findall(r"\b" + re.escape(key) + r"\s*=(?!=)", code))
+            if count:
+                fields.append((path, key, count))
+    write("vanilla-event-subscriptions.csv", ["event", "file", "side"], sorted(subscriptions))
+    write("vanilla-lua-event-triggers.csv", ["event", "file", "side"], sorted(triggers))
+    write("distribution-fields.csv", ["file", "field", "assignment_occurrences"], sorted(fields))
+    counts = Counter(row[0] for row in subscriptions)
+    trigger_counts = Counter(row[0] for row in triggers)
+    with (ROOT / "data/events.csv").open(encoding="utf-8", newline="") as f:
+        catalogue = {r["event"]: r for r in csv.DictReader(f)}
+    rows = []
+    for name in sorted(catalogue.keys() | counts.keys()):
+        row = catalogue.get(name, {})
+        rows.append((name, counts[name], len({path for event, path, side in subscriptions if event == name}),
+                     row.get("registered", "not-in-catalogue"),
+                     "yes" if row.get("trigger_classes") else "no-static-site-in-catalogue",
+                     row.get("lua_trigger_files", "unknown"), trigger_counts[name]))
+    write("vanilla-event-comparison.csv", ["event", "subscription_occurrences", "subscription_files",
+          "registered", "java_trigger_found", "lua_trigger_files_from_catalogue", "vanilla_lua_literal_trigger_sites"], rows)
+    print("X7 subscription occurrences:", len(subscriptions), "event names:", len(counts),
+          "files:", len({r[1] for r in subscriptions}), "sides:", dict(Counter(r[2] for r in subscriptions)))
+    print("Registered without subscriptions:", sum(r[3] == "Y" and r[1] == 0 for r in rows))
+    print("Subscribed without static Java trigger:", [r[0] for r in rows if r[1] and r[4] != "yes"])
+    print("Subscribed outside Java event catalogue:", sorted(counts.keys() - catalogue.keys()))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("section", choices=["ui", "library"])
+    ap.add_argument("section", choices=["ui", "library", "events"])
     ap.add_argument("--game", type=Path, default=GAME)
     args = ap.parse_args()
-    {"ui": ui, "library": library}[args.section](args.game)
+    {"ui": ui, "library": library, "events": events}[args.section](args.game)
 
 
 if __name__ == "__main__":
