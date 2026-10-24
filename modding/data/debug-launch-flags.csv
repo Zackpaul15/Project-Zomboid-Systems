@@ -1,0 +1,10 @@
+source,flag,literal_occurrences
+engine/MainScreenState.java,-debug,1
+engine/MainScreenState.java,-debuglog=,2
+engine/MainScreenState.java,-debugLogFile=,3
+engine/MainScreenState.java,-debugtranslation,1
+engine/MainScreenState.java,-cachedir=,3
+engine/MainScreenState.java,-imgui,1
+engine/MainScreenState.java,-imguidebugviewports,1
+engine/MainScreenState.java,-debugcfg=,2
+ProjectZomboidOpenGLDebug64.bat,-debuglog=,1
