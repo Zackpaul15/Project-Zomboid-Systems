@@ -26,13 +26,15 @@ Reads SCOPE.md (work-package tables) and HANDOFF.md (progress log); writes nothi
 """
 import argparse
 import csv
+import io
 import os
 import re
 import subprocess
 import sys
 import tempfile
 import time
-from contextlib import contextmanager
+import uuid
+from contextlib import contextmanager, redirect_stdout
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -418,34 +420,83 @@ def cmd_gates(args):
 
 # ---------------------------------------------------------------- commit (shared index)
 
-def git_retry(*args, tries=8):
-    """git(), retrying with backoff while another process holds .git/index.lock."""
+def git_retry(*args, tries=8, fatal=True):
+    """git(), retrying with backoff while another process holds .git/index.lock.
+    On final failure: exit (fatal) or return the failed result (fatal=False) so the caller can report it."""
     delay = 0.1
     for attempt in range(tries):
         r = git(*args, check=False)
         if r.returncode == 0:
             return r
         if "index.lock" not in r.stderr or attempt == tries - 1:
+            if not fatal:
+                return r
             sys.exit("git %s failed: %s" % (" ".join(args), r.stderr.strip()))
         time.sleep(delay)
         delay = min(delay * 1.6, 2.0)
 
 
+def pid_alive(pid):
+    """True unless `pid` provably does not exist. Injectable (module global) so tests need no real processes."""
+    if pid <= 0:
+        return False
+    if sys.platform == "win32":
+        import ctypes  # os.kill(pid, 0) would TerminateProcess on Windows, so query the handle instead
+        k32 = ctypes.windll.kernel32
+        h = k32.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+        if not h:
+            return k32.GetLastError() == 5  # access denied -> exists
+        try:
+            code = ctypes.c_ulong()
+            return bool(k32.GetExitCodeProcess(h, ctypes.byref(code))) and code.value == 259  # STILL_ACTIVE
+        finally:
+            k32.CloseHandle(h)
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    except OSError:
+        return True
+    return True
+
+
+def _read_lock(lock_path):
+    """(pid, token) from a lock file, or None when unreadable / not in `pid token` form."""
+    try:
+        parts = Path(lock_path).read_text().split()
+        return int(parts[0]), parts[1]
+    except (OSError, ValueError, IndexError):
+        return None
+
+
 @contextmanager
 def commit_lock(lock_path=None, timeout=30.0, stale=300.0):
-    """Exclusive lockfile (O_EXCL) so only one collab.py stages/commits at a time. Stale locks are broken."""
+    """Exclusive lockfile (O_EXCL) so only one collab.py stages/commits at a time.
+    The file holds `<pid> <token>`. A lock is broken only when its owner pid is provably dead (pid_alive);
+    age alone never breaks it (a slow hook is not a dead owner). `stale` applies only to a lock whose content
+    cannot be parsed (e.g. owner crashed between create and write). PID reuse errs on the safe side: the lock
+    then looks alive and we wait/time out. The holder unlinks the lock only if the token is still its own."""
     if lock_path is None:
         lock_path = Path(git("rev-parse", "--absolute-git-dir").stdout.strip()) / "collab.lock"
+    token = uuid.uuid4().hex
+    mine = "%d %s" % (os.getpid(), token)
     deadline, delay = time.time() + timeout, 0.1
     while True:
         try:
             fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-            os.write(fd, str(os.getpid()).encode())
+            os.write(fd, mine.encode())
             os.close(fd)
             break
         except FileExistsError:
             try:
-                if time.time() - os.path.getmtime(lock_path) > stale:
+                owner = _read_lock(lock_path)
+                if owner is None:
+                    dead = time.time() - os.path.getmtime(lock_path) > stale
+                else:
+                    dead = not pid_alive(owner[0])
+                if dead and _read_lock(lock_path) == owner:  # re-check: not replaced meanwhile
                     os.unlink(lock_path)
                     continue
             except OSError:
@@ -458,7 +509,8 @@ def commit_lock(lock_path=None, timeout=30.0, stale=300.0):
         yield
     finally:
         try:
-            os.unlink(lock_path)
+            if _read_lock(lock_path) == (os.getpid(), token):
+                os.unlink(lock_path)
         except OSError:
             pass
 
@@ -514,9 +566,13 @@ def cmd_commit(args):
             git_retry("--literal-pathspecs", "add", "--", *paths)
             extra, short = staged_mismatch(staged_names(), paths)
             if extra or short:
-                git("--literal-pathspecs", "reset", "-q", "--", *paths, check=False)
-                sys.exit("Staged set differs from the intended paths (unexpected: %s; not staged: %s); aborted, "
-                         "my paths unstaged." % (", ".join(extra) or "-", ", ".join(short) or "-"))
+                what = "unexpected: %s; not staged: %s" % (", ".join(extra) or "-", ", ".join(short) or "-")
+                r = git_retry("--literal-pathspecs", "reset", "-q", "--", *paths, fatal=False)
+                if r.returncode == 0:
+                    sys.exit("Staged set differs from the intended paths (%s); aborted, my paths unstaged." % what)
+                sys.exit("Staged set differs from the intended paths (%s); aborted, but UNSTAGING FAILED (%s). "
+                         "My paths may still be staged: run `git reset -q -- <paths>` before anything else."
+                         % (what, r.stderr.strip()))
             git_retry(*commit_args(msg, paths))
     except TimeoutError as e:
         sys.exit(str(e))
@@ -544,6 +600,69 @@ FIX_HANDOFF = """[done] C1 a
 [resolved] modding/scripts/parser-keys.md: ok
 [resolved] modding/lua-library/a.md HANDOFF:3: ok
 """
+
+
+class FakeGit:
+    """In-memory stand-in for git() used by the selftest; never touches a repo, index or network."""
+
+    def __init__(self, foreign=None, add_lock_fails=0, reset_fail=False, reset_lock_fails=0, commit_raises=False):
+        self.index, self.foreign = set(), foreign
+        self.add_lock_fails, self.reset_fail, self.reset_lock_fails = add_lock_fails, reset_fail, reset_lock_fails
+        self.commit_raises = commit_raises
+        self.commits, self.resets, self.mutations, self.add_calls = [], [], [], 0
+
+    @staticmethod
+    def _r(rc=0, out="", err=""):
+        return subprocess.CompletedProcess([], rc, out, err)
+
+    def __call__(self, *args, check=True):
+        a = [x for x in args if x != "--literal-pathspecs"]
+        paths = a[a.index("--") + 1:] if "--" in a else []
+        if a[:2] == ["diff", "--cached"]:
+            return self._r(out="\0".join(sorted(self.index)))
+        if a[0] == "add":
+            self.add_calls += 1
+            if self.add_lock_fails > 0:
+                self.add_lock_fails -= 1
+                return self._r(128, err="fatal: Unable to create '.git/index.lock': File exists.")
+            self.mutations.append(a)
+            self.index |= set(paths) | ({self.foreign} if self.foreign else set())
+            return self._r()
+        if a[0] == "reset":
+            if self.reset_lock_fails > 0:
+                self.reset_lock_fails -= 1
+                return self._r(128, err="Unable to create '.git/index.lock'")
+            if self.reset_fail:
+                return self._r(1, err="fatal: reset exploded")
+            self.mutations.append(a)
+            self.resets.append(paths)
+            self.index -= set(paths)
+            return self._r()
+        if a[0] == "commit":
+            if self.commit_raises:
+                raise RuntimeError("commit blew up")
+            self.mutations.append(a)
+            self.commits.append(list(args))
+            self.index -= set(paths)
+            return self._r()
+        if a[0] == "log":
+            return self._r(out="abc1234 fake")
+        raise AssertionError("unexpected git call: %r" % (args,))
+
+
+@contextmanager
+def patched(**names):
+    """Temporarily replace module-level names (git, changed_paths, pid_alive, ...) and time.sleep."""
+    g, saved, sleep = globals(), {}, time.sleep
+    for k, v in names.items():
+        saved[k] = g[k]
+        g[k] = v
+    time.sleep = lambda _s: None
+    try:
+        yield
+    finally:
+        time.sleep = sleep
+        g.update(saved)
 
 
 def cmd_selftest(_args):
@@ -645,11 +764,111 @@ def cmd_selftest(_args):
                 ok_block = True
         check("D1 second locker is blocked while the lock is held", ok_block)
         check("D1 lock released afterwards", not lk.exists())
-        lk.write_text("999")
-        os.utime(lk, (time.time() - 1000, time.time() - 1000))
-        with commit_lock(lk, timeout=0.3, stale=10):
+
+        # R1-1: liveness (injected pid_alive), never age, decides whether a lock is broken
+        old = time.time() - 100000
+        lk.write_text("4242 tok")
+        os.utime(lk, (old, old))
+        with patched(pid_alive=lambda pid: False):
+            with commit_lock(lk, timeout=0.3):
+                pass
+        check("R1-1 lock of a dead owner is broken", not lk.exists())
+        lk.write_text("4242 tok")
+        os.utime(lk, (old, old))
+        blocked = False
+        with patched(pid_alive=lambda pid: True):
+            try:
+                with commit_lock(lk, timeout=0.3):
+                    pass
+            except TimeoutError:
+                blocked = True
+        check("R1-1 very old lock of a LIVE owner is not broken", blocked and lk.exists())
+        lk.unlink()
+        with commit_lock(lk):
+            lk.write_text("4242 other-token")  # someone else's lock replaced ours
+        check("R1-1 holder never unlinks another invocation's lock", lk.exists() and lk.read_text() == "4242 other-token")
+        lk.unlink()
+        try:
+            with commit_lock(lk):
+                raise RuntimeError("body failed")
+        except RuntimeError:
             pass
-        check("D1 stale lock is broken", not lk.exists())
+        check("R1-3c lock is released when the body raises", not lk.exists())
+        check("R1-1 pid_alive: this process is alive, pid 0 is not", pid_alive(os.getpid()) and not pid_alive(0))
+
+    # R1-3: drive the real cmd_commit / cmd_gates / git_retry through an in-memory fake git
+    with tempfile.TemporaryDirectory() as td:
+        lk = Path(td) / "collab.lock"
+        real_lock = commit_lock
+        fake_done = ({"M1F"}, [], [], [])
+        no_gates = lambda ps, ag=None: check_paths([], ag)
+
+        def run_commit(fg, yes=True, paths=("modding/lua-api/a.md", "modding/lua-api/b.md")):
+            a = argparse.Namespace(agent="claude", wp="M1F", message="msg", yes=yes, paths=list(paths))
+            out, code = io.StringIO(), None
+            with patched(git=fg, changed_paths=lambda: list(paths), load_handoff=lambda: fake_done,
+                         run_gates=no_gates, commit_lock=lambda: real_lock(lk, timeout=0.3)), redirect_stdout(out):
+                try:
+                    cmd_commit(a)
+                except SystemExit as e:
+                    code = e.code
+            return code, out.getvalue()
+
+        both = ["modding/lua-api/a.md", "modding/lua-api/b.md"]
+        fg = FakeGit()
+        code, _ = run_commit(fg)
+        argv = fg.commits[0] if fg.commits else []
+        check("R1-3a cmd_commit stages then commits with explicit `-- <paths>` pathspec",
+              code is None and len(fg.commits) == 1 and argv[-3:] == ["--"] + both
+              and "--literal-pathspecs" in argv and "-a" not in argv and not lk.exists(), "%s %s" % (code, argv))
+        fg = FakeGit()
+        run_commit(fg, yes=False)
+        check("R1-3a dry run touches nothing", not fg.mutations)
+
+        theirs = "modding/lua-library/theirs.md"
+        fg = FakeGit(foreign=theirs)
+        code, _ = run_commit(fg)
+        check("R1-3b foreign staged path aborts, no commit, only my paths unstaged",
+              isinstance(code, str) and "paths unstaged" in code and not fg.commits
+              and fg.resets == [both] and fg.index == {theirs} and not lk.exists(), "%s %s" % (code, fg.index))
+        fg = FakeGit(foreign=theirs, reset_fail=True)
+        code, _ = run_commit(fg)
+        check("R1-2 failed rollback is reported, not claimed as unstaged; lock released",
+              isinstance(code, str) and "UNSTAGING FAILED" in code and "paths unstaged" not in code
+              and not fg.commits and not lk.exists(), str(code))
+        fg = FakeGit(foreign=theirs, reset_lock_fails=2)
+        code, _ = run_commit(fg)
+        check("R1-2 rollback reset is retried through index.lock contention",
+              isinstance(code, str) and "paths unstaged" in code and fg.index == {theirs}, str(code))
+
+        fg = FakeGit(add_lock_fails=3)
+        code, _ = run_commit(fg)
+        check("R1-3d index.lock contention is retried (add failed 3x, then commit succeeded)",
+              code is None and fg.add_calls == 4 and len(fg.commits) == 1, "%s %s" % (code, fg.add_calls))
+        fg = FakeGit(add_lock_fails=99)
+        code, _ = run_commit(fg)
+        check("R1-3d persistent index.lock gives up with an error and no commit",
+              isinstance(code, str) and "index.lock" in code and not fg.commits and not lk.exists(), str(code))
+        fg = FakeGit(commit_raises=True)
+        try:
+            run_commit(fg)
+        except RuntimeError:
+            pass
+        check("R1-3c lock released when git commit raises mid-body", not lk.exists())
+
+    seen = []
+    dirty = ["modding/lua-api/x.md", "modding/lua-library/y.md", "modding/tools/z.py"]
+    spy = lambda ps, ag=None: seen.append(list(ps)) or check_paths([], ag)
+    with patched(changed_paths=lambda: dirty, run_gates=spy), redirect_stdout(io.StringIO()):
+        for ns in (argparse.Namespace(agent="codex", all=False, paths=[]),
+                   argparse.Namespace(agent=None, all=False, paths=[])):
+            try:
+                cmd_gates(ns)
+            except SystemExit:
+                pass
+    check("R1-3e cmd_gates --agent applies scope_paths (other agent's WIP not checked)",
+          seen[:1] == [["modding/lua-library/y.md", "modding/tools/z.py"]], str(seen))
+    check("R1-3e cmd_gates without --agent checks every dirty path", len(seen) == 2 and seen[1] == dirty, str(seen))
 
     print("\n%d check(s) failed" % len(fails) if fails else "\nall checks passed")
     sys.exit(1 if fails else 0)
