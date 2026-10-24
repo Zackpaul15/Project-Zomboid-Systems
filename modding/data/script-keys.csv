@@ -1,0 +1,1315 @@
+block,kind,key,value_type,case_sensitive,source_class,reader,java_line
+(every script block),key,debugOnly,bool,no,BaseScriptObject,LoadCommonBlock,171
+(every script block),key,enabled,bool,no,BaseScriptObject,LoadCommonBlock,169
+(file) active mods,key,map,string/other,no,ActiveModsFile,fromString,113
+(file) active mods,key,mod,string/other,no,ActiveModsFile,fromString,100
+(file) seams,block,belowEast,,yes,SeamFile,,109
+(file) seams,block,belowSouth,,yes,SeamFile,,111
+(file) seams,block,east,,yes,SeamFile,,105
+(file) seams,block,properties,,yes,SeamFile,,113
+(file) seams,block,south,,yes,SeamFile,,107
+(file) seams,block,tile,,yes,SeamFile,,75
+(file) seams,block,tileset,,yes,SeamFile,,57
+(file) seating,block,position,,yes,SeatingFile,,113
+(file) seating,block,properties,,yes,SeatingFile,,118
+(file) seating,block,properties,,yes,SeatingFile,,137
+(file) seating,block,tile,,yes,SeatingFile,,80
+(file) seating,block,tileset,,yes,SeatingFile,,62
+(file) sprite models,block,tile,,yes,SpriteModelsFile,,77
+(file) sprite models,block,tileset,,yes,SpriteModelsFile,,59
+(file) tile geometry,block,box,,yes,TileGeometryFile,,118
+(file) tile geometry,block,cylinder,,yes,TileGeometryFile,,125
+(file) tile geometry,block,polygon,,yes,TileGeometryFile,,132
+(file) tile geometry,block,properties,,yes,TileGeometryFile,,139
+(file) tile geometry,block,tile,,yes,TileGeometryFile,,89
+(file) tile geometry,block,tileset,,yes,TileGeometryFile,,71
+animation,block,CopyFrame,,yes,RuntimeAnimationScript,Load,36
+animation,block,CopyFrames,,yes,RuntimeAnimationScript,Load,40
+animationsMesh,key,animationDirectory,string/other,no,AnimationsMesh,Load,33
+animationsMesh,key,animationPrefix,string/other,no,AnimationsMesh,Load,35
+animationsMesh,key,keepMeshAnimations,string/other,no,AnimationsMesh,Load,37
+animationsMesh,key,meshFile,string/other,no,AnimationsMesh,Load,31
+animationsMesh,key,postProcess,string/other,no,AnimationsMesh,Load,39
+character_profession_definition,key,CharacterProfession,resource-location,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,45
+character_profession_definition,key,Cost,int,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,49
+character_profession_definition,key,GrantedRecipes,list,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,53
+character_profession_definition,key,GrantedTraits,list,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,55
+character_profession_definition,key,IconPathName,string/other,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,70
+character_profession_definition,key,UIDescription,string/other,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,51
+character_profession_definition,key,UIName,string/other,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,47
+character_profession_definition,key,XPBoosts,list,no,CharacterProfessionDefinitionScript,loadCharacterProfessionDefinition,59
+character_trait_definition,key,CharacterTrait,resource-location,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,49
+character_trait_definition,key,Cost,int,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,53
+character_trait_definition,key,DisabledInMultiplayer,bool,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,59
+character_trait_definition,key,GrantedRecipes,list,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,61
+character_trait_definition,key,GrantedTraits,list,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,63
+character_trait_definition,key,IsProfessionTrait,bool,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,57
+character_trait_definition,key,MutuallyExclusiveTraits,list,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,78
+character_trait_definition,key,Texture,string/other,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,82
+character_trait_definition,key,UIDescription,string/other,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,55
+character_trait_definition,key,UIName,string/other,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,51
+character_trait_definition,key,XPBoosts,list,no,CharacterTraitDefinitionScript,loadCharacterTraitDefinition,67
+clock,key,handOffset,list,no,ClockScript,Load,36
+clock,key,length,string/other,no,ClockScript,LoadHand,80
+clock,key,north,string/other,no,ClockScript,Load,45
+clock,key,replacementSprite,string/other,no,ClockScript,Load,48
+clock,key,rgba,list,no,ClockScript,LoadHand,99
+clock,key,texture,string/other,no,ClockScript,LoadHand,82
+clock,key,textureInfo,list,no,ClockScript,LoadHand,87
+clock,key,thickness,string/other,no,ClockScript,LoadHand,97
+clock,block,hand,,no,ClockScript,Load,57
+craftRecipe,key,AllowBatchCraft,bool,no,CraftRecipe,Load,491
+craftRecipe,key,Animation,string/other,no,CraftRecipe,Load,477
+craftRecipe,key,AutoLearnAll,list,no,CraftRecipe,Load,423
+craftRecipe,key,AutoLearnAny,list,no,CraftRecipe,Load,408
+craftRecipe,key,CanWalk,bool,no,CraftRecipe,Load,493
+craftRecipe,key,category,string/other,no,CraftRecipe,Load,481
+craftRecipe,key,consumeOnFinish,string/other,no,CraftRecipe,Load,367
+craftRecipe,key,default,string/other,no,CraftRecipe,LoadOutputMapper,613
+craftRecipe,key,default,string/other,no,CraftRecipe,LoadOverlayMapper,646
+craftRecipe,key,icon,string/other,no,CraftRecipe,Load,370
+craftRecipe,key,MetaRecipe,string/other,no,CraftRecipe,Load,475
+craftRecipe,key,needToBeLearn,bool,no,CraftRecipe,Load,389
+craftRecipe,key,OnAddToMenu,string/other,no,CraftRecipe,Load,378
+craftRecipe,key,OnCreate,string/other,no,CraftRecipe,Load,384
+craftRecipe,key,OnFailed,string/other,no,CraftRecipe,Load,386
+craftRecipe,key,OnStart,string/other,no,CraftRecipe,Load,380
+craftRecipe,key,OnTest,string/other,no,CraftRecipe,Load,376
+craftRecipe,key,OnUpdate,string/other,no,CraftRecipe,Load,382
+craftRecipe,key,overlayStyle,string/other,no,CraftRecipe,Load,495
+craftRecipe,key,recipeGroup,string/other,no,CraftRecipe,Load,368
+craftRecipe,key,requiresPlayer,string/other,no,CraftRecipe,Load,388
+craftRecipe,key,ResearchAll,list,no,CraftRecipe,Load,438
+craftRecipe,key,ResearchAny,list,no,CraftRecipe,Load,449
+craftRecipe,key,ResearchSkillLevel,int,no,CraftRecipe,Load,374
+craftRecipe,key,SkillRequired,list,no,CraftRecipe,Load,391
+craftRecipe,key,Tags,list,no,CraftRecipe,Load,483
+craftRecipe,key,time,int,no,CraftRecipe,Load,372
+craftRecipe,key,timedAction,string/other,no,CraftRecipe,Load,479
+craftRecipe,key,Tooltip,string/other,no,CraftRecipe,Load,489
+craftRecipe,key,xpAward,list,no,CraftRecipe,Load,460
+craftRecipe,block,energyMapper,,no,CraftRecipe,Load,517
+craftRecipe,block,fluidMapper,,no,CraftRecipe,Load,513
+craftRecipe,block,inputs,,no,CraftRecipe,Load,508
+craftRecipe,block,inputs,,no,CraftRecipe,Load,509
+craftRecipe,block,itemMapper,,no,CraftRecipe,Load,510
+craftRecipe,block,outputs,,no,CraftRecipe,Load,508
+craftRecipe,block,overlayMapper,,no,CraftRecipe,Load,521
+craftRecipe > inputs line,token,[,,prefix,InputScript,Load,621
+craftRecipe > inputs line,token,anything,,no,InputScript,Load,704
+craftRecipe > inputs line,token,apply:,,prefix,InputScript,Load,663
+craftRecipe > inputs line,token,categories,,prefix,InputScript,Load,736
+craftRecipe > inputs line,token,destroy,,no,InputScript,Load,675
+craftRecipe > inputs line,token,energy,,no,InputScript,Load,581
+craftRecipe > inputs line,token,exact,,no,InputScript,Load,697
+craftRecipe > inputs line,token,flags,,prefix,InputScript,Load,744
+craftRecipe > inputs line,token,fluid,,no,InputScript,Load,578
+craftRecipe > inputs line,token,item,,no,InputScript,Load,574
+craftRecipe > inputs line,token,keep,,no,InputScript,Load,673
+craftRecipe > inputs line,token,keep,,no,InputScript,Load,712
+craftRecipe > inputs line,token,keepprop1,,no,InputScript,Load,681
+craftRecipe > inputs line,token,keepprop2,,no,InputScript,Load,683
+craftRecipe > inputs line,token,mappers,,prefix,InputScript,Load,753
+craftRecipe > inputs line,token,mixture,,no,InputScript,Load,701
+craftRecipe > inputs line,token,mode:,,prefix,InputScript,Load,668
+craftRecipe > inputs line,token,overlayMapper,,prefix,InputScript,Load,763
+craftRecipe > inputs line,token,primary,,no,InputScript,Load,699
+craftRecipe > inputs line,token,prop1,,no,InputScript,Load,685
+craftRecipe > inputs line,token,prop2,,no,InputScript,Load,688
+craftRecipe > inputs line,token,shapedIndex:,,prefix,InputScript,Load,659
+craftRecipe > inputs line,token,tags,,prefix,InputScript,Load,724
+craftRecipe > inputs line,token,use,,no,InputScript,Load,672
+craftRecipe > inputs line,token,useprop1,,no,InputScript,Load,677
+craftRecipe > inputs line,token,useprop2,,no,InputScript,Load,679
+craftRecipe > inputs line,token,uses,,no,InputScript,Load,576
+craftRecipe > inputs line,flag,AllowDestroyedItem,,yes,InputFlag,enum,51
+craftRecipe > inputs line,flag,AllowFavorite,,yes,InputFlag,enum,56
+craftRecipe > inputs line,flag,AllowFrozenItem,,yes,InputFlag,enum,48
+craftRecipe > inputs line,flag,AllowRottenItem,,yes,InputFlag,enum,49
+craftRecipe > inputs line,flag,AutomationOnly,,yes,InputFlag,enum,6
+craftRecipe > inputs line,flag,CanBeDoneFromFloor,,yes,InputFlag,enum,60
+craftRecipe > inputs line,flag,CopyClothing,,yes,InputFlag,enum,55
+craftRecipe > inputs line,flag,DontInheritCondition,,yes,InputFlag,enum,47
+craftRecipe > inputs line,flag,DontPutBack,,yes,InputFlag,enum,27
+craftRecipe > inputs line,flag,DontRecordInput,,yes,InputFlag,enum,64
+craftRecipe > inputs line,flag,DontReplace,,yes,InputFlag,enum,59
+craftRecipe > inputs line,flag,EquipSecondary,,yes,InputFlag,enum,72
+craftRecipe > inputs line,flag,FakeOutput,,yes,InputFlag,enum,58
+craftRecipe > inputs line,flag,HandcraftOnly,,yes,InputFlag,enum,5
+craftRecipe > inputs line,flag,HasNoUses,,yes,InputFlag,enum,68
+craftRecipe > inputs line,flag,HasOneUse,,yes,InputFlag,enum,67
+craftRecipe > inputs line,flag,InheritAmmunition,,yes,InputFlag,enum,54
+craftRecipe > inputs line,flag,InheritColor,,yes,InputFlag,enum,28
+craftRecipe > inputs line,flag,InheritCondition,,yes,InputFlag,enum,29
+craftRecipe > inputs line,flag,InheritCooked,,yes,InputFlag,enum,42
+craftRecipe > inputs line,flag,InheritEquipped,,yes,InputFlag,enum,30
+craftRecipe > inputs line,flag,InheritFavorite,,yes,InputFlag,enum,57
+craftRecipe > inputs line,flag,InheritFood,,yes,InputFlag,enum,40
+craftRecipe > inputs line,flag,InheritFoodAge,,yes,InputFlag,enum,41
+craftRecipe > inputs line,flag,InheritFreezingTime,,yes,InputFlag,enum,46
+craftRecipe > inputs line,flag,InheritHeadCondition,,yes,InputFlag,enum,32
+craftRecipe > inputs line,flag,InheritModelVariation,,yes,InputFlag,enum,43
+craftRecipe > inputs line,flag,InheritName,,yes,InputFlag,enum,45
+craftRecipe > inputs line,flag,InheritSharpness,,yes,InputFlag,enum,31
+craftRecipe > inputs line,flag,InheritUses,,yes,InputFlag,enum,38
+craftRecipe > inputs line,flag,InheritUsesAndEmpty,,yes,InputFlag,enum,39
+craftRecipe > inputs line,flag,InheritWeight,,yes,InputFlag,enum,44
+craftRecipe > inputs line,flag,IsBlunt,,yes,InputFlag,enum,66
+craftRecipe > inputs line,flag,IsCookedFoodItem,,yes,InputFlag,enum,23
+craftRecipe > inputs line,flag,IsDamaged,,yes,InputFlag,enum,18
+craftRecipe > inputs line,flag,IsEmpty,,yes,InputFlag,enum,12
+craftRecipe > inputs line,flag,IsEmptyContainer,,yes,InputFlag,enum,21
+craftRecipe > inputs line,flag,IsExclusive,,yes,InputFlag,enum,62
+craftRecipe > inputs line,flag,IsFull,,yes,InputFlag,enum,7
+craftRecipe > inputs line,flag,IsHeadPart,,yes,InputFlag,enum,25
+craftRecipe > inputs line,flag,IsNotDull,,yes,InputFlag,enum,24
+craftRecipe > inputs line,flag,IsNotSealed,,yes,InputFlag,enum,70
+craftRecipe > inputs line,flag,IsNotWorn,,yes,InputFlag,enum,53
+craftRecipe > inputs line,flag,IsSealed,,yes,InputFlag,enum,69
+craftRecipe > inputs line,flag,IsSharpenable,,yes,InputFlag,enum,26
+craftRecipe > inputs line,flag,IsUncookedFoodItem,,yes,InputFlag,enum,22
+craftRecipe > inputs line,flag,IsUndamaged,,yes,InputFlag,enum,19
+craftRecipe > inputs line,flag,IsWholeFoodItem,,yes,InputFlag,enum,20
+craftRecipe > inputs line,flag,IsWorn,,yes,InputFlag,enum,52
+craftRecipe > inputs line,flag,ItemCount,,yes,InputFlag,enum,61
+craftRecipe > inputs line,flag,ItemIsEnergy,,yes,InputFlag,enum,11
+craftRecipe > inputs line,flag,ItemIsFluid,,yes,InputFlag,enum,10
+craftRecipe > inputs line,flag,ItemIsUses,,yes,InputFlag,enum,9
+craftRecipe > inputs line,flag,MayDegrade,,yes,InputFlag,enum,33
+craftRecipe > inputs line,flag,MayDegradeHeavy,,yes,InputFlag,enum,36
+craftRecipe > inputs line,flag,MayDegradeLight,,yes,InputFlag,enum,34
+craftRecipe > inputs line,flag,MayDegradeVeryLight,,yes,InputFlag,enum,35
+craftRecipe > inputs line,flag,NoBrokenItems,,yes,InputFlag,enum,50
+craftRecipe > inputs line,flag,NotEmpty,,yes,InputFlag,enum,13
+craftRecipe > inputs line,flag,NotFull,,yes,InputFlag,enum,8
+craftRecipe > inputs line,flag,Prop1,,yes,InputFlag,enum,14
+craftRecipe > inputs line,flag,Prop2,,yes,InputFlag,enum,15
+craftRecipe > inputs line,flag,RecordInput,,yes,InputFlag,enum,63
+craftRecipe > inputs line,flag,ResearchInput,,yes,InputFlag,enum,65
+craftRecipe > inputs line,flag,SetActivated,,yes,InputFlag,enum,73
+craftRecipe > inputs line,flag,SharpnessCheck,,yes,InputFlag,enum,37
+craftRecipe > inputs line,flag,ToolLeft,,yes,InputFlag,enum,16
+craftRecipe > inputs line,flag,ToolRight,,yes,InputFlag,enum,17
+craftRecipe > inputs line,flag,Unseal,,yes,InputFlag,enum,71
+craftRecipe > outputs line,token,anything,,no,OutputScript,Load,372
+craftRecipe > outputs line,token,apply:,,prefix,OutputScript,Load,342
+craftRecipe > outputs line,token,chance:,,prefix,OutputScript,Load,336
+craftRecipe > outputs line,token,energy,,no,OutputScript,Load,288
+craftRecipe > outputs line,token,exact,,no,OutputScript,Load,367
+craftRecipe > outputs line,token,flags,,prefix,OutputScript,Load,386
+craftRecipe > outputs line,token,fluid,,no,OutputScript,Load,285
+craftRecipe > outputs line,token,item,,no,OutputScript,Load,283
+craftRecipe > outputs line,token,mode:,,prefix,OutputScript,Load,361
+craftRecipe > outputs line,token,onTick,,no,OutputScript,Load,348
+craftRecipe > outputs line,token,primary,,no,OutputScript,Load,369
+craftRecipe > outputs line,token,shapedIndex:,,prefix,OutputScript,Load,339
+craftRecipe > outputs line,flag,AlwaysFill,,yes,OutputFlag,enum,9
+craftRecipe > outputs line,flag,AutomationOnly,,yes,OutputFlag,enum,6
+craftRecipe > outputs line,flag,DontInheritCondition,,yes,OutputFlag,enum,14
+craftRecipe > outputs line,flag,EquipSecondary,,yes,OutputFlag,enum,15
+craftRecipe > outputs line,flag,ForceEmpty,,yes,OutputFlag,enum,8
+craftRecipe > outputs line,flag,HandcraftOnly,,yes,OutputFlag,enum,5
+craftRecipe > outputs line,flag,HasNoUses,,yes,OutputFlag,enum,13
+craftRecipe > outputs line,flag,HasOneUse,,yes,OutputFlag,enum,12
+craftRecipe > outputs line,flag,IsBlunt,,yes,OutputFlag,enum,11
+craftRecipe > outputs line,flag,IsEmpty,,yes,OutputFlag,enum,7
+craftRecipe > outputs line,flag,RespectCapacity,,yes,OutputFlag,enum,10
+craftRecipe > outputs line,flag,SetActivated,,yes,OutputFlag,enum,16
+energy,key,b,float,no,EnergyDefinitionScript,Load,181
+energy,key,color,float,no,EnergyDefinitionScript,Load,183
+energy,key,displayName,string/other,no,EnergyDefinitionScript,Load,175
+energy,key,g,float,no,EnergyDefinitionScript,Load,179
+energy,key,horizontalBarTexture,string/other,no,EnergyDefinitionScript,Load,192
+energy,key,iconTexture,string/other,no,EnergyDefinitionScript,Load,190
+energy,key,r,float,no,EnergyDefinitionScript,Load,177
+energy,key,verticalBarTexture,string/other,no,EnergyDefinitionScript,Load,194
+entity,key,entitytemplate,string/other,no,GameEntityScript,Load,166
+entity,block,component,,no,GameEntityScript,Load,174
+entity,block,component,,no,GameEntityScript,LoadComponentBlock,198
+entity > component ContextMenuConfig,key,allowDistance,bool,no,ContextMenuConfigScript,LoadEntry,64
+entity > component ContextMenuConfig,key,customFunction,string/other,no,ContextMenuConfigScript,LoadEntry,56
+entity > component ContextMenuConfig,key,customSubmenu,string/other,no,ContextMenuConfigScript,LoadEntry,54
+entity > component ContextMenuConfig,key,extraParam,string/other,no,ContextMenuConfigScript,LoadEntry,62
+entity > component ContextMenuConfig,key,icon,string/other,no,ContextMenuConfigScript,LoadEntry,52
+entity > component ContextMenuConfig,key,menu,string/other,no,ContextMenuConfigScript,LoadEntry,50
+entity > component ContextMenuConfig,key,openWindow,string/other,no,ContextMenuConfigScript,LoadEntry,58
+entity > component ContextMenuConfig,key,time,int,no,ContextMenuConfigScript,LoadEntry,66
+entity > component ContextMenuConfig,key,timedAction,string/other,no,ContextMenuConfigScript,LoadEntry,60
+entity > component ContextMenuConfig,block,contextEntry,,no,ContextMenuConfigScript,load,35
+entity > component CraftBench,key,energyInputChannels,list,no,CraftBenchScript,load,69
+entity > component CraftBench,key,fluidInputChannels,list,no,CraftBenchScript,load,62
+entity > component CraftBench,key,recipes,string/other,no,CraftBenchScript,load,60
+entity > component CraftBench,block,craftProcessor,,no,CraftBenchScript,load,81
+entity > component CraftLogic,key,actionAnim,string/other,no,CraftLogicScript,load,91
+entity > component CraftLogic,key,inputGroup,string/other,no,CraftLogicScript,load,87
+entity > component CraftLogic,key,outputGroup,string/other,no,CraftLogicScript,load,89
+entity > component CraftLogic,key,recipes,string/other,no,CraftLogicScript,load,83
+entity > component CraftLogic,key,startMode,enum,no,CraftLogicScript,load,85
+entity > component CraftLogic,block,craftProcessor,,no,CraftLogicScript,load,98
+entity > component DryingLogic,key,dryingRecipes,string/other,no,DryingLogicScript,load,95
+entity > component DryingLogic,key,fuelInputGroup,string/other,no,DryingLogicScript,load,107
+entity > component DryingLogic,key,fuelOutputGroup,string/other,no,DryingLogicScript,load,109
+entity > component DryingLogic,key,fuelRecipes,string/other,no,DryingLogicScript,load,99
+entity > component DryingLogic,key,inputGroup,string/other,no,DryingLogicScript,load,103
+entity > component DryingLogic,key,outputGroup,string/other,no,DryingLogicScript,load,105
+entity > component DryingLogic,key,startMode,enum,no,DryingLogicScript,load,101
+entity > component FluidContainer,key,b,float,no,FluidContainerScript,readFluidAsBlock,274
+entity > component FluidContainer,key,Capacity,float,no,FluidContainerScript,load,140
+entity > component FluidContainer,key,ContainerName,string/other,no,FluidContainerScript,load,142
+entity > component FluidContainer,key,CustomDrinkSound,string/other,no,FluidContainerScript,load,171
+entity > component FluidContainer,key,FillsWithCleanWater,bool,no,FluidContainerScript,load,169
+entity > component FluidContainer,key,Fluid,string/other,no,FluidContainerScript,loadBlockFluids,212
+entity > component FluidContainer,key,g,float,no,FluidContainerScript,readFluidAsBlock,268
+entity > component FluidContainer,key,HiddenAmount,bool,no,FluidContainerScript,load,165
+entity > component FluidContainer,key,InitialPercent,float,no,FluidContainerScript,load,149
+entity > component FluidContainer,key,InitialPercentMax,float,no,FluidContainerScript,load,156
+entity > component FluidContainer,key,InitialPercentMin,float,no,FluidContainerScript,load,153
+entity > component FluidContainer,key,InputLocked,bool,no,FluidContainerScript,load,161
+entity > component FluidContainer,key,Opened,bool,no,FluidContainerScript,load,163
+entity > component FluidContainer,key,percentage,float,no,FluidContainerScript,readFluidAsBlock,260
+entity > component FluidContainer,key,PickRandomFluid,bool,no,FluidContainerScript,load,159
+entity > component FluidContainer,key,r,float,no,FluidContainerScript,readFluidAsBlock,262
+entity > component FluidContainer,key,RainFactor,float,no,FluidContainerScript,load,167
+entity > component FluidContainer,key,TransferRate,float,no,FluidContainerScript,load,173
+entity > component FluidContainer,key,type,string/other,no,FluidContainerScript,readFluidAsBlock,248
+entity > component FluidContainer,block,blacklist,,no,FluidContainerScript,load,182
+entity > component FluidContainer,block,Fluid,,no,FluidContainerScript,loadBlockFluids,223
+entity > component FluidContainer,block,fluids,,no,FluidContainerScript,load,180
+entity > component FluidContainer,block,whitelist,,no,FluidContainerScript,load,182
+entity > component FluidContainer,block,whitelist,,no,FluidContainerScript,load,183
+entity > component FurnaceLogic,key,fuelInputGroup,string/other,no,FurnaceLogicScript,load,104
+entity > component FurnaceLogic,key,fuelOutputGroup,string/other,no,FurnaceLogicScript,load,106
+entity > component FurnaceLogic,key,fuelRecipes,string/other,no,FurnaceLogicScript,load,96
+entity > component FurnaceLogic,key,furnaceRecipes,string/other,no,FurnaceLogicScript,load,92
+entity > component FurnaceLogic,key,inputGroup,string/other,no,FurnaceLogicScript,load,100
+entity > component FurnaceLogic,key,outputGroup,string/other,no,FurnaceLogicScript,load,102
+entity > component FurnaceLogic,key,startMode,enum,no,FurnaceLogicScript,load,98
+entity > component MashingLogic,key,fluidID,string/other,no,MashingLogicScript,load,65
+entity > component MashingLogic,key,inputGroup,string/other,no,MashingLogicScript,load,63
+entity > component MashingLogic,key,recipes,string/other,no,MashingLogicScript,load,61
+entity > component Resources,block,external,,no,ResourcesScript,load,81
+entity > component Resources,block,group,,no,ResourcesScript,load,72
+entity > component Resources,block,internal,,no,ResourcesScript,load,79
+entity > component SpriteConfig,key,bonusHealth,string/other,no,SpriteConfigScript,load,285
+entity > component SpriteConfig,key,breakSound,string/other,no,SpriteConfigScript,load,265
+entity > component SpriteConfig,key,canBePadlocked,bool,no,SpriteConfigScript,load,277
+entity > component SpriteConfig,key,corner,string/other,no,SpriteConfigScript,load,267
+entity > component SpriteConfig,key,debugItem,string/other,no,SpriteConfigScript,load,255
+entity > component SpriteConfig,key,dontNeedFrame,bool,no,SpriteConfigScript,load,269
+entity > component SpriteConfig,key,health,string/other,no,SpriteConfigScript,load,233
+entity > component SpriteConfig,key,isPole,bool,no,SpriteConfigScript,load,273
+entity > component SpriteConfig,key,isProp,bool,no,SpriteConfigScript,load,235
+entity > component SpriteConfig,key,isThumpable,bool,no,SpriteConfigScript,load,263
+entity > component SpriteConfig,key,lightOffsetX,int,no,SpriteConfigScript,loadFace,395
+entity > component SpriteConfig,key,lightOffsetY,int,no,SpriteConfigScript,loadFace,399
+entity > component SpriteConfig,key,lightOffsetZ,int,no,SpriteConfigScript,loadFace,403
+entity > component SpriteConfig,key,lightRadius,string/other,no,SpriteConfigScript,load,239
+entity > component SpriteConfig,key,lightsourceFuel,string/other,no,SpriteConfigScript,load,253
+entity > component SpriteConfig,key,lightsourceItem,list,no,SpriteConfigScript,load,241
+entity > component SpriteConfig,key,needToBeAgainstWall,bool,no,SpriteConfigScript,load,275
+entity > component SpriteConfig,key,needWindowFrame,bool,no,SpriteConfigScript,load,271
+entity > component SpriteConfig,key,OnCreate,string/other,no,SpriteConfigScript,load,257
+entity > component SpriteConfig,key,OnIsValid,string/other,no,SpriteConfigScript,load,259
+entity > component SpriteConfig,key,previousStage,list,no,SpriteConfigScript,load,279
+entity > component SpriteConfig,key,row,bool,no,SpriteConfigScript,loadLayer,424
+entity > component SpriteConfig,key,skillBaseHealth,string/other,no,SpriteConfigScript,load,237
+entity > component SpriteConfig,key,TimedActionOnIsValid,string/other,no,SpriteConfigScript,load,261
+entity > component SpriteConfig,block,face,,no,SpriteConfigScript,load,211
+entity > component SpriteConfig,block,layer,,no,SpriteConfigScript,loadFace,411
+entity > component SpriteOverlayConfig,key,row,bool,no,SpriteOverlayConfigScript,loadLayer,245
+entity > component SpriteOverlayConfig,block,face,,no,SpriteOverlayConfigScript,loadFaces,109
+entity > component SpriteOverlayConfig,block,layer,,no,SpriteOverlayConfigScript,loadFace,232
+entity > component SpriteOverlayConfig,block,progress,,yes,SpriteOverlayConfigScript,loadStyle,92
+entity > component SpriteOverlayConfig,block,style,,no,SpriteOverlayConfigScript,load,81
+entity > component UiConfig,key,entityStyle,string/other,no,UiConfigScript,load,57
+entity > component UiConfig,key,uiEnabled,bool,no,UiConfigScript,load,59
+entity > component UiConfig,key,xuiSkin,string/other,no,UiConfigScript,load,55
+entity > component WallCoveringConfig,key,name,string/other,no,WallCoveringConfigScript,load,52
+entity > component WallCoveringConfig,key,sign,int,no,WallCoveringConfigScript,load,54
+entity > component WallCoveringConfig,key,type,string/other,no,WallCoveringConfigScript,load,50
+evolvedrecipe,key,AddIngredientIfCooked,bool,yes,EvolvedRecipe,Load,86
+evolvedrecipe,key,AddIngredientSound,string/other,yes,EvolvedRecipe,Load,88
+evolvedrecipe,key,AllowFrozenItem,bool,yes,EvolvedRecipe,Load,94
+evolvedrecipe,key,BaseItem,string/other,yes,EvolvedRecipe,Load,75
+evolvedrecipe,key,CanAddSpicesEmpty,bool,yes,EvolvedRecipe,Load,90
+evolvedrecipe,key,Cookable,string/other,yes,EvolvedRecipe,Load,82
+evolvedrecipe,key,IsHidden,bool,yes,EvolvedRecipe,Load,92
+evolvedrecipe,key,MaxItems,int,yes,EvolvedRecipe,Load,84
+evolvedrecipe,key,MinimumWater,float,yes,EvolvedRecipe,Load,98
+evolvedrecipe,key,Name,string/other,yes,EvolvedRecipe,Load,77
+evolvedrecipe,key,ResultItem,string/other,yes,EvolvedRecipe,Load,80
+evolvedrecipe,key,Template,string/other,yes,EvolvedRecipe,Load,96
+fixing,key,ConditionModifier,float,yes,Fixing,Load,55
+fixing,key,Fixer,string/other,yes,Fixing,Load,48
+fixing,key,GlobalItem,int,yes,Fixing,Load,49
+fixing,key,Require,list,yes,Fixing,Load,42
+fluid,key,alcohol,float,no,FluidDefinitionScript,LoadProperties,328
+fluid,key,b,float,no,FluidDefinitionScript,Load,234
+fluid,key,calories,float,no,FluidDefinitionScript,LoadProperties,320
+fluid,key,carbohydrates,float,no,FluidDefinitionScript,LoadProperties,322
+fluid,key,color,float,no,FluidDefinitionScript,Load,236
+fluid,key,colorReference,string/other,no,FluidDefinitionScript,Load,228
+fluid,key,diluteRatio,float,no,FluidDefinitionScript,LoadPoison,293
+fluid,key,displayName,string/other,no,FluidDefinitionScript,Load,226
+fluid,key,enduranceChange,float,no,FluidDefinitionScript,LoadProperties,334
+fluid,key,fatigueChange,float,no,FluidDefinitionScript,LoadProperties,310
+fluid,key,fluReduction,float,no,FluidDefinitionScript,LoadProperties,330
+fluid,key,foodSicknessChange,float,no,FluidDefinitionScript,LoadProperties,336
+fluid,key,g,float,no,FluidDefinitionScript,Load,232
+fluid,key,hungerChange,float,no,FluidDefinitionScript,LoadProperties,312
+fluid,key,lipids,float,no,FluidDefinitionScript,LoadProperties,324
+fluid,key,maxEffect,enum,no,FluidDefinitionScript,LoadPoison,289
+fluid,key,minAmount,float,no,FluidDefinitionScript,LoadPoison,291
+fluid,key,painReduction,float,no,FluidDefinitionScript,LoadProperties,332
+fluid,key,proteins,float,no,FluidDefinitionScript,LoadProperties,326
+fluid,key,r,float,no,FluidDefinitionScript,Load,230
+fluid,key,stressChange,float,no,FluidDefinitionScript,LoadProperties,314
+fluid,key,thirstChange,float,no,FluidDefinitionScript,LoadProperties,316
+fluid,key,unhappyChange,float,no,FluidDefinitionScript,LoadProperties,318
+fluid,block,blendBlackList,,no,FluidDefinitionScript,Load,256
+fluid,block,blendWhiteList,,no,FluidDefinitionScript,Load,253
+fluid,block,categories,,no,FluidDefinitionScript,Load,259
+fluid,block,poison,,no,FluidDefinitionScript,Load,263
+fluid,block,properties,,no,FluidDefinitionScript,Load,261
+fluidFilter,key,blacklist,bool,no,FluidFilterScript,readBlock,171
+fluidFilter,key,category,string/other,no,FluidFilterScript,readBlock,165
+fluidFilter,key,filterType,string/other,no,FluidFilterScript,readBlock,167
+fluidFilter,key,fluid,string/other,no,FluidFilterScript,readBlock,163
+fluidFilter,key,whitelist,bool,no,FluidFilterScript,readBlock,169
+fluidFilter,block,categories,,no,FluidFilterScript,readBlock,180
+fluidFilter,block,fluids,,no,FluidFilterScript,readBlock,178
+item,key,AcceptItemFunction,string/other,no,Item,DoParam,2629
+item,key,AcceptMediaType,string/other,no,Item,DoParam,2901
+item,key,ActivatedItem,bool,no,Item,DoParam,2531
+item,key,AimingMod,float,no,Item,DoParam,2444
+item,key,AimingPerkCritModifier,int,no,Item,DoParam,2304
+item,key,AimingPerkHitChanceModifier,float,no,Item,DoParam,2308
+item,key,AimingPerkMinAngleModifier,float,no,Item,DoParam,2314
+item,key,AimingPerkRangeModifier,float,no,Item,DoParam,2306
+item,key,AimingTime,int,no,Item,DoParam,2517
+item,key,AimingTimeModifier,int,no,Item,DoParam,2519
+item,key,AimReleaseSound,string/other,no,Item,DoParam,2183
+item,key,AlarmSound,string/other,no,Item,DoParam,2553
+item,key,Alcoholic,bool,no,Item,DoParam,2356
+item,key,AlcoholPower,float,no,Item,DoParam,2619
+item,key,AlwaysKnockdown,bool,no,Item,DoParam,2423
+item,key,AlwaysWelcomeGift,bool,no,Item,DoParam,2377
+item,key,ammoBox,string/other,no,Item,DoParam,2163
+item,key,AmmoType,resource-location,no,Item,DoParam,2362
+item,key,AngleFalloff,bool,no,Item,DoParam,2324
+item,key,AnimalFeedType,string/other,no,Item,DoParam,2071
+item,key,attachmentReplacement,string/other,no,Item,DoParam,2409
+item,key,attachmentsProvided,list,no,Item,DoParam,2407
+item,key,attachmentType,string/other,no,Item,DoParam,2754
+item,key,BadCold,bool,no,Item,DoParam,2551
+item,key,BadInMicrowave,bool,no,Item,DoParam,2547
+item,key,BandagePower,float,no,Item,DoParam,2621
+item,key,BaseSpeed,float,no,Item,DoParam,2143
+item,key,BaseVolumeRange,float,no,Item,DoParam,2683
+item,key,biteDefense,float,no,Item,DoParam,2246
+item,key,BloodLocation,list,no,Item,DoParam,2892
+item,key,BodyLocation,resource-location,no,Item,DoParam,1943
+item,key,book_subject,list,no,Item,DoParam,2875
+item,key,BoredomChange,int,no,Item,DoParam,2083
+item,key,BrakeForce,int,no,Item,DoParam,2505
+item,key,BreakSound,string/other,no,Item,DoParam,2605
+item,key,BringToBearSound,string/other,no,Item,DoParam,2181
+item,key,bulletDefense,float,no,Item,DoParam,2249
+item,key,BulletHitArmourSound,string/other,no,Item,DoParam,2963
+item,key,bulletOutSound,string/other,no,Item,DoParam,2427
+item,key,calories,float,no,Item,DoParam,2715
+item,key,CanAttach,string/other,no,Item,DoParam,2792
+item,key,CanBandage,bool,no,Item,DoParam,2281
+item,key,CanBarricade,bool,no,Item,DoParam,2458
+item,key,CanBeEquipped,resource-location,no,Item,DoParam,2527
+item,key,canBePlaced,bool,no,Item,DoParam,2661
+item,key,canBeRemote,bool,no,Item,DoParam,2665
+item,key,CanBeReused,bool,no,Item,DoParam,2663
+item,key,CanBeWrite,bool,no,Item,DoParam,2571
+item,key,CanDetach,string/other,no,Item,DoParam,2794
+item,key,canHaveHoles,bool,no,Item,DoParam,2159
+item,key,CannedFood,bool,no,Item,DoParam,2032
+item,key,CanStack,bool,no,Item,DoParam,2454
+item,key,CanStoreWater,bool,no,Item,DoParam,1971
+item,key,CantAttackWithLowestEndurance,bool,no,Item,DoParam,2379
+item,key,CantBeConsolided,bool,no,Item,DoParam,2732
+item,key,CantBeFrozen,bool,no,Item,DoParam,2725
+item,key,CantEat,bool,no,Item,DoParam,2907
+item,key,Capacity,int,no,Item,DoParam,2490
+item,key,carbohydrates,float,no,Item,DoParam,2717
+item,key,Categories,list,no,Item,DoParam,2332
+item,key,ChanceToFall,int,no,Item,DoParam,2740
+item,key,ChanceToSpawnDamaged,int,no,Item,DoParam,2509
+item,key,clickSound,string/other,no,Item,DoParam,2179
+item,key,ClipSize,int,no,Item,DoParam,2513
+item,key,ClipSizeModifier,int,no,Item,DoParam,2579
+item,key,CloseKillMove,string/other,no,Item,DoParam,2476
+item,key,CloseSound,string/other,no,Item,DoParam,2601
+item,key,clothingExtraSubmenu,string/other,no,Item,DoParam,2155
+item,key,ClothingItem,string/other,no,Item,DoParam,2800
+item,key,clothingItemExtra,list,no,Item,DoParam,2151
+item,key,clothingItemExtraOption,list,no,Item,DoParam,2271
+item,key,ColorBlue,int,no,Item,DoParam,2713
+item,key,ColorGreen,int,no,Item,DoParam,2711
+item,key,ColorRed,int,no,Item,DoParam,2709
+item,key,combatSpeedModifier,float,no,Item,DoParam,2147
+item,key,ConditionAffectsCapacity,bool,no,Item,DoParam,2503
+item,key,ConditionLowerChanceOneIn,int,no,Item,DoParam,2275
+item,key,conditionLowerOffroad,float,no,Item,DoParam,2742
+item,key,ConditionLowerStandard,float,no,Item,DoParam,2744
+item,key,ConditionMax,int,no,Item,DoParam,2283
+item,key,consolidateOption,string/other,no,Item,DoParam,2758
+item,key,CookingSound,string/other,no,Item,DoParam,2077
+item,key,corpseSicknessDefense,float,no,Item,DoParam,2265
+item,key,Cosmetic,bool,no,Item,DoParam,2161
+item,key,Count,int,no,Item,DoParam,2391
+item,key,CountDownSound,string/other,no,Item,DoParam,2641
+item,key,critDmgMultiplier,float,no,Item,DoParam,2063
+item,key,CriticalChance,float,no,Item,DoParam,2061
+item,key,CustomContextMenu,string/other,no,Item,DoParam,2559
+item,key,CustomEatSound,string/other,no,Item,DoParam,2609
+item,key,CyclicRateMultiplier,float,no,Item,DoParam,2405
+item,key,damageCategory,string/other,no,Item,DoParam,2257
+item,key,DamagedSound,string/other,no,Item,DoParam,2961
+item,key,damageMakeHole,bool,no,Item,DoParam,2261
+item,key,DamageModifier,float,no,Item,DoParam,2591
+item,key,DangerousUncooked,bool,no,Item,DoParam,2133
+item,key,DaysFresh,int,no,Item,DoParam,2065
+item,key,DaysTotallyRotten,int,no,Item,DoParam,2073
+item,key,DigitalPadlock,bool,no,Item,DoParam,2633
+item,key,DigType,string/other,no,Item,DoParam,2883
+item,key,DisappearOnUse,bool,no,Item,DoParam,2466
+item,key,DiscomfortModifier,float,no,Item,DoParam,2975
+item,key,DisplayCategory,string/other,no,Item,DoParam,2545
+item,key,DisplayName,string/other,no,Item,DoParam,1961
+item,key,DoorDamage,int,no,Item,DoParam,2385
+item,key,DoorHitSound,string/other,no,Item,DoParam,2040
+item,key,DoubleClickRecipe,string/other,no,Item,DoParam,2915
+item,key,DropSound,string/other,no,Item,DoParam,2431
+item,key,Durability,float,no,Item,DoParam,2507
+item,key,EatTime,int,no,Item,DoParam,2971
+item,key,EatType,string/other,no,Item,DoParam,2869
+item,key,EjectAmmoSound,string/other,no,Item,DoParam,2173
+item,key,EjectAmmoStartSound,string/other,no,Item,DoParam,2171
+item,key,EjectAmmoStopSound,string/other,no,Item,DoParam,2175
+item,key,EnduranceChange,float,no,Item,DoParam,2057
+item,key,EnduranceMod,float,no,Item,DoParam,2381
+item,key,engineLoudness,float,no,Item,DoParam,2752
+item,key,equippedNoSprint,bool,no,Item,DoParam,2263
+item,key,EquipSound,string/other,no,Item,DoParam,2185
+item,key,EvolvedRecipe,list,no,Item,DoParam,2802
+item,key,EvolvedRecipeName,string/other,no,Item,DoParam,2727
+item,key,explosionDuration,int,no,Item,DoParam,2649
+item,key,explosionPower,int,no,Item,DoParam,2653
+item,key,explosionRange,int,no,Item,DoParam,2651
+item,key,explosionSound,string/other,no,Item,DoParam,2643
+item,key,explosionTimer,int,no,Item,DoParam,2647
+item,key,extraDamage,float,no,Item,DoParam,2675
+item,key,fabricType,string/other,no,Item,DoParam,2760
+item,key,FatigueChange,float,no,Item,DoParam,2055
+item,key,FillFromDispenserSound,string/other,no,Item,DoParam,2611
+item,key,FillFromLakeSound,string/other,no,Item,DoParam,2613
+item,key,FillFromTapSound,string/other,no,Item,DoParam,2615
+item,key,FillFromToiletSound,string/other,no,Item,DoParam,2617
+item,key,fireFuelRatio,float,no,Item,DoParam,2977
+item,key,fireMode,string/other,no,Item,DoParam,2259
+item,key,fireModePossibilities,list,no,Item,DoParam,2403
+item,key,fireRange,int,no,Item,DoParam,2655
+item,key,fireStartingChance,int,no,Item,DoParam,2659
+item,key,fireStartingEnergy,int,no,Item,DoParam,2657
+item,key,FishingLure,bool,no,Item,DoParam,2569
+item,key,fluReduction,int,no,Item,DoParam,2699
+item,key,FoodSicknessChange,int,no,Item,DoParam,2701
+item,key,FoodType,string/other,no,Item,DoParam,1975
+item,key,GameEntityScript,string/other,no,Item,DoParam,2923
+item,key,GoodHot,bool,no,Item,DoParam,2549
+item,key,GunType,list,no,Item,DoParam,2366
+item,key,haveChamber,bool,no,Item,DoParam,2238
+item,key,HeadConditionLowerChanceMultiplier,float,no,Item,DoParam,2277
+item,key,hearingModifier,float,no,Item,DoParam,2955
+item,key,HerbalistType,string/other,no,Item,DoParam,2456
+item,key,Hidden,bool,no,Item,DoParam,2059
+item,key,HitAngleMod,float,no,Item,DoParam,2373
+item,key,HitChance,int,no,Item,DoParam,2316
+item,key,HitChanceModifier,int,no,Item,DoParam,2523
+item,key,HitFloorSound,string/other,no,Item,DoParam,1957
+item,key,HitSound,string/other,no,Item,DoParam,1952
+item,key,HungerChange,float,no,Item,DoParam,2051
+item,key,Icon,string/other,no,Item,DoParam,1985
+item,key,IconColorMask,string/other,no,Item,DoParam,2919
+item,key,IconFluidMask,string/other,no,Item,DoParam,2921
+item,key,IconsForTexture,list,no,Item,DoParam,2885
+item,key,IdleAnim,string/other,no,Item,DoParam,2397
+item,key,ImpactSound,string/other,no,Item,DoParam,2347
+item,key,insertAllBulletsReload,bool,no,Item,DoParam,2269
+item,key,InsertAmmoSound,string/other,no,Item,DoParam,2167
+item,key,InsertAmmoStartSound,string/other,no,Item,DoParam,2165
+item,key,InsertAmmoStopSound,string/other,no,Item,DoParam,2169
+item,key,Insulation,float,no,Item,DoParam,2470
+item,key,InverseCoughProbability,int,no,Item,DoParam,2703
+item,key,InverseCoughProbabilitySmoker,int,no,Item,DoParam,2705
+item,key,IsAimedFirearm,bool,no,Item,DoParam,2425
+item,key,IsAimedHandWeapon,bool,no,Item,DoParam,2442
+item,key,IsCookable,bool,no,Item,DoParam,2075
+item,key,isDung,bool,no,Item,DoParam,2242
+item,key,IsHighTier,bool,no,Item,DoParam,2695
+item,key,IsPortable,bool,no,Item,DoParam,2685
+item,key,IsTelevision,bool,no,Item,DoParam,2687
+item,key,ItemAfterCleaning,string/other,no,Item,DoParam,2979
+item,key,ItemCapacity,int,no,Item,DoParam,2501
+item,key,ItemConfig,string/other,no,Item,DoParam,2917
+item,key,ItemType,resource-location,no,Item,DoParam,1967
+item,key,ItemWhenDry,string/other,no,Item,DoParam,2567
+item,key,jamGunChance,float,no,Item,DoParam,2191
+item,key,KeepOnDeplete,bool,no,Item,DoParam,2736
+item,key,KnockBackOnNoDeath,bool,no,Item,DoParam,2354
+item,key,KnockdownMod,float,no,Item,DoParam,2383
+item,key,LearnedRecipes,list,no,Item,DoParam,2762
+item,key,LightDistance,int,no,Item,DoParam,2539
+item,key,LightStrength,float,no,Item,DoParam,2535
+item,key,lipids,float,no,Item,DoParam,2719
+item,key,LowLightBonus,float,no,Item,DoParam,2589
+item,key,LvlSkillTrained,int,no,Item,DoParam,2486
+item,key,magazine_subject,list,no,Item,DoParam,2879
+item,key,magazineType,string/other,no,Item,DoParam,2189
+item,key,makeUpType,string/other,no,Item,DoParam,2756
+item,key,ManuallyRemoveSpentRounds,bool,no,Item,DoParam,2244
+item,key,Map,string/other,no,Item,DoParam,2593
+item,key,maxAmmo,int,no,Item,DoParam,2364
+item,key,MaxCapacity,int,no,Item,DoParam,2499
+item,key,MaxChannel,int,no,Item,DoParam,2691
+item,key,MaxDamage,float,no,Item,DoParam,2141
+item,key,MaxHitCount,int,no,Item,DoParam,2387
+item,key,MaxItemSize,float,no,Item,DoParam,2497
+item,key,MaxMilk,int,no,Item,DoParam,2069
+item,key,MaxRange,float,no,Item,DoParam,2135
+item,key,MaxRangeModifier,float,no,Item,DoParam,2583
+item,key,MaxSightRange,float,no,Item,DoParam,2587
+item,key,MechanicsItem,bool,no,Item,DoParam,2034
+item,key,MediaCategory,string/other,no,Item,DoParam,2899
+item,key,Medical,bool,no,Item,DoParam,2030
+item,key,MetalValue,float,no,Item,DoParam,1963
+item,key,MicRange,int,no,Item,DoParam,2681
+item,key,MilkReplaceItem,string/other,no,Item,DoParam,2067
+item,key,MinAngle,float,no,Item,DoParam,2139
+item,key,MinChannel,int,no,Item,DoParam,2689
+item,key,MinDamage,float,no,Item,DoParam,2287
+item,key,MinimumSwingTime,float,no,Item,DoParam,2289
+item,key,MinRange,float,no,Item,DoParam,2137
+item,key,MinSightRange,float,no,Item,DoParam,2585
+item,key,MinutesToBurn,int,no,Item,DoParam,2081
+item,key,MinutesToCook,int,no,Item,DoParam,2079
+item,key,modelWeaponPart,list,no,Item,DoParam,2193
+item,key,MountOn,list,no,Item,DoParam,2783
+item,key,MultipleHitConditionAffected,bool,no,Item,DoParam,2279
+item,key,MuzzleFlashModelKey,string/other,no,Item,DoParam,2452
+item,key,neckProtectionModifier,float,no,Item,DoParam,2255
+item,key,needtobeclosedoncereload,bool,no,Item,DoParam,2240
+item,key,noiseDuration,int,no,Item,DoParam,2673
+item,key,noiseRange,int,no,Item,DoParam,2671
+item,key,NoTransmit,bool,no,Item,DoParam,2903
+item,key,NPCSoundBoost,float,no,Item,DoParam,2413
+item,key,NumberOfPages,int,no,Item,DoParam,2482
+item,key,NumLevelsTrained,int,no,Item,DoParam,2488
+item,key,OBSOLETE,bool,no,Item,DoParam,2909
+item,key,OnAttach,string/other,no,Item,DoParam,2796
+item,key,OnBreak,string/other,no,Item,DoParam,2959
+item,key,OnCooked,string/other,no,Item,DoParam,2625
+item,key,OnCreate,string/other,no,Item,DoParam,2911
+item,key,OnDetach,string/other,no,Item,DoParam,2798
+item,key,OnEat,string/other,no,Item,DoParam,2734
+item,key,OnlyAcceptCategory,string/other,no,Item,DoParam,2627
+item,key,OpeningRecipe,string/other,no,Item,DoParam,2913
+item,key,OpenSound,string/other,no,Item,DoParam,2603
+item,key,OtherCharacterVolumeBoost,float,no,Item,DoParam,2345
+item,key,OtherHandRequire,resource-location,no,Item,DoParam,2375
+item,key,OtherHandUse,bool,no,Item,DoParam,2131
+item,key,Packaged,bool,no,Item,DoParam,2723
+item,key,Padlock,bool,no,Item,DoParam,2631
+item,key,PageToWrite,int,no,Item,DoParam,2573
+item,key,painReduction,int,no,Item,DoParam,2707
+item,key,Palettes,list,no,Item,DoParam,1946
+item,key,PalettesStart,string/other,no,Item,DoParam,1959
+item,key,PartType,string/other,no,Item,DoParam,2790
+item,key,PhysicsObject,string/other,no,Item,DoParam,2389
+item,key,PiercingBullets,bool,no,Item,DoParam,2322
+item,key,PlacedSprite,string/other,no,Item,DoParam,2645
+item,key,PlaceMultipleSound,string/other,no,Item,DoParam,2599
+item,key,PlaceOneSound,string/other,no,Item,DoParam,2597
+item,key,Poison,bool,no,Item,DoParam,1973
+item,key,PoisonDetectionLevel,int,no,Item,DoParam,1977
+item,key,PoisonPower,int,no,Item,DoParam,1979
+item,key,PourType,string/other,no,Item,DoParam,2871
+item,key,primaryAnimMask,string/other,no,Item,DoParam,2855
+item,key,primaryAnimMaskAttachment,string/other,no,Item,DoParam,2859
+item,key,ProjectileCount,int,no,Item,DoParam,2446
+item,key,ProjectileSpread,float,no,Item,DoParam,2448
+item,key,ProjectileSpreadModifier,float,no,Item,DoParam,2310
+item,key,ProjectileWeightCenter,float,no,Item,DoParam,2450
+item,key,ProtectFromRainWhenEquipped,bool,no,Item,DoParam,2533
+item,key,proteins,float,no,Item,DoParam,2721
+item,key,PushBackMod,float,no,Item,DoParam,2411
+item,key,PutInSound,string/other,no,Item,DoParam,2595
+item,key,rackAfterShoot,bool,no,Item,DoParam,2236
+item,key,rackSound,string/other,no,Item,DoParam,2177
+item,key,Ranged,bool,no,Item,DoParam,2127
+item,key,RangeFalloff,bool,no,Item,DoParam,2417
+item,key,ReadType,string/other,no,Item,DoParam,2873
+item,key,RecoilDelay,int,no,Item,DoParam,2318
+item,key,RecoilDelayModifier,float,no,Item,DoParam,2581
+item,key,ReduceInfectionPower,float,no,Item,DoParam,2623
+item,key,ReloadTime,int,no,Item,DoParam,2515
+item,key,ReloadTimeModifier,int,no,Item,DoParam,2521
+item,key,remoteController,bool,no,Item,DoParam,2667
+item,key,remoteRange,int,no,Item,DoParam,2639
+item,key,RemoveNegativeEffectOnCooked,bool,no,Item,DoParam,2577
+item,key,removeOnBroken,bool,no,Item,DoParam,2157
+item,key,RemoveUnhappinessWhenCooked,bool,no,Item,DoParam,2089
+item,key,replaceInPrimaryHand,string/other,no,Item,DoParam,2865
+item,key,replaceInSecondHand,string/other,no,Item,DoParam,2863
+item,key,ReplaceOnCooked,list,no,Item,DoParam,2557
+item,key,ReplaceOnDeplete,string/other,no,Item,DoParam,2091
+item,key,ReplaceOnExtinguish,string/other,no,Item,DoParam,2093
+item,key,ReplaceOnRotten,string/other,no,Item,DoParam,2730
+item,key,ReplaceOnUse,string/other,no,Item,DoParam,2293
+item,key,ReplaceOnUseOn,list,no,Item,DoParam,2095
+item,key,ReplaceTypes,list,no,Item,DoParam,2109
+item,key,replaceWhenUnequip,string/other,no,Item,DoParam,2867
+item,key,RequireInHandOrInventory,list,no,Item,DoParam,2401
+item,key,RequiresEquippedBothHands,bool,no,Item,DoParam,2555
+item,key,ResearchableRecipes,list,no,Item,DoParam,2773
+item,key,RunAnim,string/other,no,Item,DoParam,2399
+item,key,runSpeedModifier,float,no,Item,DoParam,2149
+item,key,ScaleWorldIcon,float,no,Item,DoParam,2038
+item,key,scratchDefense,float,no,Item,DoParam,2252
+item,key,secondaryAnimMask,string/other,no,Item,DoParam,2857
+item,key,secondaryAnimMaskAttachment,string/other,no,Item,DoParam,2861
+item,key,sensorRange,int,no,Item,DoParam,2637
+item,key,ShareEndurance,bool,no,Item,DoParam,2421
+item,key,ShellFallSound,string/other,no,Item,DoParam,2429
+item,key,ShoutMultiplier,float,no,Item,DoParam,2969
+item,key,ShoutType,string/other,no,Item,DoParam,2967
+item,key,SkillTrained,string/other,no,Item,DoParam,2484
+item,key,smokeRange,int,no,Item,DoParam,2669
+item,key,SoundGain,float,no,Item,DoParam,2285
+item,key,SoundMap,list,no,Item,DoParam,2433
+item,key,SoundParameter,list,no,Item,DoParam,2924
+item,key,SoundRadius,int,no,Item,DoParam,2330
+item,key,SoundVolume,int,no,Item,DoParam,2326
+item,key,spawnWith,string/other,no,Item,DoParam,2951
+item,key,Spice,bool,no,Item,DoParam,2575
+item,key,SplatBloodOnNoDeath,bool,no,Item,DoParam,2358
+item,key,SplatNumber,int,no,Item,DoParam,2415
+item,key,SplatSize,float,no,Item,DoParam,1969
+item,key,SpriteName,string/other,no,Item,DoParam,1965
+item,key,StaticModel,string/other,no,Item,DoParam,2851
+item,key,staticModelsByIndex,list,no,Item,DoParam,2937
+item,key,stompPower,float,no,Item,DoParam,2145
+item,key,StopPower,float,no,Item,DoParam,2320
+item,key,strainModifier,float,no,Item,DoParam,2957
+item,key,StressChange,int,no,Item,DoParam,2085
+item,key,SubCategory,string/other,no,Item,DoParam,2529
+item,key,SurvivalGear,bool,no,Item,DoParam,2036
+item,key,suspensionCompression,float,no,Item,DoParam,2750
+item,key,suspensionDamping,float,no,Item,DoParam,2748
+item,key,SwingAmountBeforeImpact,float,no,Item,DoParam,2360
+item,key,SwingAnim,string/other,no,Item,DoParam,1983
+item,key,SwingAnim,string/other,no,Item,DoParam,2393
+item,key,SwingSound,string/other,no,Item,DoParam,2291
+item,key,SwingTime,float,no,Item,DoParam,2352
+item,key,Tags,list,no,Item,DoParam,2338
+item,key,Temperature,float,no,Item,DoParam,2468
+item,key,ThirstChange,float,no,Item,DoParam,2053
+item,key,TicksPerEquipUse,int,no,Item,DoParam,2464
+item,key,ToHitModifier,float,no,Item,DoParam,2328
+item,key,Tooltip,string/other,no,Item,DoParam,2543
+item,key,TorchCone,bool,no,Item,DoParam,2537
+item,key,TorchDot,float,no,Item,DoParam,2480
+item,key,TransmitRange,int,no,Item,DoParam,2679
+item,key,Trap,bool,no,Item,DoParam,2561
+item,key,TreeDamage,int,no,Item,DoParam,2607
+item,key,triggerExplosionTimer,int,no,Item,DoParam,2635
+item,key,TwoHandWeapon,bool,no,Item,DoParam,2541
+item,key,TwoWay,bool,no,Item,DoParam,2677
+item,key,UnequipSound,string/other,no,Item,DoParam,2187
+item,key,UnhappyChange,int,no,Item,DoParam,2087
+item,key,UseDelta,float,no,Item,DoParam,2478
+item,key,UseEndurance,bool,no,Item,DoParam,2419
+item,key,UseForPoison,int,no,Item,DoParam,1981
+item,key,UsesBattery,bool,no,Item,DoParam,2693
+item,key,UseSelf,bool,no,Item,DoParam,2129
+item,key,UseWhileEquipped,bool,no,Item,DoParam,2460
+item,key,UseWhileUnequipped,bool,no,Item,DoParam,2462
+item,key,UseWorldItem,bool,no,Item,DoParam,2028
+item,key,VehiclePartModel,string/other,no,Item,DoParam,2931
+item,key,VehicleType,int,no,Item,DoParam,2738
+item,key,visionModifier,float,no,Item,DoParam,2953
+item,key,VisualAid,bool,no,Item,DoParam,2973
+item,key,WaterResistance,float,no,Item,DoParam,2474
+item,key,WeaponHitArmourSound,string/other,no,Item,DoParam,2965
+item,key,WeaponLength,float,no,Item,DoParam,2511
+item,key,weaponReloadType,string/other,no,Item,DoParam,2267
+item,key,WeaponSprite,string/other,no,Item,DoParam,2295
+item,key,weaponSpritesByIndex,list,no,Item,DoParam,2297
+item,key,WeaponWeight,float,no,Item,DoParam,2395
+item,key,Weight,float,no,Item,DoParam,2042
+item,key,WeightEmpty,float,no,Item,DoParam,2049
+item,key,WeightModifier,float,no,Item,DoParam,2312
+item,key,WeightReduction,int,no,Item,DoParam,2525
+item,key,WeightWet,float,no,Item,DoParam,2047
+item,key,Wet,bool,no,Item,DoParam,2563
+item,key,WetCooldown,float,no,Item,DoParam,2565
+item,key,wheelFriction,float,no,Item,DoParam,2746
+item,key,WindResistance,float,no,Item,DoParam,2472
+item,key,withDrainable,string/other,no,Item,DoParam,2933
+item,key,withoutDrainable,string/other,no,Item,DoParam,2935
+item,key,WorldObjectSprite,string/other,no,Item,DoParam,2697
+item,key,WorldRender,bool,no,Item,DoParam,2905
+item,key,worldStaticModel,string/other,no,Item,DoParam,2853
+item,key,worldStaticModelsByIndex,list,no,Item,DoParam,2944
+item,block,component,,no,Item,Load,1428
+item / entity attributes,attribute,HeadCondition,int,no,Attribute,static init,24
+item / entity attributes,attribute,HeadConditionMax,int,no,Attribute,static init,27
+item / entity attributes,attribute,OriginX,int,no,Attribute,static init,36
+item / entity attributes,attribute,OriginY,int,no,Attribute,static init,39
+item / entity attributes,attribute,OriginZ,int,no,Attribute,static init,42
+item / entity attributes,attribute,Quality,int,no,Attribute,static init,33
+item / entity attributes,attribute,Sharpness,float,no,Attribute,static init,21
+item / entity attributes,attribute,TestBool,bool,no,Attribute,static init,14
+item / entity attributes,attribute,TestCategories,enumset,no,Attribute,static init,18
+item / entity attributes,attribute,TestCondition,float,no,Attribute,static init,13
+item / entity attributes,attribute,TestItemType,enum,no,Attribute,static init,17
+item / entity attributes,attribute,TestQuality,float,no,Attribute,static init,11
+item / entity attributes,attribute,TestString,string,no,Attribute,static init,15
+item / entity attributes,attribute,TestString2,string,no,Attribute,static init,16
+item / entity attributes,attribute,TestTags,enumstringset,no,Attribute,static init,19
+item / entity attributes,attribute,TestUses,int,no,Attribute,static init,12
+item / entity attributes,attribute,TimesHeadRepaired,int,no,Attribute,static init,30
+itemConfig,key,include,string/other,no,ItemConfig,Load,134
+itemConfig,block,includes,,no,ItemConfig,Load,143
+itemConfig,block,variables,,no,ItemConfig,Load,150
+itemConfig > root,block,container,,no,BucketRootScript,loadSelectorBucket,133
+itemConfig > root,block,default,,no,BucketRootScript,load,59
+itemConfig > root,block,default,,no,BucketRootScript,load,71
+itemConfig > root,block,default,,no,BucketRootScript,loadSelectorBucket,86
+itemConfig > root,block,oncreate,,no,BucketRootScript,load,61
+itemConfig > root,block,oncreate,,no,BucketRootScript,load,71
+itemConfig > root,block,oncreate,,no,BucketRootScript,loadSelectorBucket,91
+itemConfig > root,block,room,,no,BucketRootScript,loadSelectorBucket,127
+itemConfig > root,block,situated,,no,BucketRootScript,loadSelectorBucket,96
+itemConfig > root,block,tile,,no,BucketRootScript,loadSelectorBucket,139
+itemConfig > root,block,vehicle,,no,BucketRootScript,loadSelectorBucket,121
+itemConfig > root,block,worldagedays,,no,BucketRootScript,loadSelectorBucket,145
+itemConfig > root,block,zone,,no,BucketRootScript,loadSelectorBucket,115
+itemFilter,key,items,string/other,no,ItemFilterScript,readBlock,105
+itemFilter,key,tags,string/other,no,ItemFilterScript,readBlock,109
+itemFilter,key,types,string/other,no,ItemFilterScript,readBlock,107
+itemFilter,block,blacklist,,no,ItemFilterScript,readBlock,122
+itemFilter,block,items,,no,ItemFilterScript,readBlock,116
+itemFilter,block,tags,,no,ItemFilterScript,readBlock,120
+itemFilter,block,types,,no,ItemFilterScript,readBlock,118
+mannequin,key,animSet,string/other,no,MannequinScript,Load,98
+mannequin,key,animState,string/other,no,MannequinScript,Load,100
+mannequin,key,female,string/other,no,MannequinScript,Load,92
+mannequin,key,model,string/other,no,MannequinScript,Load,94
+mannequin,key,outfit,string/other,no,MannequinScript,Load,104
+mannequin,key,pose,string/other,no,MannequinScript,Load,102
+mannequin,key,texture,string/other,no,MannequinScript,Load,96
+model,key,animationsMesh,string/other,no,ModelScript,Load,99
+model,key,bone,string/other,yes,ModelScript,LoadAttachment,121
+model,key,boneWeight,list,no,ModelScript,Load,92
+model,key,cullFace,string/other,no,ModelScript,Load,80
+model,key,invertX,bool,no,ModelScript,Load,78
+model,key,mesh,string/other,no,ModelScript,Load,68
+model,key,offset,vector3,yes,ModelScript,LoadAttachment,123
+model,key,postProcess,string/other,no,ModelScript,Load,88
+model,key,rotate,vector3,yes,ModelScript,LoadAttachment,125
+model,key,scale,float,no,ModelScript,Load,70
+model,key,scale,float,yes,ModelScript,LoadAttachment,127
+model,key,shader,string/other,no,ModelScript,Load,72
+model,key,static,bool,no,ModelScript,Load,74
+model,key,texture,string/other,no,ModelScript,Load,76
+model,key,undoCoreScale,bool,no,ModelScript,Load,90
+model,block,attachment,,yes,ModelScript,Load,58
+physicsShape,key,allMeshes,bool,no,PhysicsShapeScript,Load,45
+physicsShape,key,mesh,string/other,no,PhysicsShapeScript,Load,37
+physicsShape,key,postProcess,string/other,no,PhysicsShapeScript,Load,47
+physicsShape,key,rotate,string/other,no,PhysicsShapeScript,Load,41
+physicsShape,key,scale,float,no,PhysicsShapeScript,Load,43
+physicsShape,key,translate,string/other,no,PhysicsShapeScript,Load,39
+physicsShape,key,undoCoreScale,bool,no,PhysicsShapeScript,Load,49
+ragdoll,key,angularDamping,float,yes,RagdollScript,loadBodyDynamics,288
+ragdoll,key,angularSleepingThreshold,float,yes,RagdollScript,loadBodyDynamics,297
+ragdoll,key,bodyPart,int,yes,RagdollScript,loadAnchors,228
+ragdoll,key,bone,int,yes,RagdollScript,loadAnchors,226
+ragdoll,key,calculateLength,bool,yes,RagdollScript,loadBodyPartInfo,253
+ragdoll,key,constraintAxisA,vector3,yes,RagdollScript,loadConstraints,193
+ragdoll,key,constraintAxisB,vector3,yes,RagdollScript,loadConstraints,196
+ragdoll,key,constraintLimit,vector3,yes,RagdollScript,loadConstraints,205
+ragdoll,key,constraintLimitExtended,vector3,yes,RagdollScript,loadConstraints,208
+ragdoll,key,constraintPartA,int,yes,RagdollScript,loadConstraints,189
+ragdoll,key,constraintPartB,int,yes,RagdollScript,loadConstraints,191
+ragdoll,key,constraintPositionOffsetA,vector3,yes,RagdollScript,loadConstraints,199
+ragdoll,key,constraintPositionOffsetB,vector3,yes,RagdollScript,loadConstraints,202
+ragdoll,key,constraintType,int,yes,RagdollScript,loadConstraints,187
+ragdoll,key,deactivationTime,float,yes,RagdollScript,loadBodyDynamics,291
+ragdoll,key,enabled,bool,yes,RagdollScript,loadAnchors,230
+ragdoll,key,friction,float,yes,RagdollScript,loadBodyDynamics,300
+ragdoll,key,gap,float,yes,RagdollScript,loadBodyPartInfo,259
+ragdoll,key,height,float,yes,RagdollScript,loadBodyPartInfo,257
+ragdoll,key,joint,int,yes,RagdollScript,loadConstraints,185
+ragdoll,key,linearDamping,float,yes,RagdollScript,loadBodyDynamics,285
+ragdoll,key,linearSleepingThreshold,float,yes,RagdollScript,loadBodyDynamics,294
+ragdoll,key,mass,float,yes,RagdollScript,loadBodyPartInfo,263
+ragdoll,key,offset,vector3,yes,RagdollScript,loadBodyPartInfo,265
+ragdoll,key,original,bool,yes,RagdollScript,loadAnchors,234
+ragdoll,key,part,int,yes,RagdollScript,loadBodyPartInfo,251
+ragdoll,key,part,int,yes,RagdollScript,loadBodyDynamics,283
+ragdoll,key,radius,float,yes,RagdollScript,loadBodyPartInfo,255
+ragdoll,key,reverse,bool,yes,RagdollScript,loadAnchors,232
+ragdoll,key,rollingFriction,float,yes,RagdollScript,loadBodyDynamics,303
+ragdoll,key,shape,int,yes,RagdollScript,loadBodyPartInfo,261
+recipe,key,Override,string/other,no,Recipe,Load,84
+sound,key,category,string/other,yes,GameSoundScript,Load,28
+sound,key,distanceMax,int,yes,GameSoundScript,LoadClip,56
+sound,key,distanceMin,int,yes,GameSoundScript,LoadClip,59
+sound,key,event,string/other,yes,GameSoundScript,LoadClip,62
+sound,key,file,string/other,yes,GameSoundScript,LoadClip,64
+sound,key,is3D,bool,yes,GameSoundScript,Load,30
+sound,key,loop,bool,yes,GameSoundScript,Load,32
+sound,key,master,enum,yes,GameSoundScript,Load,34
+sound,key,maxInstancesPerEmitter,string/other,yes,GameSoundScript,Load,36
+sound,key,pitch,float,yes,GameSoundScript,LoadClip,66
+sound,key,reverbFactor,float,yes,GameSoundScript,LoadClip,70
+sound,key,reverbMaxRange,float,yes,GameSoundScript,LoadClip,72
+sound,key,stopImmediate,string/other,yes,GameSoundScript,LoadClip,74
+sound,key,volume,float,yes,GameSoundScript,LoadClip,68
+sound,block,clip,,yes,GameSoundScript,Load,42
+timedAction,key,actionAnim,string/other,no,TimedActionScript,Load,114
+timedAction,key,animVarKey,string/other,no,TimedActionScript,Load,116
+timedAction,key,animVarVal,string/other,no,TimedActionScript,Load,118
+timedAction,key,cantSit,bool,no,TimedActionScript,Load,108
+timedAction,key,completionSound,string/other,no,TimedActionScript,Load,124
+timedAction,key,faceObject,bool,no,TimedActionScript,Load,106
+timedAction,key,metabolics,enum,no,TimedActionScript,Load,102
+timedAction,key,muscleStrainFactor,float,no,TimedActionScript,Load,126
+timedAction,key,muscleStrainParts,list,no,TimedActionScript,Load,135
+timedAction,key,muscleStrainSkill,string/other,no,TimedActionScript,Load,128
+timedAction,key,prop1,string/other,no,TimedActionScript,Load,110
+timedAction,key,prop2,string/other,no,TimedActionScript,Load,112
+timedAction,key,sound,string/other,no,TimedActionScript,Load,120
+timedAction,key,soundTime,string/other,no,TimedActionScript,Load,122
+timedAction,key,time,int,no,TimedActionScript,Load,104
+uniquerecipe,key,BaseRecipeItem,string/other,yes,UniqueRecipe,Load,34
+uniquerecipe,key,Boredom,int,yes,UniqueRecipe,Load,42
+uniquerecipe,key,Hapiness,int,yes,UniqueRecipe,Load,40
+uniquerecipe,key,Hunger,int,yes,UniqueRecipe,Load,38
+uniquerecipe,key,Item,string/other,yes,UniqueRecipe,Load,36
+vehicle,key,alarm,list,yes,VehicleScript,Load,391
+vehicle,key,alarmLoop,list,yes,VehicleScript,Load,397
+vehicle,key,angle,vector3,yes,VehicleScript,LoadAnim,830
+vehicle,key,anim,string/other,yes,VehicleScript,LoadAnim,832
+vehicle,key,anim,string/other,yes,VehicleScript,LoadPassengerSwitchSeat,870
+vehicle,key,animalTrailerSize,float,no,VehicleScript,Load,222
+vehicle,key,animate,bool,yes,VehicleScript,LoadAnim,834
+vehicle,key,area,string/other,yes,VehicleScript,LoadPassenger,793
+vehicle,key,area,string/other,yes,VehicleScript,LoadPart,917
+vehicle,key,area,string/other,yes,VehicleScript,LoadPosition,1411
+vehicle,key,attachmentParent,string/other,yes,VehicleScript,LoadModel,709
+vehicle,key,attachmentSelf,string/other,yes,VehicleScript,LoadModel,711
+vehicle,key,backSignal,string/other,yes,VehicleScript,Load,403
+vehicle,key,bone,string/other,yes,VehicleScript,LoadAttachment,672
+vehicle,key,canAttach,list,yes,VehicleScript,LoadAttachment,678
+vehicle,key,capacity,int,yes,VehicleScript,LoadContainer,1080
+vehicle,key,carMechanicsOverlay,string/other,yes,VehicleScript,Load,276
+vehicle,key,carModelName,string/other,yes,VehicleScript,Load,278
+vehicle,key,category,string/other,yes,VehicleScript,LoadPart,940
+vehicle,key,centerOfMassOffset,vector3,yes,VehicleScript,Load,158
+vehicle,key,conditionAffectsCapacity,bool,yes,VehicleScript,LoadContainer,1082
+vehicle,key,contentType,string/other,yes,VehicleScript,LoadContainer,1084
+vehicle,key,door,string/other,yes,VehicleScript,LoadPassenger,795
+vehicle,key,door2,string/other,yes,VehicleScript,LoadPassenger,797
+vehicle,key,durability,float,yes,VehicleScript,LoadPart,942
+vehicle,key,engine,string/other,yes,VehicleScript,Load,406
+vehicle,key,engineForce,float,yes,VehicleScript,Load,160
+vehicle,key,engineIdleSpeed,float,yes,VehicleScript,Load,162
+vehicle,key,engineLoudness,int,yes,VehicleScript,Load,236
+vehicle,key,engineQuality,int,yes,VehicleScript,Load,238
+vehicle,key,engineRepairLevel,int,yes,VehicleScript,Load,293
+vehicle,key,engineRPMType,string/other,yes,VehicleScript,Load,251
+vehicle,key,engineStart,string/other,yes,VehicleScript,Load,408
+vehicle,key,engineTurnOff,string/other,yes,VehicleScript,Load,410
+vehicle,key,extents,vector3,yes,VehicleScript,Load,142
+vehicle,key,extents,vector3,no,VehicleScript,LoadPhysicsShape,1009
+vehicle,key,extentsOffset,string/other,yes,VehicleScript,Load,152
+vehicle,key,file,string/other,yes,VehicleScript,LoadModel,701
+vehicle,key,forcedColor,float,yes,VehicleScript,Load,246
+vehicle,key,front,bool,yes,VehicleScript,LoadWheel,768
+vehicle,key,frontEndDurability,int,yes,VehicleScript,Load,230
+vehicle,key,gearRatio1,float,yes,VehicleScript,Load,168
+vehicle,key,gearRatio2,float,yes,VehicleScript,Load,170
+vehicle,key,gearRatio3,float,yes,VehicleScript,Load,172
+vehicle,key,gearRatio4,float,yes,VehicleScript,Load,174
+vehicle,key,gearRatio5,float,yes,VehicleScript,Load,176
+vehicle,key,gearRatio6,float,yes,VehicleScript,Load,178
+vehicle,key,gearRatio7,float,yes,VehicleScript,Load,180
+vehicle,key,gearRatio8,float,yes,VehicleScript,Load,182
+vehicle,key,gearRatioCount,int,yes,VehicleScript,Load,164
+vehicle,key,gearRatioR,float,yes,VehicleScript,Load,166
+vehicle,key,handBrake,string/other,yes,VehicleScript,Load,412
+vehicle,key,hasLighter,bool,yes,VehicleScript,Load,272
+vehicle,key,hasLightsRear,bool,yes,VehicleScript,LoadPart,946
+vehicle,key,hasRoof,bool,yes,VehicleScript,LoadPassenger,799
+vehicle,key,hasSiren,bool,yes,VehicleScript,Load,242
+vehicle,key,horn,string/other,yes,VehicleScript,Load,414
+vehicle,key,ignitionFail,string/other,yes,VehicleScript,Load,417
+vehicle,key,ignitionFailNoPower,string/other,yes,VehicleScript,Load,419
+vehicle,key,ignoreVehicleScale,bool,no,VehicleScript,LoadModel,713
+vehicle,key,isSmallVehicle,bool,yes,VehicleScript,Load,228
+vehicle,key,itemType,list,yes,VehicleScript,LoadPart,923
+vehicle,key,leftCol,float,yes,VehicleScript,Load,370
+vehicle,key,loop,bool,yes,VehicleScript,LoadAnim,836
+vehicle,key,mass,float,yes,VehicleScript,Load,154
+vehicle,key,maxSpeed,float,yes,VehicleScript,Load,224
+vehicle,key,maxSpeedReverse,float,yes,VehicleScript,Load,226
+vehicle,key,maxSuspensionTravelCm,float,yes,VehicleScript,Load,216
+vehicle,key,mechanicArea,string/other,yes,VehicleScript,LoadPart,921
+vehicle,key,mechanicRequireKey,bool,yes,VehicleScript,LoadPart,932
+vehicle,key,mechanicType,int,yes,VehicleScript,Load,244
+vehicle,key,model,string/other,yes,VehicleScript,LoadWheel,766
+vehicle,key,neverSpawnKey,bool,yes,VehicleScript,Load,274
+vehicle,key,notKillCrops,bool,yes,VehicleScript,Load,270
+vehicle,key,offRoadEfficiency,float,no,VehicleScript,Load,156
+vehicle,key,offset,vector3,yes,VehicleScript,LoadAttachment,674
+vehicle,key,offset,vector3,yes,VehicleScript,LoadModel,703
+vehicle,key,offset,vector3,yes,VehicleScript,LoadWheel,770
+vehicle,key,offset,vector3,yes,VehicleScript,LoadAnim,842
+vehicle,key,offset,vector3,no,VehicleScript,LoadPhysicsShape,1011
+vehicle,key,offset,vector3,yes,VehicleScript,LoadPosition,1409
+vehicle,key,openable,bool,yes,VehicleScript,LoadWindow,1066
+vehicle,key,parent,string/other,yes,VehicleScript,LoadPart,930
+vehicle,key,physicsChassisShape,vector3,yes,VehicleScript,Load,150
+vehicle,key,physicsShapeScript,string/other,no,VehicleScript,LoadPhysicsShape,1017
+vehicle,key,playerDamageProtection,float,yes,VehicleScript,Load,295
+vehicle,key,radius,float,yes,VehicleScript,LoadWheel,772
+vehicle,key,radius,float,no,VehicleScript,LoadPhysicsShape,1013
+vehicle,key,rate,float,yes,VehicleScript,LoadAnim,840
+vehicle,key,rate,float,yes,VehicleScript,LoadPassengerSwitchSeat,872
+vehicle,key,rearEndDurability,int,yes,VehicleScript,Load,232
+vehicle,key,repairMechanic,bool,yes,VehicleScript,LoadPart,934
+vehicle,key,reverse,bool,yes,VehicleScript,LoadAnim,838
+vehicle,key,rightCol,float,yes,VehicleScript,Load,375
+vehicle,key,rollInfluence,float,yes,VehicleScript,Load,202
+vehicle,key,rotate,vector3,yes,VehicleScript,LoadAttachment,676
+vehicle,key,rotate,vector3,yes,VehicleScript,LoadModel,705
+vehicle,key,rotate,vector3,no,VehicleScript,LoadPhysicsShape,1015
+vehicle,key,rotate,vector3,yes,VehicleScript,LoadPosition,1407
+vehicle,key,scale,float,yes,VehicleScript,LoadModel,707
+vehicle,key,scale,float,no,VehicleScript,LoadPhysicsShape,1019
+vehicle,key,seat,string/other,yes,VehicleScript,LoadContainer,1086
+vehicle,key,seats,int,yes,VehicleScript,Load,240
+vehicle,key,setAllModelsVisible,bool,yes,VehicleScript,LoadPart,936
+vehicle,key,shadowExtents,string/other,yes,VehicleScript,Load,144
+vehicle,key,shadowOffset,string/other,yes,VehicleScript,Load,147
+vehicle,key,showPassenger,bool,yes,VehicleScript,LoadPassenger,801
+vehicle,key,sound,string/other,yes,VehicleScript,LoadAnim,844
+vehicle,key,sound,string/other,yes,VehicleScript,LoadPassengerSwitchSeat,874
+vehicle,key,soundMap,list,yes,VehicleScript,LoadContainer,1088
+vehicle,key,soundSiren,string/other,yes,VehicleScript,Load,352
+vehicle,key,soundSiren0,string/other,yes,VehicleScript,Load,358
+vehicle,key,soundSiren1,string/other,yes,VehicleScript,Load,362
+vehicle,key,soundSiren2,string/other,yes,VehicleScript,Load,366
+vehicle,key,specialKeyRing,list,yes,VehicleScript,Load,260
+vehicle,key,specialKeyRingChance,int,yes,VehicleScript,Load,282
+vehicle,key,specialLootChance,int,yes,VehicleScript,Load,280
+vehicle,key,specificItem,bool,yes,VehicleScript,LoadPart,944
+vehicle,key,steeringClamp,float,yes,VehicleScript,Load,206
+vehicle,key,steeringIncrement,float,yes,VehicleScript,Load,204
+vehicle,key,stoppingMovementForce,float,yes,VehicleScript,Load,220
+vehicle,key,storageCapacity,int,yes,VehicleScript,Load,234
+vehicle,key,suspensionCompression,float,yes,VehicleScript,Load,212
+vehicle,key,suspensionDamping,float,yes,VehicleScript,Load,210
+vehicle,key,suspensionRestLength,float,yes,VehicleScript,Load,214
+vehicle,key,suspensionStiffness,float,yes,VehicleScript,Load,208
+vehicle,key,template,string/other,yes,VehicleScript,Load,284
+vehicle,key,template!,string/other,yes,VehicleScript,Load,286
+vehicle,key,test,string/other,yes,VehicleScript,LoadContainer,1093
+vehicle,key,texture,string/other,yes,VehicleScript,LoadSkin,727
+vehicle,key,textureDamage1Overlay,string/other,yes,VehicleScript,Load,192
+vehicle,key,textureDamage1Overlay,string/other,yes,VehicleScript,LoadSkin,735
+vehicle,key,textureDamage1Shell,string/other,yes,VehicleScript,Load,194
+vehicle,key,textureDamage1Shell,string/other,yes,VehicleScript,LoadSkin,737
+vehicle,key,textureDamage2Overlay,string/other,yes,VehicleScript,Load,196
+vehicle,key,textureDamage2Overlay,string/other,yes,VehicleScript,LoadSkin,739
+vehicle,key,textureDamage2Shell,string/other,yes,VehicleScript,Load,198
+vehicle,key,textureDamage2Shell,string/other,yes,VehicleScript,LoadSkin,741
+vehicle,key,textureLights,string/other,yes,VehicleScript,Load,190
+vehicle,key,textureLights,string/other,yes,VehicleScript,LoadSkin,733
+vehicle,key,textureMask,string/other,yes,VehicleScript,Load,188
+vehicle,key,textureMask,string/other,yes,VehicleScript,LoadSkin,731
+vehicle,key,textureMaskEnable,bool,yes,VehicleScript,Load,184
+vehicle,key,textureRust,string/other,yes,VehicleScript,Load,186
+vehicle,key,textureRust,string/other,yes,VehicleScript,LoadSkin,729
+vehicle,key,textureShadow,string/other,yes,VehicleScript,Load,200
+vehicle,key,textureShadow,string/other,yes,VehicleScript,LoadSkin,743
+vehicle,key,updateconstraint,bool,yes,VehicleScript,LoadAttachment,682
+vehicle,key,useChassisPhysicsCollision,bool,yes,VehicleScript,Load,297
+vehicle,key,wheel,string/other,yes,VehicleScript,LoadPart,938
+vehicle,key,wheelFriction,float,yes,VehicleScript,Load,218
+vehicle,key,width,float,yes,VehicleScript,LoadWheel,774
+vehicle,key,xywh,float,yes,VehicleScript,LoadArea,894
+vehicle,key,zoffset,float,yes,VehicleScript,LoadAttachment,680
+vehicle,key,zombieType,list,yes,VehicleScript,Load,253
+vehicle,block,anim,,yes,VehicleScript,LoadPassenger,807
+vehicle,block,anim,,yes,VehicleScript,LoadPart,952
+vehicle,block,area,,yes,VehicleScript,Load,302
+vehicle,block,attachment,,yes,VehicleScript,Load,304
+vehicle,block,container,,yes,VehicleScript,LoadPart,958
+vehicle,block,crawlThroughWheel,,yes,VehicleScript,Load,346
+vehicle,block,door,,yes,VehicleScript,LoadPart,960
+vehicle,block,lightbar,,yes,VehicleScript,Load,348
+vehicle,block,lua,,yes,VehicleScript,LoadPart,962
+vehicle,block,model,,yes,VehicleScript,Load,306
+vehicle,block,model,,yes,VehicleScript,LoadPart,964
+vehicle,block,part,,yes,VehicleScript,Load,308
+vehicle,block,passenger,,yes,VehicleScript,Load,321
+vehicle,block,physics,,yes,VehicleScript,Load,334
+vehicle,block,position,,yes,VehicleScript,LoadPassenger,809
+vehicle,block,skin,,yes,VehicleScript,Load,339
+vehicle,block,sound,,yes,VehicleScript,Load,387
+vehicle,block,switchSeat,,yes,VehicleScript,LoadPassenger,811
+vehicle,block,table,,yes,VehicleScript,LoadPart,970
+vehicle,block,wheel,,yes,VehicleScript,Load,344
+vehicle,block,window,,yes,VehicleScript,LoadPart,979
+vehicle,block-id,physics box,,yes,VehicleScript,LoadPhysicsShape,990
+vehicle,block-id,physics mesh,,yes,VehicleScript,LoadPhysicsShape,996
+vehicle,block-id,physics sphere,,yes,VehicleScript,LoadPhysicsShape,993
+vehicleEngineRPM,key,afterGearChange,string/other,yes,VehicleEngineRPM,LoadData,68
+vehicleEngineRPM,key,gearChange,string/other,yes,VehicleEngineRPM,LoadData,71
+vehicleEngineRPM,key,VERSION,string/other,yes,VehicleEngineRPM,Load,35
+xui element (layout/style),key,xuiLuaClass,string/other,no,XuiScript,ReadLuaClassValue,797
+xui element (layout/style),xui-var,a,float,n/a,XuiScript,,225
+xui element (layout/style),xui-var,allowDraggingTabs,boolean,n/a,XuiScript,,322
+xui element (layout/style),xui-var,allowDropAlways,boolean,n/a,XuiScript,,323
+xui element (layout/style),xui-var,allowTornOffTabs,boolean,n/a,XuiScript,,324
+xui element (layout/style),xui-var,altBgColor,color,n/a,XuiScript,,281
+xui element (layout/style),xui-var,anchorBottom,boolean,n/a,XuiScript,,220
+xui element (layout/style),xui-var,anchorLeft,boolean,n/a,XuiScript,,217
+xui element (layout/style),xui-var,anchorRight,boolean,n/a,XuiScript,,218
+xui element (layout/style),xui-var,anchorTop,boolean,n/a,XuiScript,,219
+xui element (layout/style),xui-var,animationList,stringlist,n/a,XuiScript,,221
+xui element (layout/style),xui-var,animationTime,float,n/a,XuiScript,,229
+xui element (layout/style),xui-var,autoScale,boolean,n/a,XuiScript,,325
+xui element (layout/style),xui-var,autosetheight,boolean,n/a,XuiScript,,326
+xui element (layout/style),xui-var,b,float,n/a,XuiScript,,224
+xui element (layout/style),xui-var,backDropTexCol,color,n/a,XuiScript,,282
+xui element (layout/style),xui-var,background,boolean,n/a,XuiScript,,327
+xui element (layout/style),xui-var,backgroundColor,color,n/a,XuiScript,,283
+xui element (layout/style),xui-var,backgroundColorHL,color,n/a,XuiScript,,284
+xui element (layout/style),xui-var,backgroundColorHLInv,color,n/a,XuiScript,,285
+xui element (layout/style),xui-var,backgroundColorHLVal,color,n/a,XuiScript,,286
+xui element (layout/style),xui-var,backgroundColorMouseOver,color,n/a,XuiScript,,287
+xui element (layout/style),xui-var,backgroundEmpty,color,n/a,XuiScript,,288
+xui element (layout/style),xui-var,backgroundHover,color,n/a,XuiScript,,289
+xui element (layout/style),xui-var,borderColor,color,n/a,XuiScript,,290
+xui element (layout/style),xui-var,borderColorHL,color,n/a,XuiScript,,291
+xui element (layout/style),xui-var,borderColorHLVal,color,n/a,XuiScript,,293
+xui element (layout/style),xui-var,borderInput,color,n/a,XuiScript,,294
+xui element (layout/style),xui-var,borderInvalid,color,n/a,XuiScript,,295
+xui element (layout/style),xui-var,borderLocked,color,n/a,XuiScript,,296
+xui element (layout/style),xui-var,borderOutput,color,n/a,XuiScript,,297
+xui element (layout/style),xui-var,borderValid,color,n/a,XuiScript,,298
+xui element (layout/style),xui-var,boxSize,float,n/a,XuiScript,,230
+xui element (layout/style),xui-var,bubblesAlpha,float,n/a,XuiScript,,231
+xui element (layout/style),xui-var,bubblesTex,texture,n/a,XuiScript,,260
+xui element (layout/style),xui-var,buttonColor,color,n/a,XuiScript,,299
+xui element (layout/style),xui-var,buttonMouseOverColor,color,n/a,XuiScript,,300
+xui element (layout/style),xui-var,center,boolean,n/a,XuiScript,,328
+xui element (layout/style),xui-var,centerTabs,boolean,n/a,XuiScript,,329
+xui element (layout/style),xui-var,choicesColor,color,n/a,XuiScript,,301
+xui element (layout/style),xui-var,clearStentil,boolean,n/a,XuiScript,,330
+xui element (layout/style),xui-var,clip,boolean,n/a,XuiScript,,331
+xui element (layout/style),xui-var,closeButtonTexture,texture,n/a,XuiScript,,261
+xui element (layout/style),xui-var,collapseButtonTexture,texture,n/a,XuiScript,,262
+xui element (layout/style),xui-var,contentTransparency,float,n/a,XuiScript,,232
+xui element (layout/style),xui-var,currentValue,float,n/a,XuiScript,,233
+xui element (layout/style),xui-var,defaultFont,fonttype,n/a,XuiScript,,255
+xui element (layout/style),xui-var,description,translatestring,n/a,XuiScript,,364
+xui element (layout/style),xui-var,detailInnerColor,color,n/a,XuiScript,,302
+xui element (layout/style),xui-var,differenceAlpha,float,n/a,XuiScript,,234
+xui element (layout/style),xui-var,displayBackground,boolean,n/a,XuiScript,,332
+xui element (layout/style),xui-var,doBackDropTex,boolean,n/a,XuiScript,,333
+xui element (layout/style),xui-var,doBorderLocked,boolean,n/a,XuiScript,,334
+xui element (layout/style),xui-var,doButtons,boolean,n/a,XuiScript,,335
+xui element (layout/style),xui-var,doHighlight,boolean,n/a,XuiScript,,336
+xui element (layout/style),xui-var,doInvalidHighlight,boolean,n/a,XuiScript,,337
+xui element (layout/style),xui-var,doLedBlink,boolean,n/a,XuiScript,,338
+xui element (layout/style),xui-var,doScroll,boolean,n/a,XuiScript,,339
+xui element (layout/style),xui-var,doTextBackdrop,boolean,n/a,XuiScript,,340
+xui element (layout/style),xui-var,doToolTip,boolean,n/a,XuiScript,,341
+xui element (layout/style),xui-var,doValidHighlight,boolean,n/a,XuiScript,,342
+xui element (layout/style),xui-var,dragInside,boolean,n/a,XuiScript,,343
+xui element (layout/style),xui-var,drawBackground,boolean,n/a,XuiScript,,346
+xui element (layout/style),xui-var,drawBorder,boolean,n/a,XuiScript,,347
+xui element (layout/style),xui-var,drawFrame,boolean,n/a,XuiScript,,344
+xui element (layout/style),xui-var,drawGrid,boolean,n/a,XuiScript,,345
+xui element (layout/style),xui-var,drawMeasures,boolean,n/a,XuiScript,,348
+xui element (layout/style),xui-var,editable,boolean,n/a,XuiScript,,349
+xui element (layout/style),xui-var,enable,boolean,n/a,XuiScript,,350
+xui element (layout/style),xui-var,enableHeader,boolean,n/a,XuiScript,,351
+xui element (layout/style),xui-var,equalTabWidth,boolean,n/a,XuiScript,,352
+xui element (layout/style),xui-var,font,fonttype,n/a,XuiScript,,256
+xui element (layout/style),xui-var,font2,fonttype,n/a,XuiScript,,257
+xui element (layout/style),xui-var,font3,fonttype,n/a,XuiScript,,258
+xui element (layout/style),xui-var,footNote,translatestring,n/a,XuiScript,,365
+xui element (layout/style),xui-var,g,float,n/a,XuiScript,,223
+xui element (layout/style),xui-var,gradientAlpha,float,n/a,XuiScript,,235
+xui element (layout/style),xui-var,gradientTex,texture,n/a,XuiScript,,263
+xui element (layout/style),xui-var,greyCol,color,n/a,XuiScript,,303
+xui element (layout/style),xui-var,gridColor,color,n/a,XuiScript,,304
+xui element (layout/style),xui-var,height,unit,n/a,XuiScript,,170
+xui element (layout/style),xui-var,hsbFactor,color,n/a,XuiScript,,305
+xui element (layout/style),xui-var,icon,texture,n/a,XuiScript,,197
+xui element (layout/style),xui-var,icon_height,unit,n/a,XuiScript,,204
+xui element (layout/style),xui-var,icon_vector,vector,n/a,XuiScript,,206
+xui element (layout/style),xui-var,icon_width,unit,n/a,XuiScript,,202
+xui element (layout/style),xui-var,icon_x,unit,n/a,XuiScript,,198
+xui element (layout/style),xui-var,icon_y,unit,n/a,XuiScript,,200
+xui element (layout/style),xui-var,image,texture,n/a,XuiScript,,207
+xui element (layout/style),xui-var,image_height,unit,n/a,XuiScript,,214
+xui element (layout/style),xui-var,image_vector,vector,n/a,XuiScript,,216
+xui element (layout/style),xui-var,image_width,unit,n/a,XuiScript,,212
+xui element (layout/style),xui-var,image_x,unit,n/a,XuiScript,,208
+xui element (layout/style),xui-var,image_y,unit,n/a,XuiScript,,210
+xui element (layout/style),xui-var,infoBtn,texture,n/a,XuiScript,,264
+xui element (layout/style),xui-var,invbasic,texture,n/a,XuiScript,,265
+xui element (layout/style),xui-var,isOn,boolean,n/a,XuiScript,,354
+xui element (layout/style),xui-var,isVertical,boolean,n/a,XuiScript,,355
+xui element (layout/style),xui-var,itemGap,float,n/a,XuiScript,,236
+xui element (layout/style),xui-var,itemheight,float,n/a,XuiScript,,237
+xui element (layout/style),xui-var,itemHgt,float,n/a,XuiScript,,238
+xui element (layout/style),xui-var,itemPadY,float,n/a,XuiScript,,239
+xui element (layout/style),xui-var,keeplog,boolean,n/a,XuiScript,,353
+xui element (layout/style),xui-var,lcdback,texture,n/a,XuiScript,,266
+xui element (layout/style),xui-var,lcdfont,texture,n/a,XuiScript,,267
+xui element (layout/style),xui-var,ledBackTexture,texture,n/a,XuiScript,,268
+xui element (layout/style),xui-var,ledBlinkSpeed,float,n/a,XuiScript,,240
+xui element (layout/style),xui-var,ledCol,color,n/a,XuiScript,,307
+xui element (layout/style),xui-var,ledColOff,color,n/a,XuiScript,,309
+xui element (layout/style),xui-var,ledColor,color,n/a,XuiScript,,308
+xui element (layout/style),xui-var,ledIsOn,boolean,n/a,XuiScript,,356
+xui element (layout/style),xui-var,ledTextColor,color,n/a,XuiScript,,310
+xui element (layout/style),xui-var,ledTexture,texture,n/a,XuiScript,,269
+xui element (layout/style),xui-var,left,boolean,n/a,XuiScript,,357
+xui element (layout/style),xui-var,leftMargin,float,n/a,XuiScript,,241
+xui element (layout/style),xui-var,listHeaderColor,color,n/a,XuiScript,,311
+xui element (layout/style),xui-var,margin,spacing,n/a,XuiScript,,196
+xui element (layout/style),xui-var,marginBottom,unit,n/a,XuiScript,,194
+xui element (layout/style),xui-var,marginLeft,unit,n/a,XuiScript,,195
+xui element (layout/style),xui-var,marginRight,unit,n/a,XuiScript,,193
+xui element (layout/style),xui-var,marginTop,unit,n/a,XuiScript,,192
+xui element (layout/style),xui-var,maximumHeight,float,n/a,XuiScript,,183
+xui element (layout/style),xui-var,maximumHeightPercent,unit,n/a,XuiScript,,186
+xui element (layout/style),xui-var,maximumWidth,float,n/a,XuiScript,,182
+xui element (layout/style),xui-var,maxLength,integer,n/a,XuiScript,,243
+xui element (layout/style),xui-var,maxLines,integer,n/a,XuiScript,,244
+xui element (layout/style),xui-var,maxValue,float,n/a,XuiScript,,245
+xui element (layout/style),xui-var,minimumHeight,float,n/a,XuiScript,,181
+xui element (layout/style),xui-var,minimumWidth,float,n/a,XuiScript,,180
+xui element (layout/style),xui-var,minValue,float,n/a,XuiScript,,242
+xui element (layout/style),xui-var,mouseEnabled,boolean,n/a,XuiScript,,359
+xui element (layout/style),xui-var,mouseover,boolean,n/a,XuiScript,,360
+xui element (layout/style),xui-var,mouseovertext,translatestring,n/a,XuiScript,,366
+xui element (layout/style),xui-var,moveWithMouse,boolean,n/a,XuiScript,,358
+xui element (layout/style),xui-var,name,translatestring,n/a,XuiScript,,367
+xui element (layout/style),xui-var,padding,spacing,n/a,XuiScript,,191
+xui element (layout/style),xui-var,paddingBottom,unit,n/a,XuiScript,,189
+xui element (layout/style),xui-var,paddingLeft,unit,n/a,XuiScript,,190
+xui element (layout/style),xui-var,paddingRight,unit,n/a,XuiScript,,188
+xui element (layout/style),xui-var,paddingTop,unit,n/a,XuiScript,,187
+xui element (layout/style),xui-var,pin,boolean,n/a,XuiScript,,361
+xui element (layout/style),xui-var,pinButtonTexture,texture,n/a,XuiScript,,271
+xui element (layout/style),xui-var,progressColor,color,n/a,XuiScript,,312
+xui element (layout/style),xui-var,progressTexture,texture,n/a,XuiScript,,272
+xui element (layout/style),xui-var,r,float,n/a,XuiScript,,222
+xui element (layout/style),xui-var,resizable,boolean,n/a,XuiScript,,362
+xui element (layout/style),xui-var,resizeimage,texture,n/a,XuiScript,,270
+xui element (layout/style),xui-var,scaledHeight,float,n/a,XuiScript,,185
+xui element (layout/style),xui-var,scaledWidth,float,n/a,XuiScript,,184
+xui element (layout/style),xui-var,scrollX,float,n/a,XuiScript,,246
+xui element (layout/style),xui-var,shiftValue,float,n/a,XuiScript,,247
+xui element (layout/style),xui-var,sliderBarBorderColor,color,n/a,XuiScript,,314
+xui element (layout/style),xui-var,sliderBarColor,color,n/a,XuiScript,,315
+xui element (layout/style),xui-var,sliderBorderColor,color,n/a,XuiScript,,316
+xui element (layout/style),xui-var,sliderColor,color,n/a,XuiScript,,313
+xui element (layout/style),xui-var,sliderMouseOverColor,color,n/a,XuiScript,,317
+xui element (layout/style),xui-var,statusbarbkg,texture,n/a,XuiScript,,273
+xui element (layout/style),xui-var,stepValue,float,n/a,XuiScript,,248
+xui element (layout/style),xui-var,storeItem,boolean,n/a,XuiScript,,363
+xui element (layout/style),xui-var,tabHeight,float,n/a,XuiScript,,249
+xui element (layout/style),xui-var,tabPadX,float,n/a,XuiScript,,250
+xui element (layout/style),xui-var,tabTransparency,float,n/a,XuiScript,,251
+xui element (layout/style),xui-var,texBtnLeft,texture,n/a,XuiScript,,276
+xui element (layout/style),xui-var,texBtnRight,texture,n/a,XuiScript,,277
+xui element (layout/style),xui-var,textAlign,textalign,n/a,XuiScript,,178
+xui element (layout/style),xui-var,textB,float,n/a,XuiScript,,228
+xui element (layout/style),xui-var,textBackColor,color,n/a,XuiScript,,319
+xui element (layout/style),xui-var,textColor,color,n/a,XuiScript,,318
+xui element (layout/style),xui-var,textG,float,n/a,XuiScript,,227
+xui element (layout/style),xui-var,textGap,float,n/a,XuiScript,,253
+xui element (layout/style),xui-var,textR,float,n/a,XuiScript,,226
+xui element (layout/style),xui-var,textTransparency,float,n/a,XuiScript,,252
+xui element (layout/style),xui-var,texture,texture,n/a,XuiScript,,274
+xui element (layout/style),xui-var,textureBackground,texture,n/a,XuiScript,,275
+xui element (layout/style),xui-var,textureColor,color,n/a,XuiScript,,320
+xui element (layout/style),xui-var,textureOverride,texture,n/a,XuiScript,,278
+xui element (layout/style),xui-var,tickTexture,texture,n/a,XuiScript,,279
+xui element (layout/style),xui-var,title,translatestring,n/a,XuiScript,,368
+xui element (layout/style),xui-var,titlebarbkg,texture,n/a,XuiScript,,280
+xui element (layout/style),xui-var,titleFont,fonttype,n/a,XuiScript,,259
+xui element (layout/style),xui-var,tooltip,translatestring,n/a,XuiScript,,369
+xui element (layout/style),xui-var,toolTipText,translatestring,n/a,XuiScript,,370
+xui element (layout/style),xui-var,toolTipTextItem,translatestring,n/a,XuiScript,,371
+xui element (layout/style),xui-var,toolTipTextLocked,translatestring,n/a,XuiScript,,372
+xui element (layout/style),xui-var,translation,translatestring,n/a,XuiScript,,373
+xui element (layout/style),xui-var,triangleWidth,float,n/a,XuiScript,,254
+xui element (layout/style),xui-var,vector,vector,n/a,XuiScript,,173
+xui element (layout/style),xui-var,vectorPosAlign,vectorposalign,n/a,XuiScript,,175
+xui element (layout/style),xui-var,widgetTextureColor,color,n/a,XuiScript,,321
+xui element (layout/style),xui-var,width,unit,n/a,XuiScript,,167
+xui element (layout/style),xui-var,x,unit,n/a,XuiScript,,161
+xui element (layout/style),xui-var,xuiCustomDebug,string,n/a,XuiScript,,157
+xui element (layout/style),xui-var,xuiKey,string,n/a,XuiScript,,149
+xui element (layout/style),xui-var,xuiLuaClass,string,n/a,XuiScript,,141
+xui element (layout/style),xui-var,xuiStyle,string,n/a,XuiScript,,152
+xui element (layout/style),xui-var,y,unit,n/a,XuiScript,,164
+xui element (layout/style),block,xui,,no,XuiScript,Load,855
+xui table,key,xuiColumns,string/other,no,XuiTableScript,Load,151
+xui table,key,xuiRows,list,no,XuiTableScript,Load,151
+xui table,key,xuiRows,string/other,no,XuiTableScript,Load,156
+xui table,xui-var,xuiCellStyle,string,n/a,XuiTableScript,,12
+xui table,xui-var,xuiColumnStyle,string,n/a,XuiTableScript,,25
+xui table,xui-var,xuiRowStyle,string,n/a,XuiTableScript,,21
+xui table,block,xuiCell,,no,XuiTableScript,Load,206
+xui table,block,xuiColumns,,no,XuiTableScript,Load,170
+xui table,block,xuiRows,,no,XuiTableScript,Load,170
+xui table,block,xuiRows,,no,XuiTableScript,Load,171
+xuiSkin,key,buildDescription,string/other,no,XuiSkinScript,LoadEntityBlock,176
+xuiSkin,key,clearComponents,bool,no,XuiSkinScript,LoadEntityBlock,180
+xuiSkin,key,description,string/other,no,XuiSkinScript,LoadEntityBlock,174
+xuiSkin,key,displayName,string/other,no,XuiSkinScript,LoadEntityBlock,163
+xuiSkin,key,displayName,string/other,no,XuiSkinScript,LoadComponentBlock,243
+xuiSkin,key,enabled,bool,no,XuiSkinScript,LoadComponentBlock,250
+xuiSkin,key,icon,string/other,no,XuiSkinScript,LoadEntityBlock,178
+xuiSkin,key,icon,string/other,no,XuiSkinScript,LoadComponentBlock,245
+xuiSkin,key,listOrderZ,int,no,XuiSkinScript,LoadComponentBlock,247
+xuiSkin,key,luaCanOpenWindow,string/other,no,XuiSkinScript,LoadEntityBlock,159
+xuiSkin,key,luaOpenWindow,string/other,no,XuiSkinScript,LoadEntityBlock,161
+xuiSkin,key,luaPanelClass,string/other,no,XuiSkinScript,LoadComponentBlock,239
+xuiSkin,key,luaWindowClass,string/other,no,XuiSkinScript,LoadEntityBlock,155
+xuiSkin,key,xuiStyle,string/other,no,XuiSkinScript,LoadEntityBlock,157
+xuiSkin,key,xuiStyle,string/other,no,XuiSkinScript,LoadComponentBlock,241
+xuiSkin,block,colors,,no,XuiSkinScript,Load,76
+xuiSkin,block,components,,no,XuiSkinScript,LoadEntityBlock,189
+xuiSkin,block,entity,,no,XuiSkinScript,Load,74
+xuiSkin,block,imports,,no,XuiSkinScript,Load,72

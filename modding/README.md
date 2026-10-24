@@ -13,10 +13,19 @@ Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 | [`lua-api/events.md`](lua-api/events.md) | The event system, 262 registered events, orphan and unregistered findings | [`data/events.csv`](data/events.csv) |
 | [`lua-api/classes/`](lua-api/classes/README.md) | One page per commonly used exposed class (60) | [`data/exposed-classes.csv`](data/exposed-classes.csv) (999 classes), [`data/exposed-methods.csv`](data/exposed-methods.csv) |
 
+## Script formats (from the Java side)
+
+| Doc | Contents | Table |
+|---|---|---|
+| [`scripts/parser-keys.md`](scripts/parser-keys.md) | How `media/scripts` is loaded, block syntax, unknown-key behaviour, `craftRecipe` line grammar, entity/vehicle/XUI structure | [`data/script-keys.csv`](data/script-keys.csv) (every key, nested block, line word and flag the parsers compare) |
+
+The data-file side (what vanilla scripts contain: `overview.md` and later pages in `scripts/`) is written by the
+other agent.
+
 ## Planned (in progress by the other agent or later)
 
-Script formats (`scripts/`), vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), script parser
-keys, lifecycle and multiplayer docs, and a cookbook. See `SCOPE.md` for the packages.
+Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), lifecycle and multiplayer docs, and a
+cookbook. See `SCOPE.md` for the packages.
 
 ## Regenerating tables
 
@@ -25,5 +34,6 @@ Python 3, run as `python -I`, from `modding/tools/`:
 - `extract_events.py <decompiled src> ../data/events.csv <game media/lua>`
 - `extract_exposed.py <decompiled src> ../data`
 - `gen_class_docs.py ../data ../lua-api/classes`
+- `extract_script_keys.py <decompiled src> ../data/script-keys.csv`
 
 The decompile is made outside the repo (Vineflower; see `SCOPE.md`, "Shared workspace").
