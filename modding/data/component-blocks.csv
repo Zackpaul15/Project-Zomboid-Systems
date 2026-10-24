@@ -1,0 +1,18 @@
+family,block_type,blocks,files,example_files
+vehicle,template vehicle,77,70,generated/vehicles/professionVehicles/vehicle_pickuptruck_lights_fossoil_template.txt;generated/vehicles/professionVehicles/vehicle_pickupvan_lights_fossoil_template.txt;generated/vehicles/professionVehicles/vehicle_pickupvan_lights_kentuckylumber_template.txt
+vehicle,vehicle,241,173,generated/vehicles/burntAndSmashedVehicles/burntvehicles.txt;generated/vehicles/burntAndSmashedVehicles/vehicle_carluxury_smashed.txt;generated/vehicles/burntAndSmashedVehicles/vehicle_carmodern02_smashed.txt
+vehicle,vehicleEngineRPM,4,1,generated/sounds/vehicles/vehicle_engine_rpm.txt
+sound,sound,3038,147,generated/sounds/animals/sounds_animal_babyrabbit.txt;generated/sounds/animals/sounds_animal_babyraccoon.txt;generated/sounds/animals/sounds_animal_boar.txt
+sound,soundTimeline,5,2,generated/sounds/objects/sounds_object_fridge_soundTimeline.txt;generated/sounds/vehicles/sounds_vehicle_foley_soundTimeline.txt
+fluid,energy,7,1,generated/energies.txt
+fluid,fluid,61,3,generated/fluids.txt;generated/fluids_Alcoholic.txt;generated/fluids_Beverages.txt
+entity,character_profession_definition,25,1,generated/characters/character_professions.txt
+entity,character_trait_definition,97,1,generated/characters/character_traits.txt
+entity,entity,219,194,generated/entities/admin/entity_piano.txt;generated/entities/agricultural/workstations/entity_Drying_Rack.txt;generated/entities/agricultural/workstations/entity_Herb_Drying_Rack.txt
+entity,template entity,0,0,
+entity,xuiConfig,1,1,xui/xui_config.txt
+entity,xuiDefaultStyle,0,0,
+entity,xuiGlobalColors,0,0,
+entity,xuiLayout,0,0,
+entity,xuiSkin,254,246,entities/admin/entity_piano_xuiSkin.txt;entities/agricultural/workstations/entity_Drying_Rack_xuiSkin.txt;entities/agricultural/workstations/entity_Herb_Drying_Rack_xuiSkin.txt
+entity,xuiStyle,0,0,

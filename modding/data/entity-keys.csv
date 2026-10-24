@@ -1,0 +1,1042 @@
+block_type,key,count,value_shape,notes
+character_profession_definition,<block>,25,block,Module-level definitions; zero means absent
+character_profession_definition,CharacterProfession,25,namespaced-id,Assignment occurrences
+character_profession_definition,Cost,25,int,Assignment occurrences
+character_profession_definition,GrantedRecipes,15,list;|string,Assignment occurrences
+character_profession_definition,GrantedTraits,12,namespaced-id,Assignment occurrences
+character_profession_definition,IconPathName,24,string,Assignment occurrences
+character_profession_definition,UIDescription,8,string,Assignment occurrences
+character_profession_definition,UIName,25,string,Assignment occurrences
+character_profession_definition,XPBoosts,24,list;|string,Assignment occurrences
+character_trait_definition,<block>,97,block,Module-level definitions; zero means absent
+character_trait_definition,CharacterTrait,97,namespaced-id|string,Assignment occurrences
+character_trait_definition,Cost,97,int,Assignment occurrences
+character_trait_definition,DisabledInMultiplayer,97,bool,Assignment occurrences
+character_trait_definition,GrantedRecipes,18,list;|string,Assignment occurrences
+character_trait_definition,GrantedTraits,2,namespaced-id,Assignment occurrences
+character_trait_definition,IsProfessionTrait,97,bool,Assignment occurrences
+character_trait_definition,MutuallyExclusiveTraits,70,list;|namespaced-id,Assignment occurrences
+character_trait_definition,UIDescription,84,string,Assignment occurrences
+character_trait_definition,UIName,97,string,Assignment occurrences
+character_trait_definition,XPBoosts,35,list;|string,Assignment occurrences
+entity,<block>,219,block,Module-level definitions; zero means absent
+entity/component:ContextMenuConfig,<block>,14,block,Nested block occurrences; instance names omitted
+entity/component:ContextMenuConfig/contextEntry,<block>,14,block,Nested block occurrences; instance names omitted
+entity/component:ContextMenuConfig/contextEntry,customFunction,12,qualified-id,Assignment occurrences
+entity/component:ContextMenuConfig/contextEntry,customSubmenu,2,qualified-id,Assignment occurrences
+entity/component:ContextMenuConfig/contextEntry,extraParam,4,string,Assignment occurrences
+entity/component:ContextMenuConfig/contextEntry,icon,6,qualified-id|string,Assignment occurrences
+entity/component:ContextMenuConfig/contextEntry,menu,14,string,Assignment occurrences
+entity/component:ContextMenuConfig/contextEntry,time,4,int,Assignment occurrences
+entity/component:CraftBench,<block>,35,block,Nested block occurrences; instance names omitted
+entity/component:CraftBench,Recipes,35,list;|string,Assignment occurrences
+entity/component:CraftBenchSounds,<block>,9,block,Nested block occurrences; instance names omitted
+entity/component:CraftBenchSounds,AddFuel,2,string,Assignment occurrences
+entity/component:CraftBenchSounds,AddInput,7,string,Assignment occurrences
+entity/component:CraftBenchSounds,LightFire,2,string,Assignment occurrences
+entity/component:CraftBenchSounds,RemoveInput,7,string,Assignment occurrences
+entity/component:CraftBenchSounds,Running,2,string,Assignment occurrences
+entity/component:CraftBenchSounds,StartCraft,7,string,Assignment occurrences
+entity/component:CraftRecipe,<block>,202,block,Nested block occurrences; instance names omitted
+entity/component:CraftRecipe,NeedToBeLearn,32,bool,Assignment occurrences
+entity/component:CraftRecipe,OnAddToMenu,76,string,Assignment occurrences
+entity/component:CraftRecipe,SkillRequired,133,namespaced-id,Assignment occurrences
+entity/component:CraftRecipe,Tags,75,list;|string,Assignment occurrences
+entity/component:CraftRecipe,Tooltip,201,string,Assignment occurrences
+entity/component:CraftRecipe,category,200,string,Assignment occurrences
+entity/component:CraftRecipe,time,202,int,Assignment occurrences
+entity/component:CraftRecipe,timedAction,201,string,Assignment occurrences
+entity/component:CraftRecipe,xpAward,154,namespaced-id,Assignment occurrences
+entity/component:CraftRecipe/inputs,<block>,202,block,Nested block occurrences; instance names omitted
+entity/component:CraftRecipe/inputs,<entry>,675,list;|selector[],Bare comma-delimited entries; source values omitted
+entity/component:DryingCraftLogic,<block>,7,block,Nested block occurrences; instance names omitted
+entity/component:DryingCraftLogic,Recipes,7,string,Assignment occurrences
+entity/component:DryingCraftLogic,StartMode,7,string,Assignment occurrences
+entity/component:DryingCraftLogic,actionAnim,7,string,Assignment occurrences
+entity/component:DryingCraftLogic,inputGroup,7,string,Assignment occurrences
+entity/component:DryingCraftLogic,outputGroup,7,string,Assignment occurrences
+entity/component:FluidContainer,<block>,11,block,Nested block occurrences; instance names omitted
+entity/component:FluidContainer,Capacity,11,float,Assignment occurrences
+entity/component:FluidContainer,ContainerName,11,string,Assignment occurrences
+entity/component:FluidContainer,FillsWithCleanWater,1,bool,Assignment occurrences
+entity/component:FluidContainer,HiddenAmount,1,bool,Assignment occurrences
+entity/component:FluidContainer,InitialPercentMax,11,float,Assignment occurrences
+entity/component:FluidContainer,InitialPercentMin,11,float,Assignment occurrences
+entity/component:FluidContainer,InputLocked,1,bool,Assignment occurrences
+entity/component:FluidContainer,RainFactor,7,float,Assignment occurrences
+entity/component:FluidContainer/Fluids,<block>,3,block,Nested block occurrences; instance names omitted
+entity/component:FluidContainer/Fluids,fluid,3,string,Assignment occurrences
+entity/component:FluidContainer/whitelist,<block>,1,block,Nested block occurrences; instance names omitted
+entity/component:FluidContainer/whitelist,fluid,1,string,Assignment occurrences
+entity/component:Resources,<block>,7,block,Nested block occurrences; instance names omitted
+entity/component:Resources/group,<block>,14,block,Nested block occurrences; instance names omitted
+entity/component:Resources/group,<entry>,14,string,Bare comma-delimited entries; source values omitted
+entity/component:SpriteConfig,<block>,210,block,Nested block occurrences; instance names omitted
+entity/component:SpriteConfig,BreakSound,17,string,Assignment occurrences
+entity/component:SpriteConfig,LogicClass,13,string,Assignment occurrences
+entity/component:SpriteConfig,OnCreate,34,string,Assignment occurrences
+entity/component:SpriteConfig,OnIsValid,24,string,Assignment occurrences
+entity/component:SpriteConfig,TimedActionOnIsValid,3,string,Assignment occurrences
+entity/component:SpriteConfig,bonusHealth,6,int,Assignment occurrences
+entity/component:SpriteConfig,canBePadlocked,16,bool,Assignment occurrences
+entity/component:SpriteConfig,corner,40,string,Assignment occurrences
+entity/component:SpriteConfig,debugItem,1,qualified-id,Assignment occurrences
+entity/component:SpriteConfig,dontNeedFrame,9,bool,Assignment occurrences
+entity/component:SpriteConfig,health,69,int,Assignment occurrences
+entity/component:SpriteConfig,isPole,1,bool,Assignment occurrences
+entity/component:SpriteConfig,isProp,7,bool,Assignment occurrences
+entity/component:SpriteConfig,isThumpable,34,bool,Assignment occurrences
+entity/component:SpriteConfig,lightRadius,1,int,Assignment occurrences
+entity/component:SpriteConfig,lightsourceFuel,1,qualified-id,Assignment occurrences
+entity/component:SpriteConfig,lightsourceItem,1,selector[],Assignment occurrences
+entity/component:SpriteConfig,needToBeAgainstWall,5,bool,Assignment occurrences
+entity/component:SpriteConfig,needWindowFrame,1,bool,Assignment occurrences
+entity/component:SpriteConfig,previousStage,10,list;,Assignment occurrences
+entity/component:SpriteConfig,skillBaseHealth,101,int,Assignment occurrences
+entity/component:SpriteConfig/face,<block>,519,block,Nested block occurrences; instance names omitted
+entity/component:SpriteConfig/face,lightOffsetX,4,int,Assignment occurrences
+entity/component:SpriteConfig/face,lightOffsetY,4,int,Assignment occurrences
+entity/component:SpriteConfig/face/layer,<block>,519,block,Nested block occurrences; instance names omitted
+entity/component:SpriteConfig/face/layer,row,584,string,Assignment occurrences
+entity/component:SpriteOverlayConfig,<block>,8,block,Nested block occurrences; instance names omitted
+entity/component:SpriteOverlayConfig/style,<block>,45,block,Nested block occurrences; instance names omitted
+entity/component:SpriteOverlayConfig/style/progress,<block>,134,block,Nested block occurrences; instance names omitted
+entity/component:SpriteOverlayConfig/style/progress/face,<block>,266,block,Nested block occurrences; instance names omitted
+entity/component:SpriteOverlayConfig/style/progress/face/layer,<block>,266,block,Nested block occurrences; instance names omitted
+entity/component:SpriteOverlayConfig/style/progress/face/layer,row,443,string,Assignment occurrences
+entity/component:UiConfig,<block>,215,block,Nested block occurrences; instance names omitted
+entity/component:UiConfig,entityStyle,215,string,Assignment occurrences
+entity/component:UiConfig,uiEnabled,215,bool,Assignment occurrences
+entity/component:UiConfig,xuiSkin,215,string,Assignment occurrences
+entity/component:WallCoveringConfig,<block>,8,block,Nested block occurrences; instance names omitted
+entity/component:WallCoveringConfig,sign,5,int,Assignment occurrences
+entity/component:WallCoveringConfig,type,8,string,Assignment occurrences
+template entity,<block>,0,block,Module-level definitions; zero means absent
+xuiConfig,<block>,1,block,Module-level definitions; zero means absent
+xuiConfig/Boolean,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/Boolean,allowDraggingTabs,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,allowDropAlways,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,allowTornOffTabs,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,anchorBottom,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,anchorLeft,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,anchorRight,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,anchorTop,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,autoFillContents,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,autoScale,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,autoSizeImage,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,autosetheight,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,bBlinkBorder,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,background,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,center,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,centerTabs,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,clearStentil,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,clip,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,disableButtons,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,disableHeaders,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,displayBackground,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doBackDropTex,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doBorderLocked,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doButtons,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doHighlight,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doIcons,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doInvalidHighlight,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doLedBlink,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doRenderTexture,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doScroll,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doText,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doTextBackdrop,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doToolTip,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,doValidHighlight,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,dragInside,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawBackground,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawBorder,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawBorderLocked,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawFrame,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawGrid,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawInnerBorder,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,drawMeasures,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,editable,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,enable,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,enableClear,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,enableHeader,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,enableIcon,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,enableInfoButton,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,enableTransfer,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,equalSpacing,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,equalTabWidth,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,hideButtons,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,hideItem,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,isAutoFill,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,isAutoFillX,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,isAutoFillY,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,isHorizontal,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,isOn,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,isVertical,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,keeplog,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,ledIsOn,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,left,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,locked,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,mouseEnabled,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,mouseOver,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,mouseover,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,moveWithMouse,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,pin,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,renderItemCount,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,resizable,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Boolean,storeItem,1,Boolean,Variable identifier declared in typed config group
+xuiConfig/Color,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/Color,actionAddColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,actionRemoveColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,altBgColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backDropTexCol,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundColorHL,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundColorHLInv,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundColorHLVal,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundColorMouseOver,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundEmpty,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,backgroundHover,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderColorHL,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderColorHLInv,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderColorHLVal,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderInput,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderInvalid,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderLockedColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderOutput,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,borderValid,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,buttonColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,buttonMouseOverColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,choicesColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,countColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,countInvalidColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,detailInnerColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,greyCol,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,gridColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,hsbFactor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,ledCol,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,ledColOff,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,ledColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,ledTextColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,listHeaderColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,progressColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,selectedColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,sliderBarBorderColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,sliderBarColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,sliderBorderColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,sliderColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,sliderMouseOverColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,textBackColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,textColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,textureColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Color,widgetTextureColor,1,Color,Variable identifier declared in typed config group
+xuiConfig/Double,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/Double,a,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,animationTime,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,b,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,boxSize,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,bubblesAlpha,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,contentTransparency,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,currentValue,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,differenceAlpha,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,g,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,gradientAlpha,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,height,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,itemGap,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,itemHgt,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,itemPadY,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,itemheight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,ledBlinkSpeed,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,leftMargin,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,margin,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,marginBottom,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,marginLeft,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,marginRight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,marginTop,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,maxLength,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,maxLines,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,maxValue,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,maximumHeight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,maximumHeightPercent,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,maximumWidth,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,minValue,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,minimumBarSize,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,minimumHeight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,minimumPanelWidth,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,minimumWidth,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,padding,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,paddingBottom,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,paddingLeft,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,paddingRight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,paddingTop,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,r,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,scaledHeight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,scaledWidth,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,scrollX,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,shiftValue,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,stepValue,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,tabHeight,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,tabPadX,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,tabTransparency,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,textB,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,textG,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,textGap,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,textR,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,textTransparency,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,triangleWidth,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,width,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,x,1,Double,Variable identifier declared in typed config group
+xuiConfig/Double,y,1,Double,Variable identifier declared in typed config group
+xuiConfig/FontType,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/FontType,defaultFont,1,FontType,Variable identifier declared in typed config group
+xuiConfig/FontType,font,1,FontType,Variable identifier declared in typed config group
+xuiConfig/FontType,font2,1,FontType,Variable identifier declared in typed config group
+xuiConfig/FontType,font3,1,FontType,Variable identifier declared in typed config group
+xuiConfig/FontType,titleFont,1,FontType,Variable identifier declared in typed config group
+xuiConfig/String,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/String,styleBar,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleBtnClear,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleBtnTransfer,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleButton,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleCell,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleColumn,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleEnergyBar,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleEnergySlot,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleFluidBar,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleFluidSlot,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleIcon,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleItemSlot,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleLabel,1,String,Variable identifier declared in typed config group
+xuiConfig/String,styleRow,1,String,Variable identifier declared in typed config group
+xuiConfig/StringList,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/StringList,animationList,1,StringList,Variable identifier declared in typed config group
+xuiConfig/Texture,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/Texture,backDropTex,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,bubblesTex,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,closeButtonTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,collapseButtonTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,gradientTex,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,horizontalTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,icon,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,iconClear,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,iconTransfer,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,image,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,infoBtn,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,invbasic,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,lcdback,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,lcdfont,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,ledBackTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,ledTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,pinButtonTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,progressTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,resizeimage,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,statusbarbkg,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,texBtnLeft,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,texBtnRight,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,texture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,textureBackground,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,textureOverride,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,tickTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,titlebarbkg,1,Texture,Variable identifier declared in typed config group
+xuiConfig/Texture,verticalTexture,1,Texture,Variable identifier declared in typed config group
+xuiConfig/TranslateString,<block>,1,block,Nested block occurrences; instance names omitted
+xuiConfig/TranslateString,description,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,footNote,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,mouseovertext,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,name,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,title,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,toolTipText,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,toolTipTextItem,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,toolTipTextLocked,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,tooltip,1,TranslateString,Variable identifier declared in typed config group
+xuiConfig/TranslateString,translation,1,TranslateString,Variable identifier declared in typed config group
+xuiDefaultStyle,<block>,0,block,Module-level definitions; zero means absent
+xuiGlobalColors,<block>,0,block,Module-level definitions; zero means absent
+xuiLayout,<block>,0,block,Module-level definitions; zero means absent
+xuiSkin,<block>,254,block,Module-level definitions; zero means absent
+xuiSkin/ISBaseComponentPanel,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISBaseComponentPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISBaseComponentPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISBaseComponentPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISBaseComponentPanel,enableHeader,1,bool,Assignment occurrences
+xuiSkin/ISBaseComponentPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISBaseComponentPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISBaseEntityWindow,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,borderColor,1,string,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,enableHeader,1,bool,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,maximumHeight,1,int,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,maximumHeightPercent,1,int,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,maximumWidth,1,int,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,pin,1,bool,Assignment occurrences
+xuiSkin/ISBaseEntityWindow,resizable,1,bool,Assignment occurrences
+xuiSkin/ISButton,<block>,14,block,Nested block occurrences; instance names omitted
+xuiSkin/ISButton,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISButton,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISButton,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISButton,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISButton,autoSizeImage,2,bool,Assignment occurrences
+xuiSkin/ISButton,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISButton,backgroundColorMouseOver,1,string,Assignment occurrences
+xuiSkin/ISButton,borderColor,5,string,Assignment occurrences
+xuiSkin/ISButton,displayBackground,1,bool,Assignment occurrences
+xuiSkin/ISButton,enable,1,bool,Assignment occurrences
+xuiSkin/ISButton,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISButton,height,4,int,Assignment occurrences
+xuiSkin/ISButton,image,3,string,Assignment occurrences
+xuiSkin/ISButton,isAutoFillX,6,bool,Assignment occurrences
+xuiSkin/ISButton,mouseOver,1,bool,Assignment occurrences
+xuiSkin/ISButton,textColor,5,string,Assignment occurrences
+xuiSkin/ISButton,textureBackground,1,string,Assignment occurrences
+xuiSkin/ISButton,textureColor,2,string,Assignment occurrences
+xuiSkin/ISButton,title,8,string,Assignment occurrences
+xuiSkin/ISButton,width,8,int,Assignment occurrences
+xuiSkin/ISCollapsableWindow,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISCollapsableWindow,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,background,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,borderColor,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,clearStentil,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,closeButtonTexture,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,collapseButtonTexture,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,drawFrame,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,infoBtn,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,invbasic,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,moveWithMouse,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,pin,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,pinButtonTexture,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,resizable,1,bool,Assignment occurrences
+xuiSkin/ISCollapsableWindow,resizeimage,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,statusbarbkg,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,title,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,titleFont,1,qualified-id,Assignment occurrences
+xuiSkin/ISCollapsableWindow,titlebarbkg,1,string,Assignment occurrences
+xuiSkin/ISCollapsableWindow,widgetTextureColor,1,string,Assignment occurrences
+xuiSkin/ISComboBox,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISComboBox,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,background,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISComboBox,backgroundColorMouseOver,1,string,Assignment occurrences
+xuiSkin/ISComboBox,borderColor,1,string,Assignment occurrences
+xuiSkin/ISComboBox,editable,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISComboBox,image,1,string,Assignment occurrences
+xuiSkin/ISComboBox,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,moveWithMouse,1,bool,Assignment occurrences
+xuiSkin/ISComboBox,textColor,1,string,Assignment occurrences
+xuiSkin/ISComboBox,tooltip,2,string,Assignment occurrences
+xuiSkin/ISComboBox,width,1,int,Assignment occurrences
+xuiSkin/ISComponentsListPanel,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISComponentsListPanel,background,2,bool,Assignment occurrences
+xuiSkin/ISComponentsListPanel,backgroundColor,2,string,Assignment occurrences
+xuiSkin/ISComponentsListPanel,borderColor,2,string,Assignment occurrences
+xuiSkin/ISComponentsListPanel,margin,2,int,Assignment occurrences
+xuiSkin/ISComponentsListPanel,padding,2,int,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISComponentsTabPanel,background,2,bool,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,backgroundColor,2,string,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,borderColor,2,string,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,disableHeaders,2,bool,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,doIcons,2,bool,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,doText,2,bool,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,margin,2,int,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,minimumPanelWidth,2,int,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,padding,2,int,Assignment occurrences
+xuiSkin/ISComponentsTabPanel,selectedColor,2,string,Assignment occurrences
+xuiSkin/ISCraftBenchPanel,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISCraftBenchPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISCraftBenchPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISCraftBenchPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISCraftBenchPanel,enableHeader,2,bool,Assignment occurrences
+xuiSkin/ISCraftBenchPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISCraftBenchPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISCraftGridPanel,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISCraftGridPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISCraftGridPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISCraftGridPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISCraftGridPanel,enableHeader,2,bool,Assignment occurrences
+xuiSkin/ISCraftGridPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISCraftGridPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISCraftLogicPanel,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISCraftLogicPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISCraftLogicPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISCraftLogicPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISCraftLogicPanel,enableHeader,2,bool,Assignment occurrences
+xuiSkin/ISCraftLogicPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISCraftLogicPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISEnergyBar,<block>,5,block,Nested block occurrences; instance names omitted
+xuiSkin/ISEnergyBar,background,1,bool,Assignment occurrences
+xuiSkin/ISEnergyBar,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISEnergyBar,borderColor,1,string,Assignment occurrences
+xuiSkin/ISEnergyBar,doRenderTexture,1,bool,Assignment occurrences
+xuiSkin/ISEnergyBar,height,1,int,Assignment occurrences
+xuiSkin/ISEnergyBar,isVertical,4,bool,Assignment occurrences
+xuiSkin/ISEnergyBar,padding,1,int,Assignment occurrences
+xuiSkin/ISEnergyBar,progressColor,1,string,Assignment occurrences
+xuiSkin/ISEnergyBar,verticalTexture,1,string,Assignment occurrences
+xuiSkin/ISEnergyBar,width,2,int,Assignment occurrences
+xuiSkin/ISEnergySlot,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/ISEnergySlot,background,1,bool,Assignment occurrences
+xuiSkin/ISEnergySlot,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISEnergySlot,borderColor,1,string,Assignment occurrences
+xuiSkin/ISEnergySlot,enableIcon,1,bool,Assignment occurrences
+xuiSkin/ISEnergySlot,equalSpacing,1,bool,Assignment occurrences
+xuiSkin/ISEnergySlot,isVertical,3,bool,Assignment occurrences
+xuiSkin/ISEnergySlot,margin,1,int,Assignment occurrences
+xuiSkin/ISEnergySlot,minimumBarSize,1,int,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,<block>,5,block,Nested block occurrences; instance names omitted
+xuiSkin/ISEnergySlotPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,drawBorder,1,bool,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,isVertical,4,bool,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,margin,1,int,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,textColor,1,string,Assignment occurrences
+xuiSkin/ISEnergySlotPanel,title,5,string,Assignment occurrences
+xuiSkin/ISEntityTabWindow,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISEntityTabWindow,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISEntityTabWindow,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISEntityTabWindow,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISEntityTabWindow,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISEntityTabWindow,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISEntityTabWindow,borderColor,1,string,Assignment occurrences
+xuiSkin/ISEntityTabWindow,enableHeader,1,bool,Assignment occurrences
+xuiSkin/ISEntityTabWindow,maximumHeight,1,int,Assignment occurrences
+xuiSkin/ISEntityTabWindow,maximumHeightPercent,1,float,Assignment occurrences
+xuiSkin/ISEntityTabWindow,maximumWidth,1,int,Assignment occurrences
+xuiSkin/ISEntityTabWindow,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISEntityTabWindow,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISEntityTabWindow,pin,1,bool,Assignment occurrences
+xuiSkin/ISEntityTabWindow,resizable,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISEntityWindow,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,backgroundColor,2,string,Assignment occurrences
+xuiSkin/ISEntityWindow,borderColor,2,string,Assignment occurrences
+xuiSkin/ISEntityWindow,enableHeader,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,maximumHeight,1,int,Assignment occurrences
+xuiSkin/ISEntityWindow,maximumHeightPercent,1,float,Assignment occurrences
+xuiSkin/ISEntityWindow,maximumWidth,1,int,Assignment occurrences
+xuiSkin/ISEntityWindow,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISEntityWindow,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISEntityWindow,pin,1,bool,Assignment occurrences
+xuiSkin/ISEntityWindow,resizable,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISFluidBar,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,background,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISFluidBar,borderColor,1,string,Assignment occurrences
+xuiSkin/ISFluidBar,bubblesAlpha,1,float,Assignment occurrences
+xuiSkin/ISFluidBar,bubblesTex,1,string,Assignment occurrences
+xuiSkin/ISFluidBar,detailInnerColor,1,string,Assignment occurrences
+xuiSkin/ISFluidBar,differenceAlpha,1,float,Assignment occurrences
+xuiSkin/ISFluidBar,doToolTip,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,drawMeasures,1,bool,Assignment occurrences
+xuiSkin/ISFluidBar,gradientAlpha,1,float,Assignment occurrences
+xuiSkin/ISFluidBar,gradientTex,1,string,Assignment occurrences
+xuiSkin/ISFluidBar,triangleWidth,1,int,Assignment occurrences
+xuiSkin/ISFluidBar,width,1,int,Assignment occurrences
+xuiSkin/ISFluidSlot,<block>,4,block,Nested block occurrences; instance names omitted
+xuiSkin/ISFluidSlot,background,1,bool,Assignment occurrences
+xuiSkin/ISFluidSlot,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISFluidSlot,borderColor,1,string,Assignment occurrences
+xuiSkin/ISFluidSlot,disableButtons,3,bool,Assignment occurrences
+xuiSkin/ISFluidSlot,enableClear,3,bool,Assignment occurrences
+xuiSkin/ISFluidSlot,enableTransfer,3,bool,Assignment occurrences
+xuiSkin/ISFluidSlot,hideButtons,3,bool,Assignment occurrences
+xuiSkin/ISFluidSlot,margin,1,int,Assignment occurrences
+xuiSkin/ISFluidSlot,minimumBarSize,2,int,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,<block>,7,block,Nested block occurrences; instance names omitted
+xuiSkin/ISFluidSlotPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,borderColor,2,string,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,drawBorder,1,bool,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,margin,1,int,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,textColor,2,string,Assignment occurrences
+xuiSkin/ISFluidSlotPanel,title,7,string,Assignment occurrences
+xuiSkin/ISGroupBox,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISGroupBox,background,1,bool,Assignment occurrences
+xuiSkin/ISGroupBox,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISGroupBox,borderColor,1,string,Assignment occurrences
+xuiSkin/ISGroupBox,drawBorder,1,bool,Assignment occurrences
+xuiSkin/ISGroupBox,margin,1,int,Assignment occurrences
+xuiSkin/ISGroupBox,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISGroupBox,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISGroupBox,textColor,1,string,Assignment occurrences
+xuiSkin/ISGroupBox,title,2,string,Assignment occurrences
+xuiSkin/ISImage,<block>,9,block,Nested block occurrences; instance names omitted
+xuiSkin/ISImage,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISImage,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISImage,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISImage,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISImage,autoScale,6,bool,Assignment occurrences
+xuiSkin/ISImage,backgroundColor,4,string,Assignment occurrences
+xuiSkin/ISImage,borderColor,1,string,Assignment occurrences
+xuiSkin/ISImage,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISImage,height,5,int,Assignment occurrences
+xuiSkin/ISImage,mouseover,1,bool,Assignment occurrences
+xuiSkin/ISImage,texture,2,string,Assignment occurrences
+xuiSkin/ISImage,textureOverride,1,string,Assignment occurrences
+xuiSkin/ISImage,width,5,int,Assignment occurrences
+xuiSkin/ISItemSlot,<block>,8,block,Nested block occurrences; instance names omitted
+xuiSkin/ISItemSlot,actionAddColor,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,actionRemoveColor,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,bBlinkBorder,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,backDropTex,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,backDropTexCol,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,backgroundEmpty,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,backgroundHover,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,borderColor,2,string,Assignment occurrences
+xuiSkin/ISItemSlot,borderInvalid,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,borderLockedColor,2,string,Assignment occurrences
+xuiSkin/ISItemSlot,borderValid,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,countColor,2,string,Assignment occurrences
+xuiSkin/ISItemSlot,doBackDropTex,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,doToolTip,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,drawBackground,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,drawBorder,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,drawBorderLocked,4,bool,Assignment occurrences
+xuiSkin/ISItemSlot,drawInnerBorder,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,height,1,int,Assignment occurrences
+xuiSkin/ISItemSlot,hideItem,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,locked,8,bool,Assignment occurrences
+xuiSkin/ISItemSlot,mouseEnabled,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,renderItemCount,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,storeItem,1,bool,Assignment occurrences
+xuiSkin/ISItemSlot,toolTipText,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,toolTipTextItem,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,toolTipTextLocked,1,string,Assignment occurrences
+xuiSkin/ISItemSlot,width,1,int,Assignment occurrences
+xuiSkin/ISItemSlotPanel,<block>,16,block,Nested block occurrences; instance names omitted
+xuiSkin/ISItemSlotPanel,background,6,bool,Assignment occurrences
+xuiSkin/ISItemSlotPanel,backgroundColor,6,string,Assignment occurrences
+xuiSkin/ISItemSlotPanel,borderColor,6,string,Assignment occurrences
+xuiSkin/ISItemSlotPanel,drawBorder,6,bool,Assignment occurrences
+xuiSkin/ISItemSlotPanel,left,5,bool,Assignment occurrences
+xuiSkin/ISItemSlotPanel,margin,6,int,Assignment occurrences
+xuiSkin/ISItemSlotPanel,minimumHeight,6,int,Assignment occurrences
+xuiSkin/ISItemSlotPanel,minimumWidth,6,int,Assignment occurrences
+xuiSkin/ISItemSlotPanel,textColor,6,string,Assignment occurrences
+xuiSkin/ISItemSlotPanel,title,16,string,Assignment occurrences
+xuiSkin/ISLabel,<block>,4,block,Nested block occurrences; instance names omitted
+xuiSkin/ISLabel,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISLabel,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISLabel,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISLabel,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISLabel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISLabel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISLabel,center,1,bool,Assignment occurrences
+xuiSkin/ISLabel,font,4,qualified-id,Assignment occurrences
+xuiSkin/ISLabel,left,3,bool,Assignment occurrences
+xuiSkin/ISLabel,textColor,3,string,Assignment occurrences
+xuiSkin/ISLabel,tooltip,1,string,Assignment occurrences
+xuiSkin/ISLabel,translation,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISLcdBar,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,background,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,borderColor,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,doScroll,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,greyCol,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,gridColor,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,isOn,1,bool,Assignment occurrences
+xuiSkin/ISLcdBar,lcdback,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,lcdfont,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,ledColor,1,string,Assignment occurrences
+xuiSkin/ISLcdBar,ledTextColor,1,string,Assignment occurrences
+xuiSkin/ISLedLight,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISLedLight,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,background,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISLedLight,borderColor,1,string,Assignment occurrences
+xuiSkin/ISLedLight,doLedBlink,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,ledBackTexture,1,string,Assignment occurrences
+xuiSkin/ISLedLight,ledBlinkSpeed,1,int,Assignment occurrences
+xuiSkin/ISLedLight,ledCol,1,string,Assignment occurrences
+xuiSkin/ISLedLight,ledColOff,1,string,Assignment occurrences
+xuiSkin/ISLedLight,ledIsOn,1,bool,Assignment occurrences
+xuiSkin/ISLedLight,ledTexture,1,string,Assignment occurrences
+xuiSkin/ISPanel,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISPanel,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISPanel,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISPanel,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISPanel,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISPanel,moveWithMouse,1,bool,Assignment occurrences
+xuiSkin/ISPanelJoypad,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISPanelJoypad,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISPanelJoypad,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISPanelJoypad,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISPanelJoypad,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISPanelJoypad,background,1,bool,Assignment occurrences
+xuiSkin/ISPanelJoypad,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISPanelJoypad,borderColor,1,string,Assignment occurrences
+xuiSkin/ISPanelJoypad,moveWithMouse,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,<block>,4,block,Nested block occurrences; instance names omitted
+xuiSkin/ISProgressBar,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,background,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISProgressBar,borderColor,1,string,Assignment occurrences
+xuiSkin/ISProgressBar,doRenderTexture,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,doTextBackdrop,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISProgressBar,height,1,int,Assignment occurrences
+xuiSkin/ISProgressBar,horizontalTexture,1,string,Assignment occurrences
+xuiSkin/ISProgressBar,isAutoFillX,2,bool,Assignment occurrences
+xuiSkin/ISProgressBar,isVertical,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,moveWithMouse,1,bool,Assignment occurrences
+xuiSkin/ISProgressBar,padding,1,int,Assignment occurrences
+xuiSkin/ISProgressBar,progressColor,4,string,Assignment occurrences
+xuiSkin/ISProgressBar,textBackColor,1,string,Assignment occurrences
+xuiSkin/ISProgressBar,textColor,1,string,Assignment occurrences
+xuiSkin/ISProgressBar,verticalTexture,1,string,Assignment occurrences
+xuiSkin/ISProgressBar,width,2,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISRichTextPanel,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISRichTextPanel,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISRichTextPanel,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISRichTextPanel,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISRichTextPanel,autosetheight,1,bool,Assignment occurrences
+xuiSkin/ISRichTextPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISRichTextPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISRichTextPanel,clip,1,bool,Assignment occurrences
+xuiSkin/ISRichTextPanel,contentTransparency,1,float,Assignment occurrences
+xuiSkin/ISRichTextPanel,defaultFont,1,qualified-id,Assignment occurrences
+xuiSkin/ISRichTextPanel,marginBottom,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,marginLeft,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,marginRight,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,marginTop,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,maxLines,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,textB,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,textG,1,int,Assignment occurrences
+xuiSkin/ISRichTextPanel,textR,1,int,Assignment occurrences
+xuiSkin/ISScrollingListBox,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISScrollingListBox,altBgColor,1,string,Assignment occurrences
+xuiSkin/ISScrollingListBox,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISScrollingListBox,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISScrollingListBox,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISScrollingListBox,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISScrollingListBox,background,1,bool,Assignment occurrences
+xuiSkin/ISScrollingListBox,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISScrollingListBox,borderColor,1,string,Assignment occurrences
+xuiSkin/ISScrollingListBox,drawBorder,1,bool,Assignment occurrences
+xuiSkin/ISScrollingListBox,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISScrollingListBox,itemPadY,1,int,Assignment occurrences
+xuiSkin/ISScrollingListBox,itemheight,1,int,Assignment occurrences
+xuiSkin/ISScrollingListBox,listHeaderColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISSliderPanel,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,buttonColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,buttonMouseOverColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,currentValue,1,int,Assignment occurrences
+xuiSkin/ISSliderPanel,doButtons,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,doToolTip,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,dragInside,1,bool,Assignment occurrences
+xuiSkin/ISSliderPanel,maxValue,1,int,Assignment occurrences
+xuiSkin/ISSliderPanel,minValue,1,int,Assignment occurrences
+xuiSkin/ISSliderPanel,shiftValue,1,int,Assignment occurrences
+xuiSkin/ISSliderPanel,sliderBarBorderColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,sliderBarColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,sliderBorderColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,sliderColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,sliderMouseOverColor,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,stepValue,1,int,Assignment occurrences
+xuiSkin/ISSliderPanel,texBtnLeft,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,texBtnRight,1,string,Assignment occurrences
+xuiSkin/ISSliderPanel,toolTipText,1,string,Assignment occurrences
+xuiSkin/ISTabPanel,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTabPanel,allowDraggingTabs,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,allowTornOffTabs,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTabPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTabPanel,centerTabs,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,equalTabWidth,1,bool,Assignment occurrences
+xuiSkin/ISTabPanel,maxLength,1,int,Assignment occurrences
+xuiSkin/ISTabPanel,scrollX,1,int,Assignment occurrences
+xuiSkin/ISTabPanel,tabHeight,1,int,Assignment occurrences
+xuiSkin/ISTabPanel,tabPadX,1,int,Assignment occurrences
+xuiSkin/ISTabPanel,tabTransparency,1,float,Assignment occurrences
+xuiSkin/ISTabPanel,textTransparency,1,float,Assignment occurrences
+xuiSkin/ISTableLayout,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTableLayout,background,1,bool,Assignment occurrences
+xuiSkin/ISTableLayout,drawGrid,1,bool,Assignment occurrences
+xuiSkin/ISTableLayout,gridColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayout,isAutoFill,1,bool,Assignment occurrences
+xuiSkin/ISTableLayout,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISTableLayout,isAutoFillY,1,bool,Assignment occurrences
+xuiSkin/ISTableLayout,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISTableLayout,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISTableLayoutCell,<block>,6,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTableLayoutCell,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayoutCell,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayoutCell,drawBackground,1,bool,Assignment occurrences
+xuiSkin/ISTableLayoutCell,drawBorder,1,bool,Assignment occurrences
+xuiSkin/ISTableLayoutCell,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISTableLayoutCell,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISTableLayoutCell,padding,6,int,Assignment occurrences
+xuiSkin/ISTableLayoutColumn,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTableLayoutColumn,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayoutColumn,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayoutColumn,isAutoFill,2,bool,Assignment occurrences
+xuiSkin/ISTableLayoutColumn,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISTableLayoutRow,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTableLayoutRow,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayoutRow,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTableLayoutRow,isAutoFill,2,bool,Assignment occurrences
+xuiSkin/ISTableLayoutRow,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISTestComponentPanel,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTestComponentPanel,background,1,bool,Assignment occurrences
+xuiSkin/ISTestComponentPanel,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTestComponentPanel,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTestComponentPanel,enableHeader,2,bool,Assignment occurrences
+xuiSkin/ISTestComponentPanel,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISTestComponentPanel,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISTextEntryBox,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTextEntryBox,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISTextEntryBox,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISTextEntryBox,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISTextEntryBox,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISTextEntryBox,background,1,bool,Assignment occurrences
+xuiSkin/ISTextEntryBox,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTextEntryBox,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTextEntryBox,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISTextEntryBox,keeplog,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISTickBox,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,background,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISTickBox,borderColor,1,string,Assignment occurrences
+xuiSkin/ISTickBox,boxSize,1,int,Assignment occurrences
+xuiSkin/ISTickBox,choicesColor,1,string,Assignment occurrences
+xuiSkin/ISTickBox,enable,1,bool,Assignment occurrences
+xuiSkin/ISTickBox,font,1,qualified-id,Assignment occurrences
+xuiSkin/ISTickBox,itemGap,1,int,Assignment occurrences
+xuiSkin/ISTickBox,itemHgt,1,int,Assignment occurrences
+xuiSkin/ISTickBox,leftMargin,1,int,Assignment occurrences
+xuiSkin/ISTickBox,textGap,1,int,Assignment occurrences
+xuiSkin/ISTickBox,tickTexture,1,string,Assignment occurrences
+xuiSkin/ISTickBox,tooltip,1,string,Assignment occurrences
+xuiSkin/ISToolTip,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISToolTip,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISToolTip,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISToolTip,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISToolTip,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISToolTip,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISToolTip,borderColor,1,string,Assignment occurrences
+xuiSkin/ISToolTipInv,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISToolTipInv,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISToolTipInv,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISToolTipInv,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISToolTipInv,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISToolTipInv,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISToolTipInv,borderColor,1,string,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetComponentHeader,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,backgroundColor,2,string,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,borderColor,1,string,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,enableIcon,2,bool,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,margin,1,int,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,padding,1,int,Assignment occurrences
+xuiSkin/ISWidgetComponentHeader,textureBackground,1,string,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetCraftControl,autoFillContents,3,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,isAutoFill,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,isAutoFillY,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,margin,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftControl,styleButton,1,string,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetCraftDebug,autoFillContents,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,isAutoFill,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,isAutoFillY,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,margin,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftDebug,styleButton,1,string,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetCraftProgress,autoFillContents,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,isAutoFill,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,isAutoFillY,1,bool,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,margin,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISWidgetCraftProgress,styleBar,1,string,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetEntityDebug,autoFillContents,1,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,isAutoFill,1,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,isAutoFillY,1,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,margin,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityDebug,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetEntityHeader,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,borderColor,1,string,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,enableIcon,2,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,enableInfoButton,2,bool,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,marginBottom,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,marginLeft,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,marginRight,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,marginTop,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,paddingBottom,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,paddingLeft,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,paddingRight,1,int,Assignment occurrences
+xuiSkin/ISWidgetEntityHeader,paddingTop,1,int,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetRecipeSelect,autoFillContents,1,bool,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,isAutoFill,1,bool,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,isAutoFillX,1,bool,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,isAutoFillY,1,bool,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,margin,1,int,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,minimumHeight,1,int,Assignment occurrences
+xuiSkin/ISWidgetRecipeSelect,minimumWidth,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWidgetTitleHeader,background,1,bool,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,borderColor,1,string,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,enableIcon,2,bool,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,enableInfoButton,2,bool,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,marginBottom,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,marginLeft,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,marginRight,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,marginTop,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,paddingBottom,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,paddingLeft,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,paddingRight,1,int,Assignment occurrences
+xuiSkin/ISWidgetTitleHeader,paddingTop,1,int,Assignment occurrences
+xuiSkin/ISWindow,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/ISWindow,anchorBottom,1,bool,Assignment occurrences
+xuiSkin/ISWindow,anchorLeft,1,bool,Assignment occurrences
+xuiSkin/ISWindow,anchorRight,1,bool,Assignment occurrences
+xuiSkin/ISWindow,anchorTop,1,bool,Assignment occurrences
+xuiSkin/ISWindow,background,1,bool,Assignment occurrences
+xuiSkin/ISWindow,backgroundColor,1,string,Assignment occurrences
+xuiSkin/ISWindow,borderColor,1,string,Assignment occurrences
+xuiSkin/colors,<block>,2,block,Nested block occurrences; instance names omitted
+xuiSkin/colors,C_AnotherColor,1,string,Assignment occurrences
+xuiSkin/colors,C_Background,2,string,Assignment occurrences
+xuiSkin/colors,C_BgCompHeader,1,string,Assignment occurrences
+xuiSkin/colors,C_BgMouseOver,2,string,Assignment occurrences
+xuiSkin/colors,C_BgSlot,2,string,Assignment occurrences
+xuiSkin/colors,C_BgSlotBgHover,2,string,Assignment occurrences
+xuiSkin/colors,C_BgWindow,2,string,Assignment occurrences
+xuiSkin/colors,C_Black,1,string,Assignment occurrences
+xuiSkin/colors,C_BlackNoAlpha,1,string,Assignment occurrences
+xuiSkin/colors,C_Border,2,string,Assignment occurrences
+xuiSkin/colors,C_BorderLight,2,string,Assignment occurrences
+xuiSkin/colors,C_BorderLocked,2,string,Assignment occurrences
+xuiSkin/colors,C_Grey,1,string,Assignment occurrences
+xuiSkin/colors,C_Grid,2,string,Assignment occurrences
+xuiSkin/colors,C_Input,1,string,Assignment occurrences
+xuiSkin/colors,C_InputAux,1,string,Assignment occurrences
+xuiSkin/colors,C_InvalidRed,1,string,Assignment occurrences
+xuiSkin/colors,C_LcdBack,1,string,Assignment occurrences
+xuiSkin/colors,C_LcdGrid,1,string,Assignment occurrences
+xuiSkin/colors,C_LedOff,1,string,Assignment occurrences
+xuiSkin/colors,C_LedOn,1,string,Assignment occurrences
+xuiSkin/colors,C_MyColor,1,string,Assignment occurrences
+xuiSkin/colors,C_Output,1,string,Assignment occurrences
+xuiSkin/colors,C_OutputAux,1,string,Assignment occurrences
+xuiSkin/colors,C_ProgressGreen,1,string,Assignment occurrences
+xuiSkin/colors,C_ProgressYellow,1,string,Assignment occurrences
+xuiSkin/colors,C_Text,2,string,Assignment occurrences
+xuiSkin/colors,C_TextCompHeader,2,string,Assignment occurrences
+xuiSkin/colors,C_TextEntityHeader,2,string,Assignment occurrences
+xuiSkin/colors,C_TextListHeader,2,string,Assignment occurrences
+xuiSkin/colors,C_TextPointNine,2,string,Assignment occurrences
+xuiSkin/colors,C_TextureWhite,1,string,Assignment occurrences
+xuiSkin/colors,C_UiDefault,2,string,Assignment occurrences
+xuiSkin/colors,C_UsedInputYellow,1,string,Assignment occurrences
+xuiSkin/colors,C_ValidGreen,1,string,Assignment occurrences
+xuiSkin/colors,C_White,1,string,Assignment occurrences
+xuiSkin/entity,<block>,239,block,Nested block occurrences; instance names omitted
+xuiSkin/entity,BuildDescription,4,string,Assignment occurrences
+xuiSkin/entity,Description,4,string,Assignment occurrences
+xuiSkin/entity,DisplayName,239,string,Assignment occurrences
+xuiSkin/entity,Icon,232,string,Assignment occurrences
+xuiSkin/entity,LuaWindowClass,221,string,Assignment occurrences
+xuiSkin/entity/components,<block>,32,block,Nested block occurrences; instance names omitted
+xuiSkin/entity/components/CraftBench,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/entity/components/CraftBench,DisplayName,1,string,Assignment occurrences
+xuiSkin/entity/components/CraftBench,Enabled,1,bool,Assignment occurrences
+xuiSkin/entity/components/CraftBench,Icon,1,string,Assignment occurrences
+xuiSkin/entity/components/CraftBench,ListOrderZ,1,int,Assignment occurrences
+xuiSkin/entity/components/CraftBench,LuaPanelClass,1,string,Assignment occurrences
+xuiSkin/entity/components/CraftLogic,<block>,32,block,Nested block occurrences; instance names omitted
+xuiSkin/entity/components/CraftLogic,DisplayName,32,string,Assignment occurrences
+xuiSkin/entity/components/CraftLogic,Enabled,1,bool,Assignment occurrences
+xuiSkin/entity/components/CraftLogic,Icon,32,string,Assignment occurrences
+xuiSkin/entity/components/CraftLogic,ListOrderZ,1,int,Assignment occurrences
+xuiSkin/entity/components/CraftLogic,LuaPanelClass,32,string,Assignment occurrences
+xuiSkin/entity/components/DryingCraftLogic,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/entity/components/DryingCraftLogic,DisplayName,1,string,Assignment occurrences
+xuiSkin/entity/components/DryingCraftLogic,Enabled,1,bool,Assignment occurrences
+xuiSkin/entity/components/DryingCraftLogic,Icon,1,string,Assignment occurrences
+xuiSkin/entity/components/DryingCraftLogic,ListOrderZ,1,int,Assignment occurrences
+xuiSkin/entity/components/DryingCraftLogic,LuaPanelClass,1,string,Assignment occurrences
+xuiSkin/entity/components/TestComponent,<block>,1,block,Nested block occurrences; instance names omitted
+xuiSkin/entity/components/TestComponent,DisplayName,1,string,Assignment occurrences
+xuiSkin/entity/components/TestComponent,Enabled,1,bool,Assignment occurrences
+xuiSkin/entity/components/TestComponent,Icon,1,string,Assignment occurrences
+xuiSkin/entity/components/TestComponent,ListOrderZ,1,int,Assignment occurrences
+xuiSkin/entity/components/TestComponent,LuaPanelClass,1,string,Assignment occurrences
+xuiSkin/imports,<block>,3,block,Nested block occurrences; instance names omitted
+xuiSkin/imports,<entry>,3,string,Bare comma-delimited entries; source values omitted
+xuiStyle,<block>,0,block,Module-level definitions; zero means absent

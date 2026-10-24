@@ -1,0 +1,35 @@
+block_type,key,count,value_shape,notes
+energy,<block>,7,block,Module-level definitions; zero means absent
+energy,Color,7,string,Assignment occurrences
+energy,DisplayName,7,string,Assignment occurrences
+energy,horizontalBarTexture,7,string,Assignment occurrences
+energy,iconTexture,7,string,Assignment occurrences
+energy,verticalBarTexture,7,string,Assignment occurrences
+fluid,<block>,61,block,Module-level definitions; zero means absent
+fluid,ColorReference,61,string,Assignment occurrences
+fluid,DisplayName,61,string,Assignment occurrences
+fluid/BlendWhiteList,<block>,56,block,Nested block occurrences; instance names omitted
+fluid/BlendWhiteList,whitelist,56,bool,Assignment occurrences
+fluid/BlendWhiteList/categories,<block>,56,block,Nested block occurrences; instance names omitted
+fluid/BlendWhiteList/categories,<entry>,52,string,Bare comma-delimited entries; source values omitted
+fluid/Categories,<block>,61,block,Nested block occurrences; instance names omitted
+fluid/Categories,<entry>,100,string,Bare comma-delimited entries; source values omitted
+fluid/Poison,<block>,10,block,Nested block occurrences; instance names omitted
+fluid/Poison,diluteRatio,10,float,Assignment occurrences
+fluid/Poison,maxEffect,10,string,Assignment occurrences
+fluid/Poison,minAmount,10,float,Assignment occurrences
+fluid/Properties,<block>,51,block,Nested block occurrences; instance names omitted
+fluid/Properties,Calories,44,float,Assignment occurrences
+fluid/Properties,Carbohydrates,44,float,Assignment occurrences
+fluid/Properties,HungerChange,43,float,Assignment occurrences
+fluid/Properties,Lipids,44,float,Assignment occurrences
+fluid/Properties,Proteins,44,float,Assignment occurrences
+fluid/Properties,StressChange,39,float,Assignment occurrences
+fluid/Properties,ThirstChange,47,float,Assignment occurrences
+fluid/Properties,UnhappyChange,40,float,Assignment occurrences
+fluid/Properties,alcohol,31,float,Assignment occurrences
+fluid/Properties,enduranceChange,31,float,Assignment occurrences
+fluid/Properties,fatigueChange,39,float,Assignment occurrences
+fluid/Properties,fluReduction,31,float,Assignment occurrences
+fluid/Properties,foodSicknessChange,31,int,Assignment occurrences
+fluid/Properties,painReduction,31,float,Assignment occurrences

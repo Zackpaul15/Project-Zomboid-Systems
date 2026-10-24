@@ -1,0 +1,14 @@
+block_type,key,count,value_shape,notes
+sound,<block>,3038,block,Module-level definitions; zero means absent
+sound,category,3038,string,Assignment occurrences
+sound,loop,32,bool,Assignment occurrences
+sound,master,50,string,Assignment occurrences
+sound,maxInstancesPerEmitter,22,int,Assignment occurrences
+sound/clip,<block>,3038,block,Nested block occurrences; instance names omitted
+sound/clip,distanceMax,280,int,Assignment occurrences
+sound/clip,event,3037,string,Assignment occurrences
+sound/clip,file,1,string,Assignment occurrences
+sound/clip,volume,1,float,Assignment occurrences
+soundTimeline,<block>,5,block,Module-level definitions; zero means absent
+soundTimeline,ElectricityOn,1,int,Assignment occurrences
+soundTimeline,idle,4,int,Assignment occurrences

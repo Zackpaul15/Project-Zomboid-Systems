@@ -1,0 +1,297 @@
+block_type,key,count,value_shape,notes
+template vehicle,<block>,77,block,Module-level definitions; zero means absent
+template vehicle,brakingForce,26,int,Assignment occurrences
+template vehicle,centerOfMassOffset,26,numeric-vector,Assignment occurrences
+template vehicle,engineForce,26,int,Assignment occurrences
+template vehicle,engineLoudness,26,int,Assignment occurrences
+template vehicle,engineQuality,26,int,Assignment occurrences
+template vehicle,engineRPMType,11,string,Assignment occurrences
+template vehicle,engineRepairLevel,26,int,Assignment occurrences
+template vehicle,extents,26,numeric-vector,Assignment occurrences
+template vehicle,extentsOffset,7,numeric-vector,Assignment occurrences
+template vehicle,frontEndHealth,26,int,Assignment occurrences
+template vehicle,gearRatio1,1,float,Assignment occurrences
+template vehicle,gearRatio2,1,float,Assignment occurrences
+template vehicle,gearRatio3,1,float,Assignment occurrences
+template vehicle,gearRatio4,1,float,Assignment occurrences
+template vehicle,gearRatioCount,1,int,Assignment occurrences
+template vehicle,gearRatioR,1,float,Assignment occurrences
+template vehicle,isSmallVehicle,6,bool,Assignment occurrences
+template vehicle,mass,26,int,Assignment occurrences
+template vehicle,maxSpeed,26,float,Assignment occurrences
+template vehicle,maxSuspensionTravelCm,26,float,Assignment occurrences
+template vehicle,mechanicType,26,int,Assignment occurrences
+template vehicle,offRoadEfficiency,12,float,Assignment occurrences
+template vehicle,physicsChassisShape,26,numeric-vector,Assignment occurrences
+template vehicle,playerDamageProtection,26,float,Assignment occurrences
+template vehicle,rearEndHealth,26,int,Assignment occurrences
+template vehicle,rollInfluence,26,float,Assignment occurrences
+template vehicle,seats,26,int,Assignment occurrences
+template vehicle,steeringClamp,26,float,Assignment occurrences
+template vehicle,steeringIncrement,26,float,Assignment occurrences
+template vehicle,stoppingMovementForce,25,float,Assignment occurrences
+template vehicle,suspensionCompression,26,float,Assignment occurrences
+template vehicle,suspensionDamping,26,float,Assignment occurrences
+template vehicle,suspensionRestLength,26,float,Assignment occurrences
+template vehicle,suspensionStiffness,26,float,Assignment occurrences
+template vehicle,template,653,string,Assignment occurrences
+template vehicle,template!,14,string,Assignment occurrences
+template vehicle,textureDamage1Overlay,26,string,Assignment occurrences
+template vehicle,textureDamage1Shell,26,string,Assignment occurrences
+template vehicle,textureDamage2Overlay,26,string,Assignment occurrences
+template vehicle,textureDamage2Shell,26,string,Assignment occurrences
+template vehicle,textureLights,26,string,Assignment occurrences
+template vehicle,textureMask,26,string,Assignment occurrences
+template vehicle,textureRust,26,string,Assignment occurrences
+template vehicle,useChassisPhysicsCollision,16,bool,Assignment occurrences
+template vehicle,wheelFriction,26,float,Assignment occurrences
+template vehicle/area,<block>,154,block,Nested block occurrences; instance names omitted
+template vehicle/area,xywh,154,numeric-vector,Assignment occurrences
+template vehicle/attachment,<block>,52,block,Nested block occurrences; instance names omitted
+template vehicle/attachment,offset,52,numeric-vector,Assignment occurrences
+template vehicle/attachment,rotate,52,numeric-vector,Assignment occurrences
+template vehicle/attachment,zoffset,52,float,Assignment occurrences
+template vehicle/lightbar,<block>,8,block,Nested block occurrences; instance names omitted
+template vehicle/lightbar,leftCol,7,list;,Assignment occurrences
+template vehicle/lightbar,rightCol,7,list;,Assignment occurrences
+template vehicle/lightbar,soundSiren,8,string,Assignment occurrences
+template vehicle/lightbar,texture,4,string,Assignment occurrences
+template vehicle/part,<block>,371,block,Nested block occurrences; instance names omitted
+template vehicle/part,area,57,string,Assignment occurrences
+template vehicle/part,category,76,string,Assignment occurrences
+template vehicle/part,durability,24,int,Assignment occurrences
+template vehicle/part,hasLightsRear,7,bool,Assignment occurrences
+template vehicle/part,itemType,48,list;|qualified-id,Assignment occurrences
+template vehicle/part,mechanicArea,54,string,Assignment occurrences
+template vehicle/part,mechanicRequireKey,19,bool,Assignment occurrences
+template vehicle/part,parent,7,string,Assignment occurrences
+template vehicle/part,repairMechanic,6,bool,Assignment occurrences
+template vehicle/part,specificItem,4,bool,Assignment occurrences
+template vehicle/part,wheel,4,string,Assignment occurrences
+template vehicle/part/anim,<block>,86,block,Nested block occurrences; instance names omitted
+template vehicle/part/anim,angle,20,numeric-vector,Assignment occurrences
+template vehicle/part/anim,anim,10,string,Assignment occurrences
+template vehicle/part/anim,rate,10,float,Assignment occurrences
+template vehicle/part/anim,sound,64,string,Assignment occurrences
+template vehicle/part/container,<block>,43,block,Nested block occurrences; instance names omitted
+template vehicle/part/container,capacity,30,int,Assignment occurrences
+template vehicle/part/container,conditionAffectsCapacity,6,bool,Assignment occurrences
+template vehicle/part/container,contentType,2,string,Assignment occurrences
+template vehicle/part/container,seat,6,string,Assignment occurrences
+template vehicle/part/container,soundMap,10,string,Assignment occurrences
+template vehicle/part/container,test,15,string,Assignment occurrences
+template vehicle/part/door,<block>,4,block,Nested block occurrences; instance names omitted
+template vehicle/part/lua,<block>,82,block,Nested block occurrences; instance names omitted
+template vehicle/part/lua,checkEngine,2,string,Assignment occurrences
+template vehicle/part/lua,checkOperate,1,string,Assignment occurrences
+template vehicle/part/lua,create,28,string,Assignment occurrences
+template vehicle/part/lua,init,10,string,Assignment occurrences
+template vehicle/part/lua,update,71,string,Assignment occurrences
+template vehicle/part/lua,use,5,string,Assignment occurrences
+template vehicle/part/model,<block>,2,block,Nested block occurrences; instance names omitted
+template vehicle/part/model,attachmentParent,1,string,Assignment occurrences
+template vehicle/part/model,attachmentSelf,1,string,Assignment occurrences
+template vehicle/part/model,file,1,string,Assignment occurrences
+template vehicle/part/model,ignoreVehicleScale,1,bool,Assignment occurrences
+template vehicle/part/table,<block>,477,block,Nested block occurrences; instance names omitted
+template vehicle/part/table,area,8,string,Assignment occurrences
+template vehicle/part/table,complete,16,string,Assignment occurrences
+template vehicle/part/table,distance,1,int,Assignment occurrences
+template vehicle/part/table,door,2,string,Assignment occurrences
+template vehicle/part/table,intensity,1,float,Assignment occurrences
+template vehicle/part/table,mechanicRequireKey,2,bool,Assignment occurrences
+template vehicle/part/table,recipes,398,string,Assignment occurrences
+template vehicle/part/table,requireEmpty,2,bool,Assignment occurrences
+template vehicle/part/table,requireInstalled,16,list;|string,Assignment occurrences
+template vehicle/part/table,requireUninstalled,28,string,Assignment occurrences
+template vehicle/part/table,skills,190,namespaced-id,Assignment occurrences
+template vehicle/part/table,test,34,string,Assignment occurrences
+template vehicle/part/table,time,38,int,Assignment occurrences
+template vehicle/part/table,xOffset,1,float,Assignment occurrences
+template vehicle/part/table,yOffset,1,float,Assignment occurrences
+template vehicle/part/table/items,<block>,34,block,Nested block occurrences; instance names omitted
+template vehicle/part/table/items/<number>,<block>,42,block,Nested block occurrences; instance names omitted
+template vehicle/part/table/items/<number>,count,42,int,Assignment occurrences
+template vehicle/part/table/items/<number>,equip,36,string,Assignment occurrences
+template vehicle/part/table/items/<number>,keep,42,bool,Assignment occurrences
+template vehicle/part/table/items/<number>,tags,36,namespaced-id,Assignment occurrences
+template vehicle/part/table/items/<number>,type,6,qualified-id,Assignment occurrences
+template vehicle/part/window,<block>,3,block,Nested block occurrences; instance names omitted
+template vehicle/part/window,openable,3,bool,Assignment occurrences
+template vehicle/passenger,<block>,21,block,Nested block occurrences; instance names omitted
+template vehicle/passenger,area,6,string,Assignment occurrences
+template vehicle/passenger,door,6,string,Assignment occurrences
+template vehicle/passenger,hasRoof,1,bool,Assignment occurrences
+template vehicle/passenger/anim,<block>,5,block,Nested block occurrences; instance names omitted
+template vehicle/passenger/anim,anim,5,string,Assignment occurrences
+template vehicle/passenger/anim,rate,5,float,Assignment occurrences
+template vehicle/passenger/position,<block>,16,block,Nested block occurrences; instance names omitted
+template vehicle/passenger/position,offset,16,numeric-vector,Assignment occurrences
+template vehicle/passenger/position,rotate,16,numeric-vector,Assignment occurrences
+template vehicle/passenger/switchSeat,<block>,30,block,Nested block occurrences; instance names omitted
+template vehicle/passenger/switchSeat,anim,30,string,Assignment occurrences
+template vehicle/passenger/switchSeat,rate,30,float,Assignment occurrences
+template vehicle/passenger/switchSeat,sound,30,string,Assignment occurrences
+template vehicle/physics,<block>,62,block,Nested block occurrences; instance names omitted
+template vehicle/physics,extents,62,numeric-vector,Assignment occurrences
+template vehicle/physics,offset,62,numeric-vector,Assignment occurrences
+template vehicle/physics,rotate,62,numeric-vector,Assignment occurrences
+template vehicle/skin,<block>,8,block,Nested block occurrences; instance names omitted
+template vehicle/skin,texture,8,string,Assignment occurrences
+template vehicle/sound,<block>,23,block,Nested block occurrences; instance names omitted
+template vehicle/sound,alarmLoop,23,string,Assignment occurrences
+template vehicle/sound,engine,23,string,Assignment occurrences
+template vehicle/sound,engineStart,23,string,Assignment occurrences
+template vehicle/sound,engineTurnOff,23,string,Assignment occurrences
+template vehicle/sound,handBrake,2,string,Assignment occurrences
+template vehicle/sound,horn,23,string,Assignment occurrences
+template vehicle/sound,ignitionFail,23,string,Assignment occurrences
+template vehicle/wheel,<block>,104,block,Nested block occurrences; instance names omitted
+template vehicle/wheel,front,104,bool,Assignment occurrences
+template vehicle/wheel,offset,104,numeric-vector,Assignment occurrences
+template vehicle/wheel,radius,104,float,Assignment occurrences
+template vehicle/wheel,width,104,float,Assignment occurrences
+vehicle,<block>,241,block,Module-level definitions; zero means absent
+vehicle,animalTrailerSize,2,float,Assignment occurrences
+vehicle,brakingForce,102,int,Assignment occurrences
+vehicle,carMechanicsOverlay,40,qualified-id,Assignment occurrences
+vehicle,carModelName,31,string,Assignment occurrences
+vehicle,centerOfMassOffset,233,numeric-vector,Assignment occurrences
+vehicle,engineForce,104,int,Assignment occurrences
+vehicle,engineLoudness,104,int,Assignment occurrences
+vehicle,engineQuality,104,int,Assignment occurrences
+vehicle,engineRPMType,72,string,Assignment occurrences
+vehicle,engineRepairLevel,104,int,Assignment occurrences
+vehicle,extents,233,numeric-vector,Assignment occurrences
+vehicle,extentsOffset,67,numeric-vector,Assignment occurrences
+vehicle,frontEndHealth,104,int,Assignment occurrences
+vehicle,gearRatio1,2,float,Assignment occurrences
+vehicle,gearRatio2,2,float,Assignment occurrences
+vehicle,gearRatio3,2,float,Assignment occurrences
+vehicle,gearRatio4,2,float,Assignment occurrences
+vehicle,gearRatio5,2,float,Assignment occurrences
+vehicle,gearRatioCount,2,int,Assignment occurrences
+vehicle,gearRatioR,2,float,Assignment occurrences
+vehicle,isSmallVehicle,67,bool,Assignment occurrences
+vehicle,mass,124,int,Assignment occurrences
+vehicle,maxSpeed,104,float,Assignment occurrences
+vehicle,maxSuspensionTravelCm,104,float,Assignment occurrences
+vehicle,mechanicType,104,int,Assignment occurrences
+vehicle,neverSpawnKey,23,bool,Assignment occurrences
+vehicle,offRoadEfficiency,14,float,Assignment occurrences
+vehicle,physicsChassisShape,233,numeric-vector,Assignment occurrences
+vehicle,playerDamageProtection,104,float,Assignment occurrences
+vehicle,rearEndHealth,104,int,Assignment occurrences
+vehicle,rollInfluence,104,float,Assignment occurrences
+vehicle,seatNumber,1,int,Assignment occurrences
+vehicle,seats,104,int,Assignment occurrences
+vehicle,shadowExtents,224,numeric-vector,Assignment occurrences
+vehicle,shadowOffset,224,numeric-vector,Assignment occurrences
+vehicle,specialKeyRing,62,list;|qualified-id,Assignment occurrences
+vehicle,specialKeyRingChance,8,int,Assignment occurrences
+vehicle,specialLootChance,14,int,Assignment occurrences
+vehicle,steeringClamp,104,float,Assignment occurrences
+vehicle,steeringIncrement,104,float,Assignment occurrences
+vehicle,stoppingMovementForce,102,float,Assignment occurrences
+vehicle,suspensionCompression,104,float,Assignment occurrences
+vehicle,suspensionDamping,104,float,Assignment occurrences
+vehicle,suspensionRestLength,104,float,Assignment occurrences
+vehicle,suspensionStiffness,104,float,Assignment occurrences
+vehicle,template,2659,string,Assignment occurrences
+vehicle,template!,186,string,Assignment occurrences
+vehicle,textureDamage1Overlay,104,string,Assignment occurrences
+vehicle,textureDamage1Shell,104,string,Assignment occurrences
+vehicle,textureDamage2Overlay,104,string,Assignment occurrences
+vehicle,textureDamage2Shell,104,string,Assignment occurrences
+vehicle,textureLights,104,string,Assignment occurrences
+vehicle,textureMask,104,string,Assignment occurrences
+vehicle,textureRust,104,string,Assignment occurrences
+vehicle,useChassisPhysicsCollision,4,bool,Assignment occurrences
+vehicle,wheelFriction,104,float,Assignment occurrences
+vehicle,zombieType,110,list;|string,Assignment occurrences
+vehicle/area,<block>,1155,block,Nested block occurrences; instance names omitted
+vehicle/area,xywh,1155,numeric-vector,Assignment occurrences
+vehicle/attachment,<block>,463,block,Nested block occurrences; instance names omitted
+vehicle/attachment,canAttach,5,string,Assignment occurrences
+vehicle/attachment,offset,463,numeric-vector,Assignment occurrences
+vehicle/attachment,rotate,463,numeric-vector,Assignment occurrences
+vehicle/attachment,updateconstraint,5,bool,Assignment occurrences
+vehicle/attachment,zoffset,418,float,Assignment occurrences
+vehicle/crawlThroughWheel,<block>,80,block,Nested block occurrences; instance names omitted
+vehicle/crawlThroughWheel,front,80,bool,Assignment occurrences
+vehicle/crawlThroughWheel,offset,80,numeric-vector,Assignment occurrences
+vehicle/crawlThroughWheel,radius,80,float,Assignment occurrences
+vehicle/crawlThroughWheel,width,80,float,Assignment occurrences
+vehicle/lightbar,<block>,15,block,Nested block occurrences; instance names omitted
+vehicle/lightbar,leftCol,8,list;,Assignment occurrences
+vehicle/lightbar,rightCol,8,list;,Assignment occurrences
+vehicle/lightbar,soundSiren,15,string,Assignment occurrences
+vehicle/model,<block>,241,block,Nested block occurrences; instance names omitted
+vehicle/model,file,241,string,Assignment occurrences
+vehicle/model,offset,241,numeric-vector,Assignment occurrences
+vehicle/model,rotate,1,numeric-vector,Assignment occurrences
+vehicle/model,scale,241,float,Assignment occurrences
+vehicle/part,<block>,1304,block,Nested block occurrences; instance names omitted
+vehicle/part,area,2,string,Assignment occurrences
+vehicle/part,category,198,string,Assignment occurrences
+vehicle/part,hasLightsRear,67,bool,Assignment occurrences
+vehicle/part,itemType,77,qualified-id,Assignment occurrences
+vehicle/part,mechanicRequireKey,1,bool,Assignment occurrences
+vehicle/part,parent,1,string,Assignment occurrences
+vehicle/part,recipes,2,string,Assignment occurrences
+vehicle/part/anim,<block>,51,block,Nested block occurrences; instance names omitted
+vehicle/part/anim,anim,37,string,Assignment occurrences
+vehicle/part/anim,animate,19,bool,Assignment occurrences
+vehicle/part/anim,rate,18,float,Assignment occurrences
+vehicle/part/anim,reverse,18,bool,Assignment occurrences
+vehicle/part/anim,sound,14,string,Assignment occurrences
+vehicle/part/container,<block>,96,block,Nested block occurrences; instance names omitted
+vehicle/part/container,capacity,88,int,Assignment occurrences
+vehicle/part/container,test,65,string,Assignment occurrences
+vehicle/part/lua,<block>,205,block,Nested block occurrences; instance names omitted
+vehicle/part/lua,create,7,string,Assignment occurrences
+vehicle/part/lua,update,204,string,Assignment occurrences
+vehicle/part/lua,use,6,string,Assignment occurrences
+vehicle/part/model,<block>,12,block,Nested block occurrences; instance names omitted
+vehicle/part/model,attachmentParent,1,string,Assignment occurrences
+vehicle/part/model,file,11,string,Assignment occurrences
+vehicle/part/model,offset,8,numeric-vector,Assignment occurrences
+vehicle/part/model,rotate,9,numeric-vector,Assignment occurrences
+vehicle/part/model,scale,1,float,Assignment occurrences
+vehicle/part/table,<block>,1816,block,Nested block occurrences; instance names omitted
+vehicle/part/table,recipes,1644,string,Assignment occurrences
+vehicle/part/table,requireInstalled,75,string,Assignment occurrences
+vehicle/part/table,requireUninstalled,67,string,Assignment occurrences
+vehicle/part/table,skills,752,namespaced-id,Assignment occurrences
+vehicle/passenger,<block>,380,block,Nested block occurrences; instance names omitted
+vehicle/passenger,door2,12,string,Assignment occurrences
+vehicle/passenger/position,<block>,772,block,Nested block occurrences; instance names omitted
+vehicle/passenger/position,area,354,string,Assignment occurrences
+vehicle/passenger/position,offset,750,numeric-vector,Assignment occurrences
+vehicle/passenger/position,rotate,750,numeric-vector,Assignment occurrences
+vehicle/passenger/switchSeat,<block>,88,block,Nested block occurrences; instance names omitted
+vehicle/physics,<block>,22,block,Nested block occurrences; instance names omitted
+vehicle/physics,extents,18,numeric-vector,Assignment occurrences
+vehicle/physics,offset,22,numeric-vector,Assignment occurrences
+vehicle/physics,radius,4,float,Assignment occurrences
+vehicle/physics,rotate,18,numeric-vector,Assignment occurrences
+vehicle/skin,<block>,290,block,Nested block occurrences; instance names omitted
+vehicle/skin,texture,290,string,Assignment occurrences
+vehicle/sound,<block>,79,block,Nested block occurrences; instance names omitted
+vehicle/sound,alarmLoop,30,string,Assignment occurrences
+vehicle/sound,backSignal,59,string,Assignment occurrences
+vehicle/sound,engine,29,string,Assignment occurrences
+vehicle/sound,engineStart,29,string,Assignment occurrences
+vehicle/sound,engineTurnOff,29,string,Assignment occurrences
+vehicle/sound,horn,30,string,Assignment occurrences
+vehicle/sound,ignitionFail,29,string,Assignment occurrences
+vehicle/wheel,<block>,412,block,Nested block occurrences; instance names omitted
+vehicle/wheel,front,412,bool,Assignment occurrences
+vehicle/wheel,offset,412,numeric-vector,Assignment occurrences
+vehicle/wheel,radius,412,float,Assignment occurrences
+vehicle/wheel,width,412,float,Assignment occurrences
+vehicleEngineRPM,<block>,4,block,Module-level definitions; zero means absent
+vehicleEngineRPM,VERSION,4,int,Assignment occurrences
+vehicleEngineRPM/data,<block>,20,block,Nested block occurrences; instance names omitted
+vehicleEngineRPM/data,afterGearChange,20,int,Assignment occurrences
+vehicleEngineRPM/data,gearChange,20,int,Assignment occurrences

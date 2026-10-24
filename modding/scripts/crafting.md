@@ -19,7 +19,9 @@ All examples below are invented shapes, not copied vanilla definitions.
 Every observed craft recipe has `time`, `Tags` and an `inputs` block. There are
 958 `outputs` blocks, 225 `itemMapper` blocks and three `overlayMapper` blocks.
 These are textual occurrences, before overrides, filtering or runtime merging.
-No recipe in this survey is nested inside an entity component.
+These counts cover the exact module-level block types above. The separate
+`component CraftRecipe` form is covered in [entities.md](entities.md), including
+its 202 component blocks and their construction inputs.
 
 Run `python -I modding/tools/survey_crafting.py` from the repository root:
 
