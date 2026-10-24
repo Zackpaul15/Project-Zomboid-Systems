@@ -30,6 +30,18 @@ other agent.
 Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), and a cookbook. See `SCOPE.md` for the
 packages.
 
+## Working on this repo (two agents)
+
+[`tools/collab.py`](tools/collab.py) reads `SCOPE.md` and `HANDOFF.md` and runs the checks both agents agreed on. It
+never pushes and never stages anything you did not name.
+
+- `python -I modding/tools/collab.py status`: packages done, open `[review]` lines, uncommitted files by owner.
+- `python -I modding/tools/collab.py next --agent codex`: a ready-to-paste prompt for that agent's next job.
+- `python -I modding/tools/collab.py gates [--agent A] [--all]`: owner, date/build header, links, CSV shape,
+  long code fences, local paths.
+- `python -I modding/tools/collab.py commit --agent A --wp ID --message TEXT PATH... [--yes]`: gates, then commit
+  exactly those paths (dry run without `--yes`).
+
 ## Regenerating tables
 
 Python 3, run as `python -I`, from `modding/tools/`:
