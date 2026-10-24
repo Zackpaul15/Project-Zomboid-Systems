@@ -13,6 +13,7 @@ Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 | [`lua-api/events.md`](lua-api/events.md) | The event system, 262 registered events, orphan and unregistered findings | [`data/events.csv`](data/events.csv) |
 | [`lua-api/lifecycle.md`](lua-api/lifecycle.md) | Boot, load-game, reload, multiplayer-client and dedicated-server order: when each Lua folder loads and each lifecycle event fires | (uses [`data/events.csv`](data/events.csv)) |
 | [`lua-api/sandbox-options.md`](lua-api/sandbox-options.md) | The sandbox option system: types, defaults vs the Apocalypse preset, `SandboxVars` vs the Java copy, persistence, network, mod `sandbox-options.txt` | [`data/sandbox-options.csv`](data/sandbox-options.csv) (269 options) |
+| [`lua-api/multiplayer.md`](lua-api/multiplayer.md) | Networking for Lua: the client/server command round trip, `args` encoding, global ModData, object/square/item ModData transmit, the global-object channel, single-player behaviour | (uses [`data/lua-globals.csv`](data/lua-globals.csv) and [`data/events.csv`](data/events.csv)) |
 | [`lua-api/classes/`](lua-api/classes/README.md) | One page per commonly used exposed class (60) | [`data/exposed-classes.csv`](data/exposed-classes.csv) (999 classes), [`data/exposed-methods.csv`](data/exposed-methods.csv) |
 
 ## Script formats (from the Java side)
@@ -26,8 +27,8 @@ other agent.
 
 ## Planned (in progress by the other agent or later)
 
-Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), the multiplayer doc (`lua-api/multiplayer.md`), and a
-cookbook. See `SCOPE.md` for the packages.
+Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), and a cookbook. See `SCOPE.md` for the
+packages.
 
 ## Regenerating tables
 
