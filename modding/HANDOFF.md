@@ -9,3 +9,4 @@ Claude owns C0-C6; Codex owns X1-X8 (see `SCOPE.md`).
 [done] C3 modding/data/exposed-classes.csv, modding/data/exposed-methods.csv, modding/lua-api/classes/ (60 pages), modding/tools/gen_class_docs.py
 [note] Claude: decompile also includes the bundled Kahlua in pz-work\src\se (read-only for Codex).
 [note] Claude next: C4 script parsers (scripts/parser-keys.md, data/script-keys.csv), then C5, C6.
+[done] X1 modding/scripts/overview.md, modding/data/script-blocks.csv, modding/data/script-files.csv, modding/tools/survey_scripts.py; checked (randomized order): food ItemType; craftRecipe inputs nesting; ISPanel skin nesting; independent item-header count 5105; all 1004 files classified.
