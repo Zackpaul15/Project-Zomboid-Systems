@@ -105,8 +105,8 @@ other places and is the other agent's survey.
 parser (`InputScript.Load`, `OutputScript.Load`) tokenizes on whitespace. Words are in the CSV with `kind = token`;
 enum constants with `kind = flag` (69 input flags, 12 output flags).
 
-- First word is the resource type: `item`, `fluid` or `energy` (an internal-only `uses` form exists for `+` lines)
-  [observed]. Anything else throws "unknown type in craftrecipe".
+- First word is the resource type: `item`, `fluid` or `energy` [observed]. Anything else throws "unknown type in
+  craftrecipe". Attached `-` input lines (below) also accept `uses` as the first word, meaning an item.
 - Second word is the amount: a number, or `variable[min:max]` [observed, outputs]; negative values are clamped to 0.
 - Third word is the resource: item list (inputs) or `mapper:<name>` (outputs, resolved against the recipe's mapper
   blocks; a missing mapper is an error), a fluid name, or an energy name.
@@ -118,7 +118,28 @@ enum constants with `kind = flag` (69 input flags, 12 output flags).
   keepprop1, keepprop2; fluids: exact, primary, anything, plus mixture on inputs; energy: keep on inputs. Output `mode:` accepts only the fluid values and ignores it for items. Values for a
   resource type that does not support them throw (some only when the game is in debug mode).
 - A `+` output line attaches an "item create" to the previous output line; the previous line must have amount 1, be an
-  item, and not apply on tick [observed in `OnPostWorldDictionaryInit`].
+  item, and not apply on tick [observed in `OnPostWorldDictionaryInit`]. On the attached line the item type's third
+  word should be `Uses` (a mismatch throws only in debug mode), no mapper lookup happens, and `apply:` throws
+  [observed, `OutputScript.Load` internal path]. A `-` line in `outputs` throws.
+
+Input-side attachments [observed, `CraftRecipe.LoadIO`, `InputScript.Load`]. Inside an `inputs` block a line that
+starts with `-` or `+` is not a new input; it attaches to the **previous** input line:
+
+- `-<line>` sets that input's "consume from" line. The rest of the line uses the normal input grammar, parsed in
+  internal mode (the resource may be `item`, `fluid`, `energy` or `uses`; the attached line starts out as
+  accept-any-item, and an explicit list adds to that). The attached line is not added to the recipe's inputs; it is kept as a child of the previous input.
+- `+<line>` on an input sets that input's "create to" line, parsed with the output grammar's internal path (see the
+  `+` output bullet above for what that changes).
+- Load errors (thrown, so the script fails): no previous input line; the previous input already has a `-` (or a `+`)
+  attachment.
+- Checks that run after the world dictionary is built: one input cannot carry a `-` and a `+` of the same resource
+  type; a line followed by `-` or `+` must be an item input with amount 1, not variable, and not apply on tick; its
+  item mode becomes Keep (a `-` keeps Destroy if it was already set).
+- When the previous input accepts any item and the attached `-`/`+` line is a fluid or energy, the candidate items are
+  limited to items with a fluid container (fluid) or drainable items (energy) [observed].
+- In this install `media/scripts` holds **55** `-fluid` lines in 13 files and **no** `+`
+  lines [observed by a text count]. The attached `-` lines carry the same words as ordinary lines (amount, list,
+  `mode:`, `categories[...]`), so no new key is needed in the CSV.
 - `flags[...]` entries must be valid constants of `InputFlag` / `OutputFlag`; an unknown constant throws from
   `valueOf` [observed].
 
@@ -159,6 +180,31 @@ objects in `XuiScript`. The CSV `xui-var` rows list the 198 names with their typ
 fonttype 5, plus vector, spacing, integer, stringlist, textalign, vectorposalign) [observed]. Layout/style scripts share that set; `xuiSkin` adds its own 15 keys and
 nested `colors`, `components`, `entity`, `imports` [observed].
 
+### `xuiConfig` versus the parser variables
+
+These are two separate registries, so a difference between them is expected rather than an error [observed]:
+
+- **Parser variables (the 198).** Each `XuiScript` instance registers its own typed variables in its constructor
+  (`addVar`). These are the keys a layout, style or default-style script can set on one element. The CSV `xui-var`
+  rows come from here (195 from `XuiScript`, 3 from `XuiTableScript`).
+- **Config variables (the 229).** An `xuiConfig <name> { ... }` block lists names under typed sub-blocks (`String`,
+  `StringList`, `TranslateString`, `Double`, `Boolean`, `FontType`, `Color`, `Texture`). `XuiManager.ParseScripts` hands
+  every config to `XuiLuaStyle.ReadConfigs`, which adds each name to a static registry of Lua-style variables
+  (cleared on reset). A name listed under two types, in one block or across configs, throws.
+- **What the registry gates.** `XuiSkin` loads each skin style into an `XuiLuaStyle` through `loadVar(key, value)`. A
+  key that is neither already on that style nor in the registry throws "not registered or key typo". So `xuiConfig`
+  is the allow-list for the keys a skin may set on a Lua UI class, and the types there are coarser (a `Double` covers
+  what the parser splits into float, integer, unit and others).
+- **Reading the overlap.** Of the 229 config names, 177 also exist as parser variables (a skin overriding a layout
+  property) and 52 are config-only: mostly `style*` selectors, `enable*`/`do*`/`hide*` switches and colours that Lua
+  UI classes read from their style [inferred from the names; which Lua code reads each one is **[unknown]**]. The 21
+  parser-only names are layout-only (`xuiKey`, `xuiStyle`, `xuiLuaClass`, `xuiCellStyle`, `xuiColumnStyle`,
+  `xuiRowStyle`, `xuiCustomDebug`, the `icon_*`/`image_*` position and size names, `vector`, `vectorPosAlign`,
+  `textAlign`, `borderLocked`); they are not in the registry, so a skin style line using one would fail the
+  registry check above [observed from the registry code, names from `xui-config-coverage.csv`].
+- **Not resolved.** Whether the config-only names are all still read by some Lua file was not checked
+  **[unknown]**; the difference between the two lists alone does not show a stale entry.
+
 ## 9. Not ScriptManager scripts
 
 A few formats reuse `ScriptParser` but load through their own classes: custom perks, custom sandbox options, the
@@ -178,3 +224,9 @@ labels them `(file) ...` [observed].
 2. `unknown script object` is a warning from `ScriptModule` (not an exception).
 3. `fluidMapper`/`energyMapper` throw "Not yet implemented"; `itemMapper` and `overlayMapper` are parsed
    (`CraftRecipe` block loop). This corrected an earlier draft of this page that listed all four as working.
+4. `inputs` lines starting `-`/`+` attach to the previous input (`CraftRecipe.LoadIO`); duplicate attachment and a
+   missing previous input throw. The earlier note that `uses` belongs to `+` lines was wrong: `uses` is a first word on
+   attached `-` input lines, and attached `+` output lines expect `Uses` as the third word.
+5. `xuiConfig` names are registered into `XuiLuaStyle`'s static registry and gate skin keys; the 198 parser variables
+   are registered per `XuiScript` instance. The two lists are different registries (`XuiLuaStyle.ReadConfigs`,
+   `XuiSkin` `loadVar`).
