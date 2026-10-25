@@ -46,7 +46,7 @@ TRAILER = "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
 # docs that must carry a survey date + build line near the top
 HEADER_DIRS = ("modding/lua-api/", "modding/lua-library/", "modding/workflow/", "modding/scripts/")
 # files allowed to mention local machine paths
-LOCAL_PATH_OK = ("modding/SCOPE.md", "modding/CODEX_PROMPT.md", "modding/HANDOFF.md", "AGENTS.md")
+LOCAL_PATH_OK = ("modding/SCOPE.md", "modding/HANDOFF.md")
 LONG_FENCE_LINES = 40
 
 CLAUDE_DATA = {"events", "lua-globals", "exposed-classes", "exposed-methods", "script-keys", "sandbox-options"}
@@ -72,7 +72,7 @@ def owner_of(path):
         return "claude" if Path(p).name == "parser-keys.md" else "codex"
     if p == "modding/HANDOFF.md":
         return "both"
-    if p in ("modding/README.md", "modding/SCOPE.md", "modding/CODEX_PROMPT.md"):
+    if p in ("modding/README.md", "modding/SCOPE.md"):
         return "claude"
     if p.startswith("modding/data/"):
         return "claude" if stem in CLAUDE_DATA else "codex"
@@ -252,7 +252,7 @@ def build_next(agent, scope, done, open_rev, open_q, problems=()):
     """Lines of the paste-ready prompt for `agent` (pure: all inputs are parsed data)."""
     rev = [r for r in open_rev if agent in routed_to(r[1])]
     qs = [q for q in open_q if agent in routed_to(q[1])]
-    lines = ["Read modding/SCOPE.md, modding/HANDOFF.md and AGENTS.md first. You are %s." % agent]
+    lines = ["Read modding/SCOPE.md and modding/HANDOFF.md first. You are %s." % agent]
     if rev:
         lines.append("First resolve these review items (then append `[resolved] <path> HANDOFF:<line>: <what changed>`):")
         for n, _, text in rev:

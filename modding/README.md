@@ -4,7 +4,6 @@ Docs-only reference generated from the game install and a decompile of its Java.
 included; only names, shapes, counts and original explanations. Claims are tagged **[observed]**, **[inferred]** or
 **[unknown]**. Survey date: 2026-10-24. Game build: Build 42 (jar sha256 prefix `e1a69eb7`; no version file was
 found, see [`SCOPE.md`](SCOPE.md)). How the work is split: [`SCOPE.md`](SCOPE.md). Progress log: [`HANDOFF.md`](HANDOFF.md).
-Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 
 ## Lua API (from the Java side)
 
@@ -49,6 +48,7 @@ only names, offsets, counts and one-line summaries are recorded here, never bodi
 | [`../notes/bullet-ballistics.md`](../notes/bullet-ballistics.md) | Ballistics and aiming natives (`updateBallistics*`, `setBallistics*`, targets): what each argument changes | [`data/bullet-ballistics-io.csv`](data/bullet-ballistics-io.csv) |
 | [`../notes/lighting-native.md`](../notes/lighting-native.md) | `Lighting64.dll` export inventory: 50 exports, every one resolving to a `LightingJNI` declaration | [`data/lighting-exports.csv`](data/lighting-exports.csv) |
 | [`../notes/lighting.md`](../notes/lighting.md) | Lighting behaviour: light placement, colour/active state and the darkness multipliers — what each argument changes | [`data/lighting-io.csv`](data/lighting-io.csv) |
+| [`../notes/bullet-ragdoll.md`](../notes/bullet-ragdoll.md) | Ragdoll configuration: creation/mass/transform natives and how ragdolls are defined in scripts — what each argument changes | [`data/bullet-ragdoll-io.csv`](data/bullet-ragdoll-io.csv) |
 
 Earlier engine notes cover the other DLLs: [`../notes/population.md`](../notes/population.md) and
 [`../notes/functions-popman.md`](../notes/functions-popman.md) for `PZPopMan64.dll`,

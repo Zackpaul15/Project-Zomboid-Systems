@@ -44,5 +44,5 @@ Target: `F:\SteamLibrary\steamapps\common\ProjectZomboid` (Build 42 era: entity 
   Lua library, workflow, tables); [modding/cookbook/](modding/cookbook/README.md) is the practical starting point
   (recipes are untested).
 - [modding/SCOPE.md](modding/SCOPE.md) - Lua-modding reference repo: scope, work packages and the Claude/Codex split
-  ([AGENTS.md](AGENTS.md) is the Codex brief).
+  (agent/worker briefs live outside this repo, in the Hermes work dir).
 - Open questions are listed at the end of each note (native search function, density curve, remaining states).
