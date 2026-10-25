@@ -42,6 +42,12 @@ for _table in DATA_TABLES[2:]:
 # Remaining readers are retained as unknown, with possible same-family matches.
 CONTEXTS = {
     ("item", "Item", "DoParam"): "item",
+    # Item.DoParam(String,String) consults Attribute.TypeFromName before explicit
+    # keys (Item.java:1937). AttributesScript.parseKeyValue uses the same registry
+    # for entity components (AttributesScript.java:91); item components share it.
+    ("item / entity attributes", "Attribute", "static init"): (
+        "item", "item/component:Attributes", "entity/component:Attributes",
+    ),
     ("recipe", "Recipe", "Load"): "recipe",
     ("evolvedrecipe", "EvolvedRecipe", "Load"): "evolvedrecipe",
     ("fixing", "Fixing", "Load"): "fixing",
@@ -54,6 +60,11 @@ CONTEXTS = {
     ("character_profession_definition", "CharacterProfessionDefinitionScript",
      "loadCharacterProfessionDefinition"): "character_profession_definition",
 }
+
+
+def parser_contexts(parser):
+    context = CONTEXTS.get((parser["block"], parser["source_class"], parser["reader"]))
+    return (context,) if isinstance(context, str) else context or ()
 
 
 def git(*args):
@@ -103,15 +114,33 @@ def event_rows(tables):
         java = any(role == "java_catalogue" for _, role, _ in entries)
         lua = any(side == "lua" for _, _, side in entries)
         trigger = any(role == "lua_trigger" for _, role, _ in entries)
-        if java and lua:
+        count_without_trigger = any(
+            role == "java_catalogue" and int(entry["row"]["lua_trigger_files"] or "0") > 0
+            for entry, role, _ in entries
+        ) and not trigger
+        if count_without_trigger:
+            classification, reason = "defect", "lua_trigger_count_without_trigger_record"
+        elif java and lua:
             classification, reason = "matched", "exact_case_catalogue_overlap"
         elif not java and trigger:
             classification, reason = "explained", "literal_lua_trigger_provenance"
         else:
             classification, reason = "unknown", "one_sided_static_catalogue"
         for entry, role, side in entries:
+            diagnostic = {}
+            if count_without_trigger:
+                diagnostic = {
+                    "finding": "J1B-6_lua_trigger_catalogue_inconsistency",
+                    "owner": "claude (events.csv) / codex (vanilla-lua-event-triggers.csv)",
+                    "destination": "modding/scripts/key-coverage.md#named-catalogue-finding-j1b-6",
+                    "contradiction": "positive lua_trigger_files but no literal Lua trigger record",
+                    "runtime_validity": "not established by catalogue inconsistency",
+                }
+            elif not java and not trigger:
+                diagnostic = {"subscription_check": "absent from events.csv; dynamic trigger names not ruled out"}
             yield ("events", side, name, str(int(java)), str(int(lua)), "n/a",
                    classification, {"source": entry, "role": role, "reason": reason,
+                                    **diagnostic,
                                     "related": sorted(e["ref"] for e, _, _ in entries)})
 
 
@@ -165,12 +194,12 @@ def script_rows(tables):
     reverse_candidates = {entry["source"]["ref"]: [] for entry in data}
     for entry in java:
         parser = entry["row"]
-        context = CONTEXTS.get((parser["block"], parser["source_class"], parser["reader"]))
+        contexts = parser_contexts(parser)
         for observed in data:
             if not observed["present"]:
                 continue
-            if (context is not None and parser["kind"] == observed["kind"] == "key"
-                    and context == observed["context"] and same_key(parser, observed)):
+            if (parser["kind"] in {"key", "attribute"} and observed["kind"] == "key"
+                    and observed["context"] in contexts and same_key(parser, observed)):
                 links[entry["ref"]].append(observed)
                 reverse[observed["source"]["ref"]].append(entry)
             elif family_candidate(parser, observed):
@@ -185,7 +214,12 @@ def script_rows(tables):
         classification = ("matched" if exact else "explained") if matches else "unknown"
         reason = ("exact_scoped_assignment_overlap" if exact else "case_insensitive_parser_overlap")
         if not matches:
-            reason = "scope_or_grammar_unresolved" if possible else "no_observation_in_input_catalogues"
+            if parser["kind"] not in {"key", "attribute"}:
+                reason = "grammar_kind_not_assignment"
+            elif not parser_contexts(parser):
+                reason = "reader_context_unmapped"
+            else:
+                reason = "candidate_context_unresolved" if possible else "no_observation_in_input_catalogues"
         name = packed({k: parser[k] for k in ("block", "kind", "key", "source_class", "reader")})
         yield ("script_keys", "java", name, "1", "n/a",
                "1" if matches else "unknown" if possible else "0", classification,
@@ -201,7 +235,15 @@ def script_rows(tables):
         classification = ("matched" if exact else "explained") if matches else "unknown"
         reason = "exact_scoped_assignment_overlap" if exact else "case_insensitive_parser_overlap"
         if not matches:
-            reason = "scope_or_grammar_unresolved" if possible else "no_parser_match_in_input_catalogue"
+            candidate_parsers = [e["row"] for e in java if e["ref"] in possible]
+            if candidate_parsers and all(p["kind"] not in {"key", "attribute"} for p in candidate_parsers):
+                reason = "grammar_candidate_not_assignment"
+            elif any(p["kind"] in {"key", "attribute"} and not parser_contexts(p) for p in candidate_parsers):
+                reason = "reader_context_unmapped"
+            else:
+                reason = "candidate_context_unresolved" if possible else "no_parser_match_in_input_catalogue"
+        if observed["kind"] == "survey-marker" and observed["present"]:
+            classification, reason = "explained", "structural_survey_marker_not_applicable"
         if not observed["present"]:
             classification, reason = "explained", "zero_count_survey_marker_not_an_occurrence"
         name = packed({k: observed[k] for k in ("context", "kind", "key")})
