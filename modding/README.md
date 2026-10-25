@@ -48,13 +48,14 @@ only names, offsets, counts and one-line summaries are recorded here, never bodi
 | [`../notes/bullet-vehicle.md`](../notes/bullet-vehicle.md) | Vehicle-control natives (`controlVehicle`, `setTireInflation`, `applyImpulse`, ...): what each argument changes | [`data/bullet-vehicle-io.csv`](data/bullet-vehicle-io.csv) |
 | [`../notes/bullet-ballistics.md`](../notes/bullet-ballistics.md) | Ballistics and aiming natives (`updateBallistics*`, `setBallistics*`, targets): what each argument changes | [`data/bullet-ballistics-io.csv`](data/bullet-ballistics-io.csv) |
 | [`../notes/lighting-native.md`](../notes/lighting-native.md) | `Lighting64.dll` export inventory: 50 exports, every one resolving to a `LightingJNI` declaration | [`data/lighting-exports.csv`](data/lighting-exports.csv) |
+| [`../notes/lighting.md`](../notes/lighting.md) | Lighting behaviour: light placement, colour/active state and the darkness multipliers — what each argument changes | [`data/lighting-io.csv`](data/lighting-io.csv) |
 
 Earlier engine notes cover the other DLLs: [`../notes/population.md`](../notes/population.md) and
 [`../notes/functions-popman.md`](../notes/functions-popman.md) for `PZPopMan64.dll`,
 [`../notes/pathfinding.md`](../notes/pathfinding.md) and [`../notes/functions-pathfind.md`](../notes/functions-pathfind.md)
 for `PZPathFind64.dll`, plus [`../notes/zombie-ai.md`](../notes/zombie-ai.md) for the Java-side zombie AI.
-`PZClipper64.dll` and the networking DLLs, plus `Lighting64.dll`'s behaviour and `PZBullet64.dll`'s remaining
-natives, are catalogued in the boundary map but not yet described in detail.
+`PZClipper64.dll` and the networking DLLs, plus `Lighting64.dll`'s remaining square/visibility natives and
+`PZBullet64.dll`'s remaining natives, are catalogued in the boundary map but not yet described in detail.
 
 ## Working on this repo (two agents)
 
