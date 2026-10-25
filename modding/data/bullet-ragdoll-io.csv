@@ -1,0 +1,69 @@
+java_native,arg_index,arg_name,jni_type,units,effect,reaches,confidence
+zombie.core.physics.Bullet.addRagdoll,0,var0,I,identifier,Selects the ragdoll instance and registers or reuses its record,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.addRagdoll,1,var1,F,[unknown],Builds a placement component in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.addRagdoll,2,var2,F,[unknown],Builds a placement component in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.addRagdoll,3,var3,F,[unknown],Builds a placement component in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.addRagdoll,4,var4,F,[unknown],Builds rotation in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.addRagdoll,5,var5,F,[unknown],Builds rotation in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.addRagdoll,6,var6,F,[unknown],Builds rotation in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.addRagdoll,7,var7,F,[unknown],Builds rotation in a temporary transform; final use UNVERIFIED,FUN_18002d9f0 -> FUN_18001c530 -> FUN_180017bd0,low
+zombie.core.physics.Bullet.defineRagdollAnchors,0,var0,[F,[unknown],Parses five-float anchor tuples into the shared script template,FUN_18001b630 -> script+0x30,medium
+zombie.core.physics.Bullet.defineRagdollAnchors,1,var1,Z,boolean-like,Gates rebuilding or refreshing existing objects after template upload,FUN_18001e950 -> thunk_FUN_180018560,high
+zombie.core.physics.Bullet.defineRagdollBodyDynamics,0,var0,[F,[unknown],Parses eight-float body dynamics tuples into the shared script template,FUN_18001b7c0 -> script+0x60,medium
+zombie.core.physics.Bullet.defineRagdollBodyDynamics,1,var1,Z,boolean-like,Gates rebuilding or refreshing existing objects after template upload,FUN_180007f50 -> FUN_180038a20; FUN_18001e9a0,high
+zombie.core.physics.Bullet.defineRagdollBodyPartInfo,0,var0,[F,[unknown],Parses ten-float body-part tuples into the shared script template,FUN_18001b970 -> script+0x48,medium
+zombie.core.physics.Bullet.defineRagdollBodyPartInfo,1,var1,Z,boolean-like,Gates rebuilding or refreshing existing objects after template upload,FUN_180007f50 -> FUN_180038a20; FUN_18001e9a0,high
+zombie.core.physics.Bullet.defineRagdollConstraints,0,var0,[F,[unknown],Parses 22-float constraint tuples into the shared script template,FUN_18001bb80 -> script+0x18,medium
+zombie.core.physics.Bullet.defineRagdollConstraints,1,var1,Z,boolean-like,Gates rebuilding or refreshing existing objects after template upload,FUN_18001e9b0 -> FUN_18001a100,high
+zombie.core.physics.Bullet.drawDebugRagdollBodyParts,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.drawDebugRagdollBodyParts,1,var1,Z,boolean-like,Stores the caller debug draw toggle,ragdoll+0x14,high
+zombie.core.physics.Bullet.drawDebugRagdollBodyParts,2,var2,Z,boolean-like,Stores the caller single-part debug toggle,ragdoll+0x11,high
+zombie.core.physics.Bullet.drawDebugRagdollSkeleton,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.drawDebugRagdollSkeleton,1,var1,Z,boolean-like,Stores the caller debug draw toggle,ragdoll+0x12,high
+zombie.core.physics.Bullet.drawDebugRagdollSkeleton,2,var2,Z,boolean-like,Stores the caller single-part debug toggle,ragdoll+0x13,high
+zombie.core.physics.Bullet.getRagdollSimulationState,0,var0,I,identifier,Selects the ragdoll instance for eleven body activation-state reads,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.highlightRagdollBodyPart,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.highlightRagdollBodyPart,1,var1,I,index,Stores the requested body-part highlight selector,ragdoll+0x24,high
+zombie.core.physics.Bullet.initializeRagdollPose,0,var0,I,count,Sets builder bone count and bounds pose construction,FUN_180037c10 -> FUN_1800387d0,high
+zombie.core.physics.Bullet.initializeRagdollPose,1,var1,[F,[unknown],Reads seven floats per bone into builder transforms and composes hierarchy,FUN_180037c10 -> builder+0xc0; bone+0x90/+0xf0,medium
+zombie.core.physics.Bullet.initializeRagdollPose,2,var2,F,[unknown],Supplies rotation component 0 for builder and root basis construction,FUN_180007c40 -> builder+0x10; root+0x10,high
+zombie.core.physics.Bullet.initializeRagdollPose,3,var3,F,[unknown],Supplies rotation component 1 for builder and root basis construction,FUN_180007c40 -> builder+0x10; root+0x10,high
+zombie.core.physics.Bullet.initializeRagdollPose,4,var4,F,[unknown],Supplies rotation component 2 for builder and root basis construction,FUN_180007c40 -> builder+0x10; root+0x10,high
+zombie.core.physics.Bullet.initializeRagdollPose,5,var5,F,[unknown],Supplies rotation component 3 for builder and root basis construction,FUN_180007c40 -> builder+0x10; root+0x10,high
+zombie.core.physics.Bullet.initializeRagdollSkeleton,0,var0,I,count,Sets hierarchy length and copy count,FUN_1800383a0 -> builder+0x90,high
+zombie.core.physics.Bullet.initializeRagdollSkeleton,1,var1,[I,index,Copies parent indices into the builder hierarchy vector,FUN_1800383a0 -> builder+0x90,high
+zombie.core.physics.Bullet.removeRagdoll,0,var0,I,identifier,Selects the ragdoll instance for removal and transfer into the reuse pool,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.resetRagdollBodyDynamics,0,var0,I,identifier,Finds matching record ID and calls the shared-table dynamics helper on eleven bodies,ragdoll+0xc0 -> FUN_18001dcc0 -> FUN_180018df0,high
+zombie.core.physics.Bullet.setRagdollActive,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.setRagdollActive,1,var1,Z,boolean-like,Changes membership flag and gates body/constraint world add or remove,FUN_18001dd70 -> ragdoll+0xd0; FUN_180015d50/FUN_180018cf0,high
+zombie.core.physics.Bullet.setRagdollBodyDynamics,0,var0,I,identifier,Finds matching instance ID for dynamics override,ragdoll+0xc0 -> FUN_180007de0,high
+zombie.core.physics.Bullet.setRagdollBodyDynamics,1,var1,[F,[unknown],Parses repeated tuples into one retained record then applies it to eleven bodies,FUN_18001c170 -> FUN_1800197d0; body+0x1b0/+0x3a8/+0x1b8/+0x1c8,medium
+zombie.core.physics.Bullet.setRagdollLocalTransformRotation,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.setRagdollLocalTransformRotation,1,var1,F,[unknown],Contributes component 0 to the stored local rotation basis,FUN_18001ddd0 -> FUN_180007c40 -> ragdoll+0x40,high
+zombie.core.physics.Bullet.setRagdollLocalTransformRotation,2,var2,F,[unknown],Contributes component 1 to the stored local rotation basis,FUN_18001ddd0 -> FUN_180007c40 -> ragdoll+0x40,high
+zombie.core.physics.Bullet.setRagdollLocalTransformRotation,3,var3,F,[unknown],Contributes component 2 to the stored local rotation basis,FUN_18001ddd0 -> FUN_180007c40 -> ragdoll+0x40,high
+zombie.core.physics.Bullet.setRagdollLocalTransformRotation,4,var4,F,[unknown],Contributes component 3 to the stored local rotation basis,FUN_18001ddd0 -> FUN_180007c40 -> ragdoll+0x40,high
+zombie.core.physics.Bullet.setRagdollMass,0,var0,F,[unknown],Stores builder mass and updates each existing ragdoll and its eleven bodies,builder+0xf8; ragdoll+0xc8; FUN_180042810,high
+zombie.core.physics.Bullet.simulateRagdoll,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.simulateRagdoll,1,var1,[F,[unknown],Receives seven-float position and rotation records per output bone,FUN_18001dff0 -> FUN_18001c760,medium
+zombie.core.physics.Bullet.simulateRagdollWithRigidBodyOutput,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.simulateRagdollWithRigidBodyOutput,1,var1,[F,[unknown],Receives seven-float position and rotation records per output bone,FUN_18001dff0 -> FUN_18001c760,medium
+zombie.core.physics.Bullet.simulateRagdollWithRigidBodyOutput,2,var2,[F,[unknown],Receives eleven seven-float rigid-body transform records,FUN_180018280,medium
+zombie.core.physics.Bullet.updateRagdoll,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.updateRagdoll,1,var1,F,[unknown],Replaces placement component after subtracting world+0x40,FUN_18001e890 -> ragdoll+0xe0; dynamics+0x70,high
+zombie.core.physics.Bullet.updateRagdoll,2,var2,F,[unknown],Replaces placement component,FUN_18001e890 -> ragdoll+0xe8; dynamics+0x78,high
+zombie.core.physics.Bullet.updateRagdoll,3,var3,F,[unknown],Replaces placement component after subtracting world+0x44,FUN_18001e890 -> ragdoll+0xf0; dynamics+0x80,high
+zombie.core.physics.Bullet.updateRagdoll,4,var4,F,[unknown],Supplies rotation component 0 for the dynamics basis,FUN_180007c40 -> dynamics+0x10,high
+zombie.core.physics.Bullet.updateRagdoll,5,var5,F,[unknown],Supplies rotation component 1 for the dynamics basis,FUN_180007c40 -> dynamics+0x10,high
+zombie.core.physics.Bullet.updateRagdoll,6,var6,F,[unknown],Supplies rotation component 2 for the dynamics basis,FUN_180007c40 -> dynamics+0x10,high
+zombie.core.physics.Bullet.updateRagdoll,7,var7,F,[unknown],Supplies rotation component 3 for the dynamics basis,FUN_180007c40 -> dynamics+0x10,high
+zombie.core.physics.Bullet.updateRagdollSkeletonPreviousTransforms,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.updateRagdollSkeletonPreviousTransforms,1,var1,I,count,Bounds packed transform decoding and sizes intermediate vectors,FUN_18001d2b0,high
+zombie.core.physics.Bullet.updateRagdollSkeletonPreviousTransforms,2,var2,F,[unknown],Supplies the reciprocal interval scale used in body-motion calculations,FUN_18001e9c0 -> FUN_180016a70,medium
+zombie.core.physics.Bullet.updateRagdollSkeletonPreviousTransforms,3,var3,[F,[unknown],Provides seven-float bone records for previous-transform motion calculations,FUN_18001d2b0 -> FUN_180016a70,medium
+zombie.core.physics.Bullet.updateRagdollSkeletonTransforms,0,var0,I,identifier,Selects the ragdoll instance,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.updateRagdollSkeletonTransforms,1,var1,I,count,Bounds packed transform decoding and sizes intermediate vectors,FUN_18001d2b0,high
+zombie.core.physics.Bullet.updateRagdollSkeletonTransforms,2,var2,[F,[unknown],Provides seven-float bone records for skeleton and body transform updates,FUN_18001d2b0 -> FUN_1800354a0 -> FUN_180019180,medium
+zombie.core.physics.PhysicsDebugRenderer.renderRagdoll,0,var1,I,identifier,Selects the ragdoll instance for the debug renderer,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.PhysicsDebugRenderer.renderRagdoll,1,var2,I,[unknown],Stores the first debug drawing offset as a double,world+0x80,high
+zombie.core.physics.PhysicsDebugRenderer.renderRagdoll,2,var3,I,[unknown],Stores the second debug drawing offset as a double,world+0x90,high
