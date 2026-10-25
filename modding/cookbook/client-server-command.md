@@ -66,7 +66,9 @@ What each piece is:
 - Validate on the server: the player is the connection's own character but all content is client supplied. [observed]
 - **Side checks.** `sendServerCommand` is a no-op on clients and in single player; `sendClientCommand` has two forms
   ([multiplayer.md](../lua-api/multiplayer.md) §2.2): the three-argument `(module, command, args)` form throws on a
-  server, while the four-argument `(player, module, command, args)` form, used in the snippet above, sends. Code in the server Lua folder also runs on multiplayer clients, so guard with `isServer()` / `isClient()`
+  server, while the four-argument `(player, module, command, args)` form, used in the snippet above, sends from an
+  in-game multiplayer client when the player is local; on a server it fires `OnClientCommand` locally without sending a
+  packet. Code in the server Lua folder also runs on multiplayer clients, so guard with `isServer()` / `isClient()`
   ([lifecycle.md](../lua-api/lifecycle.md), [multiplayer.md](../lua-api/multiplayer.md)). [observed] The snippets above
   do not add guards; add them before shipping. [inferred]
 - **Single player.** The client call loops back and `OnClientCommand` fires, but `sendServerCommand` does nothing, so
