@@ -1,23 +1,23 @@
 # Bullet ballistics and aiming: native inputs and destinations
 
-Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `76141df9` [observed, R0/R1].
-Target: `F:\SteamLibrary\steamapps\common\ProjectZomboid\PZBullet64.dll` [observed].
+Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `76141df9` [observed].
+Target: `<game install>\PZBullet64.dll` [observed].
 
-**[observed]** This static pass covers the 20 requested JNI entries and supporting callees, producing 76 parameter rows
+**[observed]** This inventory covers the 20 JNI entries and supporting callees, with 76 parameter rows
 in [bullet-ballistics-io.csv](../modding/data/bullet-ballistics-io.csv). Argument indices exclude JNIEnv/jclass.
-Names `var0` through `var8` are the available decompiled Java declaration names, not recovered original source names.
-**[observed]** Types come from R0's descriptors; entry identities agree with the [R1 inventory](bullet-native.md).
+Names `var0` through `var8` are the available Java declaration names, not recovered original source names.
+**[observed]** Types match the native boundary survey's descriptors; entry identities agree with the [export inventory](bullet-native.md).
 
 ## Scope reconciliation
 
-**[observed]** Both counts in the brief describe different scopes: the R1 feature group contains **21** methods,
-whereas this requested slice contains **20**. The additional R0/R1 row is `zombie.core.physics.Bullet.getTargetedBodyPart`,
-resolved by `Java_zombie_core_physics_Bullet_getTargetedBodyPart`; it is deliberately not traced or included in this CSV.
-**[inferred]** R1's feature grouping is a name-based classification, not a declaration of this pass's scope.
+**[observed]** The Bullet export inventory feature group contains **21** methods,
+whereas this slice contains **20**. The additional row in the native boundary and export inventories is `zombie.core.physics.Bullet.getTargetedBodyPart`,
+resolved by `Java_zombie_core_physics_Bullet_getTargetedBodyPart`; its behaviour is outside this inventory and it is excluded from this CSV.
+**[inferred]** The Bullet export inventory's feature grouping is a name-based classification, not a declaration of this inventory's scope.
 
 ## Confidence rubric and field notation
 
-- **[observed]** `high` records a traced argument reaching a concrete field/call with the stated conversion or arithmetic.
+- **[observed]** `high` records an argument reaching a concrete field/call with the stated conversion or arithmetic.
   It does not certify a physical unit or prove later simulation outcomes.
 - **[inferred]** `medium` records concrete data flow whose higher-level meaning depends on arithmetic interpretation,
   partially understood consumers, or a mixed-purpose array layout; it is not assigned from name similarity alone.
@@ -38,7 +38,7 @@ resolved by `Java_zombie_core_physics_Bullet_getTargetedBodyPart`; it is deliber
 ## removeBallistics
 
 **[observed]** Entry `0x18000c330` passes arg0 to `FUN_180030c10`, which selects the controller, enqueues it in the reuse structure at world `+0x100`, and erases its map entry at world `+0xf0`.
-**[unknown]** This pass does not establish when pooled storage is reused or all later effects of removal.
+**[unknown]** These findings do not establish when pooled storage is reused or all later effects of removal.
 
 ## removeBallisticsTarget
 
@@ -98,7 +98,7 @@ resolved by `Java_zombie_core_physics_Bullet_getTargetedBodyPart`; it is deliber
 ## updateBallisticsAimReticlePosition
 
 **[observed]** Entry `0x18000f490` selects controller arg0, subtracts world `+0x40` from arg1 and world `+0x44` from arg3, leaves arg2 unshifted, and reaches `FUN_180022be0`, storing reticle position at controller `+0x180/+0x188/+0x190`.
-**[unknown]** The physical distance scale is unproven; these components are not reordered like R2a's Java vehicle-teleport position inputs.
+**[unknown]** The physical distance scale is unproven; these components are not reordered like the Java vehicle-teleport position inputs.
 
 ## updateBallisticsAimReticleQuaternion
 
@@ -123,7 +123,7 @@ resolved by `Java_zombie_core_physics_Bullet_getTargetedBodyPart`; it is deliber
 ## updateBallisticsTarget
 
 **[observed]** Entry `0x18000f850` finds/creates target arg0, subtracts world offsets from args1/3, and reaches `FUN_1800264f0`, which writes args1/2/3 to target `+0x70/+0x78/+0x80`, copies position into an associated record, and requests collision-representation refresh.
-**[observed]** Instruction listings show args4..8 forwarded on the outgoing stack, but no reads of those incoming slots in `FUN_1800264f0`; **[unknown]** their effective meaning remains UNVERIFIED. All five are retained as low-confidence rows, rather than inventing orientation or flag effects from the Java declaration.
+**[observed]** Args4..8 are forwarded on the outgoing stack, but no reads of those incoming slots are established in `FUN_1800264f0`; **[unknown]** their effective meaning remains UNVERIFIED. All five are retained as low-confidence rows, rather than inventing orientation or flag effects from the Java declaration.
 
 ## updateBallisticsTargetSkeleton
 
@@ -141,40 +141,23 @@ resolved by `Java_zombie_core_physics_Bullet_getTargetedBodyPart`; it is deliber
 - **[unknown]** No weapon damage effect, safe tuning range, Lua-callable route or complete script-to-native path is
   established. The scale globals, unused helper option and trailing target-update arguments need further evidence.
 
-## Verification and reproducibility
+## Confidence and limits
 
-- **[observed]** REA/Ghidra 12.1.4 returned all 20 requested entries successfully. Entry batch Evidence:
-  `ev_eff22520926ef8ca3d8ce1760ecd3a660e2ce8854bc6ad3810c25c24a4a1e810`.
-  Setter/helper batch: `ev_f813dc8f81006c9c4ceb0908043824e09f5296ac0ddc9ec09d49957f5318d24d`;
-  getter batch: `ev_7481a3c442aeb8f04a36d764b6a492cd922ebb57db8395d436552f1d7bdfa5aa`.
-- **[observed]** Three parameter rows were independently re-derived from instruction listings after decompilation:
-  `setBallisticsRange` arg1's widening/store at `0x1800227b3/0x1800227b7`;
-  `setBallisticsTargetAdjustingShapeScale` arg0's widening/global store at `0x18000ca86/0x18000ca8e`;
-  and `updateBallisticsAimReticlePosition` arg2's widened input at `0x18000f4ea/0x18000f501`, followed by
+- **[observed]** The parameter inventory covers 20 JNI entries.
+- **[observed]** `setBallisticsRange` arg1 widens and stores at `0x1800227b3/0x1800227b7`.
+- **[observed]** `setBallisticsTargetAdjustingShapeScale` arg0 widens and stores globally at `0x18000ca86/0x18000ca8e`.
+- **[observed]** `updateBallisticsAimReticlePosition` arg2 widens at `0x18000f4ea/0x18000f501`, then reaches
   its packed-vector destination at `0x180022be7` (controller `+0x188`).
-  All three routes agreed. No listings were copied into this repository.
-- **[observed]** Instruction-level argument tracing also corrected Ghidra's incomplete recovered signatures:
-  target-update forwarding appears at `0x18000f967..0x18000f9c5`, while spread arg3 enters floating register XMM1
-  at `0x18002068a` before the random-radius transform call at `0x18002068e`.
-- **[observed]** CSV generation iteration count: **2**, including deletion and regeneration before the second output.
-  Both files were byte-identical; rows are sorted by native and numeric argument index, with types checked against
-  R0 and names taken from the available Java declarations. CSV SHA256:
-  `4eb72542f59a81e674ffb8fb04828d490a78b112a66f498f8b8828bd2c563cee`.
-  No generator file was added outside the two owned repository paths.
-- **[observed]** Retained Evidence and snapshot use the requested scratch directory under
-  `C:\Users\zackp\Documents\Code stuff\tools\pz-work\codex-scratch\`, as `r2b-ballistics-evidence.json` and
-  `r2b-ballistics-snapshot.json`; `close_binary` completed.
-
-## Limits
-
-- **[unknown]** No runtime execution, Java caller-stack trace, weapon/script integration, calibrated physical units,
-  network authority or safe gameplay value range was established.
-- **[unknown]** Collision-world, shape and renderer virtual dispatch targets remain unresolved. Ghidra reports some
-  exception-tail jumps and terminal-call boundaries; recovered pseudocode signatures are not authoritative JNI types.
+- **[observed]** Target-update forwarding appears at `0x18000f967..0x18000f9c5`, while spread arg3 enters
+  floating register XMM1 at `0x18002068a` before the random-radius transform call at `0x18002068e`.
+- **[observed]** Rows are sorted by native and numeric argument index; types match the native boundary survey's
+  descriptors, and names match the available Java declarations.
+- **[unknown]** Runtime execution, Java caller-stack behaviour and weapon/script integration remain unproven.
+  **[unknown]** Calibrated physical units, network authority and safe gameplay value ranges are unestablished.
+- **[unknown]** Collision-world, shape and renderer virtual dispatch targets remain unresolved. Exception-tail jumps
+  and terminal-call boundaries remain ambiguous; recovered signatures are not authoritative JNI types.
 - **[observed]** The three query JNI wrappers check only that output-array length is at least one. Helpers write
-  four floats per ordinary hit/spread sample or five per camera result; this pass does not establish caller buffer capacity.
-  **[unknown]** Full bounds safety and all special/degenerate-input behaviour remain unproven.
+  four floats per ordinary hit/spread sample or five per camera result.
+  **[unknown]** Caller buffer capacity, full bounds safety and all special/degenerate-input behaviour remain unproven.
 - **[unknown]** No recovered consumer establishes the final shape-scale effect, spread arg5's effect, or effects of
   target-update args4..8. Bounded cross-reference results are not proof that a value is unused everywhere.
-- **[unknown]** REA exposes no caller-selected internal Ghidra project/log directory through these tools; placement of
-  ephemeral internal intermediates under the scratch root remains UNVERIFIED. Explicit retained artifacts use scratch.

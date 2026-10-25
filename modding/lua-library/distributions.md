@@ -1,23 +1,20 @@
 # Distributions and vanilla event usage (Project Zomboid, Build 42)
 
 Survey date: 2026-10-24. Build identifier: jar sha256 prefix `e1a69eb7`.
-Sources: installed Lua files; event comparison uses Claude's `data/events.csv`.
+Sources: installed Lua files; event comparison uses `data/events.csv`.
 Claims are **[observed]** unless tagged **[inferred]** or **[unknown]**. No loot
 contents, clothing lists, per-room values or copied game tables are included.
 
-## Generated tables [observed]
-
-Run `python -I modding/tools/survey_lua.py events` to regenerate:
+## Reference tables [observed]
 
 - [vanilla-event-subscriptions.csv](../data/vanilla-event-subscriptions.csv): `event, file, side`, one row per literal `Events.<Name>.Add(` occurrence, including repeated subscriptions in one file.
 - [vanilla-lua-event-triggers.csv](../data/vanilla-lua-event-triggers.csv): literal `triggerEvent` calls, with event name, file and side.
 - [vanilla-event-comparison.csv](../data/vanilla-event-comparison.csv): subscription totals, Java catalogue registration/static-trigger evidence and Lua literal-trigger counts.
 - [distribution-fields.csv](../data/distribution-fields.csv): assignment counts for selected schema-field names in seven distribution/clothing files.
 
-The event scan covers all 1,395 vanilla Lua files in client/server/shared.
-It masks comments and strings when finding subscriptions and checks literal
-trigger-call locations against masked code. Whitespace between call tokens is
-accepted. **[unknown]** Dynamic event indexing, aliases and computed event names
+The event inventory covers all 1,395 vanilla Lua files in client/server/shared.
+Subscriptions and literal trigger calls exclude comments and strings; whitespace between call tokens
+does not change their inclusion. **[unknown]** Dynamic event indexing, aliases and computed event names
 are outside this literal-pattern survey. The field table counts assignments
 textually, not resolved or merged records; it is not a loot-probability calculator.
 
@@ -26,7 +23,7 @@ textually, not resolved or merged records; it is not a loot-probability calculat
 `server/Items/Distributions.lua` initializes `Distributions`, creates a local
 room/container table, inserts it at the front of that list and assigns the
 compatibility alias `SuburbsDistributions` to that room table. A leading space
-on its root declaration means the X6 column-zero candidate heuristic misses
+on its root declaration means the library index's column-zero candidate coverage misses
 `Distributions`; the root and the compatibility alias both exist in this file.
 
 The shape is a room key mapping to container keys. A container can hold
@@ -98,18 +95,16 @@ Eight subscribed names have no static Java trigger site in the catalogue:
 `OnChallengeQuery`, `OnFillInventoryObjectContextMenu`, `OnFillWorldObjectContextMenu`, `OnOverrideSearchManager`, `OnSwitchVehicleSeat`, `OnVehicleHorn`, `onEnableSearchMode`, `onUpdateIcon`.
 
 Of these, `OnSwitchVehicleSeat`, `OnVehicleHorn` and `onEnableSearchMode` are not
-rows in Claude's Java event catalogue. This Lua scan finds literal triggers for
-`OnSwitchVehicleSeat` and `onEnableSearchMode`; it finds none for `OnVehicleHorn`.
+rows in the Java event catalogue. The Lua catalogue contains literal triggers for
+`OnSwitchVehicleSeat` and `onEnableSearchMode`; it contains none for `OnVehicleHorn`.
 The world/inventory context-menu events are also fired from Lua, as described in
 [events.md](../lua-api/events.md). **[unknown]** Missing static trigger evidence
 does not exclude dynamic dispatch, another subsystem or a mod firing the name.
 Registration, a subscription and a trigger are three separate facts.
 
-## Validation
+## Confidence and limits
 
-**[observed]** Three seeded source checks: the three distribution-merge
-subscriptions, clothing selection's `chance`/`items` shape and insertion of the
-base room table at the front of `Distributions`. A raw subscription scan finds
-432 occurrences; all 20 excluded matches were inspected and are line comments.
-All four CSVs regenerate byte-for-byte. Checks are recorded in `HANDOFF.md`.
-**[unknown]** No loot generation or event callbacks were executed in-game.
+**[observed]** The distribution findings include the three distribution-merge subscriptions,
+clothing selection's `chance`/`items` shape and insertion of the base room table at the front of `Distributions`.
+There are 432 textual subscription occurrences, of which 20 are line comments and are excluded.
+**[unknown]** In-game loot generation and event callback behaviour remain unverified.

@@ -1,51 +1,51 @@
 export_name,kind,is_jni,java_native,dll_confidence,notes
-Java_zombie_iso_LightingJNI_DoLightingUpdateNew,function,yes,zombie.iso.LightingJNI.DoLightingUpdateNew,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_WaitingForMain,function,yes,zombie.iso.LightingJNI.WaitingForMain,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_addLight,function,yes,zombie.iso.LightingJNI.addLight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_addRoomLight,function,yes,zombie.iso.LightingJNI.addRoomLight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_addTempLight,function,yes,zombie.iso.LightingJNI.addTempLight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_chunkBeginUpdate,function,yes,zombie.iso.LightingJNI.chunkBeginUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_chunkEndUpdate,function,yes,zombie.iso.LightingJNI.chunkEndUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_chunkLevelBeginUpdate,function,yes,zombie.iso.LightingJNI.chunkLevelBeginUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_chunkLevelEndUpdate,function,yes,zombie.iso.LightingJNI.chunkLevelEndUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_chunkLightingDone,function,yes,zombie.iso.LightingJNI.chunkLightingDone,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_configure,function,yes,zombie.iso.LightingJNI.configure,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_destroy,function,yes,zombie.iso.LightingJNI.destroy,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getCanSee,function,yes,zombie.iso.LightingJNI.getCanSee,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getChunkDirty,function,yes,zombie.iso.LightingJNI.getChunkDirty,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getCouldSee,function,yes,zombie.iso.LightingJNI.getCouldSee,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getDarkMulti,function,yes,zombie.iso.LightingJNI.getDarkMulti,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getLightInfo,function,yes,zombie.iso.LightingJNI.getLightInfo,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getSeen,function,yes,zombie.iso.LightingJNI.getSeen,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getSquareDirty,function,yes,zombie.iso.LightingJNI.getSquareDirty,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getSquareLighting,function,yes,zombie.iso.LightingJNI.getSquareLighting,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getTargetDarkMulti,function,yes,zombie.iso.LightingJNI.getTargetDarkMulti,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getVertLight,function,yes,zombie.iso.LightingJNI.getVertLight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getVisibleRoomCount,function,yes,zombie.iso.LightingJNI.getVisibleRoomCount,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_getVisibleRooms,function,yes,zombie.iso.LightingJNI.getVisibleRooms,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_playerSet,function,yes,zombie.iso.LightingJNI.playerSet,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_removeLight,function,yes,zombie.iso.LightingJNI.removeLight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_removeRoomLight,function,yes,zombie.iso.LightingJNI.removeRoomLight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_removeTorch,function,yes,zombie.iso.LightingJNI.removeTorch,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_scrollDown,function,yes,zombie.iso.LightingJNI.scrollDown,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_scrollLeft,function,yes,zombie.iso.LightingJNI.scrollLeft,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_scrollRight,function,yes,zombie.iso.LightingJNI.scrollRight,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_scrollUp,function,yes,zombie.iso.LightingJNI.scrollUp,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_setLightActive,function,yes,zombie.iso.LightingJNI.setLightActive,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_setLightColor,function,yes,zombie.iso.LightingJNI.setLightColor,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_setRoomLightActive,function,yes,zombie.iso.LightingJNI.setRoomLightActive,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareAddCurtain,function,yes,zombie.iso.LightingJNI.squareAddCurtain,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareAddDoor,function,yes,zombie.iso.LightingJNI.squareAddDoor,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareAddThumpable,function,yes,zombie.iso.LightingJNI.squareAddThumpable,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareAddWindow,function,yes,zombie.iso.LightingJNI.squareAddWindow,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareBeginUpdate,function,yes,zombie.iso.LightingJNI.squareBeginUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareEndUpdate,function,yes,zombie.iso.LightingJNI.squareEndUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareSet,function,yes,zombie.iso.LightingJNI.squareSet,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareSetLightTransmission,function,yes,zombie.iso.LightingJNI.squareSetLightTransmission,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_squareSetNull,function,yes,zombie.iso.LightingJNI.squareSetNull,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_stateBeginUpdate,function,yes,zombie.iso.LightingJNI.stateBeginUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_stateEndFrame,function,yes,zombie.iso.LightingJNI.stateEndFrame,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_stateEndUpdate,function,yes,zombie.iso.LightingJNI.stateEndUpdate,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_stateUpdateCounter,function,yes,zombie.iso.LightingJNI.stateUpdateCounter,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_teleport,function,yes,zombie.iso.LightingJNI.teleport,direct,Observed JNI export; matches R0 declaration
-Java_zombie_iso_LightingJNI_updateTorch,function,yes,zombie.iso.LightingJNI.updateTorch,direct,Observed JNI export; matches R0 declaration
+Java_zombie_iso_LightingJNI_DoLightingUpdateNew,function,yes,zombie.iso.LightingJNI.DoLightingUpdateNew,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_WaitingForMain,function,yes,zombie.iso.LightingJNI.WaitingForMain,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_addLight,function,yes,zombie.iso.LightingJNI.addLight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_addRoomLight,function,yes,zombie.iso.LightingJNI.addRoomLight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_addTempLight,function,yes,zombie.iso.LightingJNI.addTempLight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_chunkBeginUpdate,function,yes,zombie.iso.LightingJNI.chunkBeginUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_chunkEndUpdate,function,yes,zombie.iso.LightingJNI.chunkEndUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_chunkLevelBeginUpdate,function,yes,zombie.iso.LightingJNI.chunkLevelBeginUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_chunkLevelEndUpdate,function,yes,zombie.iso.LightingJNI.chunkLevelEndUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_chunkLightingDone,function,yes,zombie.iso.LightingJNI.chunkLightingDone,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_configure,function,yes,zombie.iso.LightingJNI.configure,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_destroy,function,yes,zombie.iso.LightingJNI.destroy,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getCanSee,function,yes,zombie.iso.LightingJNI.getCanSee,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getChunkDirty,function,yes,zombie.iso.LightingJNI.getChunkDirty,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getCouldSee,function,yes,zombie.iso.LightingJNI.getCouldSee,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getDarkMulti,function,yes,zombie.iso.LightingJNI.getDarkMulti,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getLightInfo,function,yes,zombie.iso.LightingJNI.getLightInfo,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getSeen,function,yes,zombie.iso.LightingJNI.getSeen,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getSquareDirty,function,yes,zombie.iso.LightingJNI.getSquareDirty,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getSquareLighting,function,yes,zombie.iso.LightingJNI.getSquareLighting,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getTargetDarkMulti,function,yes,zombie.iso.LightingJNI.getTargetDarkMulti,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getVertLight,function,yes,zombie.iso.LightingJNI.getVertLight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getVisibleRoomCount,function,yes,zombie.iso.LightingJNI.getVisibleRoomCount,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_getVisibleRooms,function,yes,zombie.iso.LightingJNI.getVisibleRooms,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_playerSet,function,yes,zombie.iso.LightingJNI.playerSet,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_removeLight,function,yes,zombie.iso.LightingJNI.removeLight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_removeRoomLight,function,yes,zombie.iso.LightingJNI.removeRoomLight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_removeTorch,function,yes,zombie.iso.LightingJNI.removeTorch,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_scrollDown,function,yes,zombie.iso.LightingJNI.scrollDown,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_scrollLeft,function,yes,zombie.iso.LightingJNI.scrollLeft,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_scrollRight,function,yes,zombie.iso.LightingJNI.scrollRight,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_scrollUp,function,yes,zombie.iso.LightingJNI.scrollUp,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_setLightActive,function,yes,zombie.iso.LightingJNI.setLightActive,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_setLightColor,function,yes,zombie.iso.LightingJNI.setLightColor,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_setRoomLightActive,function,yes,zombie.iso.LightingJNI.setRoomLightActive,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareAddCurtain,function,yes,zombie.iso.LightingJNI.squareAddCurtain,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareAddDoor,function,yes,zombie.iso.LightingJNI.squareAddDoor,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareAddThumpable,function,yes,zombie.iso.LightingJNI.squareAddThumpable,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareAddWindow,function,yes,zombie.iso.LightingJNI.squareAddWindow,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareBeginUpdate,function,yes,zombie.iso.LightingJNI.squareBeginUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareEndUpdate,function,yes,zombie.iso.LightingJNI.squareEndUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareSet,function,yes,zombie.iso.LightingJNI.squareSet,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareSetLightTransmission,function,yes,zombie.iso.LightingJNI.squareSetLightTransmission,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_squareSetNull,function,yes,zombie.iso.LightingJNI.squareSetNull,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_stateBeginUpdate,function,yes,zombie.iso.LightingJNI.stateBeginUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_stateEndFrame,function,yes,zombie.iso.LightingJNI.stateEndFrame,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_stateEndUpdate,function,yes,zombie.iso.LightingJNI.stateEndUpdate,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_stateUpdateCounter,function,yes,zombie.iso.LightingJNI.stateUpdateCounter,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_teleport,function,yes,zombie.iso.LightingJNI.teleport,direct,Observed JNI export; matches the declared native signature
+Java_zombie_iso_LightingJNI_updateTorch,function,yes,zombie.iso.LightingJNI.updateTorch,direct,Observed JNI export; matches the declared native signature

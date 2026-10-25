@@ -1,15 +1,13 @@
 # PZPopMan64.dll function map
 
 Companion to [population.md](population.md). Names below are **proposed** (the DLL ships without a loaded PDB, so
-only JNI exports and CRT symbols carry real names). Tags: **[observed]** read in decompiled output, **[inferred]**
-deduced from structure, strings or callers, **[unknown]** not read. No game code is reproduced here.
+only JNI exports and CRT symbols carry real names). Tags: **[observed]** directly supported by native structure or data flow, **[inferred]**
+deduced from structure, strings or callers, **[unknown]** unresolved. No game code is reproduced here.
 
 - Binary: `PZPopMan64.dll`, sha256 `5b2e3ef5d383c5e5e6fecf49afd514b196617925c1a0e3623bf0e7917a010ec6`, x86-64, MSVC (VS2019 STL).
-- 4286 internal procedures. **790** sit in the game-code range `0x180001000`-`0x18002b030`; all 790 were decompiled and
-  triaged. Everything from `0x18002b080` up is CRT / STL / regex / locale and is only grouped (last section).
-- Ghidra renames made through REA are ephemeral, so this file is the durable record. Re-apply with
-  `set_addresses_names` if a fresh session is opened.
-- Coverage: the entries below are the functions whose role I could establish. The remaining game-range functions are
+- 4286 internal procedures. **790** sit in the game-code range `0x180001000`-`0x18002b030`; all 790 are within
+  the function-map coverage. Everything from `0x18002b080` up is CRT / STL / regex / locale and is only grouped (last section).
+- Coverage: the entries below are the functions with established roles. The remaining game-range functions are
   STL template instantiations (vector / deque / hash map / pool helpers) and small accessors; they are grouped by
   range in "Address-range map".
 

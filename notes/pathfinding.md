@@ -1,7 +1,7 @@
 # Pathfinding (zombie.pathfind + PZPathFind64.dll)
 
-Confidence tags: **[observed]**, **[inferred]**, **[unknown]**. Sources: Vineflower output of `zombie.pathfind`
-(90 classes) and Ghidra pseudocode of `PZPathFind64.dll` (x86-64). No game code is copied here.
+Confidence tags: **[observed]**, **[inferred]**, **[unknown]**. Scope: `zombie.pathfind`
+(90 classes) and `PZPathFind64.dll` (x86-64). No game code is copied here.
 
 Function-level names and address ranges: [functions-pathfind.md](functions-pathfind.md).
 

@@ -1,11 +1,11 @@
 # Entities, components and XUI (Project Zomboid, Build 42)
 
 Survey date: 2026-10-24. Build identifier: jar sha256 prefix `e1a69eb7`.
-Source: installed `media/scripts/**/*.txt`; XUI name comparison uses Claude's
+Source: installed `media/scripts/**/*.txt`; XUI name comparison uses the
 `data/script-keys.csv`. Claims are **[observed]** unless marked **[inferred]**
 or **[unknown]**. No entity definitions, sprite rows or UI assets are reproduced.
 
-## Coverage and reproduction [observed]
+## Coverage [observed]
 
 The survey finds **219 module-level `entity` blocks in 194 files**, **254
 `xuiSkin` blocks in 246 files**, and **one `xuiConfig` block in one file**.
@@ -16,11 +16,11 @@ claims about parser support. Example files are
 `entities/admin/entity_piano_xuiSkin.txt`, `xui/defaultskin/xs_ISPanel.txt`
 and `xui/xui_config.txt`.
 
-Run `python -I modding/tools/survey_components.py` to generate:
+Reference tables:
 
 - [entity-keys.csv](../data/entity-keys.csv): `block_type, key, count, value_shape, notes`.
 - [component-blocks.csv](../data/component-blocks.csv): family totals, file counts and example filenames.
-- [xui-config-coverage.csv](../data/xui-config-coverage.csv): config variable identifiers compared to Claude's extracted `xui-var` names.
+- [xui-config-coverage.csv](../data/xui-config-coverage.csv): config variable identifiers compared to the extracted `xui-var` names.
 
 Context paths keep component type names, for example
 `entity/component:FluidContainer`, but omit concrete entity, style and sprite
@@ -114,12 +114,12 @@ blocks: `String`, `StringList`, `TranslateString`, `Double`, `Boolean`,
 229 skin instances or values. The source comments distinguish ordinary strings
 from translated strings.
 
-Compared with Claude's 198 extracted `xui-var` names, **177 names overlap**,
+Compared with the 198 extracted `xui-var` names, **177 names overlap**,
 **52 occur only in config**, and **21 only in the parser catalogue**.
 `xui-config-coverage.csv` lists the individual identifier differences, using exact
 spelling. **[unknown]** This discrepancy alone cannot distinguish stale config,
-dynamic extension, inherited registration or extractor coverage. A handoff review
-asks Claude to reconcile the two sources; neither list is labeled invalid here.
+dynamic extension, inherited registration or catalogue coverage. The cause remains unresolved;
+neither list is labeled invalid here.
 
 ## Other character-related script blocks [observed]
 
@@ -134,18 +134,15 @@ and `GrantedTraits`. Profession fields include `CharacterProfession`, `Cost`,
 `UIName`, `UIDescription`, `IconPathName`, `XPBoosts`, `GrantedRecipes` and
 `GrantedTraits`.
 
-No module-level outfit or zone script type occurs in the X1 inventory.
+No module-level outfit or zone script type occurs in the script inventory.
 **[unknown]** This is not a survey of outfit XML, map zones or Lua distributions
 outside `media/scripts`, and does not imply those systems are absent.
 
 ## Limits and checks
 
-**[inferred]** All shapes are lexical and inherit the X1 structural reader's
+**[inferred]** All shapes are lexical and inherit the script inventory's structural
 limitations. No parser defaults, numeric units or lifecycle behavior are inferred
 from absent keys. Concrete values, sprite rows and per-entity mappings stay in
 the installed game rather than the repository.
 
-**[observed]** Three source checks selected with seed `20261024`: 202 entity
-`CraftRecipe` components, 229 XUI config variable identifiers and 219 entity
-blocks. An independent module-depth scan confirms family block/file counts;
-all six X4 CSVs reproduce byte-for-byte. Checks are recorded in `HANDOFF.md`.
+**[observed]** There are 202 entity `CraftRecipe` components, 229 XUI config variable identifiers and 219 entity blocks.

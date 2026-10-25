@@ -4,7 +4,7 @@ Survey date: 2026-10-24. Build identifier: jar sha256 prefix `e1a69eb7`.
 Source: installed `media/scripts/**/*.txt`. Claims are **[observed]** unless
 marked **[inferred]** or **[unknown]**. No audio or source definitions are copied.
 
-## Coverage and reproduction [observed]
+## Coverage [observed]
 
 There are **3,038 module-level `sound` definitions in 147 files** and **five
 `soundTimeline` definitions in two files**. Every sound definition has a
@@ -13,9 +13,8 @@ are before runtime merging, not counts of unique playable audio resources.
 Example files are `generated/sounds/animals/sounds_animal_babyrabbit.txt` and
 `generated/sounds/objects/sounds_object_fridge_soundTimeline.txt`.
 
-Run `python -I modding/tools/survey_components.py` to regenerate
 [sound-keys.csv](../data/sound-keys.csv) and the shared
-[component-blocks.csv](../data/component-blocks.csv). The key table has
+[component-blocks.csv](../data/component-blocks.csv) describe sound definitions. The key table has
 `block_type, key, count, value_shape, notes`; paths distinguish `sound/clip`
 from the definition's own keys. `<block>` is a count row, not a literal key.
 Only module-level sounds are selected, so vehicle-part `sound` children do not
@@ -61,7 +60,4 @@ not establish a default. **[inferred]** Counts and lexical shapes cannot establi
 audio mixing, attenuation or concurrency behavior; verify those in the consuming
 engine code or in-game before relying on them.
 
-**[observed]** Three source checks selected with seed `20261024`: 3,038 clip
-children, one clip `file` assignment and 3,038 sound blocks. An independent
-module-depth scan confirms family block/file counts; all six X4 CSVs reproduce
-byte-for-byte. Checks are recorded in `HANDOFF.md`.
+**[observed]** There are 3,038 clip children, one clip `file` assignment and 3,038 sound blocks.

@@ -31,7 +31,7 @@ the expected in-game result (and how sure we are of it), and links to the refere
   [debug-mode.md](../workflow/debug-mode.md).
 
 **Empty-mod skeleton** [inferred]. Create this folder under the mods directory of the game's cache folder (normally
-%UserProfile%\Zomboid\mods on Windows; -cachedir= can change it). All names are invented for this cookbook.
+<user profile>\Zomboid\mods on Windows; -cachedir= can change it). All names are invented for this cookbook.
 
 ```text
 GuideCookbook/
@@ -67,5 +67,4 @@ they do not shadow vanilla files ([load-order.md](../workflow/load-order.md)).
 
 ## Lua syntax check
 
-No Lua interpreter (lua, luac, luajit) was available on the authoring machine and the Python lupa module is not
-installed, so **no Lua syntax check was run** on any snippet. Check them yourself before relying on them.
+**[unknown]** Lua syntax validity is unverified for every snippet; validate it before relying on an example.

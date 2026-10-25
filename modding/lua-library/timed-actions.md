@@ -5,7 +5,7 @@ Sources: installed Lua action classes and queue implementation. Claims are
 **[observed]** unless tagged **[inferred]** or **[unknown]**. Descriptions are
 original; no action bodies are copied.
 
-## Family and generated tables [observed]
+## Family and reference tables [observed]
 
 `ISBaseTimedAction` derives from `ISBaseObject` and is defined in
 `shared/TimedActions/ISBaseTimedAction.lua`. The queue is in
@@ -14,8 +14,7 @@ through shared/client action folders and domain-specific subfolders, not only
 one `TimedActions` directory.
 
 There are **278 derive declarations** reachable from `ISBaseTimedAction` in the
-static declaration graph. Regenerate with
-`python -I modding/tools/survey_lua.py library`:
+static declaration graph. Reference tables:
 
 - [timed-action-inheritance.csv](../data/timed-action-inheritance.csv): side, file, parent and child for the complete observed family.
 - [base-timed-action-methods.csv](../data/base-timed-action-methods.csv): named base-class method declarations.
@@ -80,6 +79,5 @@ validate all domain-specific state or grant permission to change a server object
 **[unknown]** This page does not supply a complete runnable action or claim that
 every subclass shares the same constructor and return-value contracts.
 
-**[observed]** Three seeded claims are rechecked against installed source and
-recorded in `HANDOFF.md`; all X6 tables regenerate byte-for-byte. No actions were
-executed in-game as part of this static survey.
+**[observed]** Action coverage is limited to static declarations and source-level behaviour.
+**[unknown]** In-game action execution remains unverified.

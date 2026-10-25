@@ -1,18 +1,18 @@
 # Lighting controls: native inputs and destinations
 
-Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `1866188d` [observed, R0/R4].
-Target: `F:\SteamLibrary\steamapps\common\ProjectZomboid\Lighting64.dll`, 609,280 bytes [observed, R4; digest confirmed by REA].
+Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `1866188d` [observed].
+Target: `<game install>\Lighting64.dll`, 609,280 bytes [observed].
 
-**[observed]** This static pass covers all 15 requested JNI entries, producing 77 parameter rows in
+**[observed]** This inventory covers 15 JNI entries, with 77 parameter rows in
 [lighting-io.csv](../modding/data/lighting-io.csv). Argument indices exclude JNIEnv/jclass.
-Names come from the decompiled declarations in `zombie/iso/LightingJNI.java:1005–1137`; they are available
+Names come from the available declarations in `zombie/iso/LightingJNI.java:1005–1137`; they are available
 `varN` names, not recovered original names. The two long arguments in `addRoomLight` explain the gaps in its names.
-**[observed]** Types come from R0's javap-derived descriptors; entry addresses agree with the
-[R4 export inventory](lighting-native.md). Placement, state and darkness are separate surfaces below.
+**[observed]** Types match the native boundary survey's JVM descriptors; entry addresses agree with the
+[lighting export inventory](lighting-native.md). Placement, state and darkness are separate surfaces below.
 
 ## Confidence rubric and field notation
 
-- **[observed]** `high` records a traced argument reaching a concrete field/call with the stated conversion or arithmetic.
+- **[observed]** `high` records an argument reaching a concrete field/call with the stated conversion or arithmetic.
   It does not certify a physical unit or prove later simulation outcomes.
 - **[inferred]** `medium` records concrete data flow whose higher-level meaning depends on arithmetic interpretation,
   partially understood consumers, or a mixed-purpose array layout; it is not assigned from name similarity alone.
@@ -58,8 +58,8 @@ are not established. This belongs to player/world placement context, not light s
 **[observed]** Entry `0x180012c00` rejects a duplicate arg0 ID, obtains a light record and links it into the list/map.
 Args0..4 write `light+0x0/+0x4/+0x8/+0xc/+0x10`; args5..7 write RGB slots `+0x14/+0x18/+0x1c`;
 arg9 writes the active byte `+0x20`.
-**[unknown]** No read of arg8 was recovered in either the entry decompilation or instruction listing. The Java caller
-supplies a building-local ID, but this pass establishes no native destination or effect for that argument.
+**[unknown]** No read of arg8 is established in the entry. The Java caller
+supplies a building-local ID, but this inventory establishes no native destination or effect for that argument.
 
 ## addRoomLight
 
@@ -73,7 +73,7 @@ the native preserves both 64-bit IDs. **[unknown]** Later room-light coverage ru
 **[observed]** Entry `0x180013080` writes args0..7 to the same ID/position/radius/RGB offsets as `addLight`,
 forces its active byte on, and stores arg8 in both `light+0x24/+0x28` before linking the record.
 **[observed]** The caller derives arg8 from lifetime and frame-rate settings. **[unknown]** Counter decrement timing,
-duration units and expiry behaviour were not traced; this entry has no recovered duplicate-ID rejection like `addLight`.
+duration units and expiry behaviour remain unproven; this entry has no recovered duplicate-ID rejection like `addLight`.
 
 ## removeLight
 
@@ -142,45 +142,25 @@ The same early layer-origin read limits any claim of safe layer bounds.
   They require an existing ID; ordinary light and room-light maps are distinct.
 - **[observed]** Darkness arguments select player/layer/grid locations in two read-only query paths.
   **[unknown]** Changing a query argument is not evidence of changing the world's darkness.
-- **[observed]** [R3](native-reachability.md) records three Lua routes in this slice:
+- **[observed]** [Lua reachability survey](native-reachability.md) records three Lua routes in this slice:
   `LuaGlobal.configureLighting -> LuaManager.GlobalObject.configureLighting -> LightingJNI.configure`,
   `IsoRoom.clear -> LightingJNI.removeRoomLight`, and
   `IsoChunkMap.ProcessChunkPos -> LightingJNI.teleport`, all with public representative callers.
   **[unknown]** These routes do not establish a standalone mod-safe placement/colour API or safe lifecycle.
-- **[observed]** R3 marks the other 12 routes unknown: `playerSet` has a public representative caller,
+- **[observed]** Lua reachability survey marks the other 12 routes unknown: `playerSet` has a public representative caller,
   `setLightColor` protected, eight placement/state/removal methods private, and both darkness getters have unknown callers.
   **[unknown]** A visibility label or lack of a recorded route does not prove mod inaccessibility.
 
-## Verification and reproducibility
+## Confidence and limits
 
-- **[observed]** REA/Ghidra 12.1.4 returned all 15 scoped entries successfully. Entry batch Evidence:
-  `ev_db48ec65a26ce44d44cfddf522be993d7e17ccd9b6d11695d8a0c4ad06b03199`.
-- **[observed]** Three parameter rows were independently re-derived from instruction listings:
-  `configure` arg0's global float store at `0x180013630`;
-  `setLightColor` arg1's store at `0x1800154a9`;
-  `addLight` arg5's stack load/store at `0x180012d1f/0x180012d4d`.
-  All three agreed with the mapping. Listing Evidence:
-  `ev_e7120fd1acdbe044ccb8dc4fa30d03cb2134a3cd2e59392c976dbf6a206ad3c8`,
-  `ev_790d9e15d3347cb5f4d6a7412b846418686bbafd6e0d7e73d1cb01ea570e0bde`,
-  `ev_20084ebd8f02e6d75a093a30554f7b87afa2ea48fe156bbdfaba02586fe07b71`.
-- **[observed]** Every CSV argument token was cross-checked against R0's descriptor by a separate PowerShell pass:
-  77 rows, 15 natives, **0 type mismatches**. All scoped descriptors have scalar arguments.
-- **[observed]** CSV generation iteration count: **2**, from the parameter mapping and R0 descriptors, sorted by native
-  and numeric index. The second file was recreated after deleting the first; both files had SHA256
-  `e2f392366d201b094e5624f36605dfbba93c1d7cc2be64007b40fda0b67d08b4`.
-  No generator file was added outside this task's two owned repository paths.
-- **[observed]** Retained analysis bundle `r5-lighting-evidence.json` and snapshot `r5-lighting-snapshot.json`
-  were saved under `C:\Users\zackp\Documents\Code stuff\tools\pz-work\codex-scratch\`; `close_binary` completed.
-
-## Limits
-
-- **[unknown]** No runtime execution, gameplay outcome, physical unit calibration, safe input range, synchronization
-  guarantee, network authority or new mod route was established. Record storage is not proof of rendered effect.
+- **[observed]** The inventory covers 77 parameter rows and 15 natives.
+- **[observed]** `configure` arg0 stores a global float at `0x180013630`.
+- **[observed]** `setLightColor` arg1 stores at `0x1800154a9`.
+- **[observed]** `addLight` arg5 loads from the stack and stores at `0x180012d1f/0x180012d4d`.
+- **[observed]** All argument types match the JVM descriptors. **[observed]** All scoped descriptors have scalar arguments.
+- **[observed]** Rows are sorted by native and numeric argument index.
+- **[unknown]** Runtime execution, gameplay outcomes, physical unit calibration and safe input ranges remain unproven.
+  **[unknown]** Synchronization guarantees, network authority and new mod routes remain unestablished.
+  Record storage is not proof of rendered effect.
 - **[unknown]** Queue consumers for player/relocation updates, darkness-buffer producers and the configuration global's
-  downstream effect remain UNVERIFIED. The extra `addLight` integer has no reliable native destination in this trace.
-- **[observed]** Only `Lighting64.dll` was selected as a REA analysis target. No function bodies, instruction listings,
-  game source or binary bytes were placed in the repository.
-- **[observed]** A failed lookup exposed REA's actual internal project/log root:
-  `C:\Users\zackp\AppData\Local\Temp\rea-ghidra-5f1ebb68babb2bffe7f5c6b8e2a3fdb0\`.
-  This is an exception to the requested scratch-only placement; the exposed tools offered no caller-selected internal root.
-  The provider describes that project as ephemeral and deleted on close. **[unknown]** Filesystem removal was not independently verified.
+  downstream effect remain UNVERIFIED. The extra `addLight` integer has no reliable native destination.

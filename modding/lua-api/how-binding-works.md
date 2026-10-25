@@ -1,13 +1,12 @@
 # How Java is exposed to Lua (Project Zomboid, Build 42)
 
-Survey date: 2026-10-24. Source: decompile of `zombie/**` (Vineflower 1.12.0) plus the bundled Kahlua library
-(`se/krka/kahlua`). Names and behaviour only; no game code is copied. Tags: **[observed]** read in the decompile,
-**[inferred]** deduced from it, **[unknown]** not established.
+Survey date: 2026-10-24. Source: Java declarations and control flow in `zombie/**` plus the bundled Kahlua library
+(`se/krka/kahlua`). Names and behaviour only; no game code is copied. Tags: **[observed]** supported by Java control flow,
+**[inferred]** deduced from that evidence, **[unknown]** not established.
 
 Companion tables: [`../data/lua-globals.csv`](../data/lua-globals.csv) (759 global functions),
 [`../data/exposed-classes.csv`](../data/exposed-classes.csv) (999 whitelisted classes),
-[`../data/exposed-methods.csv`](../data/exposed-methods.csv) (declared public members, ~33k rows). Regenerate them
-with `modding/tools/extract_exposed.py`.
+[`../data/exposed-methods.csv`](../data/exposed-methods.csv) (declared public members, ~33k rows).
 
 ## The pieces
 

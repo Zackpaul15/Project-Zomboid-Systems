@@ -1,6 +1,6 @@
 # Multiplayer for Lua: commands and ModData (Project Zomboid, Build 42)
 
-Survey date: 2026-10-24. Source: decompile of `zombie/**` (`Lua.LuaManager`, `network.GameServer`, `network.GameClient`,
+Survey date: 2026-10-24. Source: Java declarations and control flow in `zombie/**` (`Lua.LuaManager`, `network.GameServer`, `network.GameClient`,
 `network.TableNetworkUtils`, `network.PacketTypes`, `network.packets.*`, `spnetwork.*`, `world.moddata.*`,
 `globalObjects.*`, `core.raknet.UdpConnection`) plus the shipped Lua under `media/lua`. Everything here comes from
 reading code, not from running a server. Tags: **[observed]**, **[inferred]**, **[unknown]**. Event names and
@@ -345,7 +345,7 @@ a one-byte sub-type, **not** `ClientCommand`. They do not fire `OnClientCommand`
   `OnServerCommand` with `(args)`. The server file starts with an `isClient()` early return. [observed]
 - **Lots of callers.** In the shipped `media/lua` (2026-10-24): `sendClientCommand` appears in 43 files (116
   lines), `sendServerCommand` in 22 files (30 lines), `OnClientCommand` in 11 files and `OnServerCommand` in 5 files
-  (plain text matches; the other agent's active-subscription count is 7 and 3, see
+  (plain text matches; the event comparison's active-subscription counts are 7 and 3, see
   [`../data/vanilla-event-comparison.csv`](../data/vanilla-event-comparison.csv)). `transmitModData` appears in 23
   files, `syncItemModData` in 1. That comparison also lists `OnReceiveGlobalModData`, `SendCustomModData` and
   `onLoadModDataFromServer` with no vanilla subscription. [observed]

@@ -1,104 +1,104 @@
 export_name,kind,is_jni,java_native,dll_confidence,notes
-?Java_zombie_core_physics_Bullet_Finish@@YAXPEAUJNIEnv_@@PEAV_jobject@@@Z,function,no,[none],[n/a],Observed C++-decorated export; no R0 declaration
-?Java_zombie_core_physics_Bullet_Start@@YAXPEAUJNIEnv_@@PEAV_jobject@@@Z,function,no,[none],[n/a],Observed C++-decorated export; no R0 declaration
-?Java_zombie_core_physics_Bullet_getBallisticsTargetsSpread@@YAHPEAUJNIEnv_@@PEAV_jclass@@HMMHHPEAV_jfloatArray@@@Z,function,no,[none],[n/a],Observed C++-decorated export; no R0 declaration
-?Java_zombie_core_physics_Bullet_throwPhysicsObject@@YAHPEAUJNIEnv_@@PEAV_jclass@@MMMMMM@Z,function,no,[none],[n/a],Observed C++-decorated export; no R0 declaration
-?Java_zombie_core_physics_PhysicsDebugRenderer_renderRagdollByID@@YAXPEAUJNIEnv_@@PEAV_jobject@@H@Z,function,no,[none],[n/a],Observed C++-decorated export; no R0 declaration
-Java_zombie_core_physics_Bullet_ToBullet,function,yes,zombie.core.physics.Bullet.ToBullet,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_activateChunkMap,function,yes,zombie.core.physics.Bullet.activateChunkMap,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_add6DofConstraint,function,yes,zombie.core.physics.Bullet.add6DofConstraint,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addBallisticsTarget,function,yes,zombie.core.physics.Bullet.addBallisticsTarget,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addHingeConstraint,function,yes,zombie.core.physics.Bullet.addHingeConstraint,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addPhysicsObject,function,yes,zombie.core.physics.Bullet.addPhysicsObject,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addPointConstraint,function,yes,zombie.core.physics.Bullet.addPointConstraint,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addRagdoll,function,yes,zombie.core.physics.Bullet.addRagdoll,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addRopeConstraint,function,yes,zombie.core.physics.Bullet.addRopeConstraint,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_addVehicle,function,yes,zombie.core.physics.Bullet.addVehicle,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_applyCentralForceToVehicle,function,yes,zombie.core.physics.Bullet.applyCentralForceToVehicle,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_applyForce,function,yes,zombie.core.physics.Bullet.applyForce,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_applyImpulse,function,yes,zombie.core.physics.Bullet.applyImpulse,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_applyTorqueToVehicle,function,yes,zombie.core.physics.Bullet.applyTorqueToVehicle,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_checkWheelCollision,function,yes,zombie.core.physics.Bullet.checkWheelCollision,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_clearPhysicsMeshes,function,yes,zombie.core.physics.Bullet.clearPhysicsMeshes,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_controlVehicle,function,yes,zombie.core.physics.Bullet.controlVehicle,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_createServerCell,function,yes,zombie.core.physics.Bullet.createServerCell,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_deactivateChunkMap,function,yes,zombie.core.physics.Bullet.deactivateChunkMap,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_definePhysicsMesh,function,yes,zombie.core.physics.Bullet.definePhysicsMesh,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_defineRagdollAnchors,function,yes,zombie.core.physics.Bullet.defineRagdollAnchors,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_defineRagdollBodyDynamics,function,yes,zombie.core.physics.Bullet.defineRagdollBodyDynamics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_defineRagdollBodyPartInfo,function,yes,zombie.core.physics.Bullet.defineRagdollBodyPartInfo,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_defineRagdollConstraints,function,yes,zombie.core.physics.Bullet.defineRagdollConstraints,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_defineVehiclePhysicsMesh,function,yes,zombie.core.physics.Bullet.defineVehiclePhysicsMesh,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_defineVehicleScript,function,yes,zombie.core.physics.Bullet.defineVehicleScript,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_destroyWorld,function,yes,zombie.core.physics.Bullet.destroyWorld,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_detachConstraint,function,yes,zombie.core.physics.Bullet.detachConstraint,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_drawDebugRagdollBodyParts,function,yes,zombie.core.physics.Bullet.drawDebugRagdollBodyParts,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_drawDebugRagdollSkeleton,function,yes,zombie.core.physics.Bullet.drawDebugRagdollSkeleton,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_drawDebugSingleBone,function,yes,zombie.core.physics.Bullet.drawDebugSingleBone,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getBallisticsCameraTargets,function,yes,zombie.core.physics.Bullet.getBallisticsCameraTargets,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getBallisticsTargets,function,yes,zombie.core.physics.Bullet.getBallisticsTargets,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getBallisticsTargetsSpreadData,function,yes,zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getCorrectedWorldSpace,function,yes,zombie.core.physics.Bullet.getCorrectedWorldSpace,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getObjectPhysics,function,yes,zombie.core.physics.Bullet.getObjectPhysics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getOwnVehiclePhysics,function,yes,zombie.core.physics.Bullet.getOwnVehiclePhysics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getPZBulletVersion,function,yes,zombie.core.physics.Bullet.getPZBulletVersion,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getRagdollSimulationState,function,yes,zombie.core.physics.Bullet.getRagdollSimulationState,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getTargetedBodyPart,function,yes,zombie.core.physics.Bullet.getTargetedBodyPart,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getVehicleCount,function,yes,zombie.core.physics.Bullet.getVehicleCount,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_getVehiclePhysics,function,yes,zombie.core.physics.Bullet.getVehiclePhysics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_highlightRagdollBodyPart,function,yes,zombie.core.physics.Bullet.highlightRagdollBodyPart,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_initPZBullet,function,yes,zombie.core.physics.Bullet.initPZBullet,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_initWorld,function,yes,zombie.core.physics.Bullet.initWorld,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_initializeRagdollPose,function,yes,zombie.core.physics.Bullet.initializeRagdollPose,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_initializeRagdollSkeleton,function,yes,zombie.core.physics.Bullet.initializeRagdollSkeleton,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_isWorldInit,function,yes,zombie.core.physics.Bullet.isWorldInit,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_removeBallistics,function,yes,zombie.core.physics.Bullet.removeBallistics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_removeBallisticsTarget,function,yes,zombie.core.physics.Bullet.removeBallisticsTarget,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_removeConstraint,function,yes,zombie.core.physics.Bullet.removeConstraint,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_removeRagdoll,function,yes,zombie.core.physics.Bullet.removeRagdoll,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_removeServerCell,function,yes,zombie.core.physics.Bullet.removeServerCell,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_removeVehicle,function,yes,zombie.core.physics.Bullet.removeVehicle,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_resetRagdollBodyDynamics,function,yes,zombie.core.physics.Bullet.resetRagdollBodyDynamics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_resetSkeletonPose,function,yes,zombie.core.physics.Bullet.resetSkeletonPose,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_scrollChunkMap,function,yes,zombie.core.physics.Bullet.scrollChunkMap,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setBallisticsColor,function,yes,zombie.core.physics.Bullet.setBallisticsColor,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setBallisticsRange,function,yes,zombie.core.physics.Bullet.setBallisticsRange,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setBallisticsSize,function,yes,zombie.core.physics.Bullet.setBallisticsSize,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setBallisticsTargetAdjustingShapeScale,function,yes,zombie.core.physics.Bullet.setBallisticsTargetAdjustingShapeScale,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setBallisticsTargetAllPartsColor,function,yes,zombie.core.physics.Bullet.setBallisticsTargetAllPartsColor,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setBallisticsTargetAxis,function,yes,zombie.core.physics.Bullet.setBallisticsTargetAxis,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setChunkMinMaxLevel,function,yes,zombie.core.physics.Bullet.setChunkMinMaxLevel,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setConstraintERP,function,yes,zombie.core.physics.Bullet.setConstraintERP,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setOwnVehiclePhysics,function,yes,zombie.core.physics.Bullet.setOwnVehiclePhysics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setRagdollActive,function,yes,zombie.core.physics.Bullet.setRagdollActive,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setRagdollBodyDynamics,function,yes,zombie.core.physics.Bullet.setRagdollBodyDynamics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setRagdollLocalTransformRotation,function,yes,zombie.core.physics.Bullet.setRagdollLocalTransformRotation,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setRagdollMass,function,yes,zombie.core.physics.Bullet.setRagdollMass,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setTireInflation,function,yes,zombie.core.physics.Bullet.setTireInflation,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setTireRemoved,function,yes,zombie.core.physics.Bullet.setTireRemoved,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setVehicleActive,function,yes,zombie.core.physics.Bullet.setVehicleActive,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setVehicleMass,function,yes,zombie.core.physics.Bullet.setVehicleMass,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setVehicleParams,function,yes,zombie.core.physics.Bullet.setVehicleParams,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setVehicleStatic,function,yes,zombie.core.physics.Bullet.setVehicleStatic,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_setVehicleVelocityMultiplier,function,yes,zombie.core.physics.Bullet.setVehicleVelocityMultiplier,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_simulateRagdoll,function,yes,zombie.core.physics.Bullet.simulateRagdoll,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_simulateRagdollWithRigidBodyOutput,function,yes,zombie.core.physics.Bullet.simulateRagdollWithRigidBodyOutput,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_stepSimulation,function,yes,zombie.core.physics.Bullet.stepSimulation,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_teleportVehicle,function,yes,zombie.core.physics.Bullet.teleportVehicle,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallistics,function,yes,zombie.core.physics.Bullet.updateBallistics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsAimReticlePosition,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticlePosition,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsAimReticleQuaternion,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsAimReticleRotate,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsAimReticleRotation,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsMuzzleAimDirection,function,yes,zombie.core.physics.Bullet.updateBallisticsMuzzleAimDirection,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsTarget,function,yes,zombie.core.physics.Bullet.updateBallisticsTarget,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateBallisticsTargetSkeleton,function,yes,zombie.core.physics.Bullet.updateBallisticsTargetSkeleton,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateRagdoll,function,yes,zombie.core.physics.Bullet.updateRagdoll,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateRagdollSkeletonPreviousTransforms,function,yes,zombie.core.physics.Bullet.updateRagdollSkeletonPreviousTransforms,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateRagdollSkeletonTransforms,function,yes,zombie.core.physics.Bullet.updateRagdollSkeletonTransforms,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_Bullet_updateSkeletonFromNetworkPhysics,function,yes,zombie.core.physics.Bullet.updateSkeletonFromNetworkPhysics,direct,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_PhysicsDebugRenderer_n_1debugDrawWorld,function,yes,zombie.core.physics.PhysicsDebugRenderer.n_debugDrawWorld,inferred,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_PhysicsDebugRenderer_renderBallistics,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderBallistics,inferred,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_PhysicsDebugRenderer_renderBallisticsTarget,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderBallisticsTarget,inferred,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_PhysicsDebugRenderer_renderRagdoll,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderRagdoll,inferred,Observed JNI export; exact R0 name match
-Java_zombie_core_physics_PhysicsDebugRenderer_renderVehicle,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderVehicle,inferred,Observed JNI export; exact R0 name match
+?Java_zombie_core_physics_Bullet_Finish@@YAXPEAUJNIEnv_@@PEAV_jobject@@@Z,function,no,[none],[n/a],Observed C++-decorated export; no native declaration
+?Java_zombie_core_physics_Bullet_Start@@YAXPEAUJNIEnv_@@PEAV_jobject@@@Z,function,no,[none],[n/a],Observed C++-decorated export; no native declaration
+?Java_zombie_core_physics_Bullet_getBallisticsTargetsSpread@@YAHPEAUJNIEnv_@@PEAV_jclass@@HMMHHPEAV_jfloatArray@@@Z,function,no,[none],[n/a],Observed C++-decorated export; no native declaration
+?Java_zombie_core_physics_Bullet_throwPhysicsObject@@YAHPEAUJNIEnv_@@PEAV_jclass@@MMMMMM@Z,function,no,[none],[n/a],Observed C++-decorated export; no native declaration
+?Java_zombie_core_physics_PhysicsDebugRenderer_renderRagdollByID@@YAXPEAUJNIEnv_@@PEAV_jobject@@H@Z,function,no,[none],[n/a],Observed C++-decorated export; no native declaration
+Java_zombie_core_physics_Bullet_ToBullet,function,yes,zombie.core.physics.Bullet.ToBullet,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_activateChunkMap,function,yes,zombie.core.physics.Bullet.activateChunkMap,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_add6DofConstraint,function,yes,zombie.core.physics.Bullet.add6DofConstraint,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addBallisticsTarget,function,yes,zombie.core.physics.Bullet.addBallisticsTarget,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addHingeConstraint,function,yes,zombie.core.physics.Bullet.addHingeConstraint,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addPhysicsObject,function,yes,zombie.core.physics.Bullet.addPhysicsObject,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addPointConstraint,function,yes,zombie.core.physics.Bullet.addPointConstraint,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addRagdoll,function,yes,zombie.core.physics.Bullet.addRagdoll,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addRopeConstraint,function,yes,zombie.core.physics.Bullet.addRopeConstraint,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_addVehicle,function,yes,zombie.core.physics.Bullet.addVehicle,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_applyCentralForceToVehicle,function,yes,zombie.core.physics.Bullet.applyCentralForceToVehicle,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_applyForce,function,yes,zombie.core.physics.Bullet.applyForce,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_applyImpulse,function,yes,zombie.core.physics.Bullet.applyImpulse,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_applyTorqueToVehicle,function,yes,zombie.core.physics.Bullet.applyTorqueToVehicle,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_checkWheelCollision,function,yes,zombie.core.physics.Bullet.checkWheelCollision,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_clearPhysicsMeshes,function,yes,zombie.core.physics.Bullet.clearPhysicsMeshes,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_controlVehicle,function,yes,zombie.core.physics.Bullet.controlVehicle,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_createServerCell,function,yes,zombie.core.physics.Bullet.createServerCell,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_deactivateChunkMap,function,yes,zombie.core.physics.Bullet.deactivateChunkMap,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_definePhysicsMesh,function,yes,zombie.core.physics.Bullet.definePhysicsMesh,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_defineRagdollAnchors,function,yes,zombie.core.physics.Bullet.defineRagdollAnchors,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_defineRagdollBodyDynamics,function,yes,zombie.core.physics.Bullet.defineRagdollBodyDynamics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_defineRagdollBodyPartInfo,function,yes,zombie.core.physics.Bullet.defineRagdollBodyPartInfo,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_defineRagdollConstraints,function,yes,zombie.core.physics.Bullet.defineRagdollConstraints,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_defineVehiclePhysicsMesh,function,yes,zombie.core.physics.Bullet.defineVehiclePhysicsMesh,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_defineVehicleScript,function,yes,zombie.core.physics.Bullet.defineVehicleScript,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_destroyWorld,function,yes,zombie.core.physics.Bullet.destroyWorld,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_detachConstraint,function,yes,zombie.core.physics.Bullet.detachConstraint,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_drawDebugRagdollBodyParts,function,yes,zombie.core.physics.Bullet.drawDebugRagdollBodyParts,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_drawDebugRagdollSkeleton,function,yes,zombie.core.physics.Bullet.drawDebugRagdollSkeleton,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_drawDebugSingleBone,function,yes,zombie.core.physics.Bullet.drawDebugSingleBone,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getBallisticsCameraTargets,function,yes,zombie.core.physics.Bullet.getBallisticsCameraTargets,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getBallisticsTargets,function,yes,zombie.core.physics.Bullet.getBallisticsTargets,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getBallisticsTargetsSpreadData,function,yes,zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getCorrectedWorldSpace,function,yes,zombie.core.physics.Bullet.getCorrectedWorldSpace,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getObjectPhysics,function,yes,zombie.core.physics.Bullet.getObjectPhysics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getOwnVehiclePhysics,function,yes,zombie.core.physics.Bullet.getOwnVehiclePhysics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getPZBulletVersion,function,yes,zombie.core.physics.Bullet.getPZBulletVersion,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getRagdollSimulationState,function,yes,zombie.core.physics.Bullet.getRagdollSimulationState,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getTargetedBodyPart,function,yes,zombie.core.physics.Bullet.getTargetedBodyPart,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getVehicleCount,function,yes,zombie.core.physics.Bullet.getVehicleCount,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_getVehiclePhysics,function,yes,zombie.core.physics.Bullet.getVehiclePhysics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_highlightRagdollBodyPart,function,yes,zombie.core.physics.Bullet.highlightRagdollBodyPart,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_initPZBullet,function,yes,zombie.core.physics.Bullet.initPZBullet,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_initWorld,function,yes,zombie.core.physics.Bullet.initWorld,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_initializeRagdollPose,function,yes,zombie.core.physics.Bullet.initializeRagdollPose,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_initializeRagdollSkeleton,function,yes,zombie.core.physics.Bullet.initializeRagdollSkeleton,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_isWorldInit,function,yes,zombie.core.physics.Bullet.isWorldInit,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_removeBallistics,function,yes,zombie.core.physics.Bullet.removeBallistics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_removeBallisticsTarget,function,yes,zombie.core.physics.Bullet.removeBallisticsTarget,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_removeConstraint,function,yes,zombie.core.physics.Bullet.removeConstraint,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_removeRagdoll,function,yes,zombie.core.physics.Bullet.removeRagdoll,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_removeServerCell,function,yes,zombie.core.physics.Bullet.removeServerCell,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_removeVehicle,function,yes,zombie.core.physics.Bullet.removeVehicle,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_resetRagdollBodyDynamics,function,yes,zombie.core.physics.Bullet.resetRagdollBodyDynamics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_resetSkeletonPose,function,yes,zombie.core.physics.Bullet.resetSkeletonPose,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_scrollChunkMap,function,yes,zombie.core.physics.Bullet.scrollChunkMap,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setBallisticsColor,function,yes,zombie.core.physics.Bullet.setBallisticsColor,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setBallisticsRange,function,yes,zombie.core.physics.Bullet.setBallisticsRange,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setBallisticsSize,function,yes,zombie.core.physics.Bullet.setBallisticsSize,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setBallisticsTargetAdjustingShapeScale,function,yes,zombie.core.physics.Bullet.setBallisticsTargetAdjustingShapeScale,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setBallisticsTargetAllPartsColor,function,yes,zombie.core.physics.Bullet.setBallisticsTargetAllPartsColor,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setBallisticsTargetAxis,function,yes,zombie.core.physics.Bullet.setBallisticsTargetAxis,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setChunkMinMaxLevel,function,yes,zombie.core.physics.Bullet.setChunkMinMaxLevel,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setConstraintERP,function,yes,zombie.core.physics.Bullet.setConstraintERP,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setOwnVehiclePhysics,function,yes,zombie.core.physics.Bullet.setOwnVehiclePhysics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setRagdollActive,function,yes,zombie.core.physics.Bullet.setRagdollActive,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setRagdollBodyDynamics,function,yes,zombie.core.physics.Bullet.setRagdollBodyDynamics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setRagdollLocalTransformRotation,function,yes,zombie.core.physics.Bullet.setRagdollLocalTransformRotation,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setRagdollMass,function,yes,zombie.core.physics.Bullet.setRagdollMass,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setTireInflation,function,yes,zombie.core.physics.Bullet.setTireInflation,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setTireRemoved,function,yes,zombie.core.physics.Bullet.setTireRemoved,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setVehicleActive,function,yes,zombie.core.physics.Bullet.setVehicleActive,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setVehicleMass,function,yes,zombie.core.physics.Bullet.setVehicleMass,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setVehicleParams,function,yes,zombie.core.physics.Bullet.setVehicleParams,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setVehicleStatic,function,yes,zombie.core.physics.Bullet.setVehicleStatic,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_setVehicleVelocityMultiplier,function,yes,zombie.core.physics.Bullet.setVehicleVelocityMultiplier,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_simulateRagdoll,function,yes,zombie.core.physics.Bullet.simulateRagdoll,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_simulateRagdollWithRigidBodyOutput,function,yes,zombie.core.physics.Bullet.simulateRagdollWithRigidBodyOutput,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_stepSimulation,function,yes,zombie.core.physics.Bullet.stepSimulation,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_teleportVehicle,function,yes,zombie.core.physics.Bullet.teleportVehicle,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallistics,function,yes,zombie.core.physics.Bullet.updateBallistics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsAimReticlePosition,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticlePosition,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsAimReticleQuaternion,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsAimReticleRotate,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsAimReticleRotation,function,yes,zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsMuzzleAimDirection,function,yes,zombie.core.physics.Bullet.updateBallisticsMuzzleAimDirection,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsTarget,function,yes,zombie.core.physics.Bullet.updateBallisticsTarget,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateBallisticsTargetSkeleton,function,yes,zombie.core.physics.Bullet.updateBallisticsTargetSkeleton,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateRagdoll,function,yes,zombie.core.physics.Bullet.updateRagdoll,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateRagdollSkeletonPreviousTransforms,function,yes,zombie.core.physics.Bullet.updateRagdollSkeletonPreviousTransforms,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateRagdollSkeletonTransforms,function,yes,zombie.core.physics.Bullet.updateRagdollSkeletonTransforms,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_Bullet_updateSkeletonFromNetworkPhysics,function,yes,zombie.core.physics.Bullet.updateSkeletonFromNetworkPhysics,direct,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_PhysicsDebugRenderer_n_1debugDrawWorld,function,yes,zombie.core.physics.PhysicsDebugRenderer.n_debugDrawWorld,inferred,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_PhysicsDebugRenderer_renderBallistics,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderBallistics,inferred,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_PhysicsDebugRenderer_renderBallisticsTarget,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderBallisticsTarget,inferred,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_PhysicsDebugRenderer_renderRagdoll,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderRagdoll,inferred,Observed JNI export; exact native declaration name match
+Java_zombie_core_physics_PhysicsDebugRenderer_renderVehicle,function,yes,zombie.core.physics.PhysicsDebugRenderer.renderVehicle,inferred,Observed JNI export; exact native declaration name match

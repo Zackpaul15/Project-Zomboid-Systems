@@ -1,8 +1,8 @@
 # Zombie population (zombie.popman + PZPopMan64.dll)
 
-Confidence tags: **[observed]** read directly in decompiled Java / Ghidra output, **[inferred]** deduced from
-structure or names, **[unknown]** not examined. Sources: Vineflower output of `zombie.popman` (22 classes) and
-Ghidra pseudocode of `PZPopMan64.dll` (sha256 `5b2e3ef5...0ec6`, x86-64, PDB name `PZPopMan64.pdb` referenced
+Confidence tags: **[observed]** directly supported by Java/native structure or data flow, **[inferred]** deduced from
+structure or names, **[unknown]** unresolved. Scope: `zombie.popman` (22 classes) and
+`PZPopMan64.dll` (sha256 `5b2e3ef5...0ec6`, x86-64, PDB name `PZPopMan64.pdb` referenced
 but not loaded). No game code is copied here; names and shapes only.
 
 Function-level names and address ranges: [functions-popman.md](functions-popman.md).
@@ -22,7 +22,7 @@ Function-level names and address ranges: [functions-popman.md](functions-popman.
 - **[observed]** `n_updateMain(multiplier float, worldAgeHours double)` runs each tick; the native side keeps a
   "time changed" bit when either value differs from last call (`+0x3c |= changed`). Then it drains a ring of
   work objects (pool capped at ~50 retained, 0x110-byte objects) and publishes them to a result vector.
-  [inferred] this is the producer/consumer handoff to the worker thread that runs `n_updateThread`.
+  [inferred] this is the producer/consumer transfer to the worker thread that runs `n_updateThread`.
 - **[observed]** `n_updateRealZombies` / `packRealZombies` send Java's real zombies to native as parallel arrays
   (2 ints per zombie: persistentId + state; 3 floats: position). Zombies with `persistentId == 0` are counted as
   unregistered; reanimated players and dead zombies are skipped.
@@ -36,9 +36,9 @@ Function-level names and address ranges: [functions-popman.md](functions-popman.
 | `n_spawnHorde` | 0x1800288f0 | **[observed]** appends a 0x1c-byte record (7 x 32-bit: spawnX, spawnY, spawnW, spawnH, targetX, targetY, count) to a growable queue at manager+0xc8..0xd0; processed later on the worker thread |
 | `n_updateMain` | 0x1800289e0 | see above |
 | `n_updateRealZombies` | 0x180028d30 | |
-| `n_updateThread` | 0x1800290f0 | worker-thread step [not decompiled] |
+| `n_updateThread` | 0x1800290f0 | worker-thread step [behaviour unresolved] |
 | `n_worldSound` | 0x1800291d0 | **[observed]** allocates a 0x28-byte sound event (x, y, radius, volume) and appends it to a pending-sounds vector at manager+0xd8..0xe0 |
-| `n_config*`, `n_init`, `n_setOutfitNames`, `n_setSpawnOrigins`, `n_loadChunk`, `n_save`, `n_saveCell`, `n_registerZombie`, `n_releaseZombie`, `n_aggroTarget`, `n_shouldWait`, `n_readyToPause`, `n_stop`, radar/`hasDataForThread` | | not decompiled |
+| `n_config*`, `n_init`, `n_setOutfitNames`, `n_setSpawnOrigins`, `n_loadChunk`, `n_save`, `n_saveCell`, `n_registerZombie`, `n_releaseZombie`, `n_aggroTarget`, `n_shouldWait`, `n_readyToPause`, `n_stop`, radar/`hasDataForThread` | | behaviour unresolved |
 
 - **[observed]** The DLL keeps a global manager pointer via a pointer table (`PTR_DAT_18012f058 + 0x90`); every
   JNI entry dereferences it with no null check in the ones read (spawnHorde, worldSound, updateMain).
@@ -83,6 +83,6 @@ background task; the debug commands force the respawn timer / clear / spawn imme
 ## Unknowns / next steps
 
 - **[unknown]** How the native density curve combines Start/Peak multiplier and PeakDay (needs `n_updateThread`
-  and the `RepopulateTask` decompiled).
+  and the identified `RepopulateTask` behaviour).
 - **[unknown]** Exact meaning of `FollowSoundDistance` and `RedistributeHours` in the native code.
 - **[unknown]** Native save format (`n_save`, `n_saveCell`) and the persistentId allocation scheme.

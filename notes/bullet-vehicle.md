@@ -1,16 +1,16 @@
 # Bullet vehicle controls: native inputs and destinations
 
-Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `76141df9` [observed, R0/R1].
-Target: `F:\SteamLibrary\steamapps\common\ProjectZomboid\PZBullet64.dll` [observed].
+Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `76141df9` [observed].
+Target: `<game install>\PZBullet64.dll` [observed].
 
-**[observed]** This static pass covers only the 13 requested JNI entries and their supporting callees, producing
+**[observed]** This inventory covers the 13 JNI entries and their supporting callees, producing
 43 parameter rows in [bullet-vehicle-io.csv](../modding/data/bullet-vehicle-io.csv). Argument indices exclude
-JNIEnv/jclass. Names `var0` through `var7` are the available decompiled Java declaration names, not recovered original source names.
-**[observed]** Types come from R0's JNI descriptors; entry addresses come from the [R1 export inventory](bullet-native.md).
+JNIEnv/jclass. Names `var0` through `var7` are the available Java declaration names, not recovered original source names.
+**[observed]** Types match the native boundary survey's JNI descriptors; entry addresses agree with the [export inventory](bullet-native.md).
 
 ## Confidence rubric and field notation
 
-- **[observed]** `high` records a traced argument reaching a concrete field/call with the stated conversion or arithmetic.
+- **[observed]** `high` records an argument reaching a concrete field/call with the stated conversion or arithmetic.
   It does not certify a physical unit or prove later simulation outcomes.
 - **[inferred]** `medium` records concrete data flow whose higher-level meaning depends on arithmetic interpretation,
   partially understood consumers, or a mixed-purpose array layout; it is not assigned from name similarity alone.
@@ -98,35 +98,19 @@ JNIEnv/jclass. Names `var0` through `var7` are the available decompiled Java dec
   with an overwritten temporary input and a flag distinct from the removed flag.
 - **[inferred]** The force/impulse paths offer different immediate effects, but reaching them from a mod safely requires
   establishing their caller-side IDs, coordinate conventions and units. **[unknown]** No new Lua-callable route or safe
-  gameplay tuning range is established by this native pass.
+  gameplay tuning range is established by these native findings.
 
-## Verification and reproducibility
+## Confidence and limits
 
-- **[observed]** REA/Ghidra 12.1.4 returned all 13 requested entries successfully. Entry batch Evidence:
-  `ev_f1f52c1ef2933451a5fd8597f7b27850ce52454327681891509612a1c2ef5ba5`.
-  Helper batches: `ev_c066ee2cec20af702094fb94654bb77799ccbe4fc639d29fa7571f09d804cae7`,
-  `ev_0cccb2bf823135c4814a361c83b26d9b26c0996a6935b4b9aafb259f5d245a54`, and
-  `ev_a81ea90f4e4bf38fd164e15859b9d4bd3df4050b8a13120ed067b001b8c3906a`.
-- **[observed]** Three CSV rows were independently re-derived from instruction listings after decompilation:
-  `setTireInflation` arg2's indexed float write at `0x18000ded8`; `setVehicleVelocityMultiplier` arg1's float-to-double
-  write at `0x18000e909/0x18000e912`; and `applyCentralForceToVehicle` arg1's scale/add/store at
-  `0x180009816/0x180009822/0x18000983a/0x18000984a`. All three agreed; no listings were copied into this repository.
-- **[observed]** The CSV was generated twice from the parameter mapping and R0 descriptors, with the second file
-  regenerated after deletion; both outputs were identical. It contains 43 rows for 13 natives, sorted by native and
-  numeric argument index. CSV SHA256: `63e27534d2c91466efb4e7bb5785e1eb5fceda1321e6d7532c92135362a51471`.
-  No generator file was placed outside this task's two owned repository paths.
-- **[observed]** The retained analysis bundle is `r2a-vehicle-evidence.json` under
-  `C:\Users\zackp\Documents\Code stuff\tools\pz-work\codex-scratch\`; the snapshot is
-  `r2a-vehicle-snapshot.json` in that directory, and `close_binary` completed.
-
-## Limits
-
-- **[unknown]** No runtime execution, gameplay outcome, physical unit calibration, Java callers above the declarations,
-  script-to-native path, network authority or safe input range was established. Names and arithmetic suggest some roles;
-  those interpretations are explicitly tagged rather than presented as measured behaviour.
-- **[unknown]** Virtual shape/world operations and downstream wheel dispatch remain unresolved. Ghidra flags some
-  exception-tail jumps and terminal calls; these do not establish runtime call coverage or absence of later effects.
+- **[observed]** The CSV contains 43 rows for 13 natives, sorted by native and numeric argument index.
+- **[observed]** `setTireInflation` arg2 writes an indexed float at `0x18000ded8`.
+- **[observed]** `setVehicleVelocityMultiplier` arg1 converts float to double and writes at `0x18000e909/0x18000e912`.
+- **[observed]** `applyCentralForceToVehicle` arg1 scales, adds and stores at
+  `0x180009816/0x180009822/0x18000983a/0x18000984a`.
+- **[unknown]** Runtime execution, gameplay outcomes and physical unit calibration remain unproven.
+  **[unknown]** Java callers above the declarations, script-to-native paths, network authority and safe input ranges
+  remain unestablished. Names and arithmetic suggest some roles; those interpretations are explicitly tagged.
+- **[unknown]** Virtual shape/world operations and downstream wheel dispatch remain unresolved. Exception-tail jumps
+  and terminal calls do not establish runtime call coverage or absence of later effects.
 - **[unknown]** The consumer of vehicle `+0x78` and the final meaning of control slots wheel `+0x200/+0x208` remain
   UNVERIFIED. Array lengths and indices should not be generalized beyond the checks stated for each entry.
-- **[unknown]** REA does not expose a caller-selected internal Ghidra project/log directory in these tools; placement
-  of its ephemeral internal intermediates under the requested scratch root remains UNVERIFIED. Retained artifacts use scratch.

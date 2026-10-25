@@ -1,14 +1,13 @@
 # PZPathFind64.dll function map
 
 Companion to [pathfinding.md](pathfinding.md). Names are **proposed**: the DLL has no loaded PDB, so only JNI
-exports and CRT/STL code carry real names. Tags: **[observed]** read in decompiled output, **[inferred]** deduced
-from structure, callers or constants, **[unknown]** not read. No game code is reproduced here.
+exports and CRT/STL code carry real names. Tags: **[observed]** directly supported by native structure or data flow, **[inferred]** deduced
+from structure, callers or constants, **[unknown]** unresolved. No game code is reproduced here.
 
 - Binary: `PZPathFind64.dll`, sha256 `4452e035ff024dd373c5bae3a8ec431e82c607312aaf34ac375692448bf897b2`, x86-64, MSVC.
 - 4789 internal procedures (`0x180001000`-`0x180117368`); 2537 lie below `0x18009a2b0`, and 464 of those were kept as
-  game logic after filtering out Clipper, STL and CRT. Those 464 were decompiled and skimmed.
-- Ghidra renames made through REA are ephemeral; this table is the durable record.
-- Coverage: the functions below are the ones whose role I could establish with reasonable confidence. The rest of
+  game logic, excluding Clipper, STL and CRT. Those 464 are within the function-map coverage.
+- Coverage: the functions below are those with supported roles. The rest of
   the game-logic range is STL instantiations, deque-ring pools and small accessors, grouped in the range map.
 
 ## Address-range map

@@ -7,7 +7,7 @@ tagged **[inferred]** or **[unknown]**. No upload was performed.
 
 ## Wrapper versus mod content [observed]
 
-The supplied wrapper has `workshop.txt`, `preview.png` and
+**[observed]** The supplied wrapper has `workshop.txt`, `preview.png` and
 `Contents/mods/ModTemplate/`. The mod folder contains its own `mod.info`,
 `poster.png` and two map directories with `map.info`, `spawnpoints.lua` and
 thumbnail files. The wrapper preview and mod poster are distinct resources.
@@ -15,8 +15,7 @@ See [mod-sample-files.csv](../data/mod-sample-files.csv) for the complete
 filename inventory; it contains no assets or file bodies.
 
 [workshop-metadata-keys.csv](../data/workshop-metadata-keys.csv) lists every
-observed key and shape in the supplied `workshop.txt`. Generate it with
-`python -I modding/tools/survey_workflow.py`.
+observed key and shape in the supplied `workshop.txt`.
 
 | Observed key | Shape/purpose |
 |---|---|
@@ -50,6 +49,3 @@ as proof of the current B42 mod discovery layout.
 all accepted content constraints, Steam ownership requirements or current service
 policy. This reference does not invent limits or claim an upload was tested.
 The game UI's own validation is the concrete check available in these files.
-
-**[observed]** Three source checks and byte-for-byte regeneration of the wrapper
-metadata/file inventories are recorded in `HANDOFF.md`.

@@ -14,8 +14,7 @@ Files overlap between these groups. Examples are
 `generated/vehicles/professionVehicles/vehicle_pickuptruck_lights_fossoil_template.txt`
 and `generated/sounds/vehicles/vehicle_engine_rpm.txt`.
 
-Generate [vehicle-keys.csv](../data/vehicle-keys.csv) with
-`python -I modding/tools/survey_components.py`. Columns are
+[vehicle-keys.csv](../data/vehicle-keys.csv) describes vehicle definitions. Columns are
 `block_type, key, count, value_shape, notes`. Context paths distinguish
 `vehicle/part/container` from a vehicle's own keys. `<block>` rows count
 definitions or nested blocks; `<entry>` rows count bare entries. Numeric header
@@ -74,11 +73,8 @@ use `gearChange` and `afterGearChange`. Vehicles and templates also use
 physical units, defaults, or multiplayer replication from those names and shapes.
 
 **[inferred]** Lexical shapes do not establish accepted Java types or runtime
-validity. The structural reader's comma/brace/comment limits are described in
+validity. The inventory's comma/brace/comment limits are described in
 [overview.md](overview.md#limits-and-validation). All data tables contain
 identifiers, counts and shapes rather than per-vehicle values.
 
-**[observed]** Three source checks selected with seed `20261024`: 412 wheel
-children, 186 `template!` assignments and 241 vehicle blocks. An independent
-module-depth scan confirms family block/file counts; all six X4 CSVs reproduce
-byte-for-byte. Checks are recorded in `HANDOFF.md`.
+**[observed]** There are 412 wheel children, 186 `template!` assignments and 241 vehicle blocks.

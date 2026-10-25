@@ -1,18 +1,18 @@
 # Bullet ragdolls: native inputs and destinations
 
-Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `76141df9` [observed, R0/R1].
-Target: `F:\SteamLibrary\steamapps\common\ProjectZomboid\PZBullet64.dll` [observed].
+Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7`; DLL SHA256 prefix `76141df9` [observed].
+Target: `<game install>\PZBullet64.dll` [observed].
 
-**[observed]** This static pass covers the 23 requested names and supporting callees, producing 68 parameter rows in
+**[observed]** This inventory covers the 23 entry names and supporting callees, with 68 parameter rows in
 [bullet-ragdoll-io.csv](../modding/data/bullet-ragdoll-io.csv). Argument indices exclude JNIEnv/jclass/jobject.
-**[observed]** Scope correction against R0/R1: 22 entries are in `zombie.core.physics.Bullet`;
+**[observed]** Scope correction against native boundary and export inventories: 22 entries are in `zombie.core.physics.Bullet`;
 `renderRagdoll` is in `zombie.core.physics.PhysicsDebugRenderer`, not Bullet. It remains in scope under its actual class.
-**[observed]** Types come from R0's javap-derived descriptors; available Java names are `var0` onwards for Bullet,
+**[observed]** Types match the native boundary survey's JVM descriptors; available Java names are `var0` onwards for Bullet,
 and `var1/var2/var3` for the renderer declaration at `PhysicsDebugRenderer.java:280`. These are not original source names.
 
 ## Confidence rubric and field notation
 
-- **[observed]** `high` records a traced argument reaching a concrete field/call with the stated conversion or arithmetic.
+- **[observed]** `high` records an argument reaching a concrete field/call with the stated conversion or arithmetic.
   It does not certify a physical unit or prove later simulation outcomes.
 - **[inferred]** `medium` records concrete data flow whose higher-level meaning depends on arithmetic interpretation,
   partially understood consumers, or a mixed-purpose array layout; it is not assigned from name similarity alone.
@@ -55,7 +55,7 @@ ragdoll archetype for each named block. **[unknown]** Arbitrary new archetype su
 | Runtime instance operations (12) | addRagdoll; removeRagdoll; getRagdollSimulationState; resetRagdollBodyDynamics; setRagdollActive; setRagdollBodyDynamics; setRagdollLocalTransformRotation; simulateRagdoll; simulateRagdollWithRigidBodyOutput; updateRagdoll; updateRagdollSkeletonPreviousTransforms; updateRagdollSkeletonTransforms |
 | Debug controls/rendering (4) | drawDebugRagdollBodyParts; drawDebugRagdollSkeleton; highlightRagdollBodyPart; PhysicsDebugRenderer.renderRagdoll |
 
-**[observed]** The R0 caller distinction is confirmed: uploads are at `RagdollScript.java:342,362,377,395`;
+**[observed]** The native boundary survey caller distinction is confirmed: uploads are at `RagdollScript.java:342,362,377,395`;
 runtime add/remove calls are at `RagdollController.java:223,232`. Builder initialization is at
 `zombie/characters/RagdollBuilder.java:65,101`, and its mass setter calls the native at line 154.
 **[unknown]** The table describes phases evidenced by these paths, not exclusive runtime call coverage.
@@ -103,7 +103,7 @@ Arg1 gates `FUN_18001e9b0 -> FUN_18001a100` rebuilds for current and pooled ragd
 
 **[observed]** Entry `0x18000ab50` uses arg0 to select the instance and stores boolean args1/2 at
 `ragdoll+0x14/+0x11`; Java caller labels them body drawing and single-part drawing.
-**[unknown]** The final renderer interpretation was not traced.
+**[unknown]** The final renderer interpretation remains unproven.
 
 ## drawDebugRagdollSkeleton
 
@@ -190,7 +190,7 @@ for all current and pooled ragdolls; it caches the value at `ragdoll+0xc8` and p
 
 **[observed]** Entry `0x18000e980` selects arg0, pins output arg1 and calls `FUN_18001dff0`, which synchronizes
 body/skeleton data and writes seven floats per bone through `FUN_18001c760`, returning the bone count.
-**[unknown]** The traced path does not establish that this entry advances a physics timestep; units and world-space
+**[unknown]** The established path does not establish that this entry advances a physics timestep; units and world-space
 interpretation of every returned transform remain unproven.
 
 ## simulateRagdollWithRigidBodyOutput
@@ -205,7 +205,7 @@ A later `FUN_180017a70` call bounds body motion-vector magnitude; it does not us
 **[observed]** Entry `0x18000fb10` selects arg0 and forwards to `FUN_18001e890`: args1/2/3 write placement
 at `ragdoll+0xe0/+0xe8/+0xf0` and `dynamics+0x70/+0x78/+0x80`, with world offsets subtracted from args1/3;
 args4..7 construct the dynamics rotation basis at `+0x10`.
-**[unknown]** This storage trace does not guarantee an immediate teleport of every rigid body.
+**[unknown]** This storage behaviour does not guarantee an immediate teleport of every rigid body.
 
 ## updateRagdollSkeletonPreviousTransforms
 
@@ -229,52 +229,30 @@ seven-float records arg3 through `FUN_18001d2b0`, then supplies arg2 to `FUN_180
 - **[observed]** Runtime instance IDs address separate records; builder bone counts are not instance IDs.
   Active transitions change world membership, while update calls write placement/basis data and skeleton paths synchronize transforms.
 - **[observed]** The mass setter is global across the builder and current/pool records, applying one value per body.
-  **[inferred]** Treating it as a per-character total-mass control would misrepresent the traced path.
+  **[inferred]** Treating it as a per-character total-mass control would misrepresent the established path.
 - **[observed]** Dynamics overrides reach damping and body fields; resets reach a shared-table helper for eleven bodies.
   **[unknown]** The recovered tuple-overwrite path prevents promising independent overrides for every input tuple.
 - **[unknown]** Add-time transform effect, direct Lua/mod routes, safe lifecycle/authority, physical units and runtime
   gameplay outcomes remain unproven. Pose-output methods are not interchangeable with an evidenced physics-step API.
 
-## Verification and reproducibility
+## Confidence and limits
 
-- **[observed]** REA/Ghidra 12.1.4 returned all 23 requested entries successfully. Entry batch:
-  `ev_3b2a75ae364dfc288fdb749627bcbbd1ddf074a62531748480c709be5a4aa35e`.
-  Main helper batches:
-  `ev_0bbe31b33d6f4563dd8ca5f8150c5ae7e209209258e6cfebf96a9dfe8d1c2b3f`,
-  `ev_c8e50d9fa05eb4aac828b244e997bd1600ef087a4aab15ad7d7c95b00eb73500`.
-- **[observed]** Three parameter rows were independently re-derived from instruction listings:
-  `highlightRagdollBodyPart` arg1's integer store at `0x18000bfad`;
-  `drawDebugRagdollSkeleton` arg1's boolean store at `0x18000ad26`;
-  `PhysicsDebugRenderer.renderRagdoll` arg1's integer-to-double conversion/store at
-  `0x1800406cb/0x1800406cf/0x1800406e1`. All agreed.
-  Listing Evidence: `ev_cb8187b04d00432e4b0df1c319a7bc515bf59db76e2501a400e84ab6e5ff7085`,
-  `ev_9311eaa2850a2bb2a6443db82b84bf1f6a46cb9fad24fcc17e1535964b9f6c2b`,
-  `ev_51627d2703cb1485a70a47810c82f82bc007dbf443a533ff314240bbd516bea8`.
-- **[observed]** All 68 argument tokens independently checked against R0 descriptors: **0 mismatches**.
-  Script-type registration, post-load upload and runtime add/remove were separately read in the source files cited above;
-  installed ragdoll block counts were checked against all four game script files.
-- **[observed]** CSV file-generation iteration count: **4**. After two initial outputs, the reset-row effect wording was
-  narrowed to the helper actually traced; the final two outputs were byte-identical after deletion/recreation, with SHA256
-  `8755595da92dda28ee8bd7ec285bd71ba2c612af4deaf29ce89c908675ebd87f`.
-  Rows sort by qualified native then numeric argument index; the CSV uses the requested eight columns.
-  No generator file was added outside this task's two owned repository paths.
-- **[observed]** Retained bundle `r6-ragdoll-evidence.json` and snapshot `r6-ragdoll-snapshot.json`
-  were saved under `C:\Users\zackp\Documents\Code stuff\tools\pz-work\codex-scratch\`;
-  `close_binary` completed.
-
-## Limits
-
-- **[unknown]** No runtime execution, gameplay effect, unit calibration, complete Java call-chain/mod route, network
-  authority or safe tuning range was established. Static branches and stores do not establish actual invocation.
+- **[observed]** The inventory covers 23 entries and 68 argument tokens matching the JVM descriptors.
+- **[observed]** `highlightRagdollBodyPart` arg1 stores an integer at `0x18000bfad`.
+- **[observed]** `drawDebugRagdollSkeleton` arg1 stores a boolean at `0x18000ad26`.
+- **[observed]** `PhysicsDebugRenderer.renderRagdoll` arg1 converts integer to double and stores at
+  `0x1800406cb/0x1800406cf/0x1800406e1`.
+- **[observed]** Script-type registration, post-load uploads and runtime add/remove are distinct paths in the Java
+  locations cited above; the installed ragdoll block counts cover all four game script files.
+- **[observed]** Rows sort by qualified native then numeric argument index; the CSV has eight columns.
+  The reset-row effect is limited to the identified helper.
+- **[unknown]** Runtime execution, gameplay effects and unit calibration remain unestablished.
+  **[unknown]** Complete Java call-chain/mod routes, network authority and safe tuning ranges remain unproven.
+  Static branches and stores do not establish actual invocation.
 - **[unknown]** Virtual shape/world targets and final debug rendering effects remain incompletely resolved.
-  The add-time transform is computed/forwarded but has no recovered final consumer in the reviewed creation chain.
+  The add-time transform is computed/forwarded but has no recovered final consumer in the creation chain.
 - **[observed]** Definition wrappers do not propagate the template parser's returned success status; they return success
   after the array-access/upload path. **[unknown]** A true JNI result therefore does not certify schema validity or complete application.
-  Array dimensions, template indices, hierarchy order and pointer lifetime require caller-side validation beyond this pass.
-- **[unknown]** The packed-array and retained-tuple conclusions follow recovered static data flow; malformed/partial arrays
-  and exception-tail behaviour were not tested. Input/output buffer minimum capacity is not proven by a nonempty check.
-- **[observed]** Only PZBullet64.dll was selected for analysis. No game bodies, pseudocode, disassembly listings or bytes
-  were written into the repository.
-- **[unknown]** REA does not expose a caller-selected internal Ghidra project/log directory through these tools;
-  placement of its ephemeral internal intermediates under the requested scratch root remains UNVERIFIED.
-  Explicit retained artifacts use scratch.
+  Array dimensions, template indices, hierarchy order and pointer lifetime require caller-side validation.
+- **[unknown]** The packed-array and retained-tuple conclusions describe static data flow; malformed/partial arrays
+  and exception-tail behaviour remain unproven. Input/output buffer minimum capacity is not proven by a nonempty check.

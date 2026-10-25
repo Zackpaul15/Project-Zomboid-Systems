@@ -7,9 +7,8 @@ Sources: installed launch scripts, Lua debug UI and read-only
 
 ## Launch flags [observed]
 
-[debug-launch-flags.csv](../data/debug-launch-flags.csv) inventories literal
-flag occurrences in the main-screen parser and installed BAT files. Reproduce
-with `python -I modding/tools/survey_workflow.py`. Occurrence counts are source
+**[observed]** [debug-launch-flags.csv](../data/debug-launch-flags.csv) inventories literal
+flag occurrences in the main-screen parser and installed BAT files. Occurrence counts are source
 references, not counts of enabled settings.
 
 - `-debug` enables the engine debug flag.
@@ -45,10 +44,7 @@ the parsed script rather than assuming a file's presence proves it loaded.
 
 **[observed, engine reference]** Syntax/compile failures and runtime failures
 are handled differently by Lua loading; runtime code can leave partial effects.
-See [load-order.md](load-order.md) and Claude's lifecycle page.
+See [load-order.md](load-order.md) and the lifecycle reference.
 **[unknown]** This static survey does not establish a universal debug-menu hotkey,
 the exact log filename for every launch, or safe hot-reload behavior for every
 class. No runtime test is claimed.
-
-**[observed]** Three source checks and byte-for-byte regeneration of the flags
-table are recorded in `HANDOFF.md`.

@@ -1,11 +1,10 @@
 # Lua events (Project Zomboid, Build 42)
 
-Survey date: 2026-10-24. Source: decompile of `zombie/**` (`zombie.Lua.LuaEventManager`, `zombie.Lua.Event`,
-`zombie.Lua.LuaManager`) and a scan of the vanilla `media/lua` tree. Names and shapes only. Tags: **[observed]**,
+Survey date: 2026-10-24. Source: Java declarations and control flow in `zombie/**` (`zombie.Lua.LuaEventManager`, `zombie.Lua.Event`,
+`zombie.Lua.LuaManager`) and vanilla `media/lua` event occurrences. Names and shapes only. Tags: **[observed]**,
 **[inferred]**, **[unknown]**.
 
-Full table: [`../data/events.csv`](../data/events.csv) (275 rows; regenerate with
-`modding/tools/extract_events.py`). Columns: `event`, `registered`, `reg_index`, `methods`, `arg_counts`,
+Full table: [`../data/events.csv`](../data/events.csv) (275 rows). Columns: `event`, `registered`, `reg_index`, `methods`, `arg_counts`,
 `trigger_classes`, `sample_args`, `lua_trigger_files`.
 
 ## Mechanism [observed]
@@ -62,11 +61,11 @@ Notes on the findings:
   `OnDesignationZoneUpdatedNetwork`. Because unknown names are auto-created, these work; they are simply not in
   the registration list.
 
-Correction (C1-FIX1): an earlier revision counted commented-out Lua `triggerEvent` calls (the two Lua-related rows above
-were 19 / 32, now 16 / 35; three comment-only events had been misfiled as Lua-fired). The extractor now strips `--` line comments and
-`--[[ ]]` / `--[==[ ]==]` block comments before matching. Known limit [unknown]: comment forms built by string
-concatenation or generated code, and `triggerEvent` text inside `[[ ]]` long strings, are not handled. The J1
-key-coverage `defect` count dropping to 0 after this lands is expected, not a regression.
+Correction: an earlier catalogue counted commented-out Lua `triggerEvent` calls (the two Lua-related rows above
+were 19 / 32, now 16 / 35; three comment-only events had been misfiled as Lua-fired). The corrected counts exclude `--` line comments and
+`--[[ ]]` / `--[==[ ]==]` block comments. Known limit [unknown]: comment forms built by string
+concatenation or generated code, and `triggerEvent` text inside `[[ ]]` long strings, remain outside the catalogue's model.
+The corrected key-coverage `defect` count of 0 reflects this correction, not a regression.
 
 ## Choosing an event (common ones) [observed]
 

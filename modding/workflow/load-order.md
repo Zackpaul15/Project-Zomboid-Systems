@@ -2,7 +2,7 @@
 
 Survey date: 2026-10-24. Build: jar sha256 prefix `e1a69eb7`.
 Sources: installed Lua `require`/event usage; engine order is cross-referenced to
-Claude's [lifecycle.md](../lua-api/lifecycle.md). Claims are **[observed]** unless
+[lifecycle.md](../lua-api/lifecycle.md). Claims are **[observed]** unless
 tagged **[inferred]** or **[unknown]**. No source bodies are copied.
 
 ## Startup and folder order
@@ -51,12 +51,11 @@ that every edit is safely hot-reloadable.
 
 **[observed]** The distribution helpers subscribe to pre/merge/post-distribution
 events, while the UI menu modules subscribe to rendering/input/world hooks.
-See [distributions.md](../lua-library/distributions.md) and the generated
+See [distributions.md](../lua-library/distributions.md) and the
 [vanilla-event-subscriptions.csv](../data/vanilla-event-subscriptions.csv).
 **[inferred]** Choose a hook from its arguments and source phase, not just its
 name. In particular, client menu readiness does not imply that a world or
 server-owned object is ready for mutation.
 
-**[observed]** Three installed-Lua source checks per page are recorded in
-`HANDOFF.md`. Engine order claims retain the confidence and limits of Claude's
-reference rather than being presented as results of a runtime test here.
+**[observed]** Engine-order claims retain the confidence and limits of the lifecycle reference.
+**[unknown]** Runtime ordering beyond those source-level paths remains unverified.

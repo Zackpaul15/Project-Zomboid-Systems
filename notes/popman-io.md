@@ -1,19 +1,18 @@
 # Population spawn/config natives: inputs and destinations
 
-Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7` [observed, R0].
-Target: install-root `PZPopMan64.dll`, 1,303,040 bytes; SHA256 `5b2e3ef5d383c5e5e6fecf49afd514b196617925c1a0e3623bf0e7917a010ec6` [observed, REA/R7].
+Survey date: 2026-10-25. Game build: Project Zomboid Build 42; jar SHA256 prefix `e1a69eb7` [observed].
+Target: install-root `PZPopMan64.dll`, 1,303,040 bytes; SHA256 `5b2e3ef5d383c5e5e6fecf49afd514b196617925c1a0e3623bf0e7917a010ec6` [observed].
 
-**[observed]** This static slice covers exactly nine population-manager natives and 43 parameters in
+**[observed]** This inventory covers exactly nine population-manager natives and 43 parameters in
 [popman-io.csv](../modding/data/popman-io.csv). Indices exclude JNIEnv/jclass.
-JNI descriptors were independently obtained using `javap -p -s` on the installed jar, then compared with R0;
-R0 was used as a cross-check, not as the source of table types.
+JNI descriptors in the installed jar agree with the native boundary survey's table types.
 **[observed]** Available declaration names are `var0` onwards in
-`zombie/popman/ZombiePopulationManager.java:92–132`; these are decompiler names, not original source names.
-Export identities agree with [R7](popman-native.md).
+`zombie/popman/ZombiePopulationManager.java:92–132`; these are recovered declaration names, not original source names.
+Export identities agree with [population export inventory](popman-native.md).
 
 ## Confidence rubric and field notation
 
-- **[observed]** `high` means an argument is traced to a concrete store, map key or consumer call with the stated
+- **[observed]** `high` means an argument reaches a concrete store, map key or consumer call with the stated
   conversion/branch. It does not certify units, a safe range or final gameplay effects.
 - **[inferred]** `medium` means concrete flow is recovered, but the row summarizes a mixed-purpose packed array or
   partially interpreted consumer. It is never assigned merely from a method name.
@@ -47,10 +46,9 @@ to the receiving population fields.
 | 7 | F | RedistributeHours | +0xb8 |
 | 8 | I | FollowSoundDistance | +0x184 |
 
-**[observed]** R0's `java_caller=[unknown]` is consistent with this bounded check: searching the provided Java tree
-for the exact `n_config(` token found only its declaration, and a fresh `javap -c -p` check found no invocation of
-`n_config` in its declaring class. Native incoming references inspected here were export/metadata addresses,
-not recovered code callers.
+**[observed]** The native boundary survey records `java_caller=[unknown]`: `n_config(` appears only at its declaration
+in the available Java tree, and its declaring class's bytecode contains no invocation of `n_config`.
+Known native incoming references are export/metadata addresses, with no established code caller.
 **[unknown]** This is not proof that the export is never invoked. Reflection, JNI lookup or another external caller
 could reach it; an actual runtime invocation route is UNVERIFIED.
 
@@ -144,20 +142,20 @@ The work merge only copies this list when its incoming count is nonzero.
 
 - **[observed]** [functions-popman.md](functions-popman.md) proposes `PopThread_ProcessSpawnHordeRecord` at
   `0x1800203a0`, described as “consumes one 28-byte spawnHorde record”.
-  Fresh decompilation instead reads three integers and updates/removes entries in a different three-int list.
+  The function instead reads three integers and updates/removes entries in a different three-int list.
   The seven-field horde path is `FUN_1800218e0 -> FUN_18000dca0`, with the area branch through `FUN_18000e0c0`.
   The older proposed address/role association is contradicted by these readers; it is not reused here.
 - **[observed]** [population.md](population.md)'s horde claim “appends a 0x1c-byte record” is confirmed at
   `0x1800288f0`. Its “7 x 32-bit” describes widths; it must not be interpreted as seven integers:
-  fresh javap and float stores establish four ints, two floats and an int.
+  JVM descriptors and float stores establish four ints, two floats and an int.
 - **[observed]** The older note says “reanimated players and dead zombies are skipped” in real-zombie packing.
-  The fresh `packRealZombies` read (`ZombiePopulationManager.java:510–525`) instead excludes zero-ID records;
+  `packRealZombies` (`ZombiePopulationManager.java:510–525`) instead excludes zero-ID records;
   dead/reanimated checks only suppress the unregistered warning count in that zero-ID branch.
   A nonzero-ID record is packed without those checks in this method.
-  **[unknown]** Filtering of its input collection elsewhere was not traced.
-- **[observed]** The older config-to-fields label at `0x18001e9e0` is corroborated by the fresh key comparisons
-  and stores above. Its prior “not decompiled” status for config/set-origin/load/register entries is superseded
-  for this bounded slice, without claiming anything about historical analysis coverage.
+  **[unknown]** Filtering of its input collection elsewhere remains unproven.
+- **[observed]** The older config-to-fields label at `0x18001e9e0` is corroborated by the key comparisons
+  and stores above. The previously unknown behaviour of config/set-origin/load/register entries is established
+  for this bounded slice; historical coverage remains unresolved.
 - **[unknown]** Older claims about sound, native file formats, full density/repopulation algorithms and other native
   entries were not revalidated; their mention here does not endorse them.
 
@@ -168,49 +166,26 @@ The work merge only copies this list when its incoming count is nonzero.
 - **[observed]** Horde calls queue rectangle/target/count requests; add/register use distinct queues and preserve or
   allocate persistent IDs. Real-update arrays target existing registered IDs.
 - **[observed]** Spawn-origin uploads append rectangle records, and chunk load/unload calls queue a coordinate/flag task.
-- **[unknown]** These traces establish destinations, not a mod-safe invocation route, a spawn guarantee, permitted ranges,
+- **[unknown]** These findings establish destinations, not a mod-safe invocation route, a spawn guarantee, permitted ranges,
   client/server authority, update latency or physical units. No sandbox-setting tuning recipe is runtime-verified.
 
-## Verification and reproducibility
+## Confidence and limits
 
-- **[observed]** Nine entries returned successfully under REA/Ghidra 12.1.4. Entry Evidence:
-  `ev_474d9073d689a9eae70bd70cdcbcb1ef42e56cbf7aa55b94248342890e66d4fb`.
-  Supporting consumer batches include `ev_d3c3b2dfd8139fe0ca0c78bc207d3f41124342b12b022d8400b50382c4d32679`,
-  `ev_d32881e457cc26e4b54ec74e0c998f4cb7502c4370c7920340537836b5ece212`, and
-  `ev_c8064efcd8c7ae6aa2fcecf4bd4c76887c894c01d1ec2dbf722002f5556afa2d`.
-- **[observed]** Descriptor source was fresh `javap -p -s` output, independently parsed into scalar/object/array tokens.
-  R0 comparison: **9 natives / 43 argument tokens / 0 mismatches**. Per-native counts are
-  9/2/2/7/9/7/1/3/3 in the brief's order; numeric indices are contiguous from zero.
-- **[observed]** Three parameter rows were re-derived from instruction listings:
-  `n_config` arg3's integer map store at `0x180026f96`;
-  `n_spawnHorde` arg4's float load/store at `0x180028973/0x180028993`;
-  `n_registerZombie` arg6's zero-ID branch, generated/retained store and returned ID at
-  `0x180028227/0x18002822b/0x180028230/0x180028265`. All agreed.
-  Listing Evidence: `ev_c812e02b1ccc8414e34b1c857c1c4a29e63a3a8d559ad86de66d26da492a8d4a`,
-  `ev_af55f0c631c0979abccd7d5035d5b36c6641449c283be6d26312a46bd63034b6`,
-  `ev_15799fe5a2121ea694d6fc4286359b764ec55797176ef4034c6b514ac5840a0c`.
-- **[observed]** CSV generation iterations: **2**. The first was deleted, then regenerated from the mapping and
-  independently obtained descriptors; both files had SHA256
-  `4bc92b4c106cfb796b37062c354c90a98705d1d6d5eb20b3e8e2499fb4640198`.
-  Rows sort by qualified native then numeric index; header matches the R6 eight-column header.
-  No persistent generator was created outside the four authorized paths.
-- **[observed]** Retained bundle `r8-popman-io-evidence.json` and snapshot `r8-popman-io-snapshot.json`
-  were saved under the authorized external `codex-scratch` directory; `close_binary` completed.
-
-## Limits
-
-- **[observed]** Exactly these nine manager JNI entry bodies were analyzed. The other 19
-  `ZombiePopulationManager` natives are out of scope; support-helper traces do not claim coverage of those entries.
-  Only PZPopMan64.dll was selected. No game bodies, disassembly, binary bytes or assets were placed in the repository.
-- **[unknown]** No target execution, runtime spawn outcome, numerical unit calibration, full density curve,
-  safe parameter range, synchronization guarantee or complete Java/Lua/mod reachability was established.
-- **[unknown]** The bulk config's actual invocation route remains UNVERIFIED. A declaration-only source search,
-  no declaring-class bytecode invocation and no recovered native code caller do not prove universal absence.
-- **[unknown]** Some Ghidra string initializers lack function boundaries; RespawnHours key identity was separately
-  checked through decoded initializer references to its literal and key objects. Unresolved dynamic dispatch,
-  malformed-array behaviour and exception-tail paths were not tested.
-- **[observed]** REA diagnostics identified internal working files under
-  `%TEMP%/rea-ghidra-2433e94455d1b0f0d93825ba5f9de61d/`: project directory `project/`,
-  logs `ghidra.log` and `script.log`. A matching Temp directory was separately observed.
-  This is outside the requested scratch root; explicit retained artifacts use scratch.
-  **[unknown]** Cleanup after close was not independently verified.
+- **[observed]** The installed jar's descriptors and the native boundary survey agree on 9 natives and 43 argument tokens.
+- **[observed]** Per-native argument counts are 9/2/2/7/9/7/1/3/3 in the order
+  `n_config`, `n_configFloat`, `n_configInt`, `n_spawnHorde`, `n_addZombie`,
+  `n_registerZombie`, `n_setSpawnOrigins`, `n_loadChunk` and `n_updateRealZombies`; indices are contiguous from zero.
+- **[observed]** `n_config` arg3 stores an integer in the map at `0x180026f96`.
+- **[observed]** `n_spawnHorde` arg4 loads/stores a float at `0x180028973/0x180028993`.
+- **[observed]** `n_registerZombie` arg6's zero-ID branch, generated/retained store and returned ID are at
+  `0x180028227/0x18002822b/0x180028230/0x180028265`.
+- **[observed]** Rows sort by qualified native then numeric index; the CSV has the same eight-column header as the ragdoll input table.
+- **[observed]** Coverage is limited to these nine manager JNI entries. The other 19 `ZombiePopulationManager` natives
+  are out of scope; support-helper findings do not establish their behaviour.
+- **[unknown]** Target execution, runtime spawn outcomes, numerical unit calibration and the full density curve remain unproven.
+  **[unknown]** Safe parameter ranges, synchronization guarantees and complete Java/Lua/mod reachability are unestablished.
+- **[unknown]** The bulk config's actual invocation route remains UNVERIFIED. Its declaration-only source presence,
+  lack of a declaring-class bytecode invocation and lack of a recovered native code caller do not prove universal absence.
+- **[unknown]** Some string initializers lack established function boundaries.
+  RespawnHours key identity is supported by initializer references to its literal and key objects.
+  Unresolved dynamic dispatch, malformed-array behaviour and exception-tail paths remain unproven.

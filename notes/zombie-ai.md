@@ -1,13 +1,13 @@
 # Zombie AI (zombie.ai and zombie.ai.states)
 
-Confidence tags: **[observed]**, **[inferred]**, **[unknown]**. Source: Vineflower output of `zombie.ai`
+Confidence tags: **[observed]**, **[inferred]**, **[unknown]**. Scope: `zombie.ai`
 (99 files). No game code is copied; numbers are constants read from it. Timers marked "30fps" are scaled with
 `getThirtyFPSMultiplier`.
 
 ## Framework
 
 - **[observed]** `State` / `StateMachine` / `StateManager`; zombie states include `ZombieIdleState`,
-  `WalkTowardState`, `PathFindState`, `LungeState`, `ThumpState` (+ others not read yet).
+  `WalkTowardState`, `PathFindState`, `LungeState`, `ThumpState` (+ other unresolved states).
 
 ## ZombieGroupManager (rally groups)
 

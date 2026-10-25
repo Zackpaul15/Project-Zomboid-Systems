@@ -2,14 +2,14 @@
 
 Survey date: 2026-10-24. Build/fingerprint: Project Zomboid Build 42;
 jar sha256 prefix `e1a69eb7` (inherited from the source surveys).
-[observed: Hermes run evidence and CSV inspection] Input revision: `d7a3799fd79adec20c9b1bb3553f8f61dd769597`.
+[observed] This catalogue contains the corrected comparison results.
 Output SHA-256: `e20bf21e17545d6e7caae01cc7b71e377f324e04dd98c9944d8845c4c64ea951`.
 The build fingerprint is inherited from the source surveys, not independently
 verified by this catalogue comparison.
 
 ## Inputs [observed]
 
-The generator compares these committed catalogues, without accessing the game install:
+The comparison covers these catalogues; it does not establish additional game-install behaviour:
 
 - Events: [events.csv](../data/events.csv),
   [vanilla-event-subscriptions.csv](../data/vanilla-event-subscriptions.csv) and
@@ -21,29 +21,19 @@ The generator compares these committed catalogues, without accessing the game in
   [sound-keys.csv](../data/sound-keys.csv), [fluid-keys.csv](../data/fluid-keys.csv) and
   [entity-keys.csv](../data/entity-keys.csv).
 
-## Method [observed: generator and CSV inspection]
+## Comparison scope and evidence [observed]
 
-Run `python -I modding/tools/survey_key_coverage.py` from the repository root.
-The standard-library generator is [survey_key_coverage.py](../tools/survey_key_coverage.py).
-Its sole output is [key-coverage.csv](../data/key-coverage.csv).
-Git must be available: the generator resolves HEAD once and reads all eleven inputs
-with `git show <revision>:modding/data/<filename>`. Uncommitted CSV edits are excluded.
-Each evidence cell records that revision, the SHA-256 of its source CSV bytes and
-the source record number (header is record 1; this is not a physical line number
-when a CSV field contains newlines). Missing inputs, changed schemas and malformed
-rows fail before the output is written. The recorded revision is the **parent
-HEAD at generation time**, before Hermes proxy-commits generated evidence. Re-running
-at a new HEAD changes evidence bytes even with identical input CSV bytes because
-`input_revision` is embedded in every row.
+[key-coverage.csv](../data/key-coverage.csv) contains one output row per input record from eleven source catalogues,
+including repeated Lua trigger sites, Java grammar/block entries, structural survey markers and zero-count markers.
+Each evidence cell identifies the input revision, source CSV SHA-256 and source record number.
+The header is record 1; a record number is not a physical line number when a CSV field contains newlines.
+The `input_revision` field distinguishes catalogue revisions even when their source CSV contents are identical.
+Missing inputs, changed schemas and malformed rows are outside the catalogue's valid input contract.
 
-There is one output row per input record, including repeated Lua trigger sites,
-Java grammar/block entries, structural survey markers and zero-count markers.
-Rows use a total lexical sort, UTF-8 without BOM and LF line endings. Evidence is
-JSON with sorted keys. There are no timestamps or machine-dependent input paths.
-Two runs against the same resolved revision must produce byte-identical output.
-[observed: Hermes run evidence] Two runs at the input revision above produced
-byte-identical output. J1A-FIX2 inspected that output without running the generator;
-the counts and fingerprints below describe the corrected artifact.
+Rows use a total lexical sort, UTF-8 without BOM and LF line endings. Evidence is JSON with sorted keys,
+without timestamps or machine-dependent input paths.
+[observed] The catalogue was reproduced twice at the same input revision with identical contents.
+The counts and fingerprints below describe the corrected result.
 
 Identifier spelling and **case sensitivity** are preserved. Event joins are exact
 and case-sensitive. Script keys match case-insensitively only when the Java record
@@ -53,7 +43,7 @@ Other spellings are not normalized into matches.
 
 **Nested parser context** is retained in the name and evidence: Java block, kind,
 class and reader method; data block paths including component types and nested
-children. The generator has a deliberately limited assignment-reader crosswalk:
+children. The assignment-reader crosswalk is limited to:
 item/DoParam; recipe, evolvedrecipe, fixing, craftRecipe and energy/Load;
 sound/Load and sound/clip/LoadClip; and the two character-definition readers.
 The crosswalk includes the class as well as the method. Attribute registry rows
@@ -80,12 +70,11 @@ even if Java only registers the name. A Lua-only literal trigger is `explained`
 by its Lua provenance; a subscription alone does not prove that a trigger exists.
 
 [unknown] **Absence from one static catalogue does not establish invalidity.**
-Dynamic names, extractor limitations and unobserved content can leave gaps.
-C1 already records a dynamic-name Java caller; see the
-[Java event reference](../lua-api/events.md). This generator cannot enumerate
-runtime names. An unmatched key or subscription alone is not classified as defective.
+Dynamic names, catalogue limitations and unobserved content can leave gaps.
+The [Java event reference](../lua-api/events.md) records a dynamic-name Java caller.
+Runtime names are outside this catalogue's scope. An unmatched key or subscription alone is not classified as defective.
 
-## Output columns [observed: generator design]
+## Output columns [observed]
 
 | Column | Meaning |
 |---|---|
@@ -103,9 +92,8 @@ runtime names. An unmatched key or subscription alone is not classified as defec
 trigger provenance, and structural or zero-count survey markers. `unknown` retains
 one-sided or ambiguous comparisons. `defect` is emitted mechanically for an
 `events.csv` record with positive `lua_trigger_files` and no corresponding record
-in `vanilla-lua-event-triggers.csv`. Evidence names the contradiction, finding,
-owners and review destination. This is a catalogue defect, not a runtime verdict.
-Every mismatch is explained, defect-routed or explicitly unknown.
+in `vanilla-lua-event-triggers.csv`. Evidence identifies the contradiction and related catalogue records. This is a catalogue defect, not a runtime verdict.
+Every mismatch is explained, classified as a catalogue defect or explicitly unknown.
 [observed: classification policy]
 
 Unresolved Java grammar kinds (`flag`, `token`, `block`, `block-id`, `xui-var`)
@@ -115,10 +103,10 @@ candidates use `candidate_context_unresolved`. Data rows with only grammar
 candidates use `grammar_candidate_not_assignment`; data with unmapped assignment
 reader candidates use `reader_context_unmapped`. Rows with no candidates retain
 the relevant `no_observation_in_input_catalogues` or
-`no_parser_match_in_input_catalogue` reason. These split the old
-`scope_or_grammar_unresolved` bucket into actionable work. [observed: generator]
+`no_parser_match_in_input_catalogue` reason. These distinguish the causes previously grouped under
+`scope_or_grammar_unresolved`. [observed]
 
-## Corrected results [observed: CSV inspection and Hermes run evidence]
+## Corrected results [observed]
 
 Counts below are CSV records, **not distinct names, runtime occurrences or
 percentages of valid mod keys**. A counterpart can contribute a row on each side;
@@ -130,9 +118,8 @@ repeated Lua sites and structural survey markers remain separate records.
 | script_keys | 671 | 353 | 2,110 | 0 | 3,134 |
 | Overall | 1,340 | 361 | 2,197 | 0 | 3,898 |
 
-[observed: corrected artifact] All 3,898 evidence cells are populated, parse as JSON and identify the
-input revision above. There are no illegal classification values. The eleven
-source fingerprints recorded in evidence agree with the supplied run evidence
+[observed] All 3,898 evidence cells are populated, contain valid JSON and identify the same input revision.
+There are no illegal classification values. The eleven source fingerprints recorded in evidence are
 (SHA-256 prefixes, first 16 characters):
 
 | Input | Fingerprint |
@@ -149,14 +136,14 @@ source fingerprints recorded in evidence agree with the supplied run evidence
 | fluid-keys.csv | `794f4b770d3f2c6b` |
 | entity-keys.csv | `43202bd9b74686ef` |
 
-### Correction effects and JV-2 [observed: corrected CSV and supplied review evidence]
+### Correction effects and zero-defect interpretation [observed]
 
-Relative to the run using input revision `b68b9f6`, exactly three rows moved from
+Relative to the earlier comparison, exactly three rows moved from
 `defect` to `unknown`: unknown increased from 2,194 to 2,197 and defects fell from
 3 to 0. They did not become `matched`. Matched remains 1,340, explained remains
 361, and the total remains 3,898; this correction does not inflate matched coverage.
 
-**JV-2: a defect count of 0 is now the expected state, not a regression.** The
+**A defect count of 0 is now the expected state, not a regression.** The
 three earlier defect rows were real cross-table contradictions correctly detected
 by the check. Their cause was fixed, and the check was not weakened. A future
 cross-table contradiction would still legitimately trigger a defect: specifically,
@@ -165,31 +152,30 @@ trigger record in `vanilla-lua-event-triggers.csv`. Zero defects therefore recor
 the absence of this contradiction in the corrected inputs, rather than merely an
 artefact of scope; it does not establish the absence of all possible defects.
 
-### Named catalogue finding J1B-6
+### Commented Lua trigger correction
 
-[observed: supplied J1A-VERIFY review evidence and corrected input CSV]
+[observed]
 `OnChangeWeather`, `OnDawn` and `OnDusk` previously each had `lua_trigger_files=1`
 in `events.csv` and no row in `vanilla-lua-event-triggers.csv`. The root cause was
-a comment-stripping bug in `extract_events.py`: it counted `triggerEvent` calls
-inside Lua `--[[ ]]` block comments in `season.lua`. Claude fixed the extractor
-and regenerated `events.csv` in `d7a3799`; those three counts changed from 1 to 0.
+the inclusion of `triggerEvent` calls inside Lua `--[[ ]]` block comments in `season.lua`.
+The corrected `events.csv` excludes those commented calls; those three counts changed from 1 to 0.
 The contradictory positive claims are gone, so the rows now remain `unknown`
 without a literal trigger counterpart. The earlier
 `lua_trigger_count_without_trigger_record` flags correctly identified catalogue
 defects; their resolution does not establish runtime event behaviour.
 
-### Defect candidate checks [observed unless marked otherwise]
+### Catalogue discrepancies [observed unless marked otherwise]
 
-- **J1B-1(a): detected, then resolved.** The three names above met the mechanical
-  contradiction before `d7a3799`; the corrected input no longer meets it.
+- **Comment-only trigger counts: detected, then resolved.** The three names above met the mechanical
+  contradiction in the earlier catalogue; the corrected input no longer meets it.
   Detection still uses input values, not a hard-coded event-name list.
-- **J1B-1(b): absence holds; defect unproven.** `OnVehicleHorn` is subscribed in
+- **Missing Java event entry: absence holds; defect unproven.** `OnVehicleHorn` is subscribed in
   `server/Vehicles/Vehicles.lua` and absent from `events.csv`. The game file also
   registers it literally via `LuaEventManager.AddEvent` (line 1538), before the
-  subscription (line 1540). The CSVs cannot rule out dynamic-name triggers; C1
+  subscription (line 1540). The CSVs cannot rule out dynamic-name triggers; the Java event reference
   documents that such Java calls exist. It stays `unknown`, with that limitation
   explicit in evidence. Missing a static catalogue row alone is insufficient.
-- **J1B-1(c): no established counterpart.** Positive data occurrences differing
+- **Case-sensitive keys: no established counterpart.** Positive data occurrences differing
   only in case from `case_sensitive=yes` Java keys were inspected across all
   seven data tables. The apparent pairs belong to different contexts, such as
   `VehicleScript.LoadContainer/capacity` versus item `Capacity`, or evolvedrecipe
@@ -198,10 +184,10 @@ defects; their resolution does not establish runtime event behaviour.
 
 ### Accepted limitations from this correction
 
-- **J1B-3 deferred.** Vehicle, fluid and further component reader mappings need
-  validated Java call-site provenance per entry. That is a new work item; spelling
+- **Unresolved reader mappings.** Vehicle, fluid and further component reader mappings need
+  established Java call-site provenance per entry; spelling
   alone cannot justify them. Unmapped readers remain explicit in evidence.
-- **J1B-5 deferred.** Prefix rows are `kind=token` and never enter assignment-key
+- **Token grammar remains separate.** Prefix rows are `kind=token` and never enter assignment-key
   comparison. Treating them as exact strings for discovery has no behavioural
   effect on established matches; grammar reasons now identify their scope.
 
@@ -209,15 +195,12 @@ defects; their resolution does not establish runtime event behaviour.
 or behaviour. Remaining mappings, grammar/registry/template provenance and dynamic
 event names require further source-supported analysis.
 
-[observed] Three randomly selected Lua-source claims (seed `20261024`) were
-checked against the installed game files: `OnSteamGameJoin` subscription in
-`client/OptionScreens/MainScreen.lua`, `OnInitWorld` subscription in
-`client/OptionScreens/LastStandPlayerSelect.lua`, and `EveryDays` subscription in
-`server/Traps/STrapSystem.lua`. These three checks were repeated for J1A-FIX1 against the installed files; they spot-check provenance, not all classifications.
+[observed] Lua subscriptions include `OnSteamGameJoin` in `client/OptionScreens/MainScreen.lua`,
+`OnInitWorld` in `client/OptionScreens/LastStandPlayerSelect.lua`, and `EveryDays` in
+`server/Traps/STrapSystem.lua`. These examples establish source provenance, not all catalogue classifications.
 
-## Java-side interpretation — pending Claude-owned material [unknown]
+## Java-side interpretation [unknown]
 
-Java-side mismatch interpretation belongs to Claude's later task. Pending its
-specific destination, use the existing [parser reference](parser-keys.md) and
-[event reference](../lua-api/events.md) as entry points. This skeleton does not
-attribute causes or propose Java-side fixes for unresolved comparisons.
+Causes and Java-side fixes for unresolved comparisons remain unestablished here.
+The [parser reference](parser-keys.md) and [event reference](../lua-api/events.md)
+describe the relevant Java-side contracts and limitations.

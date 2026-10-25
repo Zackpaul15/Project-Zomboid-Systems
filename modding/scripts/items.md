@@ -5,16 +5,14 @@ Sources: installed `media/scripts/**/*.txt`, English item-name translations,
 and clothing XML filenames. Claims are **[observed]** unless marked
 **[inferred]** or **[unknown]**. No game definitions or per-item values are reproduced.
 
-## Coverage and reproduction [observed]
+## Coverage [observed]
 
 There are **5,105 item blocks**, all immediately inside modules, with **363 distinct
 direct property names** and **15 ItemType identifiers**. Counts describe source
 occurrences before runtime merging, not the final item registry. All direct entries
 in these item blocks are assignments; nested components are counted separately.
 
-Run `python -I modding/tools/survey_items.py` from the repository root, optionally
-with `--game PATH`. The generator uses the structural reader from
-[`survey_scripts.py`](../tools/survey_scripts.py) and writes these deterministic tables:
+The item tables use the script inventory's structural definitions:
 
 - [item-properties.csv](../data/item-properties.csv): `property, count, types_seen_on, value_shape, example_shape`.
 - [item-component-properties.csv](../data/item-component-properties.csv): the same fields with a `block_path` prefix.
@@ -132,15 +130,10 @@ paths are retained; enclosing item identifiers and all source values are omitted
 
 ## Limits and source checks
 
-**[inferred]** Coverage inherits the X1 reader's brace/comma and block-comment
-handling. It does not implement arbitrary quoted delimiters, validate references
-through Java, or model overrides. Repeated keys are retained rather than collapsed;
+**[inferred]** Coverage follows the script inventory's brace/comma and block-comment
+boundaries. Arbitrary quoted delimiters, Java reference validity and overrides remain outside its scope. Repeated keys are retained rather than collapsed;
 the observed type for an item is its final textual `ItemType` assignment, falling
 back to `Type` only if absent. All current items have `ItemType`.
 
-**[observed]** Three claims selected with seed `20261024` were independently
-rechecked against raw installed script text: no item uses `DisplayName`;
-`BiteDefense` is restricted to clothing items; and direct `Capacity` is restricted
-to container items.
-The checks use a separate item-boundary matcher, remove nested component bodies
-for direct-key counts, and compare the results with the generated tables.
+**[observed]** No item uses `DisplayName`; `BiteDefense` is restricted to clothing items;
+direct `Capacity` is restricted to container items. These direct-key findings exclude nested component bodies.

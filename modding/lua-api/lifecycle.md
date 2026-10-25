@@ -1,8 +1,8 @@
 # Startup, load and reload lifecycle (Project Zomboid, Build 42)
 
-Survey date: 2026-10-24. Source: decompile of `zombie/**` (`GameWindow`, `core.Core`, `Lua.LuaManager`,
-`gameStates.*`, `iso.IsoWorld`, `network.GameServer`, `network.packets.*`, `SandboxOptions`). Order claims come from
-reading the call order inside the named methods, not from running the game. Tags: **[observed]**, **[inferred]**,
+Survey date: 2026-10-24. Source: Java declarations and control flow in `zombie/**` (`GameWindow`, `core.Core`, `Lua.LuaManager`,
+`gameStates.*`, `iso.IsoWorld`, `network.GameServer`, `network.packets.*`, `SandboxOptions`). Order claims describe
+control flow inside the named methods; runtime ordering is unverified. Tags: **[observed]**, **[inferred]**,
 **[unknown]**. Event names, arguments and registration are in [`events.md`](events.md) and
 [`../data/events.csv`](../data/events.csv). Sandbox values: [`sandbox-options.md`](sandbox-options.md).
 

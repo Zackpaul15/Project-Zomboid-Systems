@@ -33,20 +33,18 @@ This invented working layout avoids relying on the flat legacy samples:
 **[observed]** `Workshop/ModTemplate` contains two example map folders, a flat
 `mod.info`, poster and Workshop wrapper. `mods/examplemod` contains a flat
 `mod.info`, a tuning Lua file, a music helper, music files and a UI image.
-`media/luaexamples` contains old UI/action demonstrations. None of these sample
+`media/luaexamples` contains old UI/action demonstrations. **[observed]** None of these sample
 trees has a `42` or `common` directory. Their complete filename inventory is
-[mod-sample-files.csv](../data/mod-sample-files.csv), generated with
-`python -I modding/tools/survey_workflow.py`. Describe their roles when learning
+[mod-sample-files.csv](../data/mod-sample-files.csv). Describe their roles when learning
 the structure; do not copy their assets or assume their APIs are current.
 
 ## Create and load hello world
 
 **[inferred, source-based walkthrough]** These steps are intended for a fresh
-local test. They were checked against the loader and menu source, not executed
-in the game during this documentation task.
+local test. They reflect loader and menu control flow; in-game execution remains unverified.
 
 1. Find the cache folder used by this launch. On a default Windows setup it is
-   normally `%UserProfile%\Zomboid`; `-cachedir=` can change it. Create the
+   normally `<user profile>\Zomboid`; `-cachedir=` can change it. Create the
    `GuideHello` tree above under that folder's `mods` directory. Ensure the actual
    filenames are `mod.info` and `GuideHello.lua`, without an extra `.txt` suffix.
 2. Create `42/mod.info` with these invented lines:
@@ -78,7 +76,3 @@ in the game during this documentation task.
 **[observed]** MainScreen/NewGame/LoadGame UI code opens the mod selector in
 different modes. **[unknown]** This static walkthrough does not guarantee UI
 wording, a particular machine's cache path or successful runtime execution.
-No user mod folder or game installation was changed by this task.
-
-**[observed]** Three source checks per page and reproducibility of the X8 CSVs
-are recorded in `HANDOFF.md` before this package is marked complete.

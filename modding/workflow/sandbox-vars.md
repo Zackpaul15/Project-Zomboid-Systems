@@ -1,7 +1,7 @@
 # Sandbox variables and custom options
 
 Survey date: 2026-10-24. Build: jar sha256 prefix `e1a69eb7`.
-Sources: installed `media/lua/shared/Sandbox` and Claude's
+Sources: installed `media/lua/shared/Sandbox` and the
 [sandbox-options.md](../lua-api/sandbox-options.md). Claims are **[observed]**
 unless tagged **[inferred]** or **[unknown]**. Examples are invented.
 
@@ -16,8 +16,8 @@ such as `ZombieLore`, `ZombieConfig`, `MultiplierConfig`, `Map` and `Basement`.
 
 **[observed, engine reference]** The Java sandbox options and Lua `SandboxVars`
 are separate copies. Assigning a Lua field does not automatically synchronize
-the Java option or connected peers. Claude's reference covers synchronization,
-defaults, persistence and all 269 built-in options. Use its generated
+the Java option or connected peers. The reference covers synchronization,
+defaults, persistence and all 269 built-in options. Use its
 [sandbox-options.csv](../data/sandbox-options.csv) rather than treating a single
 preset as the complete engine defaults.
 
@@ -49,7 +49,7 @@ Add original labels to `42/media/lua/shared/Translate/EN/Sandbox.json`, using
 `Sandbox_GuideHello` for the page and `Sandbox_GuideHello_Enabled` for the option.
 After initialization the dotted option name corresponds to
 `SandboxVars.GuideHello.Enabled`. **[unknown]** This invented example was not
-loaded in-game; it illustrates the parser contract confirmed in Claude's page.
+loaded in-game; it illustrates the parser contract confirmed in the reference page.
 
 **[inferred]** Read world settings after their initialization phase, preserve
 existing `SandboxVars` rather than replacing the whole table, and use the relevant
@@ -57,5 +57,4 @@ engine/network mechanism for runtime changes. See
 [load-order.md](load-order.md) and [multiplayer.md](../lua-api/multiplayer.md).
 **[unknown]** A Lua mutation alone does not prove persistence or replication.
 
-**[observed]** Three installed-source checks per page are recorded in
-`HANDOFF.md`; sandbox registration details retain their engine-reference tags.
+**[observed]** Sandbox registration details retain their engine-reference confidence tags.

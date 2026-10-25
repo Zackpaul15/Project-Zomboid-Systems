@@ -5,16 +5,15 @@ Source: installed `media/scripts/**/*.txt`. Claims are **[observed]** unless
 marked **[inferred]** or **[unknown]**. Only identifiers, counts and shapes are
 recorded; no per-fluid nutritional, color or poison values are reproduced.
 
-## Coverage and reproduction [observed]
+## Coverage [observed]
 
 There are **61 `fluid` blocks in three files** and **seven `energy` blocks in one
 file**. The fluid files are `generated/fluids.txt`, `generated/fluids_Alcoholic.txt`
 and `generated/fluids_Beverages.txt`; energy definitions are in
 `generated/energies.txt`. All these blocks are module-level definitions.
 
-Run `python -I modding/tools/survey_components.py` for
 [fluid-keys.csv](../data/fluid-keys.csv) and the shared
-[component-blocks.csv](../data/component-blocks.csv). Columns are
+[component-blocks.csv](../data/component-blocks.csv) describe fluid/energy definitions. Columns are
 `block_type, key, count, value_shape, notes`. Context paths retain case:
 `fluid/Categories` and `fluid/BlendWhiteList/categories` are different contexts.
 `<block>` counts structural blocks and `<entry>` counts bare comma-delimited
@@ -74,15 +73,12 @@ numeric components; the three texture properties contain resource paths.
 The shared lexical classifier records those multi-colon values as `string`,
 which is a fallback category, not a claim that they lack color structure.
 **[unknown]** These seven definitions do not demonstrate energy consumption in
-the module-level vanilla craft recipes surveyed in X3. The Java grammar accepts
+the module-level vanilla craft recipes in the crafting inventory. The Java grammar accepts
 more resource forms than this subset of source files exercises.
 
-**[inferred]** Tables share the X1 reader's structural limitations and describe
+**[inferred]** Tables share the script inventory's structural limitations and describe
 textual occurrences before overrides. Consult [parser-keys.md](parser-keys.md)
 for accepted fields and conversions, rather than using absent source keys as
 evidence of rejection or defaults.
 
-**[observed]** Three source checks selected with seed `20261024`: 61 `Categories`
-blocks, 56 `BlendWhiteList` blocks and 61 fluid definitions. An independent
-module-depth scan confirms family block/file counts; all six X4 CSVs reproduce
-byte-for-byte. Checks are recorded in `HANDOFF.md`.
+**[observed]** There are 61 `Categories` blocks, 56 `BlendWhiteList` blocks and 61 fluid definitions.

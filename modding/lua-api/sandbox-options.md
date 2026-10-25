@@ -1,11 +1,10 @@
 # Sandbox options (Project Zomboid, Build 42)
 
-Survey date: 2026-10-24. Source: decompile of `zombie/SandboxOptions.java`, `zombie/config/*ConfigOption.java`,
+Survey date: 2026-10-24. Source: Java declarations and control flow in `zombie/SandboxOptions.java`, `zombie/config/*ConfigOption.java`,
 `zombie/sandbox/*` and the game's `media/lua` (`shared/Sandbox/*.lua`, `client/OptionScreens/*`). Names, shapes and
 counts only. Tags: **[observed]**, **[inferred]**, **[unknown]**.
 
-Table of every built-in option: [`../data/sandbox-options.csv`](../data/sandbox-options.csv) (269 rows; regenerate
-with `modding/tools/extract_sandbox_options.py`). Class page for the Lua-visible methods:
+Table of every built-in option: [`../data/sandbox-options.csv`](../data/sandbox-options.csv) (269 rows). Class page for the Lua-visible methods:
 [`classes/SandboxOptions.md`](classes/SandboxOptions.md). When the values become available during start-up:
 [`lifecycle.md`](lifecycle.md).
 

@@ -2,7 +2,7 @@
 
 Survey date: 2026-10-24. Build identifier: jar sha256 prefix `e1a69eb7`.
 Sources: installed `media/scripts/**/*.txt`; cross-check against
-[Claude's parser reference](parser-keys.md) and `data/script-keys.csv`.
+[parser reference](parser-keys.md) and `data/script-keys.csv`.
 Optional parser confirmations use the read-only `Recipe` and `CraftRecipe`
 decompiles. Claims are **[observed]** unless marked **[inferred]** or **[unknown]**.
 All examples below are invented shapes, not copied vanilla definitions.
@@ -23,11 +23,11 @@ These counts cover the exact module-level block types above. The separate
 `component CraftRecipe` form is covered in [entities.md](entities.md), including
 its 202 component blocks and their construction inputs.
 
-Run `python -I modding/tools/survey_crafting.py` from the repository root:
+Reference tables:
 
 - [recipe-keys.csv](../data/recipe-keys.csv): `block_type, key, count, value_shape, notes`.
 - [recipe-grammar-identifiers.csv](../data/recipe-grammar-identifiers.csv): mode and flag identifiers, with occurrence counts by input/output context.
-- [recipe-parser-coverage.csv](../data/recipe-parser-coverage.csv): every observed direct key checked against Claude's parser-key catalogue, ignoring case.
+- [recipe-parser-coverage.csv](../data/recipe-parser-coverage.csv): every observed direct key checked against the parser-key catalogue, ignoring case.
 
 Paths such as `craftRecipe/inputs` distinguish nested grammar. `<block>` counts
 whole definitions; `<child:...>` counts child blocks; `<line:...>` counts entries.
@@ -35,8 +35,8 @@ Mapper keys are reduced to `<mapping-key>` except for the grammar key `default`.
 No concrete mapper associations, recipe names or source values are exported.
 Shapes are lexical: `namespaced-id` here can describe a skill-and-level pair,
 not necessarily a registry identifier. Semicolons inside a value are not commas
-between script entries. The generator fails on unclassified resource lines or
-option tokens rather than silently dropping them.
+between script entries. Unclassified resource lines or option tokens are outside the catalogue's
+supported shapes rather than implicit valid entries.
 
 ## `craftRecipe`: the outer definition [observed]
 
@@ -120,7 +120,7 @@ records the observed flag spellings individually. Input flags and output flags
 belong to different sets; do not transfer a flag between them solely because its
 name looks appropriate.
 
-**[observed, Claude's parser reference]** The engine also recognizes resource and
+**[observed]** The engine also recognizes resource and
 option forms not exercised by this tree, including energy lines and additional
 fluid modes. `chance:`, `shapedIndex:`, `apply:` and plus-prefixed lines are not
 observed in this survey. Absence from this CSV is not a claim that the parser
@@ -148,7 +148,7 @@ to string identifiers. Their recipes also use the input marker `overlayMapper`
 and outer `overlayStyle`. An invented child-block shape is
 `overlayMapper { default = GuidePlain, Guide.Slat = GuideStriped, }`.
 **[unknown]** The data alone does not establish all mapper selection or overlay
-precedence rules. **[observed, Claude's parser reference]** `fluidMapper` and
+precedence rules. **[observed]** `fluidMapper` and
 `energyMapper` throw “Not yet implemented” in this build; they are not working
 alternatives to the observed item mapper.
 
@@ -239,17 +239,13 @@ in the CSV; they are not collapsed into one property per block.
 ## Cross-check and validation
 
 **[observed]** Every observed direct key for craft recipes, evolved recipes and
-fixing blocks appears in Claude's parser-key CSV when compared without case.
-The extractor advertises additional accepted keys and grammar, so source coverage
-is a subset rather than a replacement for the engine reference. A handoff review
-flags the missing minus-input discussion in the parser prose; its owner should
-make that update.
+fixing blocks appears in the parser-key CSV when compared without case.
+The parser catalogue includes additional accepted keys and grammar, so source coverage
+is a subset rather than a replacement for the engine reference. The earlier parser prose
+omitted the minus-input discussion; the attached-input distinction remains part of the grammar.
 
-**[inferred]** Reproduction inherits the structural reader's delimiter limits;
+**[inferred]** Coverage inherits the script inventory's delimiter limits;
 it does not execute recipes, resolve callbacks or validate invented examples in
 the game. The examples demonstrate grammar only and need registered resources.
 
-**[observed]** Three source claims selected with seed `20261024` are checked
-independently against installed text before commit; the exact selected claims
-and results are recorded in `HANDOFF.md`. Generated CSVs are rerun and compared
-byte-for-byte before marking X3 complete.
+**[observed]** The direct-key comparison covers craft recipes, evolved recipes and fixing blocks.

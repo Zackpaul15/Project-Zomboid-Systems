@@ -8,13 +8,11 @@ unless tagged **[inferred]** or **[unknown]**. No sample values are copied.
 
 ## Observed keys and parser coverage [observed]
 
-The two installed sample files contain five distinct keys: `name`, `id`,
+**[observed]** The two installed sample files contain five distinct keys: `name`, `id`,
 `description`, `poster` and `url`. The parser confirmation adds twelve recognized
 keys not exercised by those samples. All seventeen are in
 [mod-info-keys.csv](../data/mod-info-keys.csv), with sample-file/occurrence counts,
-lexical shapes and parser presence. Regenerate using
-`python -I modding/tools/survey_workflow.py`; `--source PATH` selects the read-only
-decompile input. `not-sampled` is not a claim that a key is unsupported.
+lexical shapes and parser presence. `not-sampled` is not a claim that a key is unsupported.
 
 | Keys | Purpose/shape | Evidence |
 |---|---|---|
@@ -51,6 +49,3 @@ sample `mod.info`, and is not one of the extracted mod-info parser keys.
 `modversion`, game compatibility bounds and version-folder selection are separate
 concepts. **[unknown]** Do not infer a game-build restriction merely from a
 mod author's release-version label.
-
-**[observed]** Three source claims are rechecked and recorded in `HANDOFF.md`;
-the generator reproduces the metadata table byte-for-byte.
