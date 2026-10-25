@@ -1,0 +1,44 @@
+java_native,arg_index,arg_name,jni_type,units,effect,reaches,confidence
+zombie.core.physics.Bullet.applyCentralForceToVehicle,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.applyCentralForceToVehicle,1,var1,F,[unknown],Adds this component scaled by body+0x2b0 to the force accumulator,body+0x330,high
+zombie.core.physics.Bullet.applyCentralForceToVehicle,2,var2,F,[unknown],Adds this component scaled by body+0x2b8 to the force accumulator,body+0x338,high
+zombie.core.physics.Bullet.applyCentralForceToVehicle,3,var3,F,[unknown],Adds this component scaled by body+0x2c0 to the force accumulator,body+0x340,high
+zombie.core.physics.Bullet.applyForce,0,var0,I,identifier,Selects the object group in the separate world object map,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.applyForce,1,var1,I,index,Selects the group's rigid body by pointer-array index,FUN_180018270 -> groupPhysics+0xc0[index],high
+zombie.core.physics.Bullet.applyForce,2,var2,[F,[unknown],Reads floats 0..2 as force and 3..5 as relative offset; accumulates force and cross-product torque,FUN_18001c970 -> FUN_1800167f0 -> body+0x330..0x360,high
+zombie.core.physics.Bullet.applyImpulse,0,var0,I,identifier,Selects the object group in the separate world object map,DAT_1801d5728 -> world+0xb8,high
+zombie.core.physics.Bullet.applyImpulse,1,var1,I,index,Selects the group's rigid body by pointer-array index,FUN_180018270 -> groupPhysics+0xc0[index],high
+zombie.core.physics.Bullet.applyImpulse,2,var2,[F,[unknown],Reads floats 0..2 as impulse and 3..5 as relative offset; changes linear/angular velocity when inverse mass is nonzero,FUN_18001ca30 -> FUN_180016920/FUN_180017990 -> body+0x260..0x290,high
+zombie.core.physics.Bullet.applyTorqueToVehicle,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.applyTorqueToVehicle,1,var1,F,[unknown],Adds this component scaled by body+0x2b0 and body+0x430 to the torque accumulator,body+0x350,high
+zombie.core.physics.Bullet.applyTorqueToVehicle,2,var2,F,[unknown],Adds this component scaled by body+0x2b8 and body+0x438 to the torque accumulator,body+0x358,high
+zombie.core.physics.Bullet.applyTorqueToVehicle,3,var3,F,[unknown],Adds this component scaled by body+0x2c0 and body+0x440 to the torque accumulator,body+0x360,high
+zombie.core.physics.Bullet.controlVehicle,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.controlVehicle,1,var1,F,[unknown],Sets wheel field +0x200 on the eligible non-steering branch; downstream meaning unverified,FUN_1800126b0 -> FUN_18004e960 -> wheel+0x200,low
+zombie.core.physics.Bullet.controlVehicle,2,var2,F,[unknown],Contributes additively to wheel field +0x208 on the eligible branch; downstream meaning unverified,FUN_1800126b0 -> FUN_18004f4a0 -> wheel+0x208,low
+zombie.core.physics.Bullet.controlVehicle,3,var3,F,[unknown],Sets the wheel orientation input on steering-configured wheels,FUN_1800126b0 -> FUN_18004f4e0 -> wheel+0x1d8,medium
+zombie.core.physics.Bullet.setTireInflation,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setTireInflation,1,var1,I,index,Selects a wheel after checking the configured wheel count,vehicle+0x68 -> script+0x7a0; vehicle+0xc4+8*index,high
+zombie.core.physics.Bullet.setTireInflation,2,var2,F,[unknown],Writes the inflation field later used in the control penalty calculation,vehicle+0xc4+8*index -> FUN_1800126b0,high
+zombie.core.physics.Bullet.setTireRemoved,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setTireRemoved,1,var1,I,index,Selects the per-wheel flag and wheel tuning record after bounds checking,vehicle+0xc8+8*index; FUN_18004ef90,high
+zombie.core.physics.Bullet.setTireRemoved,2,var2,Z,boolean-like,Writes removed flag and selects reduced/base wheel fields before refreshing wheel transforms,vehicle+0xc8+8*index; wheel+0x1b0/0x1d0; FUN_180051720/FUN_1800510b0,high
+zombie.core.physics.Bullet.setVehicleActive,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setVehicleActive,1,var1,Z,boolean-like,Writes the active flag and activation state 4 or 1; true is rejected while static,FUN_180014740 -> vehicle+0xc1; FUN_180070540 -> body+0x1ac,high
+zombie.core.physics.Bullet.setVehicleMass,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setVehicleMass,1,var1,F,[unknown],Sets reciprocal mass and local inverse inertia; zero sets a collision flag,FUN_180042810 -> body+0x2a0/0x310/0x318/0x320/0x1a0,high
+zombie.core.physics.Bullet.setVehicleParams,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setVehicleParams,1,var1,[F,[unknown],Reads six floats per wheel into vehicle flags/inflation and wheel tuning fields; one input is overwritten,vehicle+0xc9/0xc4; wheel+0x1c8/0x1c0/0x1a0/0x1b0/0x1d0,medium
+zombie.core.physics.Bullet.setVehicleStatic,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setVehicleStatic,1,var1,Z,boolean-like,Switches zero/configured mass and flag bit 0x2; on transition clears velocity and accumulated forces,FUN_180014820 -> vehicle+0xc0; FUN_180042810; body+0x1a0,high
+zombie.core.physics.Bullet.setVehicleVelocityMultiplier,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.setVehicleVelocityMultiplier,1,var1,F,[unknown],Writes the divisor used to normalize absolute vehicle speed in control processing,vehicle+0x70 -> FUN_1800126b0,medium
+zombie.core.physics.Bullet.setVehicleVelocityMultiplier,2,var2,F,[unknown],Writes a double field; downstream consumer and physical effect remain untraced,vehicle+0x78,low
+zombie.core.physics.Bullet.teleportVehicle,0,var0,I,identifier,Selects the vehicle in the world vehicle map,DAT_1801d5728 -> world+0xa0,high
+zombie.core.physics.Bullet.teleportVehicle,1,var1,F,[unknown],Writes transform position component 0 after subtracting world integer offset +0x40,FUN_180042630 -> body+0x70,high
+zombie.core.physics.Bullet.teleportVehicle,2,var2,F,[unknown],Writes transform position component 2 after subtracting world integer offset +0x44,FUN_180042630 -> body+0x80,high
+zombie.core.physics.Bullet.teleportVehicle,3,var3,F,[unknown],Writes transform position component 1 without a world-offset subtraction,FUN_180042630 -> body+0x78,high
+zombie.core.physics.Bullet.teleportVehicle,4,var4,F,quaternion component,Feeds orientation component 0 into the rotation-basis conversion,FUN_180007c40 -> FUN_180042630 -> body+0x10..0x68,medium
+zombie.core.physics.Bullet.teleportVehicle,5,var5,F,quaternion component,Feeds orientation component 1 into the rotation-basis conversion,FUN_180007c40 -> FUN_180042630 -> body+0x10..0x68,medium
+zombie.core.physics.Bullet.teleportVehicle,6,var6,F,quaternion component,Feeds orientation component 2 into the rotation-basis conversion,FUN_180007c40 -> FUN_180042630 -> body+0x10..0x68,medium
+zombie.core.physics.Bullet.teleportVehicle,7,var7,F,quaternion component,Feeds orientation component 3 into the rotation-basis conversion,FUN_180007c40 -> FUN_180042630 -> body+0x10..0x68,medium
