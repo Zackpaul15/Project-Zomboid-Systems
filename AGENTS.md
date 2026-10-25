@@ -32,3 +32,22 @@ events, Lua-exposed classes, script parsers). Do not edit paths you do not own; 
 X1 (block-type survey of `media\scripts`), then X2-X4 in order; X5-X8 can run in any order afterwards.
 Report progress by appending a line per finished WP to `modding/HANDOFF.md`:
 `[done] X2 modding/scripts/items.md, modding/data/item-properties.csv`.
+
+## Workshop doctrine (when a run is orchestrated by Hermes)
+
+This repo is one **project** in the Hermes agent workshop. The binding doctrine lives outside the repo:
+
+    C:\Users\zackp\hermes\doctrine\README.md      authority table + index
+    C:\Users\zackp\hermes\doctrine\SITUATIONS.md  playbooks: what to do in specific situations
+    C:\Users\zackp\hermes\doctrine\PROTOCOLS.md   packet / evidence / review / commit
+    C:\Users\zackp\hermes\doctrine\GOVERNANCE.md  Tier 1 hard stops
+
+If a packet and the doctrine disagree, **the doctrine wins and the packet is a bug.** The supervisor injects
+that doctrine into every dispatched packet; this pointer exists so a CLI started by hand in this repo also
+sees it.
+
+Non-negotiables, in addition to the rules above: never call `kanban_complete` / `kanban_block` yourself (the
+supervisor owns lifecycle); prove a claim or mark it **UNVERIFIED**; absence of evidence is not evidence of
+absence — say *what* is unverified rather than asserting *that* something is wrong; stay strictly inside the
+paths your packet declares; never edit governance files.
+
