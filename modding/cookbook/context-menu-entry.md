@@ -22,7 +22,7 @@ GuideCookbook/42/media/lua/client/GuideCookbookMenu.lua
 GuideCookbook/42/media/lua/shared/Translate/EN/ContextMenu.json   (optional, for a translated label)
 ```
 
-**media/lua/client/GuideCookbookMenu.lua** [inferred snippet, same shape as the invented sample in [ui.md](../lua-library/ui.md#context-menus)]:
+**media/lua/client/GuideCookbookMenu.lua** [inferred snippet, same shape as the invented sample in [ui.md](../lua-library/ui.md#context-menus-observed)]:
 
 ```lua
 local function addGuideEntry(playerNum, context, worldobjects, test)
@@ -38,11 +38,11 @@ Events.OnFillWorldObjectContextMenu.Add(addGuideEntry)
 What each piece is:
 
 - `OnFillWorldObjectContextMenu` is a registered event fired from Lua with `player`, `context`, `worldobjects`, `test`
-  ([ui.md](../lua-library/ui.md#context-menus), [events.md](../lua-api/events.md), row in [events.csv](../data/events.csv)). [observed]
+  ([ui.md](../lua-library/ui.md#context-menus-observed), [events.md](../lua-api/events.md), row in [events.csv](../data/events.csv)). [observed]
   The first argument is named `player` in the reference but the snippet treats it as a player index; **[unknown]**
   which of an index or an object it is, so the snippet does not use it.
 - `ISContextMenu` method `addOption` (name, target, onSelect, ...) adds an option and returns the option object; use the supplied
-  `context`, do not replace the menu ([ui.md](../lua-library/ui.md#context-menus)). [observed] The class derives from `ISPanel`
+  `context`, do not replace the menu ([ui.md](../lua-library/ui.md#context-menus-observed)). [observed] The class derives from `ISPanel`
   ([ui-inheritance.csv](../data/ui-inheritance.csv)). [observed]
 - The `test` pass is skipped so the callback is not queued twice. The reference says the event is "gated by the vanilla
   menu-building path"; the exact meaning of `test` is **[unknown]**, and skipping it is a convention in the reference's
@@ -52,7 +52,7 @@ What each piece is:
 - The menu action only runs on the client. Anything that changes server-owned state needs a command, see
   [client-server-command.md](client-server-command.md). [observed in [multiplayer.md](../lua-api/multiplayer.md)]
 - For inventory items there is a separate pair of events, `OnFillInventoryObjectContextMenu` and its pre-fill sibling;
-  their argument lists are not interchangeable with the world one ([ui.md](../lua-library/ui.md#context-menus)). [observed]
+  their argument lists are not interchangeable with the world one ([ui.md](../lua-library/ui.md#context-menus-observed)). [observed]
 
 ## Expected in-game result [inferred]
 

@@ -52,7 +52,7 @@ What each piece is, from the reference:
   [recipe-keys.csv](../data/recipe-keys.csv)). [observed]
 - Input line shape: first word is the resource type (`item`, `fluid` or `energy`), then an amount, then a bracketed
   candidate list, then options such as mode:destroy (consumed) or mode:keep (kept as a tool). Output lines are
-  `item <amount> <FullType>` ([crafting.md](../scripts/crafting.md#inputs-outputs-and-selectors),
+  `item <amount> <FullType>` ([crafting.md](../scripts/crafting.md#inputs-outputs-and-selectors-observed),
   [parser-keys.md](../scripts/parser-keys.md#5-craftrecipe-micro-grammar)). [observed]
 - Entries are comma-terminated; an unknown line word inside `inputs` or `outputs` throws ([parser-keys.md](../scripts/parser-keys.md#3-what-happens-to-an-unknown-key)). [observed]
 - `timedAction` is omitted: 889 of 969 recipes use it, so it is optional in the data, but
