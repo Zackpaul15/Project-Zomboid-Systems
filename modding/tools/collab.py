@@ -456,29 +456,49 @@ def _release_lock(lock_path, mine):
 
 
 @contextmanager
-def commit_lock(lock_path=None, timeout=10.0):
-    """Fail-closed advisory lock so only one collab.py stages/commits at a time.
+def commit_lock(lock_path=None, timeout=10.0, clock=None, sleep=None):
+    """Fail-closed advisory lock so only one collab.py stages/commits at a time (design frozen at M1F4).
     The lock file is created with O_EXCL and removed only by the invocation that created it (token compare); it is
     never read to make a decision, aged, probed or broken. If it exists we wait a short, bounded time (a live
-    commit finishing) and then refuse. The deadline is checked on every failed attempt, whatever the error."""
+    commit finishing) and then refuse. The first attempt always runs; the monotonic deadline gates each retry, and
+    each sleep is capped to the remaining budget. `clock`/`sleep` are injectable for deterministic tests.
+    The lock body is written in full (a short os.write is refused and the file removed).
+
+    Limits, by design:
+    - Release compares the token and then unlinks; that is NOT atomic. If an outside actor replaces the pathname
+      between the compare and the unlink, its file is removed. So nobody may replace or recreate the lock by hand
+      while a holder is active.
+    - A refusal after a crash (or a release failure) means the lock file may be stale. Delete it only after
+      establishing quiescence: the worker AND any child git processes/hooks have stopped, not merely this
+      process. Then inspect HEAD, the index and the worktree before retrying.
+    - A release failure can follow a SUCCESSFUL commit: the commit landed and only the lock removal failed.
+    Accepted, deferred limitations: no unlink retry on release; the default timeout is short (10s); Ctrl-C between
+    creating the lock and entering the try block can leave the lock behind."""
+    clock = clock or time.monotonic
+    sleep = sleep or time.sleep
     if lock_path is None:
         lock_path = Path(git("rev-parse", "--absolute-git-dir").stdout.strip()) / "collab.lock"
     mine = "%d %s" % (os.getpid(), uuid.uuid4().hex)  # body is for human diagnosis; the token is compared on release
-    deadline, delay = time.time() + timeout, 0.1
+    body = mine.encode()
+    deadline, delay = clock() + timeout, 0.1
     while True:
         try:
             fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
         except OSError as e:
-            why = ("it already exists: if no collab.py commit is running, delete it manually"
-                   if isinstance(e, FileExistsError) else "cannot create it (%s)" % e)
-            if time.time() >= deadline:
-                raise LockError("refusing to proceed: %s is not available after %ds; %s" % (lock_path, timeout, why))
-            time.sleep(delay)
+            why = ("it already exists" if isinstance(e, FileExistsError) else "cannot create it (%s)" % e)
+            remaining = deadline - clock()
+            if remaining <= 0:
+                raise LockError(
+                    "refusing to proceed: lock file %s is not available after %.1fs; %s. If no collab.py commit is "
+                    "running, delete it manually, but only after confirming the worker AND any child git "
+                    "processes/hooks have stopped (not merely that this process exited)" % (lock_path, timeout, why))
+            sleep(min(delay, remaining))
             delay = min(delay * 1.5, 1.0)
             continue
         try:
             try:
-                os.write(fd, mine.encode())
+                if os.write(fd, body) != len(body):
+                    raise OSError("short write of lock body")
             finally:
                 os.close(fd)
         except OSError as e:  # we created the file but cannot vouch for its body: remove it (it is ours) and refuse
@@ -808,47 +828,101 @@ def cmd_selftest(_args):
               raised and "could not remove" in errbuf.getvalue() and lk.exists())
         lk.unlink()
 
-        real_open, calls, t0 = os.open, [0], time.time()
+        class FakeClock:  # deterministic time: sleeping advances the clock, nothing really waits
+            def __init__(self):
+                self.t, self.sleeps = 1000.0, []
+
+            def now(self):
+                return self.t
+
+            def nap(self, s):
+                self.sleeps.append(s)
+                self.t += s
+
+        real_open, calls = os.open, [0]
 
         def broken_open(p, *a, **k):
             if str(p) == str(lk):
                 calls[0] += 1
-                if time.time() - t0 > 2:
+                if calls[0] > 100:
                     raise AssertionError("unbounded retry loop")
                 raise PermissionError("denied")
             return real_open(p, *a, **k)
 
-        refusal = ""
+        refusal, fc = "", FakeClock()
         os.open = broken_open
         try:
-            t0 = time.time()
             try:
-                with commit_lock(lk, timeout=0.2):  # real (short) backoff sleeps: the wall-clock deadline must end it
+                with commit_lock(lk, timeout=0.2, clock=fc.now, sleep=fc.nap):
                     pass
             except (LockError, AssertionError) as e:
                 refusal = str(e)
-            elapsed = time.time() - t0
         finally:
             os.open = real_open
-        check("M1F3-f deadline honoured on a persistent creation error: clear refusal, bounded attempts",
-              "cannot create it" in refusal and 0 < calls[0] and elapsed < 2, "%s %s %.2f" % (refusal, calls[0], elapsed))
+        check("M1F4-f deadline honoured on a persistent creation error: refusal, bounded attempts, sleeps capped to budget",
+              "cannot create it" in refusal and 1 < calls[0] <= 100 and sum(fc.sleeps) <= 0.2 + 1e-9
+              and abs(sum(fc.sleeps) - 0.2) < 1e-9, "%s %s %s" % (refusal, calls[0], fc.sleeps))
+        check("M1F4-f2 refusal names the full lock path, the delete action and child git processes/hooks",
+              str(lk) in refusal and "delete it manually" in refusal and "child git processes/hooks" in refusal, refusal)
+
+        fc, entered = FakeClock(), False
+        with commit_lock(lk, timeout=0, clock=fc.now, sleep=fc.nap):
+            entered = lk.exists()
+        check("M1F4-g0 first attempt always runs even with an expired budget (timeout=0), without sleeping",
+              entered and not lk.exists() and fc.sleeps == [])
+
+        lk.write_text("held")
+        fc, refusal = FakeClock(), ""
+        try:
+            with commit_lock(lk, timeout=0, clock=fc.now, sleep=fc.nap):
+                pass
+        except LockError as e:
+            refusal = str(e)
+        check("M1F4-g1 held lock with expired budget refuses after exactly the initial attempt (no retry sleep)",
+              "already exists" in refusal and fc.sleeps == [] and lk.read_text() == "held", refusal)
+        lk.unlink()
+
+        real_time, wall = time.time, [0]
+
+        def jumping_time():
+            wall[0] += 1
+            return real_time() + 10 ** 6 * wall[0]  # wall clock leaps forward on every read
+
+        lk.write_text("held")
+        fc, refusal = FakeClock(), ""
+        time.time = jumping_time
+        try:
+            try:
+                with commit_lock(lk, timeout=0.2, clock=None, sleep=fc.nap):
+                    pass
+            except LockError as e:
+                refusal = str(e)
+        finally:
+            time.time = real_time
+        check("M1F4-g2 default clock is monotonic: the lock path never reads the wall clock (time.time)",
+              "already exists" in refusal and wall[0] == 0 and fc.sleeps, "%s %s %s" % (refusal, wall[0], fc.sleeps))
+        lk.unlink()
 
         real_write = os.write
 
         def failing_write(fd, data):
             raise OSError("disk full")
 
-        os.write = failing_write
-        try:
+        def short_write(fd, data):
+            return real_write(fd, data[:3])  # only part of the body reaches the file
+
+        for label, fake in (("M1F4-h a failed", failing_write), ("M1F4-i a SHORT", short_write)):
+            os.write, refusal, entered = fake, "", False
             try:
-                with commit_lock(lk, timeout=0.2):
-                    pass
-            except LockError as e:
-                refusal = str(e)
-        finally:
-            os.write = real_write
-        check("M1F3-g a failed write of the lock body refuses and leaves no lock file behind",
-              "could not write" in refusal and not lk.exists())
+                try:
+                    with commit_lock(lk, timeout=0.2, clock=FakeClock().now, sleep=lambda _s: None):
+                        entered = True
+                except LockError as e:
+                    refusal = str(e)
+            finally:
+                os.write = real_write
+            check("%s write of the lock body refuses before yielding and leaves no lock file behind" % label,
+                  "could not write" in refusal and not entered and not lk.exists(), refusal)
 
     # R1-3: drive the real cmd_commit / cmd_gates / git_retry through an in-memory fake git
     with tempfile.TemporaryDirectory() as td:
