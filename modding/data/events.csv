@@ -114,8 +114,8 @@ EveryOneMinute,Y,111,triggerEvent,0,zombie.GameTime,,0
 EveryTenMinutes,Y,112,triggerEvent,0,zombie.GameTime,,0
 EveryDays,Y,113,triggerEvent,0,zombie.GameTime,,0
 EveryHours,Y,114,triggerEvent,0,zombie.GameTime,,0
-OnDusk,Y,115,,,,,1
-OnDawn,Y,116,,,,,1
+OnDusk,Y,115,,,,,0
+OnDawn,Y,116,,,,,0
 OnEquipPrimary,Y,117,triggerEvent,2,zombie.characters.IsoGameCharacter,"this, leftHandItem",0
 OnEquipSecondary,Y,118,triggerEvent,2,zombie.characters.IsoGameCharacter,"this, rightHandItem",0
 OnClothingUpdated,Y,119,triggerEvent,1,zombie.characters.IsoGameCharacter|zombie.core.Transaction|zombie.inventory.types.Clothing|zombie.network.GameClient|zombie.network.packets.SyncClothingPacket|zombie.network.packets.ZombieHelmetFallingPacket,this,13
@@ -132,7 +132,7 @@ OnModsModified,Y,129,triggerEvent,0,zombie.ZomboidFileSystem,,0
 OnSeeNewRoom,Y,130,triggerEvent,1,zombie.iso.IsoCell,room,0
 OnNewFire,Y,131,triggerEvent,1,zombie.iso.objects.IsoFire,this,0
 OnFillContainer,Y,132,triggerEvent,3,zombie.Lua.LuaManager|zombie.inventory.ItemPickerJava|zombie.inventory.ItemSpawner|zombie.iso.IsoChunk|zombie.vehicles.BaseVehicle,"roomName, container.getType(), container",0
-OnChangeWeather,Y,133,,,,,1
+OnChangeWeather,Y,133,,,,,0
 OnRenderTick,Y,134,triggerEvent,0,zombie.GameWindow,,0
 OnDestroyIsoThumpable,Y,135,triggerEvent,2,zombie.iso.objects.IsoThumpable,"this, null",0
 OnPostSave,Y,136,triggerEvent,0,zombie.GameWindow|zombie.gameStates.IngameState,,0

@@ -6,7 +6,7 @@ Usage:  python -I extract_events.py <decompiled src root> <output csv>
 Reads LuaEventManager.AddEvents() for the registered event list (in registration order) and scans every .java
 file for LuaEventManager.triggerEvent* calls. Only names and argument expressions are recorded; no code bodies.
 Columns: event, registered, reg_index, methods, arg_counts, trigger_classes, sample_args, lua_trigger_files
-lua_trigger_files = number of vanilla Lua files that call triggerEvent("<name>", ...) (only if a Lua root is given).
+lua_trigger_files = number of vanilla Lua files that call triggerEvent("<name>", ...) (only if a Lua root is given); Lua comments are stripped first.
 """
 import csv
 import re
@@ -54,6 +54,48 @@ def split_args(text, start):
 
 
 LUA_TRIG_RE = re.compile(r'triggerEvent\s*\(\s*"([^"]+)"')
+LONG_OPEN_RE = re.compile(r"\[(=*)\[")
+
+
+def strip_lua_comments(text):
+    """Remove Lua comments so commented-out triggerEvent calls are not counted.
+
+    Handled: `-- ...` line comments, `--[[ ... ]]` and `--[==[ ... ]==]` block comments (any level of `=`), with
+    string awareness ('...' and "..." with backslash escapes, and [[ ... ]] long strings are left intact so a `--`
+    inside them is not a comment). Newlines inside block comments are kept so line numbers stay stable.
+    Not handled: comment forms produced by string concatenation or generated code, and `--[=[` openers with
+    unbalanced levels (an unterminated block comment swallows the rest of the file, as the Lua lexer would).
+    """
+    out, i, n = [], 0, len(text)
+    while i < n:
+        c = text[i]
+        if c in "\"'":
+            j = i + 1
+            while j < n and text[j] != c and text[j] != "\n":
+                j += 2 if text[j] == "\\" else 1
+            out.append(text[i:j + 1])
+            i = j + 1
+        elif c == "[" and (m := LONG_OPEN_RE.match(text, i)):
+            close = "]" + m.group(1) + "]"
+            j = text.find(close, m.end())
+            j = n if j < 0 else j + len(close)
+            out.append(text[i:j])
+            i = j
+        elif text.startswith("--", i):
+            m = LONG_OPEN_RE.match(text, i + 2)
+            if m:
+                close = "]" + m.group(1) + "]"
+                j = text.find(close, m.end())
+                j = n if j < 0 else j + len(close)
+                out.append("\n" * text.count("\n", i, j))
+                i = j
+            else:
+                j = text.find("\n", i)
+                i = n if j < 0 else j  # keep the newline
+        else:
+            out.append(c)
+            i += 1
+    return "".join(out)
 
 
 def main(src_root, out_csv, lua_root=None):
@@ -97,7 +139,7 @@ def main(src_root, out_csv, lua_root=None):
     lua_files = defaultdict(set)
     if lua_root:
         for lp in Path(lua_root).rglob("*.lua"):
-            for n in LUA_TRIG_RE.findall(lp.read_text(encoding="utf-8", errors="replace")):
+            for n in LUA_TRIG_RE.findall(strip_lua_comments(lp.read_text(encoding="utf-8", errors="replace"))):
                 lua_files[n].add(lp.name)
 
     names = list(registered) + sorted(n for n in sites if n not in reg_index)

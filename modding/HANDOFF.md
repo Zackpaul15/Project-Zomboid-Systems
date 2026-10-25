@@ -36,3 +36,4 @@ Claude owns C0-C6; Codex owns X1-X8 (see `SCOPE.md`).
 [done] J1A modding/scripts/key-coverage.md, modding/data/key-coverage.csv, modding/tools/survey_key_coverage.py
 [done] J1B modding/scripts/parser-keys.md
 [done] J1A-FIX1 modding/tools/survey_key_coverage.py, modding/scripts/key-coverage.md, modding/data/key-coverage.csv
+[done] C1-FIX1 modding/tools/extract_events.py, modding/data/events.csv, modding/lua-api/events.md

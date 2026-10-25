@@ -33,14 +33,15 @@ Full table: [`../data/events.csv`](../data/events.csv) (275 rows; regenerate wit
 | Names registered in `AddEvents()` | 262 |
 | Registered and fired from Java at least once | 211 |
 | Registered, never fired from Java | 51 |
-| of those, fired from vanilla Lua through `triggerEvent` | 19 |
-| of those, with **no** trigger in Java or vanilla Lua | 32 |
+| of those, fired from vanilla Lua through `triggerEvent` (comments excluded) | 16 |
+| of those, with **no** live trigger in Java or vanilla Lua | 35 |
 | Fired from Java but not registered | 13 |
 | Argument count per Java-fired event: 0 / 1 / 2 / 3 / 4 or more / mixed between sites | 48 / 76 / 46 / 31 / 20 / 3 (max 7) |
 
 Notes on the findings:
 
-- The 32 events with no trigger anywhere are vestigial or reserved: `OnPreGameStart`, `OnRenderUpdate`,
+- The 35 events with no live trigger anywhere are vestigial or reserved: `OnDusk`, `OnDawn`, `OnChangeWeather`
+  (their only `triggerEvent` calls in `server/Seasons/season.lua` sit inside `--[[ ]]` block comments), `OnPreGameStart`, `OnRenderUpdate`,
   `OnNPCSurvivorUpdate`, `OnAddBuilding`, `OnMakeItem`, `OnLoginState`, `OnLoginStateSuccess`,
   `OnCharacterCreateStats`, `OnDoTileBuilding`, `OnNewSurvivorGroup`, `OnPlayerSetSafehouse`, the `OnPost*Draw`
   family (`OnPostFloorSquareDraw`, `OnPostTilesSquareDraw`, `OnPostTileDraw`, `OnPostWallSquareDraw`,
@@ -52,7 +53,7 @@ Notes on the findings:
   path that builds the name at runtime could still fire one, and `LuaManager` does fire by dynamic name]
 - Registered events fired only from Lua include `OnFillInventoryObjectContextMenu`, `OnFillWorldObjectContextMenu`,
   `OnPreFillInventoryObjectContextMenu`, `OnPreFillWorldObjectContextMenu`, `OnRefreshInventoryWindowContainers`,
-  `OnSpawnRegionsLoaded`, `OnChallengeQuery`, `OnDawn`, `OnDusk`, `OnChangeWeather` and the foraging/skill/item
+  `OnSpawnRegionsLoaded`, `OnChallengeQuery` and the foraging/skill/item
   definition hooks (`preAddForageDefs`, `onAddForageDefs`, `preAddSkillDefs`, `preAddZoneDefs`, `preAddCatDefs`,
   `preAddItemDefs`, `onFillSearchIconContextMenu`, `onUpdateIcon`). The arguments are whatever the Lua caller passes.
 - Triggered but unregistered (13): `OnExitVehicle`, `OnUseVehicle`, `OnForagePool`, `OnForageRequestZone`,
@@ -60,6 +61,12 @@ Notes on the findings:
   `OnSteamWorkshopItemNotUpdated`, `OnSteamWorkshopItemUpdated`, `GrappleGrabCollisionCheck`, `GrapplerLetGo`,
   `OnDesignationZoneUpdatedNetwork`. Because unknown names are auto-created, these work; they are simply not in
   the registration list.
+
+Correction (C1-FIX1): an earlier revision counted commented-out Lua `triggerEvent` calls (the two Lua-related rows above
+were 19 / 32, now 16 / 35; three comment-only events had been misfiled as Lua-fired). The extractor now strips `--` line comments and
+`--[[ ]]` / `--[==[ ]==]` block comments before matching. Known limit [unknown]: comment forms built by string
+concatenation or generated code, and `triggerEvent` text inside `[[ ]]` long strings, are not handled. The J1
+key-coverage `defect` count dropping to 0 after this lands is expected, not a regression.
 
 ## Choosing an event (common ones) [observed]
 
