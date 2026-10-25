@@ -1,0 +1,77 @@
+java_native,arg_index,arg_name,jni_type,units,effect,reaches,confidence
+zombie.core.physics.Bullet.addBallisticsTarget,0,var0,I,identifier,Finds or creates a target and requests addition of its collision object if not already present,world+0x128; FUN_180007390 -> FUN_1800236a0 -> world virtual+0x40,high
+zombie.core.physics.Bullet.getBallisticsCameraTargets,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.getBallisticsCameraTargets,1,var1,F,[unknown],Filters first-pass hits by distance from the controller position,FUN_18001fef0 distance comparison,high
+zombie.core.physics.Bullet.getBallisticsCameraTargets,2,var2,I,count,Limits first-pass target count after each five-float record is written,FUN_18001fef0 first-pass result loop,high
+zombie.core.physics.Bullet.getBallisticsCameraTargets,3,var3,Z,boolean-like,Enables a second ray pass with temporary target-body registration and body-part annotations,FUN_18001fef0 -> FUN_1800235d0/FUN_180023290/FUN_1800260a0,high
+zombie.core.physics.Bullet.getBallisticsCameraTargets,4,var4,[F,[unknown],Receives five-float target records; the fifth field can be replaced by the body-part pass,FUN_18001fef0 output; FUN_180023290 annotation,high
+zombie.core.physics.Bullet.getBallisticsTargets,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.getBallisticsTargets,1,var1,F,[unknown],Sets forward ray endpoint distance along the controller basis,FUN_180020a50 -> FUN_180021d20 ray endpoint,high
+zombie.core.physics.Bullet.getBallisticsTargets,2,var2,I,count,Limits emitted result count after each four-float record is written,FUN_180020a50 result loop,high
+zombie.core.physics.Bullet.getBallisticsTargets,3,var3,[F,[unknown],Receives four-float records containing identifier and three offset-restored hit coordinates,FUN_180020a50 output[4*record..4*record+3],high
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,1,var1,F,[unknown],Sets the forward component of each sampled ray endpoint,FUN_180020580 sampled endpoint -> FUN_180021d20,high
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,2,var2,F,[unknown],Scales the sampled lateral radius before endpoint transformation,FUN_180020580 radial multiplication,medium
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,3,var3,F,[unknown],Feeds the second floating input of the power-like random-radius transform,FUN_180020580 -> FUN_180144170 via XMM1,medium
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,4,var4,I,count,Controls sample-loop iterations and returned sample count,FUN_180020580 sample loop,high
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,5,var5,I,[unknown],Forwarded on the helper stack; no consumer recovered for this integer option,FUN_180020580 (forwarding only),low
+zombie.core.physics.Bullet.getBallisticsTargetsSpreadData,6,var6,[F,[unknown],Receives four floats per sample initialized to endpoint data and replaced on recognized hits,FUN_180020580 output[4*sample..4*sample+3],high
+zombie.core.physics.Bullet.removeBallistics,0,var0,I,identifier,Moves the selected controller to its reuse queue and erases its map entry,FUN_180030c10 -> world+0x100 reuse queue/world+0xf0 map,high
+zombie.core.physics.Bullet.removeBallisticsTarget,0,var0,I,identifier,Requests collision-object removal then queues the target for reuse and erases its map entry,FUN_1800260f0 -> world virtual+0x48; world+0x138 reuse queue/world+0x128 map,high
+zombie.core.physics.Bullet.setBallisticsColor,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.setBallisticsColor,1,var1,F,[unknown],Writes one widened component of the controller colour vector,FUN_180022790 -> controller+0xc0,high
+zombie.core.physics.Bullet.setBallisticsColor,2,var2,F,[unknown],Writes one widened component of the controller colour vector,FUN_180022790 -> controller+0xc8,high
+zombie.core.physics.Bullet.setBallisticsColor,3,var3,F,[unknown],Writes one widened component of the controller colour vector,FUN_180022790 -> controller+0xd0,high
+zombie.core.physics.Bullet.setBallisticsRange,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.setBallisticsRange,1,var1,F,[unknown],Writes the range field used by the positive-range guard and sample spacing in updateBallistics,FUN_1800227b0 -> controller+0xa0 -> FUN_180022860,high
+zombie.core.physics.Bullet.setBallisticsSize,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.setBallisticsSize,1,var1,F,[unknown],Replicates one value into a three-component vector sent to two object virtual calls,FUN_1800227c0 -> objects at controller+0x98/+0x1a0 virtual+0x28,medium
+zombie.core.physics.Bullet.setBallisticsTargetAdjustingShapeScale,0,var0,F,[unknown],Writes a widened global component; downstream shape effect remains unverified,DAT_1801d56e0,low
+zombie.core.physics.Bullet.setBallisticsTargetAdjustingShapeScale,1,var1,F,[unknown],Writes a widened global component; downstream shape effect remains unverified,DAT_1801d56e8,low
+zombie.core.physics.Bullet.setBallisticsTargetAdjustingShapeScale,2,var2,F,[unknown],Writes a widened global component; downstream shape effect remains unverified,DAT_1801d56f0,low
+zombie.core.physics.Bullet.setBallisticsTargetAllPartsColor,0,var0,F,[unknown],Writes one global vector component later passed to per-part rendering calls,DAT_1801d56c0 -> FUN_180025d10 -> renderer virtual+0x30,high
+zombie.core.physics.Bullet.setBallisticsTargetAllPartsColor,1,var1,F,[unknown],Writes one global vector component later passed to per-part rendering calls,DAT_1801d56c8 -> FUN_180025d10 -> renderer virtual+0x30,high
+zombie.core.physics.Bullet.setBallisticsTargetAllPartsColor,2,var2,F,[unknown],Writes one global vector component later passed to per-part rendering calls,DAT_1801d56d0 -> FUN_180025d10 -> renderer virtual+0x30,high
+zombie.core.physics.Bullet.setBallisticsTargetAxis,0,var0,I,identifier,Selects the ballistics target in the separate target map,DAT_1801d5728 -> world+0x128,high
+zombie.core.physics.Bullet.setBallisticsTargetAxis,1,var1,F,[unknown],Feeds rotation input 0 through half-angle composition into the target basis,FUN_1800261f0 -> FUN_180007c40 -> target+0x90..0xe8,medium
+zombie.core.physics.Bullet.setBallisticsTargetAxis,2,var2,F,[unknown],Feeds rotation input 1 through half-angle composition into the target basis,FUN_1800261f0 -> FUN_180007c40 -> target+0x90..0xe8,medium
+zombie.core.physics.Bullet.setBallisticsTargetAxis,3,var3,F,[unknown],Feeds rotation input 2 through half-angle composition into the target basis,FUN_1800261f0 -> FUN_180007c40 -> target+0x90..0xe8,medium
+zombie.core.physics.Bullet.updateBallistics,0,var0,I,identifier,Finds or creates the controller used for the position update,world+0xf0; FUN_18002d270,high
+zombie.core.physics.Bullet.updateBallistics,1,var1,F,[unknown],Subtracts world+0x40 then supplies controller position component 0 when the stored range is positive,FUN_180022860 -> controller+0x60,high
+zombie.core.physics.Bullet.updateBallistics,2,var2,F,[unknown],Supplies controller position component 1 without offset subtraction when the stored range is positive,FUN_180022860 -> controller+0x68,high
+zombie.core.physics.Bullet.updateBallistics,3,var3,F,[unknown],Subtracts world+0x44 then supplies controller position component 2 when the stored range is positive,FUN_180022860 -> controller+0x70,high
+zombie.core.physics.Bullet.updateBallisticsAimReticlePosition,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.updateBallisticsAimReticlePosition,1,var1,F,[unknown],Subtracts world+0x40 and writes reticle position component 0,FUN_180022be0 -> controller+0x180,high
+zombie.core.physics.Bullet.updateBallisticsAimReticlePosition,2,var2,F,[unknown],Writes reticle position component 1 without offset subtraction,FUN_180022be0 -> controller+0x188,high
+zombie.core.physics.Bullet.updateBallisticsAimReticlePosition,3,var3,F,[unknown],Subtracts world+0x44 and writes reticle position component 2,FUN_180022be0 -> controller+0x190,high
+zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,1,var1,F,quaternion component,Feeds component 0 into absolute reticle/sample rotation matrices and the shared basis,FUN_180022c00 -> FUN_180007c40 -> controller+0x120; DAT_1801d5630,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,2,var2,F,quaternion component,Feeds component 1 into absolute reticle/sample rotation matrices and the shared basis,FUN_180022c00 -> FUN_180007c40 -> controller+0x120; DAT_1801d5630,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,3,var3,F,quaternion component,Feeds component 2 into absolute reticle/sample rotation matrices and the shared basis,FUN_180022c00 -> FUN_180007c40 -> controller+0x120; DAT_1801d5630,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleQuaternion,4,var4,F,quaternion component,Feeds component 3 into absolute reticle/sample rotation matrices and the shared basis,FUN_180022c00 -> FUN_180007c40 -> controller+0x120; DAT_1801d5630,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,1,var1,F,quaternion component,Composes component 0 with the current reticle orientation; sample matrices receive the input rotation,FUN_180022c90 -> FUN_1800078a0/FUN_180007c40 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,2,var2,F,quaternion component,Composes component 1 with the current reticle orientation; sample matrices receive the input rotation,FUN_180022c90 -> FUN_1800078a0/FUN_180007c40 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,3,var3,F,quaternion component,Composes component 2 with the current reticle orientation; sample matrices receive the input rotation,FUN_180022c90 -> FUN_1800078a0/FUN_180007c40 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotate,4,var4,F,quaternion component,Composes component 3 with the current reticle orientation; sample matrices receive the input rotation,FUN_180022c90 -> FUN_1800078a0/FUN_180007c40 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,1,var1,F,[unknown],Feeds normalized axis component 0 into the half-angle orientation construction,JNI entry 0x18000f680 -> FUN_180022e70 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,2,var2,F,[unknown],Feeds normalized axis component 1 into the half-angle orientation construction,JNI entry 0x18000f680 -> FUN_180022e70 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,3,var3,F,[unknown],Feeds normalized axis component 2 into the half-angle orientation construction,JNI entry 0x18000f680 -> FUN_180022e70 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsAimReticleRotation,4,var4,F,[unknown],Feeds the half-angle trigonometric terms used to construct reticle/sample orientation,JNI entry 0x18000f680 -> FUN_180022e70 -> controller+0x120,medium
+zombie.core.physics.Bullet.updateBallisticsMuzzleAimDirection,0,var0,I,identifier,Selects the ballistics controller in the world map,DAT_1801d5728 -> world+0xf0,high
+zombie.core.physics.Bullet.updateBallisticsMuzzleAimDirection,1,var1,F,[unknown],Feeds direction component 0 into a reference-vector rotation and sample basis updates,FUN_180022ef0 -> FUN_180007c40 -> controller+0x0..0x58,medium
+zombie.core.physics.Bullet.updateBallisticsMuzzleAimDirection,2,var2,F,[unknown],Feeds direction component 1 into a reference-vector rotation and sample basis updates,FUN_180022ef0 -> FUN_180007c40 -> controller+0x0..0x58,medium
+zombie.core.physics.Bullet.updateBallisticsMuzzleAimDirection,3,var3,F,[unknown],Feeds direction component 2 into a reference-vector rotation and sample basis updates,FUN_180022ef0 -> FUN_180007c40 -> controller+0x0..0x58,medium
+zombie.core.physics.Bullet.updateBallisticsTarget,0,var0,I,identifier,Finds or creates the target whose position and collision representation are refreshed,world+0x128; FUN_180007390 -> FUN_1800264f0,high
+zombie.core.physics.Bullet.updateBallisticsTarget,1,var1,F,[unknown],Subtracts world+0x40 and writes target position component 0,FUN_1800264f0 -> target+0x70,high
+zombie.core.physics.Bullet.updateBallisticsTarget,2,var2,F,[unknown],Writes target position component 1 without offset subtraction,FUN_1800264f0 -> target+0x78,high
+zombie.core.physics.Bullet.updateBallisticsTarget,3,var3,F,[unknown],Subtracts world+0x44 and writes target position component 2,FUN_1800264f0 -> target+0x80,high
+zombie.core.physics.Bullet.updateBallisticsTarget,4,var4,F,[unknown],Forwarded on the helper stack; no read or resulting field change recovered,FUN_1800264f0 (forwarding only),low
+zombie.core.physics.Bullet.updateBallisticsTarget,5,var5,F,[unknown],Forwarded on the helper stack; no read or resulting field change recovered,FUN_1800264f0 (forwarding only),low
+zombie.core.physics.Bullet.updateBallisticsTarget,6,var6,F,[unknown],Forwarded on the helper stack; no read or resulting field change recovered,FUN_1800264f0 (forwarding only),low
+zombie.core.physics.Bullet.updateBallisticsTarget,7,var7,F,[unknown],Forwarded on the helper stack; no read or resulting field change recovered,FUN_1800264f0 (forwarding only),low
+zombie.core.physics.Bullet.updateBallisticsTarget,8,var8,Z,boolean-like,Forwarded on the helper stack; no read or resulting field change recovered,FUN_1800264f0 (forwarding only),low
+zombie.core.physics.Bullet.updateBallisticsTargetSkeleton,0,var0,I,identifier,Finds or creates the target receiving the skeleton update,world+0x128; FUN_180007390 -> FUN_180026590,high
+zombie.core.physics.Bullet.updateBallisticsTargetSkeleton,1,var1,I,count,Controls transform allocation and the seven-float-per-node input loop,FUN_180026590 transform buffers/hierarchy loop,high
+zombie.core.physics.Bullet.updateBallisticsTargetSkeleton,2,var2,[F,[unknown],Supplies position-plus-four-component records for hierarchical transforms; the first record is replaced by the target basis,FUN_180026590 -> FUN_1800354a0/FUN_180019180,medium
