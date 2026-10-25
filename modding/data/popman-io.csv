@@ -1,0 +1,44 @@
+java_native,arg_index,arg_name,jni_type,units,effect,reaches,confidence
+zombie.popman.ZombiePopulationManager.n_addZombie,0,var0,F,[unknown],Stores x position in the queued zombie record,zombieRecord+0x0,high
+zombie.popman.ZombiePopulationManager.n_addZombie,1,var1,F,[unknown],Stores y position in the queued zombie record,zombieRecord+0x4,high
+zombie.popman.ZombiePopulationManager.n_addZombie,2,var2,F,[unknown],Stores z position in the queued zombie record,zombieRecord+0x8,high
+zombie.popman.ZombiePopulationManager.n_addZombie,3,var3,B,index,Stores direction ordinal byte in the queued zombie record,zombieRecord+0xc,high
+zombie.popman.ZombiePopulationManager.n_addZombie,4,var4,I,identifier,Stores persistent outfit ID in the queued zombie record,zombieRecord+0x10,high
+zombie.popman.ZombiePopulationManager.n_addZombie,5,var5,I,bitfield,Stores packed state flags in the queued zombie record,zombieRecord+0x14,high
+zombie.popman.ZombiePopulationManager.n_addZombie,6,var6,I,[unknown],Stores the first path-target coordinate,zombieRecord+0x18 -> FUN_18001b850,high
+zombie.popman.ZombiePopulationManager.n_addZombie,7,var7,I,[unknown],Stores the second path-target coordinate,zombieRecord+0x1c -> FUN_18001b850,high
+zombie.popman.ZombiePopulationManager.n_addZombie,8,var8,I,identifier,Retains a nonzero persistent ID or generates one when zero,FUN_180018ab0 -> zombieRecord+0x20; work+0x88,high
+zombie.popman.ZombiePopulationManager.n_config,0,var0,F,[unknown],Replaces the pending PopulationMultiplier value and marks configuration dirty,work+0x40[PopulationMultiplier] -> population+0x168,high
+zombie.popman.ZombiePopulationManager.n_config,1,var1,F,[unknown],Replaces the pending PopulationStartMultiplier value and marks configuration dirty,work+0x40[PopulationStartMultiplier] -> population+0x16c,high
+zombie.popman.ZombiePopulationManager.n_config,2,var2,F,[unknown],Replaces the pending PopulationPeakMultiplier value and marks configuration dirty,work+0x40[PopulationPeakMultiplier] -> population+0x170,high
+zombie.popman.ZombiePopulationManager.n_config,3,var3,I,[unknown],Replaces the pending PopulationPeakDay value and marks configuration dirty,work+0x50[PopulationPeakDay] -> population+0x174,high
+zombie.popman.ZombiePopulationManager.n_config,4,var4,F,[unknown],Replaces the pending RespawnHours value and marks configuration dirty,work+0x40[RespawnHours] -> population+0x17c,high
+zombie.popman.ZombiePopulationManager.n_config,5,var5,F,[unknown],Replaces the pending RespawnUnseenHours value and marks configuration dirty,work+0x40[RespawnUnseenHours] -> population+0x178,high
+zombie.popman.ZombiePopulationManager.n_config,6,var6,F,[unknown],Replaces the pending RespawnMultiplier value and marks configuration dirty,work+0x40[RespawnMultiplier] -> population+0x180,high
+zombie.popman.ZombiePopulationManager.n_config,7,var7,F,[unknown],Replaces the pending RedistributeHours value and marks configuration dirty,work+0x40[RedistributeHours] -> population+0xb8,high
+zombie.popman.ZombiePopulationManager.n_config,8,var8,I,[unknown],Replaces the pending FollowSoundDistance value and marks configuration dirty,work+0x50[FollowSoundDistance] -> population+0x184,high
+zombie.popman.ZombiePopulationManager.n_configFloat,0,var0,Ljava/lang/String;,key,Converts and validates the String key then selects its typed pending-map entry,FUN_180013d20 -> FUN_180025f00 -> work+0x40,high
+zombie.popman.ZombiePopulationManager.n_configFloat,1,var1,F,[unknown],Replaces the selected typed-map value and sets the dirty byte,work+0x40[key]; work+0x60,high
+zombie.popman.ZombiePopulationManager.n_configInt,0,var0,Ljava/lang/String;,key,Converts and validates the String key then selects its typed pending-map entry,FUN_180013d20 -> FUN_180025f00 -> work+0x50,high
+zombie.popman.ZombiePopulationManager.n_configInt,1,var1,I,[unknown],Replaces the selected typed-map value and sets the dirty byte,work+0x50[key]; work+0x60,high
+zombie.popman.ZombiePopulationManager.n_loadChunk,0,var0,I,[unknown],Queues the first chunk coordinate,work+0x80 -> chunkRecord+0x0 -> FUN_18001be00,high
+zombie.popman.ZombiePopulationManager.n_loadChunk,1,var1,I,[unknown],Queues the second chunk coordinate,work+0x80 -> chunkRecord+0x4 -> FUN_18001be00,high
+zombie.popman.ZombiePopulationManager.n_loadChunk,2,var2,Z,boolean-like,Stores whether the byte equals one and gates the loaded-chunk branch,chunkRecord+0x8 -> FUN_18000b310; FUN_18001be00,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,0,var0,F,[unknown],Stores x position in the queued zombie record,zombieRecord+0x0,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,1,var1,F,[unknown],Stores y position in the queued zombie record,zombieRecord+0x4,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,2,var2,F,[unknown],Stores z position in the queued zombie record,zombieRecord+0x8,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,3,var3,B,index,Stores direction ordinal byte in the queued zombie record,zombieRecord+0xc,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,4,var4,I,identifier,Stores persistent outfit ID in the queued zombie record,zombieRecord+0x10,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,5,var5,I,bitfield,Stores packed state flags in the queued zombie record,zombieRecord+0x14,high
+zombie.popman.ZombiePopulationManager.n_registerZombie,6,var6,I,identifier,Retains a nonzero persistent ID or generates one when zero,FUN_180018ab0 -> zombieRecord+0x20; work+0x98,high
+zombie.popman.ZombiePopulationManager.n_setSpawnOrigins,0,var0,[I,[unknown],Appends four-int rectangle records after requiring a multiple-of-four array length,FUN_18001b7a0 -> population+0x120; count +0x11c,medium
+zombie.popman.ZombiePopulationManager.n_spawnHorde,0,var0,I,[unknown],Queues spawn rectangle x,work+0xd0 -> hordeRecord+0x0 -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_spawnHorde,1,var1,I,[unknown],Queues spawn rectangle y,work+0xd0 -> hordeRecord+0x4 -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_spawnHorde,2,var2,I,[unknown],Queues spawn rectangle width,work+0xd0 -> hordeRecord+0x8 -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_spawnHorde,3,var3,I,[unknown],Queues spawn rectangle height,work+0xd0 -> hordeRecord+0xc -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_spawnHorde,4,var4,F,[unknown],Queues target x component,work+0xd0 -> hordeRecord+0x10 -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_spawnHorde,5,var5,F,[unknown],Queues target y component,work+0xd0 -> hordeRecord+0x14 -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_spawnHorde,6,var6,I,count,Queues requested spawn count,work+0xd0 -> hordeRecord+0x18 -> FUN_18000dca0,high
+zombie.popman.ZombiePopulationManager.n_updateRealZombies,0,var0,I,count,Validates count and bounds the ID/state and position packing loop,work+0xbc; FUN_18001bea0,high
+zombie.popman.ZombiePopulationManager.n_updateRealZombies,1,var1,[I,[unknown],Reads persistent-ID and state pairs for packed update records,work+0xc0 -> realRecord+0x0/+0x4 -> FUN_18001bea0,medium
+zombie.popman.ZombiePopulationManager.n_updateRealZombies,2,var2,[F,[unknown],Reads three position floats per record and later updates matching registered records,work+0xc0 -> realRecord+0x8/+0xc/+0x10 -> zombieRecord+0x0/+0x4/+0x8,medium
