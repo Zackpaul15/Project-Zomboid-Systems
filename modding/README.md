@@ -47,6 +47,7 @@ only names, offsets, counts and one-line summaries are recorded here, never bodi
 | [`../notes/bullet-vehicle.md`](../notes/bullet-vehicle.md) | Vehicle-control natives (`controlVehicle`, `setTireInflation`, `applyImpulse`, ...): what each argument changes | [`data/bullet-vehicle-io.csv`](data/bullet-vehicle-io.csv) |
 | [`../notes/bullet-ballistics.md`](../notes/bullet-ballistics.md) | Ballistics and aiming natives (`updateBallistics*`, `setBallistics*`, targets): what each argument changes | [`data/bullet-ballistics-io.csv`](data/bullet-ballistics-io.csv) |
 | [`../notes/lighting-native.md`](../notes/lighting-native.md) | `Lighting64.dll` export inventory: 50 exports, every one resolving to a `LightingJNI` declaration | [`data/lighting-exports.csv`](data/lighting-exports.csv) |
+| [`../notes/popman-native.md`](../notes/popman-native.md) | **[observed]** `PZPopMan64.dll` export inventory: 59 exports resolving all 59 R0 declarations, including 17 `MapCollisionData` natives; earlier population notes reconciled | [`data/popman-exports.csv`](data/popman-exports.csv) |
 | [`../notes/lighting.md`](../notes/lighting.md) | Lighting behaviour: light placement, colour/active state and the darkness multipliers — what each argument changes | [`data/lighting-io.csv`](data/lighting-io.csv) |
 | [`../notes/bullet-ragdoll.md`](../notes/bullet-ragdoll.md) | Ragdoll configuration: creation/mass/transform natives and how ragdolls are defined in scripts — what each argument changes | [`data/bullet-ragdoll-io.csv`](data/bullet-ragdoll-io.csv) |
 
