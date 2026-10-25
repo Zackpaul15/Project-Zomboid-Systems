@@ -26,7 +26,6 @@ Reads SCOPE.md (work-package tables) and HANDOFF.md (progress log); writes nothi
 """
 import argparse
 import csv
-import hashlib
 import io
 import os
 import re
@@ -35,7 +34,7 @@ import sys
 import tempfile
 import time
 import uuid
-from contextlib import contextmanager, redirect_stdout
+from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -271,7 +270,7 @@ def build_next(agent, scope, done, open_rev, open_q, problems=()):
         wp, _, pkg, out = todo[0]
         lines.append("Then do %s: %s" % (wp, pkg))
         lines.append("Output: %s" % out)
-        lines.append("Verify 3 random claims against the game files, append `[done] %s ...; checked: ...` to "
+        lines.append("Verify 3 random statements against the game files, append `[done] %s ...; checked: ...` to "
                      "HANDOFF.md, run `python -I modding/tools/collab.py gates --agent %s`, then commit explicit "
                      "paths only. Do not push." % (wp, agent))
         return lines
@@ -437,179 +436,66 @@ def git_retry(*args, tries=8, fatal=True):
         delay = min(delay * 1.6, 2.0)
 
 
-ALIVE, DEAD, UNKNOWN = "alive", "dead", "unknown"  # pid liveness; only DEAD authorises breaking a lock
+class LockError(RuntimeError):
+    """The commit lock could not be acquired, or could not be released cleanly."""
 
 
-class _Win32:
-    """kernel32 with explicit ctypes signatures (OpenProcess returns a HANDLE, not the default c_int)."""
-
-    def __init__(self):
-        import ctypes
-        from ctypes import wintypes
-        self._ct = ctypes
-        k = ctypes.WinDLL("kernel32", use_last_error=True)
-        k.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
-        k.OpenProcess.restype = wintypes.HANDLE
-        k.GetExitCodeProcess.argtypes = [wintypes.HANDLE, ctypes.POINTER(wintypes.DWORD)]
-        k.GetExitCodeProcess.restype = wintypes.BOOL
-        k.CloseHandle.argtypes = [wintypes.HANDLE]
-        k.CloseHandle.restype = wintypes.BOOL
-        self._k, self._dword = k, wintypes.DWORD
-
-    def open(self, pid):  # PROCESS_QUERY_LIMITED_INFORMATION; falsy on failure
-        return self._k.OpenProcess(0x1000, False, pid)
-
-    def last_error(self):
-        return self._ct.get_last_error()
-
-    def exit_code(self, h):  # None when the query itself failed
-        code = self._dword()
-        return code.value if self._k.GetExitCodeProcess(h, self._ct.byref(code)) else None
-
-    def close(self, h):
-        self._k.CloseHandle(h)
-
-
-def _win_liveness(pid, api):
-    """Tri-state liveness through an injectable Win32 adapter. Any failure that is not a definite answer is UNKNOWN."""
+def _release_lock(lock_path, mine):
+    """Remove the lock iff it still holds exactly what we wrote. Returns a problem string, or None when released.
+    Problems are also printed to stderr immediately so they cannot be lost behind another exception."""
     try:
-        h = api.open(pid)
-        if not h:
-            err = api.last_error()
-            if err == 87:  # ERROR_INVALID_PARAMETER: no such process
-                return DEAD
-            return ALIVE if err == 5 else UNKNOWN  # access denied: it exists; anything else: cannot tell
-        try:
-            code = api.exit_code(h)
-        finally:
-            try:
-                api.close(h)
-            except Exception:
-                pass
-        if code is None:
-            return UNKNOWN
-        return ALIVE if code == 259 else DEAD  # STILL_ACTIVE
-    except Exception:
-        return UNKNOWN
-
-
-def pid_alive(pid):
-    """ALIVE / DEAD / UNKNOWN for `pid`; DEAD only on a definite "no such process". Injectable (module global)."""
-    if pid <= 0:
-        return DEAD
-    if sys.platform == "win32":  # os.kill(pid, 0) would TerminateProcess on Windows, so query the handle instead
-        try:
-            return _win_liveness(pid, _Win32())
-        except Exception:
-            return UNKNOWN
-    try:
-        os.kill(pid, 0)
-    except ProcessLookupError:
-        return DEAD
-    except PermissionError:
-        return ALIVE
-    except OSError:
-        return UNKNOWN
-    return ALIVE
-
-
-def _read_lock(lock_path):
-    """(pid, token) from a lock file, or None when unreadable / not in `pid token` form."""
-    try:
-        parts = Path(lock_path).read_text().split()
-        return int(parts[0]), parts[1]
-    except (OSError, ValueError, IndexError):
-        return None
-
-
-def _observe_lock(lock_path):
-    """Snapshot of an existing lock: (raw text, mtime_ns, parsed (pid, token) or None). OSError if it vanished."""
-    st = os.stat(lock_path)
-    raw = Path(lock_path).read_text()
-    return raw, st.st_mtime_ns, _read_lock(lock_path)
-
-
-def _claim_path(lock_path, observed):
-    """Recovery claim name unique to one observed dead lock (its text carries a never-reused token; an
-    unparseable lock is keyed by text + mtime instead)."""
-    raw, mtime_ns, parsed = observed
-    key = raw if parsed else "%s@%d" % (raw, mtime_ns)
-    return "%s.recover.%s" % (lock_path, hashlib.sha1(key.encode()).hexdigest()[:16])
-
-
-def _break_stale(lock_path, observed):
-    """Atomically recover a lock that was observed dead. Returns True if it was removed by us, False if we must
-    back off (someone else is recovering it, or it is no longer the lock we observed).
-    Mutual exclusion is an O_EXCL claim file named after the observed lock's unique token: for a given dead lock
-    only one contender can ever create the claim. Under the claim we re-validate the lock is still byte-identical
-    to the observation and only then unlink it. The lock path cannot change under a claimant: its dead owner will
-    never release it, other recoverers of this observation are excluded, and new owners cannot create the path
-    while it exists. A contender holding a stale observation therefore either loses the claim or fails validation,
-    so it can never unlink a lock it did not observe (the check-then-act race). A claimant that crashes inside the
-    microsecond validate+unlink leaves the claim behind: acquirers then time out with a message naming the file."""
-    claim = _claim_path(lock_path, observed)
-    try:
-        os.close(os.open(claim, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
-    except FileExistsError:
-        return False
-    try:
-        try:
-            if _observe_lock(lock_path)[:2] != observed[:2]:
-                return False
-        except OSError:
-            return False
-        os.unlink(lock_path)
-        return True
-    finally:
-        try:
-            os.unlink(claim)
-        except OSError:
-            pass
+        if Path(lock_path).read_text() != mine:
+            problem = "%s no longer holds this invocation's token; NOT removing it (someone else's lock?)" % lock_path
+        else:
+            os.unlink(lock_path)
+            return None
+    except OSError as e:
+        problem = "could not remove %s (%s); delete it manually before the next commit" % (lock_path, e)
+    print("ERROR  " + problem, file=sys.stderr)
+    return problem
 
 
 @contextmanager
-def commit_lock(lock_path=None, timeout=30.0, stale=300.0):
-    """Exclusive lockfile (O_EXCL) so only one collab.py stages/commits at a time.
-    The file holds `<pid> <token>`. A lock is broken only when its owner pid is DEAD (tri-state pid_alive: ALIVE
-    and UNKNOWN both preserve it); age alone never breaks it (a slow hook is not a dead owner). `stale` applies
-    only to a lock whose content cannot be parsed (e.g. owner crashed between create and write). Breaking goes
-    through _break_stale (atomic). PID reuse errs on the safe side: the lock then looks alive and we wait/time out.
-    The holder unlinks the lock only if the token is still its own."""
+def commit_lock(lock_path=None, timeout=10.0):
+    """Fail-closed advisory lock so only one collab.py stages/commits at a time.
+    The lock file is created with O_EXCL and removed only by the invocation that created it (token compare); it is
+    never read to make a decision, aged, probed or broken. If it exists we wait a short, bounded time (a live
+    commit finishing) and then refuse. The deadline is checked on every failed attempt, whatever the error."""
     if lock_path is None:
         lock_path = Path(git("rev-parse", "--absolute-git-dir").stdout.strip()) / "collab.lock"
-    token = uuid.uuid4().hex
-    mine = "%d %s" % (os.getpid(), token)
+    mine = "%d %s" % (os.getpid(), uuid.uuid4().hex)  # body is for human diagnosis; the token is compared on release
     deadline, delay = time.time() + timeout, 0.1
     while True:
         try:
             fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-            os.write(fd, mine.encode())
-            os.close(fd)
-            break
-        except FileExistsError:
-            try:
-                observed = _observe_lock(lock_path)
-                if observed[2] is None:
-                    dead = time.time() - observed[1] / 1e9 > stale
-                else:
-                    dead = pid_alive(observed[2][0]) == DEAD
-                if dead and _break_stale(lock_path, observed):
-                    continue
-            except OSError:
-                continue
+        except OSError as e:
+            why = ("it already exists: if no collab.py commit is running, delete it manually"
+                   if isinstance(e, FileExistsError) else "cannot create it (%s)" % e)
             if time.time() >= deadline:
-                raise TimeoutError("could not acquire %s within %ds (if no collab.py is running, remove it and any "
-                                   "%s.recover.* file)" % (lock_path, timeout, lock_path))
+                raise LockError("refusing to proceed: %s is not available after %ds; %s" % (lock_path, timeout, why))
             time.sleep(delay)
             delay = min(delay * 1.5, 1.0)
+            continue
+        try:
+            try:
+                os.write(fd, mine.encode())
+            finally:
+                os.close(fd)
+        except OSError as e:  # we created the file but cannot vouch for its body: remove it (it is ours) and refuse
+            try:
+                os.unlink(lock_path)
+            except OSError as e2:
+                print("ERROR  could not remove %s (%s); delete it manually" % (lock_path, e2), file=sys.stderr)
+            raise LockError("refusing to proceed: could not write %s (%s)" % (lock_path, e))
+        break
     try:
         yield
-    finally:
-        try:
-            if _read_lock(lock_path) == (os.getpid(), token):
-                os.unlink(lock_path)
-        except OSError:
-            pass
+    except BaseException:
+        _release_lock(lock_path, mine)
+        raise
+    problem = _release_lock(lock_path, mine)
+    if problem:
+        raise LockError(problem)
 
 
 def staged_names():
@@ -671,7 +557,7 @@ def cmd_commit(args):
                          "My paths may still be staged: run `git reset -q -- <paths>` before anything else."
                          % (what, r.stderr.strip()))
             git_retry(*commit_args(msg, paths))
-    except TimeoutError as e:
+    except LockError as e:
         sys.exit(str(e))
     print(git("log", "--oneline", "-n", "1").stdout.strip())
 
@@ -756,7 +642,7 @@ class FakeGit:
 
 @contextmanager
 def patched(**names):
-    """Temporarily replace module-level names (git, changed_paths, pid_alive, ...) and time.sleep."""
+    """Temporarily replace module-level names (git, changed_paths, run_gates, ...) and time.sleep."""
     g, saved, sleep = globals(), {}, time.sleep
     for k, v in names.items():
         saved[k] = g[k]
@@ -859,125 +745,110 @@ def cmd_selftest(_args):
     check("D1 commit argv ends with `-- <paths>` (explicit pathspec)", argv[-3:] == ["--", "p1", "p2"] and "-a" not in argv, str(argv))
     with tempfile.TemporaryDirectory() as td:
         lk = Path(td) / "collab.lock"
-        ok_block = False
-        with commit_lock(lk):
-            try:
-                with commit_lock(lk, timeout=0.3):
-                    pass
-            except TimeoutError:
-                ok_block = True
-        check("D1 second locker is blocked while the lock is held", ok_block)
-        check("D1 lock released afterwards", not lk.exists())
+        other = Path(td) / "bystander.txt"
+        other.write_text("x")
 
-        # R1-1: liveness (injected pid_alive), never age, decides whether a lock is broken
-        old = time.time() - 100000
-        lk.write_text("4242 tok")
-        os.utime(lk, (old, old))
-        with patched(pid_alive=lambda pid: DEAD):
-            with commit_lock(lk, timeout=0.3):
-                pass
-        check("R1-1 lock of a dead owner is broken", not lk.exists())
-        for state in (ALIVE, UNKNOWN):
-            lk.write_text("4242 tok")
-            os.utime(lk, (old, old))
-            blocked = False
-            with patched(pid_alive=lambda pid: state):
-                try:
-                    with commit_lock(lk, timeout=0.3):
-                        pass
-                except TimeoutError:
-                    blocked = True
-            check("R1-1/R2-2 very old lock of an owner that is %s is not broken" % state,
-                  blocked and lk.exists() and lk.read_text() == "4242 tok")
-        lk.unlink()
-        with commit_lock(lk):
-            lk.write_text("4242 other-token")  # someone else's lock replaced ours
-        check("R1-1 holder never unlinks another invocation's lock", lk.exists() and lk.read_text() == "4242 other-token")
-        lk.unlink()
+        # M1F3: fail-closed advisory lock contract
+        seen_body = []
+        with commit_lock(lk, timeout=0.3):
+            seen_body.append(lk.exists() and lk.read_text().split()[0] == str(os.getpid()))
+        check("M1F3-a lock absent: acquired (body records pid), removed on success, bystander untouched",
+              seen_body == [True] and not lk.exists() and other.read_text() == "x")
         try:
-            with commit_lock(lk):
+            with commit_lock(lk, timeout=0.3):
                 raise RuntimeError("body failed")
         except RuntimeError:
             pass
-        check("R1-3c lock is released when the body raises", not lk.exists())
-        check("R1-1 pid_alive: this process is ALIVE, pid 0 is DEAD",
-              pid_alive(os.getpid()) == ALIVE and pid_alive(0) == DEAD)
+        check("M1F3-b lock is released when the body raises", not lk.exists())
 
-        # R2-1: stale-lock recovery is atomic; interleavings are driven explicitly, no timing involved
-        lk.write_text("4242 D-token")
-        d_obs = _observe_lock(lk)  # both A and B observed dead lock D
-        b_obs = _observe_lock(lk)
-        with patched(pid_alive=lambda pid: DEAD):
-            with commit_lock(lk, timeout=0.3):  # A recovers D and enters the protected body
-                a_text = lk.read_text()
-                b_unlinked = _break_stale(lk, b_obs)  # B resumes with its stale observation
-                still_a = lk.exists() and lk.read_text() == a_text
-        check("R2-1 a recoverer holding a stale observation cannot unlink the lock that replaced it",
-              not b_unlinked and still_a and a_text.split()[1] != "D-token")
-        lk.write_text("4242 D-token")
-        obs = _observe_lock(lk)
-        claim = Path(_claim_path(lk, obs))
-        claim.write_text("")  # contender A is mid-recovery of exactly this lock
-        lost = _break_stale(lk, obs)
-        check("R2-1 a second recoverer of the same dead lock loses the claim and backs off",
-              lost is False and lk.exists() and claim.exists())
-        claim.unlink()
-        won = _break_stale(lk, obs)
-        check("R2-1 the claim winner removes the lock and its claim file", won is True and not lk.exists() and not claim.exists())
-        lk.write_text("4242 D-token")
-        obs = _observe_lock(lk)
-        lk.write_text("4242 D-token")
-        os.utime(lk, ns=(obs[1] + 10**9, obs[1] + 10**9))  # same text, different file instance
-        check("R2-1 a lock that changed since observation is not removed",
-              _break_stale(lk, obs) is False and lk.exists() and not claim.exists())
+        lk.write_text("4242 someone")
+        os.utime(lk, (0, 0))  # ancient and of a pid that does not exist: must still be honoured, never broken
+        entered, refusal = False, ""
+        with patched():
+            try:
+                with commit_lock(lk, timeout=0.3):
+                    entered = True
+            except LockError as e:
+                refusal = str(e)
+        check("M1F3-c existing lock (any age/content) is never broken: refuses, names the file, says delete manually",
+              not entered and lk.read_text() == "4242 someone" and str(lk) in refusal and "delete it manually" in refusal,
+              refusal)
         lk.unlink()
 
-        # R2-2: tri-state liveness and Win32 failure branches via injected API results
-        class W32:
-            def __init__(self, handle=1, err=0, code=259, query_raises=False, close_raises=False):
-                self.handle, self.err, self.code, self.query_raises, self.close_raises = handle, err, code, query_raises, close_raises
-                self.closed = []
+        errbuf, raised = io.StringIO(), False
+        with redirect_stderr(errbuf):
+            try:
+                with commit_lock(lk):
+                    lk.write_text("4242 other-token")  # someone else's lock replaced ours
+            except LockError:
+                raised = True
+        check("M1F3-d holder will not remove a lock it did not create, and says so loudly (stderr + LockError)",
+              raised and "ERROR" in errbuf.getvalue() and lk.exists() and lk.read_text() == "4242 other-token")
+        lk.unlink()
 
-            def open(self, pid):
-                return self.handle
+        real_unlink = os.unlink
 
-            def last_error(self):
-                return self.err
+        def failing_unlink(p, *a, **k):
+            if str(p) == str(lk):
+                raise PermissionError("locked by AV")
+            return real_unlink(p, *a, **k)
 
-            def exit_code(self, h):
-                if self.query_raises:
-                    raise OSError("boom")
-                return self.code
+        errbuf, raised = io.StringIO(), False
+        os.unlink = failing_unlink
+        try:
+            with redirect_stderr(errbuf):
+                try:
+                    with commit_lock(lk):
+                        pass
+                except LockError:
+                    raised = True
+        finally:
+            os.unlink = real_unlink
+        check("M1F3-e failed release is reported loudly (stderr + LockError), never silent",
+              raised and "could not remove" in errbuf.getvalue() and lk.exists())
+        lk.unlink()
 
-            def close(self, h):
-                self.closed.append(h)
-                if self.close_raises:
-                    raise OSError("close boom")
+        real_open, calls, t0 = os.open, [0], time.time()
 
-        w = W32(handle=0, err=87)
-        check("R2-2 OpenProcess ERROR_INVALID_PARAMETER -> DEAD", _win_liveness(9, w) == DEAD)
-        check("R2-2 OpenProcess access denied -> ALIVE", _win_liveness(9, W32(handle=0, err=5)) == ALIVE)
-        check("R2-2 OpenProcess any other error -> UNKNOWN (not DEAD)",
-              all(_win_liveness(9, W32(handle=0, err=e)) == UNKNOWN for e in (0, 6, 1450, 8)))
-        w = W32(code=None)
-        check("R2-2 failed GetExitCodeProcess -> UNKNOWN, handle closed", _win_liveness(9, w) == UNKNOWN and w.closed == [1])
-        w = W32(query_raises=True)
-        check("R2-2 exception while querying -> UNKNOWN, handle still closed", _win_liveness(9, w) == UNKNOWN and w.closed == [1])
-        w = W32(code=259)
-        check("R2-2 STILL_ACTIVE -> ALIVE, handle closed", _win_liveness(9, w) == ALIVE and w.closed == [1])
-        w = W32(code=0)
-        check("R2-2 exited process -> DEAD, handle closed", _win_liveness(9, w) == DEAD and w.closed == [1])
-        check("R2-2 CloseHandle failure does not change the answer", _win_liveness(9, W32(code=0, close_raises=True)) == DEAD)
-        if sys.platform == "win32":
-            import ctypes
-            from ctypes import wintypes
-            k = _Win32()._k
-            check("R2-2 Win32 signatures are declared (HANDLE restype, DWORD/BOOL/HANDLE argtypes)",
-                  k.OpenProcess.restype is wintypes.HANDLE
-                  and k.OpenProcess.argtypes == [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
-                  and k.GetExitCodeProcess.argtypes == [wintypes.HANDLE, ctypes.POINTER(wintypes.DWORD)]
-                  and k.GetExitCodeProcess.restype is wintypes.BOOL
-                  and k.CloseHandle.argtypes == [wintypes.HANDLE] and k.CloseHandle.restype is wintypes.BOOL)
+        def broken_open(p, *a, **k):
+            if str(p) == str(lk):
+                calls[0] += 1
+                if time.time() - t0 > 2:
+                    raise AssertionError("unbounded retry loop")
+                raise PermissionError("denied")
+            return real_open(p, *a, **k)
+
+        refusal = ""
+        os.open = broken_open
+        try:
+            t0 = time.time()
+            try:
+                with commit_lock(lk, timeout=0.2):  # real (short) backoff sleeps: the wall-clock deadline must end it
+                    pass
+            except (LockError, AssertionError) as e:
+                refusal = str(e)
+            elapsed = time.time() - t0
+        finally:
+            os.open = real_open
+        check("M1F3-f deadline honoured on a persistent creation error: clear refusal, bounded attempts",
+              "cannot create it" in refusal and 0 < calls[0] and elapsed < 2, "%s %s %.2f" % (refusal, calls[0], elapsed))
+
+        real_write = os.write
+
+        def failing_write(fd, data):
+            raise OSError("disk full")
+
+        os.write = failing_write
+        try:
+            try:
+                with commit_lock(lk, timeout=0.2):
+                    pass
+            except LockError as e:
+                refusal = str(e)
+        finally:
+            os.write = real_write
+        check("M1F3-g a failed write of the lock body refuses and leaves no lock file behind",
+              "could not write" in refusal and not lk.exists())
 
     # R1-3: drive the real cmd_commit / cmd_gates / git_retry through an in-memory fake git
     with tempfile.TemporaryDirectory() as td:
@@ -1017,7 +888,7 @@ def cmd_selftest(_args):
               and fg.resets == [both] and fg.index == {theirs} and not lk.exists(), "%s %s" % (code, fg.index))
         fg = FakeGit(foreign=theirs, reset_fail=True)
         code, _ = run_commit(fg)
-        check("R1-2 failed rollback is reported, not claimed as unstaged; lock released",
+        check("R1-2 failed rollback is reported, not reported as unstaged; lock released",
               isinstance(code, str) and "UNSTAGING FAILED" in code and "paths unstaged" not in code
               and not fg.commits and not lk.exists(), str(code))
         fg = FakeGit(foreign=theirs, reset_lock_fails=2)
@@ -1051,11 +922,10 @@ def cmd_selftest(_args):
               len(fg.lock_seen) == 2 and all(fg.lock_seen), str(fg.lock_seen))
         lk.write_text("4242 other-holder")
         fg = FakeGit()
-        with patched(pid_alive=lambda pid: ALIVE):
-            code, _ = run_commit(fg)
-        check("R2-3 cmd_commit cannot mutate while another holder owns the lock",
-              isinstance(code, str) and "could not acquire" in code and not fg.mutations and not fg.add_calls
-              and lk.exists() and lk.read_text() == "4242 other-holder", "%s %s" % (code, fg.mutations))
+        code, _ = run_commit(fg)
+        check("M1F3 cmd_commit refuses while another holder owns the lock: stages nothing, mutates nothing, lock intact",
+              isinstance(code, str) and "refusing to proceed" in code and "collab.lock" in code and not fg.mutations
+              and not fg.add_calls and lk.exists() and lk.read_text() == "4242 other-holder", "%s %s" % (code, fg.mutations))
         lk.unlink()
 
     seen = []
