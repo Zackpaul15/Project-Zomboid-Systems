@@ -2,8 +2,8 @@
 
 Survey date: 2026-10-24. Build/fingerprint: Project Zomboid Build 42;
 jar sha256 prefix `e1a69eb7` (inherited from the source surveys).
-[observed] Historical pre-correction input revision: `67f662930a7f93bdfd7173a05daf58542aaaec4a`.
-Historical pre-correction output SHA-256: `4ede143ae002cb0a6b3a21dd1655b63e357b4e8363c9ea1793728a65e6aaefd2`.
+[observed: Hermes run evidence and CSV inspection] Input revision: `d7a3799fd79adec20c9b1bb3553f8f61dd769597`.
+Output SHA-256: `e20bf21e17545d6e7caae01cc7b71e377f324e04dd98c9944d8845c4c64ea951`.
 The build fingerprint is inherited from the source surveys, not independently
 verified by this catalogue comparison.
 
@@ -41,9 +41,9 @@ Java grammar/block entries, structural survey markers and zero-count markers.
 Rows use a total lexical sort, UTF-8 without BOM and LF line endings. Evidence is
 JSON with sorted keys. There are no timestamps or machine-dependent input paths.
 Two runs against the same resolved revision must produce byte-identical output.
-[unknown] Post-correction distribution, hash and repeatability await Hermes's two
-runs. J1A-FIX1 did not run the generator or recompute classifications. Historical
-counts and fingerprints below describe the pre-correction artifact only.
+[observed: Hermes run evidence] Two runs at the input revision above produced
+byte-identical output. J1A-FIX2 inspected that output without running the generator;
+the counts and fingerprints below describe the corrected artifact.
 
 Identifier spelling and **case sensitivity** are preserved. Event joins are exact
 and case-sensitive. Script keys match case-insensitively only when the Java record
@@ -118,7 +118,7 @@ the relevant `no_observation_in_input_catalogues` or
 `no_parser_match_in_input_catalogue` reason. These split the old
 `scope_or_grammar_unresolved` bucket into actionable work. [observed: generator]
 
-## Historical pre-correction results [observed]
+## Corrected results [observed: CSV inspection and Hermes run evidence]
 
 Counts below are CSV records, **not distinct names, runtime occurrences or
 percentages of valid mod keys**. A counterpart can contribute a row on each side;
@@ -127,17 +127,17 @@ repeated Lua sites and structural survey markers remain separate records.
 | Domain | matched | explained | unknown | defect | Total |
 |---|---:|---:|---:|---:|---:|
 | events | 669 | 8 | 87 | 0 | 764 |
-| script_keys | 661 | 184 | 2,289 | 0 | 3,134 |
-| Overall | 1,330 | 192 | 2,376 | 0 | 3,898 |
+| script_keys | 671 | 353 | 2,110 | 0 | 3,134 |
+| Overall | 1,340 | 361 | 2,197 | 0 | 3,898 |
 
-[observed: pre-correction artifact] All 3,898 evidence cells are populated, parse as JSON and identify the
+[observed: corrected artifact] All 3,898 evidence cells are populated, parse as JSON and identify the
 input revision above. There are no illegal classification values. The eleven
 source fingerprints recorded in evidence agree with the supplied run evidence
 (SHA-256 prefixes, first 16 characters):
 
 | Input | Fingerprint |
 |---|---|
-| events.csv | `b3f4e5160a05ad5f` |
+| events.csv | `f8aff47e0fc37f4c` |
 | vanilla-event-subscriptions.csv | `2397626b11d083e6` |
 | vanilla-lua-event-triggers.csv | `d135b2b986ffaee2` |
 | script-keys.csv | `f440a840c8fdecaa` |
@@ -149,33 +149,40 @@ source fingerprints recorded in evidence agree with the supplied run evidence
 | fluid-keys.csv | `794f4b770d3f2c6b` |
 | entity-keys.csv | `43202bd9b74686ef` |
 
-### Expected correction effects [inferred]
+### Correction effects and JV-2 [observed: corrected CSV and supplied review evidence]
 
-The new distribution is pending Hermes; no replacement counts are asserted here.
-Row totals should stay unchanged because every input record is still emitted once.
-Attribute mappings should move established overlaps from `unknown` to `matched`
-(or `explained` for case-insensitive overlap). The 167 previously unknown positive
-survey markers should become `explained` with
-`structural_survey_marker_not_applicable`, without increasing `matched`.
-The trigger-count contradictions below should become `defect`. Reason splitting
-changes the unknown breakdown without itself changing classifications. The old
-zero-defect count was structurally guaranteed; the new detector measures only the
-specified cross-table contradiction, not the overall defect rate.
+Relative to the run using input revision `b68b9f6`, exactly three rows moved from
+`defect` to `unknown`: unknown increased from 2,194 to 2,197 and defects fell from
+3 to 0. They did not become `matched`. Matched remains 1,340, explained remains
+361, and the total remains 3,898; this correction does not inflate matched coverage.
+
+**JV-2: a defect count of 0 is now the expected state, not a regression.** The
+three earlier defect rows were real cross-table contradictions correctly detected
+by the check. Their cause was fixed, and the check was not weakened. A future
+cross-table contradiction would still legitimately trigger a defect: specifically,
+an `events.csv` row with positive `lua_trigger_files` but no corresponding literal
+trigger record in `vanilla-lua-event-triggers.csv`. Zero defects therefore records
+the absence of this contradiction in the corrected inputs, rather than merely an
+artefact of scope; it does not establish the absence of all possible defects.
 
 ### Named catalogue finding J1B-6
 
-[observed: input CSV inspection at J1A-FIX1 base HEAD]
-`OnChangeWeather`, `OnDawn` and `OnDusk` each have `lua_trigger_files=1` in
-`events.csv` and no row in `vanilla-lua-event-triggers.csv`. This contradicts the
-catalogues' trigger coverage and must be reconciled by Claude (events table) and
-Codex (Lua trigger table). The generator emits
-`lua_trigger_count_without_trigger_record` and routes evidence here. Which
-extractor needs correction remains [unknown]; this does not claim broken events.
+[observed: supplied J1A-VERIFY review evidence and corrected input CSV]
+`OnChangeWeather`, `OnDawn` and `OnDusk` previously each had `lua_trigger_files=1`
+in `events.csv` and no row in `vanilla-lua-event-triggers.csv`. The root cause was
+a comment-stripping bug in `extract_events.py`: it counted `triggerEvent` calls
+inside Lua `--[[ ]]` block comments in `season.lua`. Claude fixed the extractor
+and regenerated `events.csv` in `d7a3799`; those three counts changed from 1 to 0.
+The contradictory positive claims are gone, so the rows now remain `unknown`
+without a literal trigger counterpart. The earlier
+`lua_trigger_count_without_trigger_record` flags correctly identified catalogue
+defects; their resolution does not establish runtime event behaviour.
 
 ### Defect candidate checks [observed unless marked otherwise]
 
-- **J1B-1(a): holds.** The three names above meet the mechanical contradiction.
-  Detection uses input values, not a hard-coded event-name list.
+- **J1B-1(a): detected, then resolved.** The three names above met the mechanical
+  contradiction before `d7a3799`; the corrected input no longer meets it.
+  Detection still uses input values, not a hard-coded event-name list.
 - **J1B-1(b): absence holds; defect unproven.** `OnVehicleHorn` is subscribed in
   `server/Vehicles/Vehicles.lua` and absent from `events.csv`. The game file also
   registers it literally via `LuaEventManager.AddEvent` (line 1538), before the
