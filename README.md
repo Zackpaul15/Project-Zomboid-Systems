@@ -40,6 +40,9 @@ Target: `F:\SteamLibrary\steamapps\common\ProjectZomboid` (Build 42 era: entity 
 - [notes/zombie-ai.md](notes/zombie-ai.md) - group manager, idle/lunge states, constants.
 - [notes/functions-popman.md](notes/functions-popman.md) - `PZPopMan64.dll` function map: proposed names, JNI exports, layout.
 - [notes/functions-pathfind.md](notes/functions-pathfind.md) - `PZPathFind64.dll` function map: proposed names by subsystem.
+- [modding/README.md](modding/README.md) - entry point to the Lua-modding reference (Lua API, script formats, vanilla
+  Lua library, workflow, tables); [modding/cookbook/](modding/cookbook/README.md) is the practical starting point
+  (recipes are untested).
 - [modding/SCOPE.md](modding/SCOPE.md) - Lua-modding reference repo: scope, work packages and the Claude/Codex split
   ([AGENTS.md](AGENTS.md) is the Codex brief).
 - Open questions are listed at the end of each note (native search function, density curve, remaining states).

@@ -2,7 +2,8 @@
 
 Docs-only reference generated from the game install and a decompile of its Java. No game code or assets are
 included; only names, shapes, counts and original explanations. Claims are tagged **[observed]**, **[inferred]** or
-**[unknown]**. How the work is split: [`SCOPE.md`](SCOPE.md). Progress log: [`HANDOFF.md`](HANDOFF.md).
+**[unknown]**. Survey date: 2026-10-24. Game build: Build 42 (jar sha256 prefix `e1a69eb7`; no version file was
+found, see [`SCOPE.md`](SCOPE.md)). How the work is split: [`SCOPE.md`](SCOPE.md). Progress log: [`HANDOFF.md`](HANDOFF.md).
 Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 
 ## Lua API (from the Java side)
@@ -22,13 +23,15 @@ Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 |---|---|---|
 | [`scripts/parser-keys.md`](scripts/parser-keys.md) | How `media/scripts` is loaded, block syntax, unknown-key behaviour, `craftRecipe` line grammar, entity/vehicle/XUI structure | [`data/script-keys.csv`](data/script-keys.csv) (every key, nested block, line word and flag the parsers compare) |
 
-The data-file side (what vanilla scripts contain: `overview.md` and later pages in `scripts/`) is written by the
-other agent.
+## Vanilla data, Lua library and mod workflow
 
-## Planned (in progress by the other agent or later)
-
-Vanilla Lua library map (`lua-library/`), mod workflow (`workflow/`), and a cookbook. See `SCOPE.md` for the
-packages.
+| Group | Start here | Contents |
+|---|---|---|
+| Script data (what vanilla scripts contain) | [`scripts/overview.md`](scripts/overview.md) | Block-type map of `media/scripts`, then per-topic pages: [`items.md`](scripts/items.md), [`crafting.md`](scripts/crafting.md), [`entities.md`](scripts/entities.md), [`fluids.md`](scripts/fluids.md), [`sounds.md`](scripts/sounds.md), [`vehicles.md`](scripts/vehicles.md) and [`key-coverage.md`](scripts/key-coverage.md) (script keys compared across the Java parsers, vanilla Lua and vanilla script data) |
+| Vanilla Lua library map | [`lua-library/overview.md`](lua-library/overview.md) | Inventory of the vanilla `media/lua` folders; [`timed-actions.md`](lua-library/timed-actions.md), [`ui.md`](lua-library/ui.md), [`distributions.md`](lua-library/distributions.md); file index [`index.csv`](lua-library/index.csv) |
+| Mod workflow | [`workflow/mod-layout.md`](workflow/mod-layout.md) | Folder layout, [`mod-info.md`](workflow/mod-info.md), [`load-order.md`](workflow/load-order.md), [`translations.md`](workflow/translations.md), [`sandbox-vars.md`](workflow/sandbox-vars.md), [`debug-mode.md`](workflow/debug-mode.md), [`workshop-upload.md`](workflow/workshop-upload.md), [`b41-vs-b42.md`](workflow/b41-vs-b42.md) |
+| Generated tables | [`data/`](data/) | CSV tables written by the scripts in `tools/` (see "Regenerating tables"); each doc above links the tables it uses |
+| Cookbook | [`cookbook/README.md`](cookbook/README.md) | Six short recipes (item, craftRecipe, context-menu entry, event hook, sandbox option, client-to-server command). **Untested: none of the recipes was run in the game; they are not runtime-verified.** The practical starting point for a first mod |
 
 ## Working on this repo (two agents)
 

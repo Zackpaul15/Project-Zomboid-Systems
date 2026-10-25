@@ -7,3 +7,6 @@ _*
 *.log
 __pycache__/
 *.pyc
+scratch/
+codex-scratch/
+pz-work/
