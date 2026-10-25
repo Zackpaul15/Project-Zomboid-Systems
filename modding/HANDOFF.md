@@ -37,3 +37,5 @@ Claude owns C0-C6; Codex owns X1-X8 (see `SCOPE.md`).
 [done] J1B modding/scripts/parser-keys.md
 [done] J1A-FIX1 modding/tools/survey_key_coverage.py, modding/scripts/key-coverage.md, modding/data/key-coverage.csv
 [done] C1-FIX1 modding/tools/extract_events.py, modding/data/events.csv, modding/lua-api/events.md
+[done] J2 modding/cookbook/README.md, modding/cookbook/add-item.md, modding/cookbook/add-craft-recipe.md, modding/cookbook/context-menu-entry.md, modding/cookbook/hook-an-event.md, modding/cookbook/add-sandbox-option.md, modding/cookbook/client-server-command.md (6 recipes, all untested and not runtime-verified; no Lua interpreter available so no syntax check ran)
+[fix] J2-FIX1 modding/cookbook/client-server-command.md, add-craft-recipe.md, add-item.md: F54-F57 addressed (same-file OnGameStart trigger, routing marked [unknown], sendClientCommand overloads, fenced console expression)
