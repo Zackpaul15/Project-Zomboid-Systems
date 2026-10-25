@@ -33,6 +33,28 @@ Prompt for the second agent: [`CODEX_PROMPT.md`](CODEX_PROMPT.md).
 | Generated tables | [`data/`](data/) | CSV tables written by the scripts in `tools/` (see "Regenerating tables"); each doc above links the tables it uses |
 | Cookbook | [`cookbook/README.md`](cookbook/README.md) | Six short recipes (item, craftRecipe, context-menu entry, event hook, sandbox option, client-to-server command). **Untested: none of the recipes was run in the game; they are not runtime-verified.** The practical starting point for a first mod |
 
+## The native layer (Java -> JNI -> engine DLLs)
+
+Much modder-facing behaviour stops at the Java boundary and continues in C++ DLLs reached through JNI `native`
+methods. These docs map that layer: which `native` declarations exist, which DLL owns each one, what their
+arguments do, and whether a mod can actually reach them from Lua. The DLL passes used Ghidra; per the repo rules
+only names, offsets, counts and one-line summaries are recorded here, never bodies or disassembly.
+
+| Doc | Contents | Table |
+|---|---|---|
+| [`../notes/native-boundary.md`](../notes/native-boundary.md) | The JNI boundary itself: every `native` declaration, per-DLL attribution and how confident that attribution is. Start here | [`data/native-boundary.csv`](data/native-boundary.csv) (392 natives) |
+| [`../notes/native-reachability.md`](../notes/native-reachability.md) | Can a mod reach this native, and through what path? Includes the end-to-end `Lua/Java entry -> native -> effect` chains for the traced vehicle and ballistics natives | [`data/native-reachability.csv`](data/native-reachability.csv) |
+| [`../notes/bullet-native.md`](../notes/bullet-native.md) | `PZBullet64.dll` export inventory: 103 exports, 98 of them resolving to declarations | [`data/bullet-exports.csv`](data/bullet-exports.csv) |
+| [`../notes/bullet-vehicle.md`](../notes/bullet-vehicle.md) | Vehicle-control natives (`controlVehicle`, `setTireInflation`, `applyImpulse`, ...): what each argument changes | [`data/bullet-vehicle-io.csv`](data/bullet-vehicle-io.csv) |
+| [`../notes/bullet-ballistics.md`](../notes/bullet-ballistics.md) | Ballistics and aiming natives (`updateBallistics*`, `setBallistics*`, targets): what each argument changes | [`data/bullet-ballistics-io.csv`](data/bullet-ballistics-io.csv) |
+
+Earlier engine notes cover the other DLLs: [`../notes/population.md`](../notes/population.md) and
+[`../notes/functions-popman.md`](../notes/functions-popman.md) for `PZPopMan64.dll`,
+[`../notes/pathfinding.md`](../notes/pathfinding.md) and [`../notes/functions-pathfind.md`](../notes/functions-pathfind.md)
+for `PZPathFind64.dll`, plus [`../notes/zombie-ai.md`](../notes/zombie-ai.md) for the Java-side zombie AI.
+`Lighting64.dll`, `PZClipper64.dll`, `PZBullet64.dll`'s remaining natives and the networking DLLs are catalogued in
+the boundary map but not yet described in detail.
+
 ## Working on this repo (two agents)
 
 [`tools/collab.py`](tools/collab.py) reads `SCOPE.md` and `HANDOFF.md` and runs the checks both agents agreed on. It
@@ -54,5 +76,11 @@ Python 3, run as `python -I`, from `modding/tools/`:
 - `gen_class_docs.py ../data ../lua-api/classes`
 - `extract_script_keys.py <decompiled src> ../data/script-keys.csv`
 - `extract_sandbox_options.py <decompiled src> <game media/lua> ../data/sandbox-options.csv`
+- `native_boundary.py <decompiled src root> <projectzomboid.jar> <javap.exe> ../data/native-boundary.csv`
+
+`native_boundary.py` is the only generator for the native layer. The other native tables
+(`bullet-exports.csv`, `bullet-vehicle-io.csv`, `bullet-ballistics-io.csv`, `native-reachability.csv`) were built by
+the analysis passes themselves and are not script-regenerated; their method, checks and confidence rules are
+recorded in the matching doc under `../notes/`.
 
 The decompile is made outside the repo (Vineflower; see `SCOPE.md`, "Shared workspace").
