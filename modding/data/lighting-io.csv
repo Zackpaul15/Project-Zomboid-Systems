@@ -1,0 +1,78 @@
+java_native,arg_index,arg_name,jni_type,units,effect,reaches,confidence
+zombie.iso.LightingJNI.addLight,0,var0,I,identifier,Sets the record ID and indexes the light map,light+0x0; DAT_18008fe80,high
+zombie.iso.LightingJNI.addLight,1,var1,I,[unknown],Sets x placement,light+0x4,high
+zombie.iso.LightingJNI.addLight,2,var2,I,[unknown],Sets y placement,light+0x8,high
+zombie.iso.LightingJNI.addLight,3,var3,I,[unknown],Sets native z placement,light+0xc,high
+zombie.iso.LightingJNI.addLight,4,var4,I,[unknown],Sets radius input,light+0x10,high
+zombie.iso.LightingJNI.addLight,5,var5,F,[unknown],Sets the red component,light+0x14,high
+zombie.iso.LightingJNI.addLight,6,var6,F,[unknown],Sets the green component,light+0x18,high
+zombie.iso.LightingJNI.addLight,7,var7,F,[unknown],Sets the blue component,light+0x1c,high
+zombie.iso.LightingJNI.addLight,8,var8,I,[unknown],No argument read or destination recovered in this entry,[unknown],[unknown]
+zombie.iso.LightingJNI.addLight,9,var9,Z,boolean-like,Sets the initial active byte from nonzero input,light+0x20,high
+zombie.iso.LightingJNI.addRoomLight,0,var0,I,identifier,Sets the record ID and indexes the room-light map,roomLight+0x0; DAT_18008fed8,high
+zombie.iso.LightingJNI.addRoomLight,1,var1,J,identifier,Sets the building ID,roomLight+0x8,high
+zombie.iso.LightingJNI.addRoomLight,2,var3,J,identifier,Sets the room ID,roomLight+0x10,high
+zombie.iso.LightingJNI.addRoomLight,3,var5,I,[unknown],Sets the x placement,roomLight+0x18,high
+zombie.iso.LightingJNI.addRoomLight,4,var6,I,[unknown],Sets the y placement,roomLight+0x1c,high
+zombie.iso.LightingJNI.addRoomLight,5,var7,I,[unknown],Sets the native z placement,roomLight+0x20,high
+zombie.iso.LightingJNI.addRoomLight,6,var8,I,[unknown],Sets the width input,roomLight+0x24,high
+zombie.iso.LightingJNI.addRoomLight,7,var9,I,[unknown],Sets the height input,roomLight+0x28,high
+zombie.iso.LightingJNI.addRoomLight,8,var10,Z,boolean-like,Sets the initial active byte,roomLight+0x2c,high
+zombie.iso.LightingJNI.addTempLight,0,var0,I,identifier,Sets the record ID and indexes the light map,light+0x0; DAT_18008fe80,high
+zombie.iso.LightingJNI.addTempLight,1,var1,I,[unknown],Sets x placement,light+0x4,high
+zombie.iso.LightingJNI.addTempLight,2,var2,I,[unknown],Sets y placement,light+0x8,high
+zombie.iso.LightingJNI.addTempLight,3,var3,I,[unknown],Sets native z placement,light+0xc,high
+zombie.iso.LightingJNI.addTempLight,4,var4,I,[unknown],Sets radius input,light+0x10,high
+zombie.iso.LightingJNI.addTempLight,5,var5,F,[unknown],Sets the red component,light+0x14,high
+zombie.iso.LightingJNI.addTempLight,6,var6,F,[unknown],Sets the green component,light+0x18,high
+zombie.iso.LightingJNI.addTempLight,7,var7,F,[unknown],Sets the blue component,light+0x1c,high
+zombie.iso.LightingJNI.addTempLight,8,var8,I,[unknown],Stores the caller lifetime-derived counter in both slots,light+0x24; light+0x28,high
+zombie.iso.LightingJNI.configure,0,var0,F,[unknown],Stores the global configuration float; downstream effect UNVERIFIED,DAT_18008f000,low
+zombie.iso.LightingJNI.getDarkMulti,0,var0,I,index,Selects one of four player lighting states,DAT_18008fe20[index],high
+zombie.iso.LightingJNI.getDarkMulti,1,var1,I,[unknown],Subtracts the layer x origin and selects the buffer column,state+0x138900+0xf0*layer; darknessBuffer[column],high
+zombie.iso.LightingJNI.getDarkMulti,2,var2,I,[unknown],Subtracts the layer y origin and selects the buffer row,state+0x138904+0xf0*layer; darknessBuffer[row*width],high
+zombie.iso.LightingJNI.getDarkMulti,3,var3,I,index,Selects the layer descriptor and its float-buffer pointer,state+0x138928+0xf0*layer,high
+zombie.iso.LightingJNI.getTargetDarkMulti,0,var0,I,index,Selects one of four player lighting states,DAT_18008fe20[index],high
+zombie.iso.LightingJNI.getTargetDarkMulti,1,var1,I,[unknown],Subtracts the layer x origin and selects the buffer column,state+0x138900+0xf0*layer; darknessBuffer[column],high
+zombie.iso.LightingJNI.getTargetDarkMulti,2,var2,I,[unknown],Subtracts the layer y origin and selects the buffer row,state+0x138904+0xf0*layer; darknessBuffer[row*width],high
+zombie.iso.LightingJNI.getTargetDarkMulti,3,var3,I,index,Selects the layer descriptor and its float-buffer pointer,state+0x138930+0xf0*layer,high
+zombie.iso.LightingJNI.playerSet,0,var0,F,[unknown],Updates queued player x,playerUpdate+0x10,high
+zombie.iso.LightingJNI.playerSet,1,var1,F,[unknown],Updates queued player y,playerUpdate+0x14,high
+zombie.iso.LightingJNI.playerSet,2,var2,F,[unknown],Updates queued native z,playerUpdate+0x18,high
+zombie.iso.LightingJNI.playerSet,3,var3,F,[unknown],Updates queued look-vector x,playerUpdate+0x1c,high
+zombie.iso.LightingJNI.playerSet,4,var4,F,[unknown],Updates queued look-vector y,playerUpdate+0x20,high
+zombie.iso.LightingJNI.playerSet,5,var5,Z,boolean-like,Updates queued caller false flag,playerUpdate+0x24,high
+zombie.iso.LightingJNI.playerSet,6,var6,Z,boolean-like,Updates queued reanimated-corpse flag,playerUpdate+0x25,high
+zombie.iso.LightingJNI.playerSet,7,var7,Z,boolean-like,Updates queued ghost-mode flag,playerUpdate+0x27,high
+zombie.iso.LightingJNI.playerSet,8,var8,Z,boolean-like,Updates queued short-sighted flag,playerUpdate+0x28,high
+zombie.iso.LightingJNI.playerSet,9,var9,F,[unknown],Updates queued effective fatigue,playerUpdate+0x30,high
+zombie.iso.LightingJNI.playerSet,10,var10,F,[unknown],Updates queued perception distance,playerUpdate+0x2c,high
+zombie.iso.LightingJNI.playerSet,11,var11,F,[unknown],Updates queued cone input,playerUpdate+0x34,high
+zombie.iso.LightingJNI.removeLight,0,var0,I,identifier,Selects and unlinks the light; recycles now or defers by reference flags,DAT_18008fe80; DAT_18008fe60; FUN_1800128c0,high
+zombie.iso.LightingJNI.removeRoomLight,0,var0,I,identifier,Selects and unlinks the room light; recycles now or defers by reference flags,DAT_18008fed8; DAT_18008feb8; FUN_180012990,high
+zombie.iso.LightingJNI.removeTorch,0,var0,I,identifier,Selects a matching torch record and clears its ID,DAT_18008ff10; torch+0x0,high
+zombie.iso.LightingJNI.setLightActive,0,var0,I,identifier,Selects an existing light record,DAT_18008fe80,high
+zombie.iso.LightingJNI.setLightActive,1,var1,Z,boolean-like,Replaces the active byte from nonzero input,light+0x20,high
+zombie.iso.LightingJNI.setLightColor,0,var0,I,identifier,Selects an existing light record,DAT_18008fe80,high
+zombie.iso.LightingJNI.setLightColor,1,var1,F,[unknown],Replaces the red component,light+0x14,high
+zombie.iso.LightingJNI.setLightColor,2,var2,F,[unknown],Replaces the green component,light+0x18,high
+zombie.iso.LightingJNI.setLightColor,3,var3,F,[unknown],Replaces the blue component,light+0x1c,high
+zombie.iso.LightingJNI.setRoomLightActive,0,var0,I,identifier,Selects an existing room-light record,DAT_18008fed8,high
+zombie.iso.LightingJNI.setRoomLightActive,1,var1,Z,boolean-like,Replaces the active byte from nonzero input,roomLight+0x2c,high
+zombie.iso.LightingJNI.teleport,0,var0,I,index,Selects one of four player lighting states,DAT_18008fe20[index],high
+zombie.iso.LightingJNI.teleport,1,var1,I,[unknown],Updates the queued first relocation coordinate,command7+0x8c,high
+zombie.iso.LightingJNI.teleport,2,var2,I,[unknown],Updates the queued second relocation coordinate,command7+0x90,high
+zombie.iso.LightingJNI.updateTorch,0,var0,I,identifier,Finds the torch by ID or allocates and appends a record,DAT_18008ff10; torch+0x0,high
+zombie.iso.LightingJNI.updateTorch,1,var1,F,[unknown],Sets the x placement,torch+0x4,high
+zombie.iso.LightingJNI.updateTorch,2,var2,F,[unknown],Sets the y placement,torch+0x8,high
+zombie.iso.LightingJNI.updateTorch,3,var3,F,[unknown],Sets the native z placement,torch+0xc,high
+zombie.iso.LightingJNI.updateTorch,4,var4,F,[unknown],Sets the red component,torch+0x10,high
+zombie.iso.LightingJNI.updateTorch,5,var5,F,[unknown],Sets the green component,torch+0x14,high
+zombie.iso.LightingJNI.updateTorch,6,var6,F,[unknown],Sets the blue component,torch+0x18,high
+zombie.iso.LightingJNI.updateTorch,7,var7,F,[unknown],Sets the direction x input,torch+0x1c,high
+zombie.iso.LightingJNI.updateTorch,8,var8,F,[unknown],Sets the direction y input,torch+0x20,high
+zombie.iso.LightingJNI.updateTorch,9,var9,F,[unknown],Sets the distance input,torch+0x24,high
+zombie.iso.LightingJNI.updateTorch,10,var10,F,[unknown],Sets the strength input,torch+0x28,high
+zombie.iso.LightingJNI.updateTorch,11,var11,Z,boolean-like,Sets the cone byte,torch+0x2c,high
+zombie.iso.LightingJNI.updateTorch,12,var12,F,[unknown],Sets the dot input,torch+0x30,high
+zombie.iso.LightingJNI.updateTorch,13,var13,I,[unknown],Sets the focusing input,torch+0x34,high
