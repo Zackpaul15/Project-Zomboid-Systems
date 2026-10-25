@@ -230,3 +230,82 @@ labels them `(file) ...` [observed].
 5. `xuiConfig` names are registered into `XuiLuaStyle`'s static registry and gate skin keys; the 198 parser variables
    are registered per `XuiScript` instance. The two lists are different registries (`XuiLuaStyle.ReadConfigs`,
    `XuiSkin` `loadVar`).
+
+## 11. Java-side interpretation of the unresolved key/event comparisons (J1B)
+
+Survey date: 2026-10-24. Build 42, jar sha256 prefix e1a69eb7. Input revision `f8073c6047cf5abe15c133189a3d0cb6a17ec389`
+(generator and tables from [key-coverage.md](key-coverage.md), commit `f8073c6`; the CSV's own evidence cells name the
+parent revision `67f6629`). Names, shapes and counts only. Counts are CSV records of
+[`../data/key-coverage.csv`](../data/key-coverage.csv) tallied from its `name`/`evidence` columns, not distinct keys.
+This section interprets; it does not restate the method.
+
+### 11.1 Crosswalk gaps: Java readers that exist but are not in the ten-entry `CONTEXTS`
+
+[observed] Java `unknown` rows grouped by `source_class`/`reader`:
+
+| Java reader (`script-keys.csv`) | Unknown rows | Data path it would correspond to | Tag |
+|---|---:|---|---|
+| `VehicleScript` `Load` plus 13 sub-readers (`LoadPart`, `LoadModel`, `LoadSkin`, `LoadAnim`, `LoadWheel`, `LoadPassenger`, `LoadContainer`, `LoadPhysicsShape`, ...) | 179 | `vehicle`, `template vehicle` and nested `part`, `part/model`, `part/anim`, `part/container`, `passenger`, `wheel`, `skin`, ... in `vehicle-keys.csv` | reader set [observed]; path mapping [inferred] |
+| `XuiScript` (empty reader) | 195 of the 198 `xui-var` rows | `xuiConfig/<type>` (`Boolean`, `Double`, `Color`, `Texture`, ...). The data side is a config registry, not a block of assignments | [inferred] |
+| `XuiSkinScript` `Load`/`LoadComponentBlock`/`LoadEntityBlock` | 19 | `xuiSkin/<Panel>`, `xuiSkin/entity/components/<C>`, `xuiSkin/colors` | [inferred] |
+| `FluidContainerScript` `load`, `loadBlockFluids`, `readFluidAsBlock` | 24 | `item/component:FluidContainer[/Fluids]` and `entity/component:FluidContainer[/Fluids\|whitelist]` | [inferred] |
+| `FluidDefinitionScript` `Load`/`LoadProperties`/`LoadPoison` | 28 | `fluid`, `fluid/Properties`, `fluid/Poison` | [inferred] |
+| `SpriteConfigScript`, `ContextMenuConfigScript`, `CraftLogicScript` and other component loaders | about 30 | `entity/component:SpriteConfig/...`, `.../ContextMenuConfig/contextEntry`, `.../DryingCraftLogic` | [inferred] |
+| `GameEntityScript` `Load`/`LoadComponentBlock` | 3 | `entity`, `template entity` | [inferred] |
+| `VehicleEngineRPM` `Load`/`LoadData` | 3 | `vehicleEngineRPM`, `vehicleEngineRPM/data` | [inferred] |
+
+Two structural facts matter more than the individual rows:
+
+- **`item / entity attributes` is a Java context the crosswalk never maps** [observed]. The 17 `kind=attribute` rows
+  (`Attribute` `static init`, e.g. `script-keys.csv#record=771` HeadCondition, `#772` HeadConditionMax, `#773` OriginX,
+  `#777` Sharpness) cannot match because the generator requires `kind == "key"` and has no `CONTEXTS` entry for that
+  block, although `Item.DoParam` consults the attribute registry first (section 3). The data side therefore reports
+  `HeadCondition` (57 items), `Sharpness` (112) and `OriginX/Y/Z` (2 each) as `scope_or_grammar_unresolved` with exactly
+  the right candidate record. [inferred] An `item` <- `item / entity attributes` equivalence is a context equivalence
+  that exists but was never declared; it accounts for 8 `item` data rows. 11 further attribute rows are
+  `no_observation` (registered, unused in the surveyed scripts).
+- **The `kind == "key"` filter excludes every other kind by design** [observed]: `flag` 81, `token` 39, `block` 108,
+  `block-id` 3, `xui-var` 198. These are line-grammar words, enum flags and nested block names, not assignments, so a
+  key-to-key compare cannot resolve them. [inferred] They are the genuinely *grammar* part of
+  `scope_or_grammar_unresolved`.
+
+### 11.2 Scope vs unmapped, per bucket
+
+| Bucket (rows) | Dominant Java-side cause | Scope or unmapped |
+|---|---|---|
+| `scope_or_grammar_unresolved`, Java 422 | `VehicleScript` sub-readers, `XuiScript` variables, fluid/component readers, attributes | **Unmapped** for vehicle, fluid, component, attribute (a data path exists). **Grammar** for xui-var, flag, token, block |
+| `scope_or_grammar_unresolved`, data 1,010 | `xuiSkin` 523, `xuiConfig` 177, `vehicle` 108, `template vehicle` 105, `entity` 53, `fluid` 19, `item` 18 | Same split. `xuiSkin`/`xuiConfig` are read through registries (verification log item 5), so they are a **different registry**, not an unmapped block |
+| `no_observation_in_input_catalogues`, Java 472 | Parser keys no surveyed script uses. In-crosswalk readers: 33 `Item.DoParam` and 15 `CraftRecipe` (`Animation`, `OnStart`, `OnFailed`, `OnUpdate`, `OnAddToMenu`, `consumeOnFinish`, `energyMapper`, `fluidMapper`, `itemMapper`, `inputs`, `outputs`, ...) | **Genuine scope**: the parser accepts keys vanilla does not use. `InputFlag`/`OutputFlag` enums (81 rows) are flags, not keys |
+| `no_parser_match_in_input_catalogue`, data 385 | `xuiSkin` 103 keys + 60 markers, `xuiConfig` 52, `entity` 14 + 25 markers, `template vehicle` 25 + 22 markers, `vehicle` 12 + 19 markers | Mostly **structural markers** (167 positive-count, see J1B-4) and registry-backed keys with no `key = value` compare |
+| item keys with no parser candidate (`IsWaterSource`, `RainFactor`) | No `"IsWaterSource"` literal exists in `zombie/**`; `"RainFactor"` is compared only in `FluidContainerScript.load` | [inferred] Top-level use on an item is not read by `Item.DoParam` and falls to free-form mod data (section 3); the `item/component:FluidContainer` form is the parsed one. **Genuine** data/parser divergence worth a runtime check |
+
+[observed] Events: of 87 `unknown`, 86 are Java rows and 1 is Lua (`OnVehicleHorn`, subscribed in
+`server/Vehicles/Vehicles.lua`, no `events.csv` row). Of the Java rows, 50 are registered with a literal Java trigger
+site but no Lua listener (legitimate scope: engine-only events), 31 are registered with neither, 3 (`OnChangeWeather`,
+`OnDawn`, `OnDusk`) are registered with `lua_trigger_files=1` yet have no row in the Lua trigger table (J1B-6), and 2 are
+unregistered Java triggers (dynamic-name callers, see the event reference). [unknown] Whether `OnVehicleHorn` is raised
+from a name built at run time.
+
+### 11.3 Evidence that would resolve the largest buckets
+
+1. **Vehicle (about 290 rows incl. markers): a declared sub-reader crosswalk.** [inferred] The data block paths map
+   onto the `VehicleScript.Load*` reader names (`LoadPart` -> `vehicle/part`, `LoadModel` -> `vehicle/part/model` or
+   `vehicle/model` by call site, ...). A one-line-per-reader call-site table from the decompile suffices; no new game
+   data is needed. `template vehicle` reuses the same readers [inferred].
+2. **Attributes (17 + 8 rows): one declared equivalence** `item` <- `item / entity attributes`, `kind=attribute`.
+3. **Component/fluid/entity (about 125 rows): reader-to-component mapping**, plus identity of `item/component:X` and
+   `entity/component:X`. Both tables already name the component types.
+4. **xui (about 1,000 rows): not resolvable by this comparison.** Config and skin names are registry entries compared by
+   variable (verification log item 5); the right resolution is a registry-to-registry compare, which needs the Lua-side
+   style/skin definitions as the data source.
+5. **`no_observation` (472):** only a broader data corpus (mods, other builds) could change it. Correctly *unknown*
+   rather than defective; not resolvable from vanilla alone.
+6. **Dynamic-name events:** only run-time tracing. Not resolvable statically. [unknown]
+
+### 11.4 Verification of this section (3 claims re-checked)
+
+1. `animalTrailerSize` is read in `VehicleScript.Load` with `equalsIgnoreCase` at decompile line 222, matching
+   `script-keys.csv#record=913` (`java_line=222`, `case_sensitive=no`).
+2. `HeadCondition` is registered in `Attribute`'s static initialiser at decompile line 24 (`#771`, `java_line=24`).
+3. `RainFactor` is compared in `FluidContainerScript.load` at line 167, and vanilla
+   `media/scripts/generated/items/drainable.txt` uses `RainFactor` and `IsWaterSource` as top-level item keys.
